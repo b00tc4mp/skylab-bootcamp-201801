@@ -207,3 +207,76 @@ function largestNumber(a) {
 //console.log("largestNumber(5, -2, 6, 100, -1) should return the largest of input numbers =>", largestNumber(5, -2, 6, 100, -1));
 console.log("largestNumber([-5, -2, -6, 0, -1]) should return the largest of input numbers =>", largestNumber([-5, -2, -6, 0, -1]));
 console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of input numbers =>", largestNumber([5, -2, 6, 100, -1]));
+
+
+
+
+/*### FizzBuzz
+
+Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".*/
+
+function fizzOrBuzz(){
+
+for (var i = 1; i <= 100; i++){
+
+if (i%3 == 0 && i%5 == 0){
+	console.log ('FizzBuzz');
+}
+else if (i%5 == 0){
+	console.log ('Buzz');
+
+}
+else if (i%3 == 0){
+	console.log ('Fizz');
+}
+else {
+	console.log (i);
+}
+}}
+
+
+
+/*### contruct_pattern
+
+Write a JavaScript program to construct the following pattern, using a nested for loop. Go to the editor
+
+```
+*  
+* *  
+* * *  
+* * * *  
+* * * * *
+```*/
+
+function contruct_pattern(){
+
+var patt = '';
+
+for (var i = 0; i < 5; i++) {
+ 	patt += '*';
+    //console.log(patt);
+    for (var j = 0; j < 1; j++){
+    	patt += ' ';
+    	console.log(patt);
+    }
+}}
+
+
+/*
+### under_1000
+
+Write a JavaScript program to sum the multiples of 3 and 5 under 1000.*/
+
+function under_1000(){
+
+var sum = 0;
+
+for (i = 1; i <= 1000; i++){
+if (i%3 === 0 && i%5 === 0){
+	
+	sum += i;
+}
+}
+
+console.log (sum);
+}
