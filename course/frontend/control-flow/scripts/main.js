@@ -186,7 +186,6 @@ function fizzBuzz() {
     }
     return result
 }
-fizzBuzz();
 console.log('fizzBuzz should result 1, 2, Fizz, 4, Buzz, ... , 14, FizzBuzz, 16, ...=>\n', fizzBuzz());
 
 // ### contruct_pattern
@@ -198,3 +197,13 @@ function asterisct() {
     return result
 }
 console.log('Tendria que mostrar un arbolito muy bonito!! =>\n', asterisct());
+
+function oddEvent (a){
+    var sum = 0;
+    while(a--) {
+        if (a%3 == 0) sum += a
+        else if (a%5 == 0) sum += a
+    }
+    return sum
+}
+console.log("Should return a sum of all 3 and 5 multiples: " + oddEven(1000))
