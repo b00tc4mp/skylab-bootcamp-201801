@@ -207,3 +207,63 @@ function largestNumber(a) {
 //console.log("largestNumber(5, -2, 6, 100, -1) should return the largest of input numbers =>", largestNumber(5, -2, 6, 100, -1));
 console.log("largestNumber([-5, -2, -6, 0, -1]) should return the largest of input numbers =>", largestNumber([-5, -2, -6, 0, -1]));
 console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of input numbers =>", largestNumber([5, -2, 6, 100, -1]));
+
+// Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even, and display a message to the screen.
+
+function oddOrEven() {
+    var c = 16;
+    for (var i = 0; i < c; i++) {
+        if (i % 2 == 0) {
+            console.log(i + " is even");
+        } else {
+            console.log(i + " is odd");
+        }
+    }
+}
+oddOrEven()
+
+// Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+
+function fizzBuzz() {
+    for (var i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            console.log(i + " is FizzBuzz");
+        } else if (i % 5 == 0) {
+            console.log(i + " is Buzz");
+        } else if (i % 3 == 0) {
+            console.log(i + " is Fizz");
+        } else {
+            console.log(i);
+        }
+    }
+}
+fizzBuzz();
+
+// Write a JavaScript program to construct the following pattern, using a nested for loop. Go to the editor
+
+function contructPattern() {
+    var n1 = [];
+    var serie = [];
+    for (var i = 0; i < 5; i++) {
+        n1 = "*";
+        serie.push(n1)
+        console.log(serie.toString());
+    }
+}
+contructPattern()
+// Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
+
+function under() {
+    var tot3 = 0;
+    var tot5 = 0;
+    for (var i = 0; i < 1000; i++) {
+        if (i % 3 == 0) {
+            tot3 += i;
+        } else if (i % 5 == 0) {
+            tot5 += i;
+        }
+    }
+    return tot3 + tot5;
+}
+
+console.log("total is => " + under());
