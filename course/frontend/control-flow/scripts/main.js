@@ -207,3 +207,27 @@ function largestNumber(a) {
 //console.log("largestNumber(5, -2, 6, 100, -1) should return the largest of input numbers =>", largestNumber(5, -2, 6, 100, -1));
 console.log("largestNumber([-5, -2, -6, 0, -1]) should return the largest of input numbers =>", largestNumber([-5, -2, -6, 0, -1]));
 console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of input numbers =>", largestNumber([5, -2, 6, 100, -1]));
+
+
+// ### FizzBuzz
+function fizz_buzz(){
+    for (var i = 1; i <= 100; i++) {
+        if ( (i % 3 == 0) && (i % 5 == 0) ){
+            // divisible entre 3 y 5
+            console.log("FizzBuzz");
+            continue;
+        }else if (i % 3 == 0){
+            // divisible entre 3
+            console.log("Fizz");
+            continue;
+        }else if (i % 5 == 0){
+            // divisible entre 5
+            console.log("Buzz");
+            continue;
+        }else{
+            console.log(i);
+        }
+    }
+}
+fizz_buzz();
+
