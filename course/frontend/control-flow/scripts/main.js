@@ -209,17 +209,18 @@ console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of inp
 
 // Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even, and display a message to the screen.
 
-function oddOrEven() {
-    var c = 16;
-    for (var i = 0; i < c; i++) {
+function oddOrEven(num) {
+    var x = '';
+    for (var i = 0; i < num + 1; i++) {
         if (i % 2 == 0) {
-            console.log(i + " is even");
+            x += i + ' is even\n';
         } else {
-            console.log(i + " is odd");
+            x += i + ' is odd\n';
         }
     }
+    return x
 }
-oddOrEven()
+console.log('Should return odd and even =>', oddOrEven(15));
 
 // Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
 
