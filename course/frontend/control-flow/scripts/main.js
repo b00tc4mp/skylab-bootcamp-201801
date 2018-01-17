@@ -77,28 +77,27 @@ function sortNumbers(v1, v2, v3) {
 function _sortNumbers(a, b, c) {
     var array = [];
     switch (true) {
-        case a > b > c: // TODO correct expressions! ex: a > b && b > c
-            array.push(a, b, c);
-            break;
-        case b > c > a:
-            array.push(b, c, a);
-            break;
-        case c > a > b:
-            array.push(c, a, b);
-            break;
-        case a > c > b:
-            array.push(a, c, b);
-            break;
-        case b > a > c:
-            array.push(a, c, b);
-            break;
-        case c > b > a:
-            array.push(a, c, b);
-            break;
-        default:
-            console.error('unpredicted case!');
-            // TODO: correct! failing cases
-            /*
+      case a > b && b > c: //FIX: correct expressions! ex: a > b && b > c
+        array.push(a, b, c);
+        break;
+      case b > c && c > a:
+        array.push(b, c, a);
+        break;
+      case c > a && a > b:
+        array.push(c, a, b);
+        break;
+      case a > c && c > b:
+        array.push(a, c, b);
+        break;
+      case b > a && a > c:
+        array.push(b, a, c); //FIX: This push array
+        break;
+      case c > b && b > a: //FIX: This push array
+        array.push(c, b, a);
+        break;
+      default:
+        console.error("unpredicted case!");
+      /*
                 sortNumbers should result 2, 15, -13 for input 15, 2, -13 => Output: 2, 15, -13, 
                 sortNumbers should result -2, -15, -13 for input -13, -15, -2 => Output: -13, -15, -2, 
             */
