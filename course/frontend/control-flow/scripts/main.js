@@ -224,32 +224,29 @@ console.log('Should return odd and even =>', oddOrEven(15));
 
 // Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
 
+
 function fizzBuzz() {
+    var result = ''
     for (var i = 1; i <= 100; i++) {
-        if (i % 3 == 0 && i % 5 == 0) {
-            console.log(i + " is FizzBuzz");
-        } else if (i % 5 == 0) {
-            console.log(i + " is Buzz");
-        } else if (i % 3 == 0) {
-            console.log(i + " is Fizz");
-        } else {
-            console.log(i);
-        }
+        if ((i % 3 == 0) && (i % 5 == 0)) result += "FizzBuzz\n"
+        else if (i % 3 == 0) result += "Fizz\n"
+        else if (i % 5 == 0) result += "Buzz\n"
+        else result += i + '\n'
     }
+    return result
 }
-fizzBuzz();
+console.log('fizzBuzz should result 1, 2, Fizz, 4, Buzz, ... , 14, FizzBuzz, 16, ...=>\n', fizzBuzz());
 
 // Write a JavaScript program to construct the following pattern, using a nested for loop. Go to the editor
 
-function nested() {
-    var resultado = '';
-    for (var i = 0; i < 6; i++) {
-        console.log(resultado += '*');
-
+function asterisct() {
+    var result = ''
+    for (var i = 1; i < 8; i++) {
+        result += Array(i).join("*") + "\n"
     }
+    return result
 }
-
-nested()
+console.log('Debería mostrar un arbol de asteriscos =>\n', asterisct());
 
 // Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
 
