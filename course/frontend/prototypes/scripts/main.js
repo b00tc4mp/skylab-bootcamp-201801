@@ -30,17 +30,14 @@ function Person(firstName, lastName, age, gender, interests) {
     this.age = age;
     this.gender = gender;
     this.interests = interests;
-    this.title = gender === 'm' ? 'Mr' : 'Mrs';
-    this.pronom = gender === 'm' ? 'he' : 'she';
-
-
+    
 }
 var person = new Person('Alex', 'Gonzalez', 34, 'male', ['music', 'cinema', 'development', 'natacion'])
 Person.prototype.greeting = function () { return "I'm " + person.firstName }
 Person.prototype.farewell = function () { return person.firstName + ' has left the building. Bye for now!' }
 Person.prototype.bio = function () {
 
-    return person.firstName + ' ' + person.lastName + ' is ' + person.age + ' years old.\n' + person.pronom + ' likes ' + person.interests.toString().replace(/,/g, ' and ')
+    return person.firstName + ' ' + person.lastName + ' is ' + person.age + ' years old.\n' + (this.pronom = gender === 'm' ? 'he' : 'she';) + ' likes ' + person.interests.toString().replace(/,/g, ' and ')
 }
 
 console.log(person.bio())
@@ -68,7 +65,7 @@ Teacher.prototype.constructor = Teacher;
 
 var teacher = new Teacher('Manu', 'Barzi', 40, 'male', ['maths', 'java', 'javascript'], 'Web development')
 Teacher.prototype.greeting = function () {
-    return "Hello. My name is " + teacher.title + ' ' + teacher.lastName + " and I teach " + teacher.subject + "."
+    return "Hello. My name is " + ( this.title = gender === 'm' ? 'Mr' : 'Mrs') + ' ' + teacher.lastName + " and I teach " + teacher.subject + "."
 }
 
 console.log(teacher.greeting())
