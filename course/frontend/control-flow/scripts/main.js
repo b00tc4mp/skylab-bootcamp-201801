@@ -241,16 +241,16 @@ fizzBuzz();
 
 // Write a JavaScript program to construct the following pattern, using a nested for loop. Go to the editor
 
-function contructPattern() {
-    var n1 = [];
-    var serie = [];
-    for (var i = 0; i < 5; i++) {
-        n1 = "*";
-        serie.push(n1)
-        console.log(serie.toString());
+function nested() {
+    var resultado = '';
+    for (var i = 0; i < 6; i++) {
+        console.log(resultado += '*');
+
     }
 }
-contructPattern()
+
+nested()
+
 // Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
 
 function under() {
