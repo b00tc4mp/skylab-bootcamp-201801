@@ -1,0 +1,14 @@
+{
+  "title": "this vs Binding",
+  "description": "Usually we apply bind to fix 'this' in an object method, so that we can pass it somewhere.",
+  "tags": [
+    "js",
+    "this",
+    "bind",
+    "binding",
+    "scope",
+    "call",
+    "apply"
+  ],
+  "created": "2018-01-18T14:45:37.625Z"
+}

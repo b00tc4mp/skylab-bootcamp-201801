@@ -1,0 +1,13 @@
+{
+  "title": "Prototypes",
+  "description": "Every JavaScript object has a prototype. The prototype is also an object. All JavaScript objects inherit their properties and methods from their prototype.",
+  "tags": [
+    "js",
+    "prototype",
+    "chain",
+    "__proto__",
+    "inheritance",
+    "object"
+  ],
+  "created": "2018-01-17T15:34:51.369Z"
+}
