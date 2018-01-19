@@ -66,9 +66,9 @@ function Hangman(word, attempts) {
 
     function guessWord(letter) {
       if (letter === word) {
-        win();
+       return "GAME OVER";
       } else {
-        lose();
+       return "GAME OVER";
       }
     }
 }
