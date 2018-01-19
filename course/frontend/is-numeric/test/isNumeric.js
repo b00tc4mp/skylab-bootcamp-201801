@@ -1,4 +1,4 @@
-function toLowerEspaceCase(string) {
+function _toLowerEspaceCase(string) {
     var array = string.split('');
     for (var i = 0; i < array.length; i++) {
         if (array[i] <= 'Z' && array[i] >= 'A') {
@@ -9,7 +9,7 @@ function toLowerEspaceCase(string) {
 }
 Function.prototype.toLowerEspaceCase = function () {
     console.log(this)
-    return toLowerEspaceCase(this.name)
+    return true
 }
 
 for (let index = 0; index < array.length; index++) {
