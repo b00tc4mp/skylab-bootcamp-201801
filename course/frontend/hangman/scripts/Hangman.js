@@ -10,7 +10,7 @@ function Hangman(word, attemps) {
         if (attemps >= 0)
           return string.length > 1 ? allWord(string) : letter(string);
 
-        return console.error("NO MORE ATTEMPS, GAME OVER");
+        return "GAME OVER.";
       }
 
       return console.error("no letter inputed");
