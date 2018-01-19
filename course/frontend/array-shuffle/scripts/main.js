@@ -33,4 +33,3 @@ console.table(a);
 var b = a.shuffle(); // Llamo al nuevo método
 console.table(b);
 console.log( (a === b)? "Los arrays son iguales": " Los arrays son distintos");
-
