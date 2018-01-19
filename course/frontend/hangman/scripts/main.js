@@ -56,4 +56,46 @@ function hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithSorry() {
 
 test(hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithSorry);
 
+function hangmanResultsInErrorWhenTryingToInputANonStringValue() {
+    var game = new Hangman('hello', 10);
+
+    should(game.try('a')).result('9 _ _ _ _ _');
+    should(game.try('b')).result('8 _ _ _ _ _');
+    should(game.try('c')).result('7 _ _ _ _ _');
+    should(game.try('d')).result('6 _ _ _ _ _');
+    should(game.try('e')).result('6 _ E _ _ _');
+    should(game.try('l')).result('6 _ E L L _');
+    should(game.try(0)).result('Please, enter a valid character or word!');
+}
+
+test(hangmanResultsInErrorWhenTryingToInputANonStringValue);
+
+function hangmanResultsInErrorWhenTryingToInputANumericStringValue() {
+    var game = new Hangman('hello', 10);
+
+    should(game.try('a')).result('9 _ _ _ _ _');
+    should(game.try('b')).result('8 _ _ _ _ _');
+    should(game.try('c')).result('7 _ _ _ _ _');
+    should(game.try('d')).result('6 _ _ _ _ _');
+    should(game.try('e')).result('6 _ E _ _ _');
+    should(game.try('l')).result('6 _ E L L _');
+    should(game.try('0123.45')).result('Please, enter a valid character or word!');
+}
+
+test(hangmanResultsInErrorWhenTryingToInputANumericStringValue);
+
+function hangmanResultsInErrorWhenTryingToInputASymbolStringValue() {
+    var game = new Hangman('hello', 10);
+
+    should(game.try('a')).result('9 _ _ _ _ _');
+    should(game.try('b')).result('8 _ _ _ _ _');
+    should(game.try('c')).result('7 _ _ _ _ _');
+    should(game.try('d')).result('6 _ _ _ _ _');
+    should(game.try('e')).result('6 _ E _ _ _');
+    should(game.try('l')).result('6 _ E L L _');
+    should(game.try('hello%')).result('Please, enter a valid character or word!');
+}
+
+test(hangmanResultsInErrorWhenTryingToInputASymbolStringValue);
+
 // TODO func to convert camelCase text into normal case and spaces (e.g. "helloWorld" -> "hello world").
