@@ -47,5 +47,33 @@ function isNumericWhenInputanNull() {
 
 test(isNumericWhenInputanNull);
 
+function isNumericWhenInputanNumber() {
+    var a = 12
+    should(isNumeric(a)).result(false);
+}
+
+test(isNumericWhenInputanNumber);
+
+function isNumericWhenInputanArray() {
+    var a = []
+    should(isNumeric(a)).result(false);
+}
+
+test(isNumericWhenInputanArray);
+
+function isNumericWhenInputanArratWithSitrings() {
+    var a = ["123"]
+    should(isNumeric(a)).result(false);
+}
+
+test(isNumericWhenInputanArratWithSitrings);
+
+function isNumericWhenInputanObject() {
+    var a = {}
+    should(isNumeric(a)).result(false);
+}
+
+test(isNumericWhenInputanObject);
+
 
 // TODO func to convert camelCase text into normal case and spaces (e.g. "helloWorld" -> "hello world").
