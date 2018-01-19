@@ -221,6 +221,9 @@ function oddOrEven(num) {
     return x
 }
 console.log('Should return odd and even =>', oddOrEven(15));
+console.log('Should return odd and even =>', oddOrEven(25));
+console.log('Should return odd and even =>', oddOrEven(35));
+console.log('Should return odd and even =>', oddOrEven(65));
 
 // Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
 
