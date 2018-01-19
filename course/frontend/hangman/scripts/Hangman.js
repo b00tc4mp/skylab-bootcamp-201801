@@ -16,7 +16,7 @@ function Hangman(word, attemps) {
 
                 if (attemps >= 0) return (string.length > 1) ? allWord(string) : letter(string)
 
-                return console.error("NO MORE ATTEMPS, GAME OVER")
+                return "GAME OVER."
             }
 
             return console.error("no letter inputed")
@@ -48,7 +48,7 @@ function Hangman(word, attemps) {
                 if (string === word) {
                     return "You have guessed the word, well done!"
                 }
-                    return "Sorry, you have not guessed... the correct word is " + word.toUpperCase() + "."
+                return "Sorry, you have not guessed... the correct word is " + word.toUpperCase() + "."
             }
         }
         this.print = function () {
@@ -62,3 +62,44 @@ function Hangman(word, attemps) {
         return console.error("no word or attemps inputed")
     }
 }
+
+
+
+function toNormalCase(string) {
+    return string.split('').map(el => (el <= 'Z') ? ` ${el.toLowerCase()}` : el).join('')
+}
+
+function random(arr) {
+    var count = 0
+    var randomArr
+    console.log(count);
+    (function structure() {
+        randomArr = arr.map(el => el[Math.floor(el.length * Math.random())])
+    })()
+
+    return randomArr.filter((a, b, c) => {
+        try {
+            count ++
+            c.forEach(function (el) {
+                console.log(el,a)
+                if (el === a) throw BreakException;
+            });
+            return true
+        } catch (e) {
+           random(arr)
+        }
+    })
+}
+
+
+
+// arr.filter((a, b, c) => {
+//     try {
+//         c.forEach(function (el) {
+//             if (el === a) throw BreakException;
+//         });
+//         return true
+//     } catch (e) {
+//        random(err)
+//     }
+// })
