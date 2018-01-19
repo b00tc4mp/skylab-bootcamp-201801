@@ -47,4 +47,5 @@ function isNumericWhenInputanNull() {
 
 test(isNumericWhenInputanNull);
 
+
 // TODO func to convert camelCase text into normal case and spaces (e.g. "helloWorld" -> "hello world").
