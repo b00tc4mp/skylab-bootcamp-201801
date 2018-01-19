@@ -1,0 +1,11 @@
+{
+  "title": "Polyfills",
+  "description": "A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers.",
+  "tags": [
+    "js",
+    "polyfill",
+    "function",
+    "prototype"
+  ],
+  "created": "2018-01-17T15:31:14.827Z"
+}
