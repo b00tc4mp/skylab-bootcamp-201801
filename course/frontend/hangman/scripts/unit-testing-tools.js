@@ -10,8 +10,8 @@ function test(unit) {
     try {
         unit();
 
-        console.log(unit.name, 'PASSED');
+        console.log('TEST', unit.name, 'PASSED');
     } catch(err) {
-        console.error(unit.name, 'NOT PASSED', err.message);
+        console.error('TEST', unit.name, 'NOT PASSED', err.message);
     }
 }
