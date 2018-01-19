@@ -64,7 +64,7 @@ Student.prototype.greeting = function () {
     return "Yo! I'm " + this.firstName;
 };
 
-var student = new Student("Paco", "Gomez", 119, "m", ["games", "futbol", "beer", "films"]);
+var student = new Student("Paco", "Gomez", 119, "male", ["games", "futbol", "beer", "films"]);
 
 console.log(1, 'student should be a student', student);
 console.log(2, 'student.greeting() should result an informal greeting', student.greeting());
@@ -85,8 +85,8 @@ Teacher.prototype.greeting = function () {
     return 'Hello. My name is ' + (this.gender === "male" ? "Mr. " : "Mrs. ") +  this.lastName + ' and I teach '  + this.subject;
 };
 
-var teacher = new Teacher("Natxo", "Gomez", 47, "m", ["games", "futbol", "beer", "films"], "english");
-var femaleTeacher = new Teacher("Vic", "Kirkham", 29, "f", ["reading", "teaching", "series"], "english");
+var teacher = new Teacher("Natxo", "Gomez", 47, "male", ["games", "futbol", "beer", "films"], "english");
+var femaleTeacher = new Teacher("Vic", "Kirkham", 29, "female", ["reading", "teaching", "series"], "english");
 
 console.log(1, 'teacher should be a teacher', teacher);
 console.log(2, 'female teacher should be a female teacher', femaleTeacher);
