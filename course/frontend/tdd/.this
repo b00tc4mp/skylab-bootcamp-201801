@@ -1,0 +1,13 @@
+{
+  "title": "TDD",
+  "description": "Test-driven Development.",
+  "tags": [
+    "js",
+    "tdd",
+    "jasmine",
+    "bdd",
+    "ddd",
+    "unit-testing"
+  ],
+  "created": "2018-01-19T14:24:33.135Z"
+}
