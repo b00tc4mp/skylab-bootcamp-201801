@@ -1,0 +1,11 @@
+{
+  "title": "Hoisting",
+  "description": "Hoisting is JavaScript's default behavior of moving declarations to the top.",
+  "tags": [
+    "js",
+    "hoisting",
+    "var",
+    "declaration"
+  ],
+  "created": "2018-01-18T13:26:56.128Z"
+}
