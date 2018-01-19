@@ -1,3 +1,14 @@
+/**
+ * Unit Testing Tools v1.0.1
+ * 
+ * @author manuelbarzi
+ */
+
+/**
+ * Evaluates a value against an expected result.
+ * 
+ * @param {*} value 
+ */
 function should(value) {
     return {
         result: function(expected) {
@@ -6,6 +17,11 @@ function should(value) {
     };
 }
 
+/**
+ * Runs a unit test.
+ * 
+ * @param {*} unit 
+ */
 function test(unit) {
     try {
         unit();
