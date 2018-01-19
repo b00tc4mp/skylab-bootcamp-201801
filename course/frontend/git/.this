@@ -1,0 +1,17 @@
+{
+  "title": "Git",
+  "description": "git - the stupid content tracker",
+  "tags": [
+    "vcs",
+    "git",
+    "repo",
+    "repository",
+    "source-code",
+    "clone",
+    "commit",
+    "push",
+    "pull",
+    "fetch"
+  ],
+  "created": "2018-01-15T21:01:47.758Z"
+}
