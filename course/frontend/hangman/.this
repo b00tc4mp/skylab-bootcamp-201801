@@ -1,0 +1,14 @@
+{
+  "title": "Hangman",
+  "description": "The Hangman game's logic.",
+  "tags": [
+    "js",
+    "game",
+    "gaming",
+    "hangman",
+    "jasmine",
+    "unit-testing",
+    "tdd"
+  ],
+  "created": "2018-01-18T14:22:29.990Z"
+}
