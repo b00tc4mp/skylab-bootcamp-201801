@@ -27,9 +27,3 @@ Array.prototype.shuffle = function (){
 	}
 	return newArray;
 }
-
-var a = [1,2,3,'a','b','c'];
-console.table(a);
-var b = a.shuffle(); // Llamo al nuevo método
-console.table(b);
-console.log( (a === b)? "Los arrays son iguales": " Los arrays son distintos");
