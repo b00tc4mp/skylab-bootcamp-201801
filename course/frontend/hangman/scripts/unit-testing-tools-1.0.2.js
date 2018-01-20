@@ -11,7 +11,7 @@
  */
 function should(value) {
     return {
-        result: function(expected) {
+        be: function(expected) {
             if (value !== expected) throw new Error('condition not accomplished, expected ' + expected + ' but got ' + value);
         }
     };
