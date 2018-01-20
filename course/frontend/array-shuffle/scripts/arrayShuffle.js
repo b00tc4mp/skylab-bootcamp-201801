@@ -1,5 +1,3 @@
-// # Challenge ShuffleArray!
-
 /**
  * Array.shuffle() Crea un clon exacto de un array y desordena aleatoriamente sus elementos.
  *
