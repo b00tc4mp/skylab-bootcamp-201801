@@ -18,7 +18,7 @@ describe("Shuffle method", function() {
 		}
 	}
 
-	it("arraysAreNotTheSame", arraysAreNotTheSame);
+	it("arrays Are Not The Same", arraysAreNotTheSame);
 
 
 
@@ -45,5 +45,5 @@ describe("Shuffle method", function() {
 		}
 	}
 
-	it("newArrayIsShuffle", newArrayIsShuffle);
+	it("new Array Is Shuffle", newArrayIsShuffle);
 });
