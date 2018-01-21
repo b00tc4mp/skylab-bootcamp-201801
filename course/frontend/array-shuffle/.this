@@ -1,0 +1,14 @@
+{
+  "title": "Array.prototype.shuffle (polyfill)",
+  "description": "Polyfill that randomly shuffles an array into a new array (e.g. [1, 2, 3,4,5].shuffle() => [2,3,1,5,4]).",
+  "tags": [
+    "js",
+    "polyfill",
+    "function",
+    "array",
+    "shuffle",
+    "[]",
+    "random"
+  ],
+  "created": "2018-01-19T18:00:22.100Z"
+}

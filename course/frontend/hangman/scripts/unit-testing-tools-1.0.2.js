@@ -1,17 +1,18 @@
 /**
- * Unit Testing Tools v1.0.1
+ * Unit Testing Tools
  * 
+ * @version 1.0.1
  * @author manuelbarzi
  */
 
 /**
  * Evaluates a value against an expected result.
  * 
- * @param {*} value 
+ * @param {*} value - A value to test against an expectation.
  */
 function should(value) {
     return {
-        result: function(expected) {
+        be: function(expected) {
             if (value !== expected) throw new Error('condition not accomplished, expected ' + expected + ' but got ' + value);
         }
     };
@@ -20,7 +21,7 @@ function should(value) {
 /**
  * Runs a unit test.
  * 
- * @param {*} unit 
+ * @param {function} unit - A unit test.
  */
 function test(unit) {
     try {
