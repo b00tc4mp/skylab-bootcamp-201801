@@ -38,8 +38,7 @@ function _Hangman(word, attemps) {
         return message;
     }
 }
-
-function _Hangman(word, attemps) {
+function Hangman(word, attemps) {
     var wordArr = word.toUpperCase().split('');
     var N = word.length;
     var board = [];
@@ -49,17 +48,21 @@ function _Hangman(word, attemps) {
     var letterCount = 0;
     var gameOver = false;
     var win = false;
-
+    var foundALetter = false;
     this.attemps = attemps;
-
     this.try = function (response) {
         if (!gameOver && !win) {
-            if (!response || typeof response !== "string") {
-                return "Please, enter a valid character or word!";
+            var message = "This is not a correct input. Try to write another one";
+            if (typeof response === "string") {
+                var responseUpper = response.toUpperCase();
+            } else {
+                return message;
             }
-            var responseUpper = response.toUpperCase();
+
+            if (!(responseUpper >= "A" && responseUpper <= "Z")) {
+                return message;
+            }
             if (responseUpper.length > 1) {
-                // QUERY all this logic could be processed in one function?
                 //palabra
                 if (responseUpper === word.toUpperCase()) {
                     //win
@@ -71,36 +74,31 @@ function _Hangman(word, attemps) {
                     return "Sorry, you have not guessed... the correct word is " + word.toUpperCase() + ".";
                 }
             } else {
-                // QUERY all this logic could be processed in one function?
                 //letra
-                var foundALetter = false;
+                foundALetter = false;
                 for (var i = 0; i < N; i++) {
                     if (responseUpper === wordArr[i]) {
                         board[i] = wordArr[i];
-                        //delete wordArr[i];
-                        wordArr[i] = undefined;
+                        delete wordArr[i];
                         letterCount++
                         foundALetter = true;
                     }
                 }
                 // mostramos tablero
-                if (!foundALetter) {
-                    attemps--;
-                }
-                if (attemps === 0) {
-                    gameOver = true;
-                }
-                if (N === letterCount) {
-                    win = true;
-                }
+                if (!foundALetter) { attemps-- }
+                if (attemps === 0) { gameOver = true; }
+                if (N === letterCount) { win = true; }
                 return attemps + ' ' + board.join(' ');
             }
+
         } else {
             //Show message
             return "GAME OVER.";
         }
     }
 }
+
+var game = new Hangman('hello', 5);
 
 function _Hangman(word, attempts) {
     var w = word.split('');
