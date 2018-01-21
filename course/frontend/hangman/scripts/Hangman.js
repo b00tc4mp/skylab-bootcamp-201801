@@ -164,27 +164,6 @@ function _Hangman(word, attempts) {
     }
 }
 
-<<<<<<< HEAD
-
-
-var game = new Hangman('perro', 10);
-console.log(game.try('i'));
-console.log(game.try('t'));
-console.log(game.try('e'));
-console.log(game.try('z'));
-console.log(game.try('z'));
-console.log(game.try('z'));
-console.log(game.try('z'));
-console.log(game.try('vaca'));
-//console.log(game.try('z'));
-//console.log(game.try('z'));
-
-
-//console.log(game.try('perro'));
-//console.log(game.try('r'));
-//console.log(game.try('e'));
-//console.log(game.try('o'));
-=======
 function Hangman(word, attemps) {
     var word = word.toLocaleLowerCase()
     if (word && attemps) {
@@ -236,4 +215,3 @@ function Hangman(word, attemps) {
         return console.error("no word or attemps inputed")
     }
 }
->>>>>>> upstream/develop
