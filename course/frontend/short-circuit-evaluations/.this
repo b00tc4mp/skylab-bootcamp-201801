@@ -1,0 +1,14 @@
+{
+  "title": "Short-circuit evaluations (logical expressions)",
+  "description": "As logical expressions are evaluated left to right, they are tested for possible \"short-circuit\" evaluation using the following rules: false && anything is short-circuit evaluated to false, true || anything is short-circuit evaluated to true.",
+  "tags": [
+    "js",
+    "logical",
+    "operator",
+    "expression",
+    "short-circuit",
+    "&&",
+    "||"
+  ],
+  "created": "2018-01-19T17:31:23.608Z"
+}
