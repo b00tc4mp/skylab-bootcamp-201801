@@ -8,11 +8,11 @@
  *
  * @return {array} newArray. Retorna un nuevo array.
  */
-Array.prototype.shuffle = function (){
+Array.prototype.shuffle = function () {
+	// for (var i = 0; i < this.length; i++) {
+	// 	newArray.push(this[i]);
+	// }
 	var newArray = this.slice();
-	for (var i = 0; i < this.length; i++) {
-		newArray.push(this[i]);
-	}
 	// newArray == just a clone of "this" (the original array)!
 	var currentIndex = newArray.length;
 	var tempValue, randomIndex;
@@ -25,3 +25,8 @@ Array.prototype.shuffle = function (){
 	}
 	return newArray;
 }
+
+// WARN! this is required to avoid 'shuffle' to be present in an array for-in loop!!!
+Object.defineProperty(Array.prototype, 'shuffle', {
+	enumerable: false
+});
