@@ -9,7 +9,7 @@
  * @return {array} newArray. Retorna un nuevo array.
  */
 Array.prototype.shuffle = function (){
-	var newArray = [];
+	var newArray = this.slice();
 	for (var i = 0; i < this.length; i++) {
 		newArray.push(this[i]);
 	}
