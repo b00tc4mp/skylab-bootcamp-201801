@@ -94,3 +94,13 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+//6.Add items
+arrayPush=[]
+function addItemsIntoArray(){
+    for(elem of arguments){
+		arrayPush.push(elem)
+	}
+    return arrayPush
+}
+console.log(addItemsIntoArray(2,4,6))
