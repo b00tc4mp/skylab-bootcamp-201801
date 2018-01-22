@@ -1,4 +1,6 @@
-# FullStack WebDev BootCamp
+![Skylab Coders Academy](images/skylab-logo.png "Skylab Coders Academy")
+
+# Full-Stack Web-Development Bootcamp 201801
 
 ## [Kanban board](https://trello.com/b/xb15aXBr/kanban)
 

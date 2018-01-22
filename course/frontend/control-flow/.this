@@ -1,6 +1,6 @@
 {
   "title": "Control Flow",
-  "description": "Demos about conditional statements (if-else, switch) and loops (while, for).",
+  "description": "Challenges about conditional statements (if-else, switch) and loops (while, for).",
   "tags": [
     "js",
     "control-flow",
@@ -13,7 +13,8 @@
     "while",
     "for",
     "switch",
-    "do-while"
+    "do-while",
+    "challenge"
   ],
   "created": "2018-01-16T15:08:37.875Z",
   "modified": "2018-01-16T15:09:55.626Z"

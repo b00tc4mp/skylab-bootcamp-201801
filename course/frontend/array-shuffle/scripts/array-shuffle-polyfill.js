@@ -1,3 +1,4 @@
+
 Array.prototype.shuffle = function() {
   var self = this.slice(); //create a copy of array. No destroy value. Thnks Alexandre!
   var lenName = self.length;
@@ -16,5 +17,6 @@ Array.prototype.shuffle = function() {
     self.splice(x, 1);
   }
 };
+
 
 
