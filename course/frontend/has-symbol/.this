@@ -1,0 +1,13 @@
+{
+  "title": "hasSymbol (function)",
+  "description": "Function that detects if a string has any symbol (e.g. hasSymbol('hello%') => true).",
+  "tags": [
+    "js",
+    "function",
+    "helper",
+    "symbol",
+    "validation",
+    "detection"
+  ],
+  "created": "2018-01-19T17:51:14.683Z"
+}
