@@ -9,7 +9,6 @@ function should(value) {
 function test(unit) {
     try {
         unit();
-
         console.log(unit.name, 'PASSED');
     } catch(err) {
         console.error(unit.name, 'NOT PASSED', err.message);
