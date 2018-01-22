@@ -28,4 +28,76 @@ describe('Hangman', function () {
     }
 
     it(hangmanResultsSorryWhenFailingAssertionOfWordOnThe7thAttempt.name, hangmanResultsSorryWhenFailingAssertionOfWordOnThe7thAttempt);
+
+    function hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithWellDone() {
+   
+
+      expect(game.try("a")).toBe("9 _ _ _ _ _");
+      expect(game.try("b")).toBe("8 _ _ _ _ _");
+      expect(game.try("c")).toBe("7 _ _ _ _ _");
+      expect(game.try("d")).toBe("6 _ _ _ _ _");
+      expect(game.try("e")).toBe("6 _ E _ _ _");
+      expect(game.try("l")).toBe("6 _ E L L _");
+      expect(game.try("hello")).toBe("You have guessed the word, well done!");
+      expect(game.try("bello")).toBe("GAME OVER.");
+    }
+
+    it(hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithWellDone.name, hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithWellDone);
+
+    function hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithSorry() {
+    
+
+      expect(game.try("a")).toBe("9 _ _ _ _ _");
+      expect(game.try("b")).toBe("8 _ _ _ _ _");
+      expect(game.try("c")).toBe("7 _ _ _ _ _");
+      expect(game.try("d")).toBe("6 _ _ _ _ _");
+      expect(game.try("e")).toBe("6 _ E _ _ _");
+      expect(game.try("l")).toBe("6 _ E L L _");
+      expect(game.try("bello")).toBe("Sorry, you have not guessed... the correct word is HELLO.");
+      expect(game.try("hello")).toBe("GAME OVER.");
+    }
+
+    it(hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithSorry.name, hangmanResultsGameOverWhenTryingToPlayAfterGameEndedWithSorry);
+
+    function hangmanResultsInErrorWhenTryingToInputANonStringValue() {
+      
+
+      expect(game.try("a")).toBe("9 _ _ _ _ _");
+      expect(game.try("b")).toBe("8 _ _ _ _ _");
+      expect(game.try("c")).toBe("7 _ _ _ _ _");
+      expect(game.try("d")).toBe("6 _ _ _ _ _");
+      expect(game.try("e")).toBe("6 _ E _ _ _");
+      expect(game.try("l")).toBe("6 _ E L L _");
+      expect(game.try(0)).toBe("Please, enter a valid character or word!");
+    }
+
+    it(hangmanResultsInErrorWhenTryingToInputANonStringValue.name, hangmanResultsInErrorWhenTryingToInputANonStringValue);
+
+    function hangmanResultsInErrorWhenTryingToInputANumericStringValue() {
+      
+
+      expect(game.try("a")).toBe("9 _ _ _ _ _");
+      expect(game.try("b")).toBe("8 _ _ _ _ _");
+      expect(game.try("c")).toBe("7 _ _ _ _ _");
+      expect(game.try("d")).toBe("6 _ _ _ _ _");
+      expect(game.try("e")).toBe("6 _ E _ _ _");
+      expect(game.try("l")).toBe("6 _ E L L _");
+      expect(game.try("0123.45")).toBe("Please, enter a valid character or word!");
+    }
+
+    it(hangmanResultsInErrorWhenTryingToInputANumericStringValue.name, hangmanResultsInErrorWhenTryingToInputANumericStringValue);
+
+    function hangmanResultsInErrorWhenTryingToInputASymbolStringValue() {
+      
+
+      expect(game.try("a")).toBe("9 _ _ _ _ _");
+      expect(game.try("b")).toBe("8 _ _ _ _ _");
+      expect(game.try("c")).toBe("7 _ _ _ _ _");
+      expect(game.try("d")).toBe("6 _ _ _ _ _");
+      expect(game.try("e")).toBe("6 _ E _ _ _");
+      expect(game.try("l")).toBe("6 _ E L L _");
+      expect(game.try("hello%")).toBe("Please, enter a valid character or word!");
+    }
+
+    it(hangmanResultsInErrorWhenTryingToInputASymbolStringValue.name, hangmanResultsInErrorWhenTryingToInputASymbolStringValue);
 });
