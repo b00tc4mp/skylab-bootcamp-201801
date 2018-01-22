@@ -1,78 +1,78 @@
 describe('camelCaseToLowerCaseWithSpaces ', function () {
 
-    function WhenInputANormalStringWhitOutUpperCase() {
+    function whenInputANormalStringWhitOutUpperCase() {
         expect(camelCaseToLowerCaseWithSpaces('hola')).toEqual('hola');
     }
-    it(WhenInputANormalStringWhitOutUpperCase.name, WhenInputANormalStringWhitOutUpperCase)
+    it(whenInputANormalStringWhitOutUpperCase.name, whenInputANormalStringWhitOutUpperCase)
 
-    function WhenInputAStringWhitRandomUpperCase() {
+    function whenInputAStringWhitRandomUpperCase() {
         expect(camelCaseToLowerCaseWithSpaces('hOlA')).toBe('h ol a');
     }
-    it(WhenInputAStringWhitRandomUpperCase.name, WhenInputAStringWhitRandomUpperCase)
+    it(whenInputAStringWhitRandomUpperCase.name, whenInputAStringWhitRandomUpperCase)
 
-    function WhenInputAStringWhitCorrectUpperCaseAndEquals() {
+    function whenInputAStringWhitCorrectUpperCaseAndEquals() {
         expect(camelCaseToLowerCaseWithSpaces('HelloThisIsThe2ndTestShoudlBeCorrect,Like2=2')).toBe('hello this is the 2nd test shoudl be correct, like 2 = 2');
         expect(camelCaseToLowerCaseWithSpaces('HelloThisIsThe2ndTestShoudlBeCorrect,Like2=2')).not.toBe(' hello this is the 2nd test shoudl be correct, like 2 = 2');
     }
-    it(WhenInputAStringWhitCorrectUpperCaseAndEquals.name, WhenInputAStringWhitCorrectUpperCaseAndEquals)
+    it(whenInputAStringWhitCorrectUpperCaseAndEquals.name, whenInputAStringWhitCorrectUpperCaseAndEquals)
     
 
-    function WhenInputAStringWhitRandomUpperCaseAndNumers() {
+    function whenInputAStringWhitRandomUpperCaseAndNumers() {
         expect(camelCaseToLowerCaseWithSpaces('h1opOlAr3rTyE7afg9')).toBe('h 1op ol ar 3r ty e 7afg 9');
     }
-    it(WhenInputAStringWhitRandomUpperCaseAndNumers.name, WhenInputAStringWhitRandomUpperCaseAndNumers)
+    it(whenInputAStringWhitRandomUpperCaseAndNumers.name, whenInputAStringWhitRandomUpperCaseAndNumers)
 
-    function WhenInputAStringWhitTheSameNumber() {
+    function whenInputAStringWhitTheSameNumber() {
         expect(camelCaseToLowerCaseWithSpaces('11111111')).toBe('1 1 1 1 1 1 1 1');
         expect(camelCaseToLowerCaseWithSpaces('11111111')).not.toBe(' 1 1 1 1 1 1 1 1');
     }
-    it(WhenInputAStringWhitTheSameNumber.name, WhenInputAStringWhitTheSameNumber)
+    it(whenInputAStringWhitTheSameNumber.name, whenInputAStringWhitTheSameNumber)
 
-    function WhenInputAStringWhitSimbolEqual() {
+    function whenInputAStringWhitSimbolEqual() {
         expect(camelCaseToLowerCaseWithSpaces('holaQueTalEs=ACosas')).toBe('hola que tal es = a cosas');
     }
-    it(WhenInputAStringWhitSimbolEqual.name, WhenInputAStringWhitSimbolEqual)
+    it(whenInputAStringWhitSimbolEqual.name, whenInputAStringWhitSimbolEqual)
 
-    function WhenInputAStringWhitRandomSimbol() {
+    function whenInputAStringWhitRandomSimbol() {
         expect(camelCaseToLowerCaseWithSpaces('hol*Qeu%hol`fgg·2fy/rggs&4fsfsFsd=ACosas')).not.toBeFalsy('hol * qeu %hol`fgg· 2fy /rggs & 4fsfs fsd = a cosas');
         expect(camelCaseToLowerCaseWithSpaces('hol*Qeu%hol`fgg·2fy/rggs&4fsfsFsd=ACosas')).not.toBeUndefined('hol * qeu %hol`fgg· 2fy /rggs & 4fsfs fsd = a cosas');
         expect(camelCaseToLowerCaseWithSpaces('hol*Qeu%hol`fgg·2fy/rggs&4fsfsFsd=ACosas')).toBe('hol * qeu %hol`fgg· 2fy /rggs & 4fsfs fsd = a cosas');
     }
-    it(WhenInputAStringWhitRandomSimbol.name, WhenInputAStringWhitRandomSimbol)
+    it(whenInputAStringWhitRandomSimbol.name, whenInputAStringWhitRandomSimbol)
 
-    function WhenInputANumber() {
+    function whenInputANumber() {
         expect(camelCaseToLowerCaseWithSpaces(1)).toBeFalsy();
     }
-    it(WhenInputANumber.name, WhenInputANumber)
+    it(whenInputANumber.name, whenInputANumber)
 
-    function WhenInputANumberNull() {
+    function whenInputANumberNull() {
         expect(camelCaseToLowerCaseWithSpaces(0)).toBeFalsy();
     }
-    it(WhenInputANumberNull.name, WhenInputANumberNull)
+    it(whenInputANumberNull.name, whenInputANumberNull)
 
-    function WhenInputANull() {
+    function whenInputANull() {
         expect(camelCaseToLowerCaseWithSpaces(null)).toBeFalsy();
     }
-    it(WhenInputANull.name, WhenInputANull)
+    it(whenInputANull.name, whenInputANull)
 
 
-    function WhenInputAUndefined() {
+    function whenInputAUndefined() {
         expect(camelCaseToLowerCaseWithSpaces(undefined)).toBeFalsy();
     }
-    it(WhenInputAUndefined.name, WhenInputAUndefined)
+    it(whenInputAUndefined.name, whenInputAUndefined)
 
-    function WhenInputAnEmptyObject() {
+    function whenInputAnEmptyObject() {
         expect(camelCaseToLowerCaseWithSpaces({})).toBeFalsy();
     }
-    it(WhenInputAnEmptyObject.name, WhenInputAnEmptyObject)
+    it(whenInputAnEmptyObject.name, whenInputAnEmptyObject)
 
-    function WhenInputAnEmptyArray() {
+    function whenInputAnEmptyArray() {
         expect(camelCaseToLowerCaseWithSpaces([])).toBeFalsy();
     }
-    it(WhenInputAnEmptyArray.name, WhenInputAnEmptyArray)
+    it(whenInputAnEmptyArray.name, whenInputAnEmptyArray)
 
-    function WhenInputAnEmptyString() {
+    function whenInputAnEmptyString() {
         expect(camelCaseToLowerCaseWithSpaces("")).toBeFalsy();
     }
-    it(WhenInputAnEmptyString.name, WhenInputAnEmptyString)
+    it(whenInputAnEmptyString.name, whenInputAnEmptyString)
 })

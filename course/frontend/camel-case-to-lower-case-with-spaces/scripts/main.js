@@ -1,13 +1,13 @@
 // TODO
-function camelCaseToLowerCaseWithSpaces(_word) {
+function camelCaseToLowerCaseWithSpaces(word) {
     var newWord = ''
     var exp = /[A-Z0-9=*()/&$%!<>{}*]/g
     try {
-        if (_word === '' || typeof(_word) !== "string") throw new Error("erorr")
+        if (word === '' || typeof(word) !== "string") throw new Error("erorr")
         
-        newWord += _word[0].toLowerCase()
-        for (let i = 1; i < _word.length; i++) {
-            newWord += (_word[i].match(exp)) ? " " + _word[i].toLowerCase() : _word[i]
+        newWord += word[0].toLowerCase()
+        for (let i = 1; i < word.length; i++) {
+            newWord += (word[i].match(exp)) ? " " + word[i].toLowerCase() : word[i]
         }
         return newWord
     } catch (err) {
