@@ -94,3 +94,37 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+//////////////////////////////////////////
+// Find Differences
+//////////////////////////////////////////
+
+function difference(array1, array2) {
+    var result =  array1.concat(array2).filter(function(val, index, arr){
+        return arr.indexOf(val) === arr.lastIndexOf(val);
+    });
+    return result;
+}
+
+
+  console.log(difference([1, 2, 3], [100, 2, 1, 10])); 
+  console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
+
+
+//////////////////////////////////////////
+// Sum and Product,
+//////////////////////////////////////////
+function sumArray(arr){
+    var sum=0;
+    var product = 1;
+    
+    for(var i=0;i<arr.length;i++){
+        sum=sum+arr[i];
+        product = product*arr[i];
+    }
+    return "Sum: "+sum+", product: "+product;
+}
+sumArray([1,3,4]);
+// we can test it also with reduce
