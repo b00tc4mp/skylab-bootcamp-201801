@@ -94,3 +94,24 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+/*
+arrayFilled (string)
+Write a JavaScript function to create a specified number of elements with pre-filled string value array.
+
+    Test Data :
+    console.log(arrayFilled(3, 'default value')); 
+    ["default value", "default value", "default value"]
+    console.log(arrayFilled(4, 'password'));
+    ["password", "password", "password", "password"]
+*/
+function arrayFilled(num, value) {
+    var result = [];
+    if (typeof num != "number") {
+        num = 0
+    }
+    for (var i = 0; i < num; i++) {
+        result[i] = value;
+    }
+    return result;
+}
