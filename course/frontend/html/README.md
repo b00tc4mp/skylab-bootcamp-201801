@@ -16,6 +16,8 @@
 
 # References
 
+[A brief history of Web Publishing](https://www.slideshare.net/ebusinessmatters/web-publishing-41153913)
+
 [HTML5 Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 [HTML vs HTML5 – What’s the Difference?](https://www.keycdn.com/blog/html-vs-html5/)
