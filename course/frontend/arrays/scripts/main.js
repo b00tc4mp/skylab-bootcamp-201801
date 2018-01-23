@@ -115,3 +115,18 @@ function arrayFilled(num, value) {
     }
     return result;
 }
+
+/*
+Sum squares
+Write a JavaScript program to find the sum of squares of a numeric vector.
+*/
+
+function sumSquares(numArr) {
+    var sum = 0;
+    for (var i = 0; i < numArr.length; i++) {
+        if (typeof numArr[i] == "number") {
+            sum += numArr[i] ** 2;
+        }
+    }
+    return sum;
+}
