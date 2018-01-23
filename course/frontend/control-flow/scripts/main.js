@@ -229,11 +229,11 @@ fizzBuzz();
 
 
 // ### contruct_pattern
-function asterisct(){
-    var asterisc = result = "*";
+function asterisk(){
+    var asterisk = result = "*";
     for (var i = 0; i < 7; i++) {
         console.log(result);
-        result += asterisc;
+        result += asterisk;
     }
 }
-asterisct();
+asterisk();
