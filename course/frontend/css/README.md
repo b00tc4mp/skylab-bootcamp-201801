@@ -25,3 +25,5 @@
 [THE CSS STANDARDIZATION PROCESS](https://www.w3.org/Style/2011/CSS-process)
 
 [What Is Responsive Web Design & Why Do You Need It?](https://www.upwork.com/hiring/mobile/what-is-responsive-web-design/)
+
+[Specificity Calculator](https://specificity.keegan.st)
