@@ -94,3 +94,34 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+
+function swapTheCase(word){
+
+    var result = '';
+
+    for (var i = 0; i < word.length; i++){
+    (word[i] === word[i].toUpperCase())? result += word[i].toLowerCase() : result += word[i].toUpperCase();    
+    }
+
+    return result;
+}
+
+console.log('swapTheCase(\'TesTing SWAPcase fUNcTion\') should result \'tEStING swapCASE FunCtION\' : ' + swapTheCase('TesTing SWAPcase fUNcTion'));
+
+
+
+function printArrayElements(arr){
+
+    var str = '';
+
+    for (var i = 0; i < arr.length; i++){
+        str += 'row ' + i + '\n';
+            for (var j = 0; j < arr[i].length; j++){
+                str += arr[i][j] + '\n';
+            }
+    }
+    return str;
+}
+
+console.log('printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]) should result row x and below inner elements for all rows: ' + '\n' + printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]));
