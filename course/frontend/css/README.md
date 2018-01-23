@@ -2,6 +2,16 @@
 
 [CSS Diner](http://flukeout.github.io)
 
+# Online tools
+
+[Specificity Calculator](https://specificity.keegan.st)
+
+[Responsinator](http://www.responsinator.com)
+
+[Browser Ling](https://www.browserling.com)
+
+[Screen Fly](http://quirktools.com/screenfly/)
+
 # References
 
 [Evolution of CSS](https://www.slideshare.net/valicac/evolution-of-css)
@@ -25,5 +35,3 @@
 [THE CSS STANDARDIZATION PROCESS](https://www.w3.org/Style/2011/CSS-process)
 
 [What Is Responsive Web Design & Why Do You Need It?](https://www.upwork.com/hiring/mobile/what-is-responsive-web-design/)
-
-[Specificity Calculator](https://specificity.keegan.st)
