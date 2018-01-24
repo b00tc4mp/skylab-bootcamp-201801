@@ -94,3 +94,41 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+//###12 mergeArrays
+
+//Write a JavaScript function to merge two arrays and removes all duplicates elements.
+
+/*Test data :
+var array1 = [1, 2, 3];
+var array2 = [2, 30, 1];
+console.log(merge_array(array1, array2));
+[3, 2, 30, 1]*/
+
+function mergeArray(arr1, arr2) {
+    var arr3 = [];
+    arr1 = arr1.concat(arr2);
+    for (var i = 0; i < arr1.length; i++) {
+        if (arr3.indexOf(arr1[i]) === -1);
+            arr3.push(arr1[i]);
+        }
+        return arr3;
+}
+mergeArray([1, 2, 3], [2, 30, 1])
+
+/******************************************/
+
+//###13 separateEven
+
+//Write a JavaScript program which accept a number as input and insert dashes(-) between each two even numbers.
+//For example if you accept 025468 the output should be 0 - 254 - 6 - 8.
+
+function separateEven(num) {
+    var str = num.toString();
+    var result = [str[0]];
+    for (var x = 1; x < str.length; x++) {
+        ((str[x - 1] % 2 === 0) && (str[x] % 2 === 0)) ? result.push('-', str[x]) : result.push(str[x]);
+    }
+    console.log(result.join(''));
+}
+separateEven(025468)
