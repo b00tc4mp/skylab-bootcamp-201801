@@ -1,0 +1,25 @@
+#header li:first-child h2 .title {
+    color: blue;
+}
+
+li:first-child h2 .title {
+    color: red;
+}
+
+/* alien styles -> */
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+}
+
+/* <- alien styles */
+
+.first {
+    background-color: plum !important;   
+}
+
+.box {
+    background-color: skyblue;
+}

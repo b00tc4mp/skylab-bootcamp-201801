@@ -7,7 +7,8 @@
     "helper",
     "symbol",
     "validation",
-    "detection"
+    "detection",
+    "challenge"
   ],
   "created": "2018-01-19T17:51:14.683Z"
 }
