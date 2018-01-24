@@ -2,6 +2,10 @@
 
 [CSS Diner](http://flukeout.github.io)
 
+[Flexbox Froggy](http://flexboxfroggy.com/)
+
+[Grid Garden](http://cssgridgarden.com/)
+
 # Online tools
 
 [Specificity Calculator](https://specificity.keegan.st)
