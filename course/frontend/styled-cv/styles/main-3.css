@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    border-bottom: 3px solid orange;
+    background-color: rgb(245, 241, 241);
+}
+
+header>figure {
+    display: flex;
+    flex: 7;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+header>figure>img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+header figure figcaption {
+    margin-left: 10px
+}
+
+h1,
+h2 {
+    margin: 0
+}
+
+ul>li {
+    list-style: none;
+}
+
+header>aside {
+    padding-right: 1em;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+
+/* END HEADER STYLE */
+
+
+/* START MAIN STYLE */
+
+main>section {
+    padding: 3em;
+    display: flex;
+}
+
+main>section>h2 {
+    color: orange;
+    flex: 3;
+}
+
+main>section>article {
+    flex: 9;
+}
+
+main>section>div {
+    flex: 9;
+}
+
+main>section>div>article>h4 {
+    margin: 0;
+}
+
+main>section>div>article>p {
+    margin: 1em 0;
+}
+
+.skillsection>article {
+    flex: 3;
+}
+
+.skillsection>article>ul {
+    padding: 0;
+}
