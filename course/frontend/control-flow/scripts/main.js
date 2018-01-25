@@ -206,3 +206,44 @@ function largestNumber(a) {
 //console.log("largestNumber(5, -2, 6, 100, -1) should return the largest of input numbers =>", largestNumber(5, -2, 6, 100, -1));
 console.log("largestNumber([-5, -2, -6, 0, -1]) should return the largest of input numbers =>", largestNumber([-5, -2, -6, 0, -1]));
 console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of input numbers =>", largestNumber([5, -2, 6, 100, -1]));
+
+
+function fizzBuzz (a) {
+    while (a--) {
+        if (a%3 == 0 && a%5 == 0) {
+            console.log("FizzBuzz")
+        } else if (a%3 == 0) {
+            console.log("Fizz")
+        } else if (a%5 == 0) {
+            console.log("Buzz")
+        } else {
+            console.log(a)
+        }
+    }
+}
+
+console.log("Should return a list of numbers, changing for fizz or buzz or fizzbuzz depending on case") + fizzBuzz(100));
+
+function pattern (a, length) {
+    var array = []
+    for (var i = 0; i < length; i++) {
+        array.push(a)
+        console.log(array.toString())
+    }
+}
+
+console.log("should return a pattern of * of n lines" + pattern ('*',5))
+
+function oddEven (a) {
+    var sum = 0;
+    while (a--) {
+        if (a%3 == 0) {
+            sum += a
+        } else if(a%5 == 0) {
+            sum += a
+        }
+    }
+    return sum
+}
+
+console.log("Should return a sum of all 3 and 5 multiples: " + oddEven(1000))
