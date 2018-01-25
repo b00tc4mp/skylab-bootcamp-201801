@@ -1,3 +1,4 @@
+
 function _Hangman(word, attemps) {
     var cadena = [];
     for (var i = 0; i < word.length; i++) {
@@ -215,3 +216,4 @@ function Hangman(word, attemps) {
         return console.error("no word or attemps inputed")
     }
 }
+
