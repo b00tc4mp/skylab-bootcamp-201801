@@ -1,0 +1,121 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+div {
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+}
+
+div span {
+    box-sizing: border-box;
+    display: block;
+    border-top: solid 30px green;
+    transform: rotate(180deg);
+    width: 100%;
+    height: 100%;
+}
+
+div:nth-child(13) span {
+    transform: rotate(45deg);
+}
+
+div:nth-child(9) span {
+    transform: rotate(45deg);
+}
+
+div:nth-child(5) span {
+    transform: rotate(deg);
+}
+
+div:nth-child(1) span {
+    transform: rotate(135deg);
+}
+
+div:last-child span {
+    transform: rotate(-135deg);
+}
+
+div:nth-child(1n+6) span {
+    transform: rotate(-90deg);
+    border-color: orange;
+}
+
+div:nth-child(1n+10) span {
+    transform: none;
+    border-color: red;
+}
+
+div:nth-child(1n+14) span {
+    transform: rotate(90deg);
+    border-color: blue;
+}
+
+div:nth-child(4n+1) span {
+    border: none;
+}
+
+div:last-child {
+    grid-area: 2/2/5/5;
+}
+
+div:nth-child(16) {
+    order: 1;
+}
+
+div:nth-child(6) {
+    order: 2;
+}
+
+div:nth-child(15) {
+    order: 3;
+}
+
+div:nth-child(7) {
+    order: 4;
+}
+
+div:nth-child(14) {
+    order: 5;
+}
+
+div:nth-child(8) {
+    order: 6;
+}
+
+div:nth-child(13) {
+    order: 7;
+}
+
+div:nth-child(12) {
+    order: 8;
+}
+
+div:nth-child(11) {
+    order: 9;
+}
+
+div:nth-child(10) {
+    order: 10;
+}
+
+div:nth-child(9) {
+    order: 11;
+}
