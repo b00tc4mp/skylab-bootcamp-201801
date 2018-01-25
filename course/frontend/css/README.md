@@ -50,6 +50,10 @@
 
 [Absolute, Relative, Fixed Positioning: How Do They Differ?](https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/)
 
+[Positioning in web design](http://blog.froont.com/positioning-in-web-design/)
+
+[CSS Layout - float and clear](https://www.w3schools.com/css/css_float.asp)
+
 [CSS Website Layout](https://www.w3schools.com/css/css_website_layout.asp)
 
 [GIFs That Explain Responsive Design Brilliantly](https://imgur.com/gallery/3PE7T)
@@ -69,3 +73,9 @@
 [Breaking Out With CSS Grid Layout](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
 
 [Learn CSS Grid for free](https://scrimba.com/g/gR8PTE)
+
+[Flexbugs](https://github.com/philipwalton/flexbugs)
+
+[GridBugs](https://github.com/rachelandrew/gridbugs)
+
+[Responsive Web Design - Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)
