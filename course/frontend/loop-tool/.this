@@ -1,0 +1,16 @@
+{
+  "title": "Loop Tool challenge",
+  "description": "Challenge about creating a loop without native statements (while, for), just by mean of a function.",
+  "tags": [
+    "js",
+    "loop",
+    "recursive",
+    "function",
+    "method",
+    "while",
+    "for",
+    "iteration",
+    "challenge"
+  ],
+  "created": "2018-01-25T15:05:15.102Z"
+}

@@ -1,0 +1,107 @@
+$default-size: 100px;
+body {
+    background-color: #EFEFEF;
+}
+
+.box {
+    width: $default-size;
+    height: $default-size;
+    background-color: plum;
+}
+
+
+/*
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+*/
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+    }
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+
+@import 'reset';
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.box2 {
+    width: $default-size;
+    height: $default-size;
+    background-color: greenyellow;
+    @include border-radius(10px);
+}
+
+// This CSS will print because %message-shared is extended.
+%message-shared {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.message {
+    @extend %message-shared;
+}
+
+.success {
+    @extend %message-shared;
+    border-color: green;
+}
+
+.error {
+    @extend %message-shared;
+    border-color: red;
+}
+
+.warning {
+    @extend %message-shared;
+    border-color: yellow;
+}
+
+// operations
+
+.container {
+    width: 100%;
+    background-color: gray;
+}
+
+article[role="main"] {
+    float: left;
+    width: 600px / 960px * 100%;
+    background-color: lightgray;
+}
+
+aside[role="complementary"] {
+    float: right;
+    width: 300px / 960px * 100%;
+    background-color: darkgray;
+}
