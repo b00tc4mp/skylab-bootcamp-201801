@@ -94,3 +94,48 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+
+/* 32 ### findPairSum
+
+Write a JavaScript program to find a pair of elements (indices of the two numbers) from an given array whose sum equals a specific target number.
+
+    Input: numbers= [10,20,10,40,50,60,70], target=50
+    Output: 2, 3 */
+
+function findPairSum(arr, target) {
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === target) {
+                result.push(i, j);
+            }
+        }
+    }
+    console.log(result)
+    return result.slice(2, 4);
+}
+console.log("Numbers= [10,20,10,40,50,60,70], target=50 and the output should be 2, 3 => " + findPairSum([10, 20, 10, 40, 50, 60, 70], 50))
+
+
+
+/*  33 ### validValues
+
+Write a JavaScript function to retrieve the value of a given property from all elements in an array.
+
+    Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+    Expected result : [15, -22, 47]  */
+
+
+function validValues(arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < 0 || arr[i] > 0) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+console.log(validValues([NaN, 0, 15, false, -22, '', undefined, 47, null]))
+
+
