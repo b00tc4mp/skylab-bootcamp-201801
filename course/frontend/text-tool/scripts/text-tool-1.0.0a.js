@@ -14,6 +14,7 @@ function text(_text) {
     }
 
     return {
+        // WARN! misunderstanding here, _text could be wrapped with whatever text for inputFirst... and inputSecond... it doesn't have to necessarily symbols! anyway, we conserve this code a as good demo on how to doing so if it was required ,)
         wrap: function wrap(inputFirstSymbol, inputSecondSymbol) {
             var firstSymbol = inputFirstSymbol || "";
             var secondSymbol = inputSecondSymbol || "";
