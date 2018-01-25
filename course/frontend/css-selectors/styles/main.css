@@ -1,0 +1,21 @@
+h1,
+h2 {
+    color: green;
+}
+
+strong,
+em,
+ul li ul li {
+    color: orange;
+}
+
+td {
+    color: purple
+}
+
+label,
+legend {
+    color: brown;
+}
+
+/* TODO: end styling for other elements */
