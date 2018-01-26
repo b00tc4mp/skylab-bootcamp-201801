@@ -1,3 +1,4 @@
+
 function hangmanResultsWellDoneWhenAssertingWordOnThe7thAttempt() {
     var game = new Hangman('hello', 10);
 
@@ -97,5 +98,6 @@ function hangmanResultsInErrorWhenTryingToInputASymbolStringValue() {
 }
 
 test(hangmanResultsInErrorWhenTryingToInputASymbolStringValue);
+
 
 // TODO func to convert camelCase text into normal case and spaces (e.g. "helloWorld" -> "hello world").
