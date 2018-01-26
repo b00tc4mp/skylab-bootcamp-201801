@@ -94,3 +94,38 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+/*mostFrequentItem
+Write a JavaScript program to find the most
+ frequent item of an array.
+ */
+
+Array.prototype.mostFrenquentItem = function (array) {
+    var contRep = 1;
+    var contItem = 0;
+    var item;
+    for (var i = 0; i < array.length; i++) {
+        for (var j = i; j < array.length; j++) {
+            if (array[i] == array[j])
+                contItem++;
+            if (contRep < contItem) {
+                contRep = contItem;
+                item = array[i];
+            }
+        }
+        contItem = 0;
+    }
+    var text = item + ": " + contRep;
+    return text;
+}
+
+/*moveElement
+Write a JavaScript function to move an 
+array element from one position to another.
+*/
+
+Array.prototype.moveElement = function (array, index, pos) {
+    var value = array.splice(index, 1);
+    array.splice(pos, 0, value[0]);
+    return array;
+}
