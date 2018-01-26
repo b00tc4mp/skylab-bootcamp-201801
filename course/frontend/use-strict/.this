@@ -1,0 +1,15 @@
+{
+  "title": "\"use strict\";",
+  "description": "Directive for the browser. Defines that JavaScript code should be executed in \"strict mode\".",
+  "tags": [
+    "js",
+    "use",
+    "strict",
+    "use-strict",
+    "directive",
+    "error",
+    "safe",
+    "error-safe"
+  ],
+  "created": "2018-01-25T10:43:30.752Z"
+}
