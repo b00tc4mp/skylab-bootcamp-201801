@@ -1,0 +1,12 @@
+{
+  "title": "AJAX Staff jQuery demo",
+  "description": "Basic AJAX demo implementend in jQuery to list bootcamp staff",
+  "tags": [
+    "js",
+    "jquery",
+    "basic",
+    "ajax",
+    "staff"
+  ],
+  "created": "2018-01-26T16:25:49.314Z"
+}

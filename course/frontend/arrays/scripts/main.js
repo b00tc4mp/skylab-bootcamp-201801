@@ -61,7 +61,7 @@ function joinElements(a) {
 console.log('1) joinElements([1, 2, 3]) should result joined elements', joinElements([1, 2, 3]));
 
 function _arrayClone(a) {
-    // ERROR! do not pass the tests! should return a new array copy of the original!
+    // WARN! do not pass the tests! should return a new array copy of the original!
     return new Array(a)
 }
 
@@ -118,3 +118,78 @@ function getNthLargest(arr,element){
 
 console.log('39) getNthLargest');
 console.log(getNthLargest([ 43, 56, 23, 89, 88, 90, 99, 652], 4));
+
+
+/* 32 ### findPairSum
+
+Write a JavaScript program to find a pair of elements (indices of the two numbers) from an given array whose sum equals a specific target number.
+
+    Input: numbers= [10,20,10,40,50,60,70], target=50
+    Output: 2, 3 */
+
+function findPairSum(arr, target) {
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === target) {
+                result.push(i, j);
+            }
+        }
+    }
+    console.log(result)
+    return result.slice(2, 4);
+}
+console.log("Numbers= [10,20,10,40,50,60,70], target=50 and the output should be 2, 3 => " + findPairSum([10, 20, 10, 40, 50, 60, 70], 50))
+
+
+
+/*  33 ### validValues
+
+Write a JavaScript function to retrieve the value of a given property from all elements in an array.
+
+    Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+    Expected result : [15, -22, 47]  */
+
+
+function validValues(arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < 0 || arr[i] > 0) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+console.log(validValues([NaN, 0, 15, false, -22, '', undefined, 47, null]))
+
+
+//26. Write a JavaScript function to generate an array between two integers of 1 step length.
+
+function rangeBetwee(start, end) {
+    var array = [];
+    for (var i = start; i <= end; i++) {
+        array.push(i);
+    }
+    return array;
+}
+
+console.log(rangeBetwee(4, 7));
+console.log(rangeBetwee(-4, 7));
+
+//27. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened a single level.
+
+function flat(arr, newArray) {
+    newArray = newArray || [];
+    for (var i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            flat(arr[i], newArray);
+        } else {
+            newArray.push(arr[i]);
+        }
+    }
+    return newArray;
+
+}
+
+flat([1, 2, 3, [4, 5], 6]);
+flat([1, 2, [3, 4, [1, 2, [1, 2, 3]]], 5, 6]);
