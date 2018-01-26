@@ -94,3 +94,34 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+//26. Write a JavaScript function to generate an array between two integers of 1 step length.
+
+function rangeBetwee(start, end) {
+    var array = [];
+    for (var i = start; i <= end; i++) {
+        array.push(i);
+    }
+    return array;
+}
+
+console.log(rangeBetwee(4, 7));
+console.log(rangeBetwee(-4, 7));
+
+//27. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened a single level.
+
+function flat(arr, newArray) {
+    newArray = newArray || [];
+    for (var i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            flat(arr[i], newArray);
+        } else {
+            newArray.push(arr[i]);
+        }
+    }
+    return newArray;
+
+}
+
+flat([1, 2, 3, [4, 5], 6]);
+flat([1, 2, [3, 4, [1, 2, [1, 2, 3]]], 5, 6]);
