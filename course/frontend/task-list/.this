@@ -1,0 +1,18 @@
+{
+  "title": "Task List",
+  "description": "Simple task list implemented in Vanilla JS.",
+  "tags": [
+    "js",
+    "task",
+    "list",
+    "todo",
+    "done",
+    "vanilla",
+    "native",
+    "event",
+    "bubbling",
+    "capturing"
+  ],
+  "created": "2018-01-16T10:20:43.027Z",
+  "modified": "2018-01-26T10:39:51.938Z"
+}
