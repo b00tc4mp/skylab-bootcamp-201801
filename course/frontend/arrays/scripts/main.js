@@ -94,3 +94,27 @@ function recursiveArrayClone(source) {
 }
 
 console.log('1) recursiveArrayClone([1, 2, 3, [1, 2, 3]])', res = recursiveArrayClone(arr), 'and should be a new array', res != arr, 'and sub-array should be a new array', arr[3] != res[3]);
+
+/*Write a JavaScript script to empty an array keeping the original size.*/
+
+function emptyArray(arr){
+    arr.fill(null);
+    return arr.length;
+}
+
+console.log('38) emptyArray')
+console.log(emptyArray([1,2,3]));
+
+/*Write a JavaScript function to get nth largest element from an unsorted array.*/
+
+function getNthLargest(arr,element){
+    arr.sort(function(a,b){
+        return a - b;
+    })
+
+    return arr[element];
+
+}
+
+console.log('39) getNthLargest');
+console.log(getNthLargest([ 43, 56, 23, 89, 88, 90, 99, 652], 4));
