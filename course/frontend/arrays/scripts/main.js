@@ -113,12 +113,18 @@ console.log(rangeBetwee(-4, 7));
 
 //27. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened a single level.
 
-function _flatten(array) {
-    return array.reduce(function (flat, toFlatten) {
-        if (flat.concat(Array.isArray(toFlatten))) {
-            return flatten(toFlatten);
+function flat(arr,newArray) {     
+    newArray = newArray || [];
+    for (var i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            flat(arr[i],newArray);
         } else {
-            return toFlatten;
+            newArray.push(arr[i]);
         }
-    }, []);
+    }
+    return newArray;
+
 }
+
+flat([1,2,3,[4,5],6]);
+flat([1,2,[3,4,[1,2,[1,2,3]]],5,6]);
