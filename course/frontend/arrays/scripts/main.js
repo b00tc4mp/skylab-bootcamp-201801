@@ -242,19 +242,10 @@ Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' a
  * @param {array} second argument
  * @returns {array} numeric values.
  */
- 
- /**
- * Function removeFalsy
- * Returns one numeric array without empty,
- * @param {array} first argument 
- * @returns {array}  
- */
-
-var unionArray, removeFalsy;
+'use strict';
+var unionArray;
 
 (function(){
-'use strict'
-
     unionArray = function(){
         try{
             if( !arguments || arguments.length === 0 || arguments.length > 2 || !(arguments[0] instanceof Array) || !(arguments[1] instanceof Array) ) throw new Error('OUT of SPECS.'); 
@@ -271,8 +262,22 @@ var unionArray, removeFalsy;
         
         return result;
     };
+}();
 
-    removeFalsy = function(){
+ console.log( "%cArray union function\n", "font-weight : bold;", "arguments : [1, 2, 3], [100, 2, 1, 10]\n Expected result : [1, 2, 3, 10, 100]\n Function result : " , union( [1, 2, 3], [100, 2, 1, 10] ) );
+ 
+/**
+ * Function removeFalsy
+ * Returns one numeric array without empty,
+ * @param {array} first argument 
+ * @returns {array}  
+ */
+ 'use strict';
+ 
+ var removeFalsy;
+ 
+ (function(){    
+ removeFalsy = function(){
         try{
             if( !arguments || arguments.length === 0 || arguments.length > 1 || !(arguments[0] instanceof Array) ) throw new Error('OUT of SPECS.'); 
         }catch(e){
@@ -284,5 +289,4 @@ var unionArray, removeFalsy;
 
 })();
 
-console.log( "%cArray union function\n", "font-weight : bold;", "arguments : [1, 2, 3], [100, 2, 1, 10]\n Expected result : [1, 2, 3, 10, 100]\n Function result : " , union( [1, 2, 3], [100, 2, 1, 10] ) );
 console.log( "%cremoveFalsy function\n", "font-weight : bold;", "arguments : [NaN, 0, 15, false, -22, '',undefined, 47, null]\n Expected result : [15, -22, 47]\n Function result : " , removeFalsy( [NaN, 0, 15, false, -22, '',undefined, 47, null] ) );
