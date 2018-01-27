@@ -1,0 +1,15 @@
+{
+  "title": "Closures",
+  "description": "JavaScript variables can belong to the local or global scope. Global variables can be made local (private) with closures.",
+  "tags": [
+    "js",
+    "closure",
+    "function",
+    "scope",
+    "this",
+    "var",
+    "challenge"
+  ],
+  "created": "2018-01-18T15:39:38.751Z",
+  "modified": "2018-01-18T15:40:24.128Z"
+}

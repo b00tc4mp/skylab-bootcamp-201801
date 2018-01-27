@@ -1,0 +1,27 @@
+{
+  "title": "Document Object Model (DOM)",
+  "description": "The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page. A Web page is a document.",
+  "tags": [
+    "html",
+    "dom",
+    "xml",
+    "document",
+    "object",
+    "model",
+    "browser",
+    "navigator",
+    "user-agent",
+    "user",
+    "agent",
+    "interface",
+    "api",
+    "structure",
+    "tree",
+    "style",
+    "content",
+    "node",
+    "web",
+    "page"
+  ],
+  "created": "2018-01-25T16:13:15.907Z"
+}

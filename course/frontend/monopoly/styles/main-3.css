@@ -1,0 +1,58 @@
+body {
+    background-color: #ededed;
+    padding: 100px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #f38721;
+    padding: 10px;
+}
+
+.pasive {
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+h1 {
+    transform: rotate(-45deg);
+    text-align: left;
+}
+
+#r1c2,
+#r1c3,
+#r1c4 {
+    transform: rotate(180deg);
+}
+
+#r1c2,
+#r1c3,
+#r1c4 {
+    transform: rotate(180deg);
+}
+
+#r2c1,
+#r3c1,
+#r4c1 {
+    transform: rotate(90deg);
+}
+
+#r2c5,
+#r3c5,
+#r4c5 {
+    transform: rotate(-90deg);
+}
