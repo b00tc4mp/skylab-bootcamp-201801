@@ -215,9 +215,8 @@ flat([1, 2, 3, [4, 5], 6]);
 flat([1, 2, [3, 4, [1, 2, [1, 2, 3]]], 5, 6]);
 
 
-// Exercises 28, 29
+/* Exercises 28, 29
 
-/*
 ### unionArray
 
 Write a JavaScript program to compute the union of two arrays.
@@ -226,16 +225,7 @@ Sample Data :
     console.log(unionArray([1, 2, 3], [100, 2, 1, 10]));
     [1, 2, 3, 10, 100]
 
-### removeFalsy
-
-Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
-
-    Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
-    Expected result : [15, -22, 47]
-
-*/
-
-/** 
+ /**
  * Function unionArray 
  * Returns one numeric merged array without duplicated values.
  * @param {array} first argument
@@ -265,16 +255,22 @@ var unionArray;
 }();
 
  console.log( "%cArray union function\n", "font-weight : bold;", "arguments : [1, 2, 3], [100, 2, 1, 10]\n Expected result : [1, 2, 3, 10, 100]\n Function result : " , union( [1, 2, 3], [100, 2, 1, 10] ) );
- 
+/*
+### removeFalsy
+
+Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
+
+    Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+    Expected result : [15, -22, 47]
+
 /**
  * Function removeFalsy
  * Returns one numeric array without empty,
  * @param {array} first argument 
  * @returns {array}  
  */
- 'use strict';
- 
- var removeFalsy;
+
+var removeFalsy;
  
  (function(){    
  removeFalsy = function(){
