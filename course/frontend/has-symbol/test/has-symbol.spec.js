@@ -1,97 +1,49 @@
-describe('has symbol test', function () {
-    it('The input type expected is STRING (ignores whitespaces) otherwise returns "ERROR: OUT of SPECS"', function () {
-        var scenario = [{
-                toTest: '%',
-                mustBe: true
-            },
-            {
-                toTest: 's',
-                mustBe: false
-            },
-            {
-                toTest: 'say hello',
-                mustBe: false
-            },
-            {
-                toTest: 'say% hello',
-                mustBe: true
-            },
-            {
-                toTest: 'sayñçhello',
-                mustBe: false
-            },
-            {
-                toTest: 'sayÑÇhello',
-                mustBe: false
-            },
-            {
-                toTest: 'sayÑ hello',
-                mustBe: false
-            },
-            {
-                toTest: 1,
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: '',
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: ' ',
-                mustBe: false
-            },
-            {
-                toTest: '\n',
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: '\t',
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: [],
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: {},
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: undefined,
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: null,
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: function () {
-                    return true
-                },
-                mustBe: 'ERROR: OUT of SPECS'
-            },
-            {
-                toTest: function () {
-                    return false
-                },
-                mustBe: 'ERROR: OUT of SPECS'
-            }
-        ];
-
-        for (var _input in scenario) {
-            sc = scenario[_input];
-            expect(hasSymbol(sc.toTest)).toBe(sc.mustBe);
-        }
-       
-        // TODO move following expectations to independent specs
-
-        // This is out of object because empty pair key.name and key.value is not accepted
-        //                               encapsulated key.value function not allowed in object.  
+describe('Function has-symbol', function () {
+    
+    var scenario = [
+                        { toTest: '%'          , mustBe : true  },
+                        { toTest: 's'          , mustBe : false },
+                        { toTest: 'say hello'  , mustBe : false },
+                        { toTest: 'say% hello' , mustBe : true  },
+                        { toTest: 'sayñçhello' , mustBe : false },
+                        { toTest: 'sayÑÇhello' , mustBe : false },
+                        { toTest: 'sayÑ hello' , mustBe : false },
+                        { toTest: ' '          , mustBe : false }
+                    ],
+        badData =   [ 
+                        { toTest: ''                        , mustBe: 0 },
+                        { toTest: undefined                 , mustBe: 0 },
+                        { toTest: null                      , mustBe: 0 },
+                        { toTest: []                        , mustBe: 0 },
+                        { toTest: function(){ return true;} , mustBe: 0 },
+                        { toTest: function(){ return false;}, mustBe: 0 },
+                        { toTest:  1                        , mustBe: 2 },
+                        { toTest: {}                        , mustBe: 2 },
+                        { toTest: '\n'                      , mustBe: 3 },
+                        { toTest: '\t'                      , mustBe: 3 }
+                    ],
+        errors =    [
+                     'No arguments provided.',
+                     'Only provide ONE argument.',
+                     'Argument provided must be a STRING primitive.',
+                     'New line, carriage return or tab not allowed.'
+                    ],        
+        sc;
+    
         
-        expect(hasSymbol()).toBe('ERROR: OUT of SPECS'); // TODO instead of returning a text, throw an error and add an spec fot this test.
 
-        expect(hasSymbol((function () { // TODO same as before, throw an error instead, and move it to its own spec.
-            return true
-        })())).toBe('ERROR: OUT of SPECS');
+    it( 'Basic test only, expects true or false', function(){
+        for( var _input in scenario ){
+            sc = scenario[ _input ];
+            expect( hasSymbol( sc.toTest )).toBe( sc.mustBe );
+        }
     });
+    
+    it( 'Error test, expects error message on bad arguments', function(){
+        
+        for( var _input in badData ){
+            sc = badData[ _input ];
+            expect( function(){ throw hasSymbol( sc.toTest ); } ).toThrow( new Error( errors[ sc.mustBe ] ));
+        }
+    });        
 });
