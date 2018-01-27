@@ -213,3 +213,76 @@ function flat(arr, newArray) {
 
 flat([1, 2, 3, [4, 5], 6]);
 flat([1, 2, [3, 4, [1, 2, [1, 2, 3]]], 5, 6]);
+
+
+// Exercises 28, 29
+
+/*
+### unionArray
+
+Write a JavaScript program to compute the union of two arrays.
+Sample Data :
+
+    console.log(unionArray([1, 2, 3], [100, 2, 1, 10]));
+    [1, 2, 3, 10, 100]
+
+### removeFalsy
+
+Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
+
+    Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+    Expected result : [15, -22, 47]
+
+*/
+
+/** 
+ * Function unionArray 
+ * Returns one numeric merged array without duplicated values.
+ * @param {array} first argument
+ * @param {array} second argument
+ * @returns {array} numeric values.
+ */
+ 
+ /**
+ * Function removeFalsy
+ * Returns one numeric array without empty,
+ * @param {array} first argument 
+ * @returns {array}  
+ */
+
+var unionArray, removeFalsy;
+
+(function(){
+'use strict'
+
+    unionArray = function(){
+        try{
+            if( !arguments || arguments.length === 0 || arguments.length > 2 || !(arguments[0] instanceof Array) || !(arguments[1] instanceof Array) ) throw new Error('OUT of SPECS.'); 
+        }catch(e){
+            return e;
+        }
+       
+       var result = arguments[0].concat( arguments[1] ).sort(function(a,b){ return a-b  });
+       var index = result.length;
+       
+        while( index-- ){
+            if( result[ index ] === result[ index-1 ] ) result.splice( index , 1 );
+        }
+        
+        return result;
+    };
+
+    removeFalsy = function(){
+        try{
+            if( !arguments || arguments.length === 0 || arguments.length > 1 || !(arguments[0] instanceof Array) ) throw new Error('OUT of SPECS.'); 
+        }catch(e){
+            return e;
+        }
+      
+        return arguments[0].filter( Number );
+    }
+
+})();
+
+console.log( "%cArray union function\n", "font-weight : bold;", "arguments : [1, 2, 3], [100, 2, 1, 10]\n Expected result : [1, 2, 3, 10, 100]\n Function result : " , union( [1, 2, 3], [100, 2, 1, 10] ) );
+console.log( "%cremoveFalsy function\n", "font-weight : bold;", "arguments : [NaN, 0, 15, false, -22, '',undefined, 47, null]\n Expected result : [15, -22, 47]\n Function result : " , removeFalsy( [NaN, 0, 15, false, -22, '',undefined, 47, null] ) );
