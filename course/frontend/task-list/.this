@@ -1,5 +1,5 @@
 {
-  "title": "Task List",
+  "title": "Task List (Vanilla JS)",
   "description": "Simple task list implemented in Vanilla JS.",
   "tags": [
     "js",
@@ -13,6 +13,5 @@
     "bubbling",
     "capturing"
   ],
-  "created": "2018-01-16T10:20:43.027Z",
-  "modified": "2018-01-26T10:39:51.938Z"
+  "created": "2018-01-26T10:39:51.938Z"
 }
