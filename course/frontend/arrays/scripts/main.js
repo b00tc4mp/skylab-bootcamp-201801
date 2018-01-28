@@ -315,6 +315,42 @@ function swapTheCase(word){
 
 console.log('swapTheCase(\'TesTing SWAPcase fUNcTion\') should result \'tEStING swapCASE FunCtION\' : ' + swapTheCase('TesTing SWAPcase fUNcTion'));
 
+
+//////////////////////////////////////////
+// Find Differences
+//////////////////////////////////////////
+
+function difference(array1, array2) {
+    var result =  array1.concat(array2).filter(function(val, index, arr){
+        return arr.indexOf(val) === arr.lastIndexOf(val);
+    });
+    return result;
+}
+
+
+  console.log(difference([1, 2, 3], [100, 2, 1, 10])); 
+  console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
+
+
+//////////////////////////////////////////
+// Sum and Product,
+//////////////////////////////////////////
+function sumArray(arr){
+    var sum=0;
+    var product = 1;
+    
+    for(var i=0;i<arr.length;i++){
+        sum=sum+arr[i];
+        product = product*arr[i];
+    }
+    return "Sum: "+sum+", product: "+product;
+}
+sumArray([1,3,4]);
+// we can test it also with reduce
+
+
 //6.Add items
 
 function addItemsIntoArray(){
@@ -343,4 +379,3 @@ function printArrayElements(arr){
 }
 
 console.log('printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]) should result row x and below inner elements for all rows: ' + '\n' + printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]));
-
