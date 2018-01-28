@@ -8,6 +8,6 @@ a.forEach(function(v) {
 
 // test string polyfills
 
-var s = 'hola mundo';
+var s = "hola mundo guay";
 
 console.log(s.singleQuotes());
