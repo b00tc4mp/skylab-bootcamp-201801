@@ -208,6 +208,80 @@ console.log("largestNumber([-5, -2, -6, 0, -1]) should return the largest of inp
 console.log("largestNumber([5, -2, 6, 100, -1]) should return the largest of input numbers =>", largestNumber([5, -2, 6, 100, -1]));
 
 
+/*### FizzBuzz
+Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".*/
+
+function fizzOrBuzz(){
+var result = '';
+for (var i = 1; i <= 100; i++){
+
+if (i%3 == 0 && i%5 == 0){
+    result += 'FizzBuzz\n';
+}
+else if (i%5 == 0){
+    result += 'Buzz\n';
+}
+else if (i%3 == 0){
+    result += 'Fizz\n';
+}
+else {
+    result += i + '\n';
+}}
+return result;
+}
+
+console.log('fizzOrBuzz() should return for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz" : \n ' + fizzOrBuzz());
+
+/*### contruct_pattern
+Write a JavaScript program to construct the following pattern, using a nested for loop. Go to the editor
+
+*  
+* *  
+* * *  
+* * * *  
+* * * * *
+```*/
+
+
+function constructPattern(){
+
+    var patt = '';
+    var patt2 = '';
+    
+    for (var i = 0; i < 5; i++) {
+        patt += '*';
+        for (var j = 0; j < 1; j++){
+            patt += ' ';
+            patt2 += patt + '\n';
+        }
+    }
+    return(patt2);
+    }
+    
+    
+    console.log('constructPattern() should result a tree of * with 5 rows : \n' + constructPattern());
+    
+
+/*
+### under_1000
+Write a JavaScript program to sum the multiples of 3 and 5 under 1000.*/
+
+function sumMultiplesOf3And5Under1000(){
+
+var sum = 0;
+
+for (i = 1; i <= 1000; i++){
+if (i%3 === 0 && i%5 === 0){
+	
+	sum += i;
+}
+}
+
+return (sum);
+}
+
+console.log('sumMultiplesOf3And5Under1000() should return the sum of  multiples of 3 and 5 under 1000 : ' + sumMultiplesOf3And5Under1000());
+
 // ### FizzBuzz
 function fizzBuzz(){
     for (var i = 1; i <= 100; i++) {

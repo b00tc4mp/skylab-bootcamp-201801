@@ -302,3 +302,33 @@ function removeFalsy(){
 }
 
 console.log( "%cremoveFalsy function\n", "font-weight : bold;", "arguments : [NaN, 0, 15, false, -22, '',undefined, 47, null]\n Expected result : [15, -22, 47]\n Function result : " , removeFalsy( [NaN, 0, 15, false, -22, '',undefined, 47, null] ) );
+
+function swapTheCase(word){
+
+    var result = '';
+
+    for (var i = 0; i < word.length; i++){
+    (word[i] === word[i].toUpperCase())? result += word[i].toLowerCase() : result += word[i].toUpperCase();    
+    }
+
+    return result;
+}
+
+console.log('swapTheCase(\'TesTing SWAPcase fUNcTion\') should result \'tEStING swapCASE FunCtION\' : ' + swapTheCase('TesTing SWAPcase fUNcTion'));
+
+
+
+function printArrayElements(arr){
+
+    var str = '';
+
+    for (var i = 0; i < arr.length; i++){
+        str += 'row ' + i + '\n';
+            for (var j = 0; j < arr[i].length; j++){
+                str += arr[i][j] + '\n';
+            }
+    }
+    return str;
+}
+
+console.log('printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]) should result row x and below inner elements for all rows: ' + '\n' + printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]));
