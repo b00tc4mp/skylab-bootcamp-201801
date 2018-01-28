@@ -1,0 +1,111 @@
+body {
+    background: #ededed;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+p {
+    font-size: 15px;
+    color: #777
+}
+
+main {
+    padding: 20px;
+}
+
+blockquote {
+    color: #777
+}
+
+hr {
+    border: 1px solid orange;
+}
+
+hr.section-divider {
+    border: 1px solid rgb(172, 172, 172)
+}
+
+header {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+figure {
+    float: left;
+    position: relative;
+    margin: 0;
+}
+
+figure img {
+    width: 140px;
+}
+
+header h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.person-info {
+    float: left;
+    position: relative;
+    margin-left: 10px;
+}
+
+section {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+aside {
+    float: right;
+    position: relative;
+    margin-right: 30px;
+}
+
+aside a {
+    display: block;
+    text-align: right;
+    line-height: 25px;
+}
+
+h3 {
+    color: orange;
+    font-weight: normal;
+    font-size: 15px;
+    float: left;
+    font-style: italic;
+    width: 25%;
+    height: 50px;
+}
+
+.section-works h3 {
+    height: 210px;
+}
+
+ul {
+    float: left;
+    margin-left: 0;
+    position: relative;
+    width: 22%;
+    padding-left: 0;
+}
+
+ul li {
+    list-style: none;
+    color: #777;
+    text-decoration: none;
+}
+
+ul li a,
+q {
+    color: #777;
+    text-decoration: none;
+}

@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+    background-color: skyblue;
+}
+
+main {
+    width: 100%;
+    height: 60%;
+    background-color: red;
+}
+
+aside {
+    width: 25%;
+    background-color: lightblue;
+    height: 100%;
+    float: left;
+}
+
+section {
+    width: 75%;
+    background-color: lightsteelblue;
+    height: 100%;
+    float: right;
+}
+
+footer {
+    width: 100%;
+    height: 20%;
+    background-color: cornflowerblue;
+}
