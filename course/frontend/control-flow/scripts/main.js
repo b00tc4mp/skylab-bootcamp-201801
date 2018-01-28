@@ -281,3 +281,33 @@ return (sum);
 }
 
 console.log('sumMultiplesOf3And5Under1000() should return the sum of  multiples of 3 and 5 under 1000 : ' + sumMultiplesOf3And5Under1000());
+
+// ### FizzBuzz
+function fizzBuzz(){
+    for (var i = 1; i <= 100; i++) {
+        if ( (i % 3 == 0) && (i % 5 == 0) ){
+            // divisible entre 3 y 5
+            console.log("FizzBuzz");
+        }else if (i % 3 == 0){
+            // divisible entre 3
+            console.log("Fizz");
+        }else if (i % 5 == 0){
+            // divisible entre 5
+            console.log("Buzz");
+        }else{
+            console.log(i);
+        }
+    }
+}
+fizzBuzz();
+
+
+// ### contruct_pattern
+function asterisk(){
+    var asterisk = result = "*";
+    for (var i = 0; i < 7; i++) {
+        console.log(result);
+        result += asterisk;
+    }
+}
+asterisk();
