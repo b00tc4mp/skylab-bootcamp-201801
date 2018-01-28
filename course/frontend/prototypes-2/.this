@@ -5,7 +5,8 @@
     "js",
     "prototype",
     "inheritance",
-    "__proto__"
+    "__proto__",
+    "challenge"
   ],
   "created": "2018-01-18T12:37:18.140Z"
 }

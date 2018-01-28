@@ -1,0 +1,20 @@
+/**
+ * Text tool
+ * 
+ * @version 1.0.0c
+ */
+
+function wrap(text, before, after) {
+  return (before || '') + text + (after || before || '');
+}
+
+function text(_text) {
+  return {
+    wrap: function (before, after) {
+      return text(wrap(_text, before, after));
+    },
+    toString: function () {
+      return _text;
+    }
+  };
+}
