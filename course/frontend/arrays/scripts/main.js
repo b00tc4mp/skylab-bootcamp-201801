@@ -112,7 +112,7 @@ function getNthLargest(arr,element){
         return a - b;
     })
 
-    return arr[element];
+    return arr[element - 1];
 
 }
 
