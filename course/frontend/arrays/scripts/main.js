@@ -304,7 +304,6 @@ function removeFalsy(){
 console.log( "%cremoveFalsy function\n", "font-weight : bold;", "arguments : [NaN, 0, 15, false, -22, '',undefined, 47, null]\n Expected result : [15, -22, 47]\n Function result : " , removeFalsy( [NaN, 0, 15, false, -22, '',undefined, 47, null] ) );
 
 function swapTheCase(word){
-
     var result = '';
 
     for (var i = 0; i < word.length; i++){
@@ -316,6 +315,18 @@ function swapTheCase(word){
 
 console.log('swapTheCase(\'TesTing SWAPcase fUNcTion\') should result \'tEStING swapCASE FunCtION\' : ' + swapTheCase('TesTing SWAPcase fUNcTion'));
 
+//6.Add items
+
+function addItemsIntoArray(){
+    var arrayPush=[];
+  
+    for(elem of arguments){
+		  arrayPush.push(elem);
+	  }
+  
+    return arrayPush;
+}
+console.log(addItemsIntoArray(2,4,6))
 
 
 function printArrayElements(arr){
@@ -332,3 +343,4 @@ function printArrayElements(arr){
 }
 
 console.log('printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]) should result row x and below inner elements for all rows: ' + '\n' + printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]));
+
