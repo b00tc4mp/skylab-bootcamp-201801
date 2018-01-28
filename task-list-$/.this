@@ -8,6 +8,7 @@
     "todo",
     "done",
     "jquery",
+    "$",
     "event",
     "bubbling",
     "capturing"
