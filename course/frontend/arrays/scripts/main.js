@@ -235,8 +235,8 @@ Sample Data :
 var unionArray;
 
 (function(){
-   unionArray = function(){
-     'use strict';   
+   'use strict'; 
+   unionArray = function(){  
      try{
          if( !arguments || arguments.length === 0 || arguments.length > 2 || !(arguments[0] instanceof Array) || !(arguments[1] instanceof Array) ) throw new Error('OUT of SPECS.'); 
      }catch(e){
@@ -271,8 +271,8 @@ Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' a
 var removeFalsy;
  
  (function(){    
-    removeFalsy = function(){
-      'use strict';    
+    'use strict';
+    removeFalsy = function(){    
       try{
          if( !arguments || arguments.length === 0 || arguments.length > 1 || !(arguments[0] instanceof Array) ) throw new Error('OUT of SPECS.'); 
       }catch(e){
