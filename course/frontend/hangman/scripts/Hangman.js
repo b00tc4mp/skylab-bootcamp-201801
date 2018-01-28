@@ -48,7 +48,7 @@ function Hangman(word, attemps) {
     var letterCount = 0;
     var gameOver = false;
     var win = false;
-    var foundALetter = false;
+    
     this.attemps = attemps;
     this.try = function (response) {
         if (!gameOver && !win) {
@@ -75,7 +75,7 @@ function Hangman(word, attemps) {
                 }
             } else {
                 //letra
-                foundALetter = false;
+                var foundALetter = false;
                 for (var i = 0; i < N; i++) {
                     if (responseUpper === wordArr[i]) {
                         board[i] = wordArr[i];
