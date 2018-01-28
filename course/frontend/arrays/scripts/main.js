@@ -379,3 +379,43 @@ function printArrayElements(arr){
 }
 
 console.log('printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]) should result row x and below inner elements for all rows: ' + '\n' + printArrayElements([[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]));
+
+/*
+arrayFilled (string)
+Write a JavaScript function to create a specified number of elements with pre-filled string value array.
+
+    Test Data :
+    console.log(arrayFilled(3, 'default value')); 
+    ["default value", "default value", "default value"]
+    console.log(arrayFilled(4, 'password'));
+    ["password", "password", "password", "password"]
+*/
+function arrayFilled(num, value) {
+    var result = [];
+    if (typeof num != "number") {
+        num = 0
+    }
+    for (var i = 0; i < num; i++) {
+        result[i] = value;
+    }
+    return result;
+}
+
+// TODO ADD testing cases!!!
+
+/*
+Sum squares
+Write a JavaScript program to find the sum of squares of a numeric vector.
+*/
+
+function sumSquares(numArr) {
+    var sum = 0;
+    for (var i = 0; i < numArr.length; i++) {
+        if (typeof numArr[i] == "number") {
+            sum += numArr[i] ** 2;
+        }
+    }
+    return sum;
+}
+
+// TODO ADD testing cases!!!
