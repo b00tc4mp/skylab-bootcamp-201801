@@ -93,6 +93,7 @@ console.log(2, 'female teacher should be a female teacher', femaleTeacher);
 console.log(3, 'teacher.greeting() should contain Mr...', teacher.greeting());
 console.log(3, 'femaleTeacher.greeting() should contain Mrs...', femaleTeacher.greeting());
 
+
 //CHALLENGE PROTOTYPE
 //Person
 function Person(firstName, lastName, age, gender, interests) {
