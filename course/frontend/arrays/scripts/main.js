@@ -213,3 +213,27 @@ function flat(arr, newArray) {
 
 flat([1, 2, 3, [4, 5], 6]);
 flat([1, 2, [3, 4, [1, 2, [1, 2, 3]]], 5, 6]);
+
+// 36- removeElement
+
+// Write a JavaScript function to remove a specific element from an array.
+
+function removeArrayElement(arr, el) {
+    var indexToRemove = arr.indexOf(el);
+    arr.splice(indexToRemove, 1);
+    return arr;
+
+}
+
+console.log(removeArrayElement([2, 5, 9, 6], 5));
+
+// 37- findArrayWithElement
+
+// Write a JavaScript function to find an array contains a specific element.
+
+function findArrayWithElement(arr, el) {
+  return arr.indexOf(el)!== -1 ? true : false;
+}
+
+console.log(findArrayWithElement([4, 6, 8, 10], 9));
+console.log(findArrayWithElement([4, 6, 8, 10], 4));
