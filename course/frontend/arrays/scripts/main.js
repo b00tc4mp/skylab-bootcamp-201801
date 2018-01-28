@@ -114,7 +114,7 @@ function duplicates(arr) {
 
 
 
-duplicates(["Alice", "John", "Maria", "John"])
+console.log('should duplicates(["Alice", "John", "Maria", "John"] return ["Alice", "John", "Maria"]', duplicates(["Alice", "John", "Maria", "John"]));
 
 
 //showChoice
