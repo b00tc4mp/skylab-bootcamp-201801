@@ -1,4 +1,4 @@
-describe('Function has-symbol', function () {
+describe('Function hasSymbol', function () {
     
     var scenario = [
                         { toTest: '%'          , mustBe : true  },
