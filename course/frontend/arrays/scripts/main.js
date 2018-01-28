@@ -98,20 +98,23 @@
 //Alex GR
 
 //removeDuplicate
-var duplicate = [];
 
 function duplicates(arr) {
+     var duplicate = [];
+  
     for (var i = 0; i < arr.length; i++) {
 
-        if (duplicate.indexOf(arr[i]) == -1) {
-
+      if (duplicate.indexOf(arr[i]) == -1) {
             duplicate.push(arr[i]);
         }
 
     }
     return duplicate;
 }
-duplicates(["Alice", "John", "Maria", "John"])
+
+
+
+console.log('should duplicates(["Alice", "John", "Maria", "John"] return ["Alice", "John", "Maria"]', duplicates(["Alice", "John", "Maria", "John"]));
 
 
 //showChoice
@@ -138,6 +141,30 @@ function showChoice(arr) {
     return chain;
 }
 console.log(showChoice(["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "]))
+
+/*Write a JavaScript script to empty an array keeping the original size.*/
+
+function emptyArray(arr){
+    arr.fill(null);
+    return arr.length;
+}
+
+console.log('38) emptyArray')
+console.log(emptyArray([1,2,3]));
+
+/*Write a JavaScript function to get nth largest element from an unsorted array.*/
+
+function getNthLargest(arr,element){
+    arr.sort(function(a,b){
+        return a - b;
+    })
+
+    return arr[element - 1];
+
+}
+
+console.log('39) getNthLargest');
+console.log(getNthLargest([ 43, 56, 23, 89, 88, 90, 99, 652], 4));
 
 
 /* 32 ### findPairSum
