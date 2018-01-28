@@ -1,0 +1,19 @@
+{
+  "title": "jQuery",
+  "description": "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.",
+  "tags": [
+    "js",
+    "jquery",
+    "$",
+    "dom",
+    "bom",
+    "queryselector",
+    "query",
+    "selector",
+    "css",
+    "behavior",
+    "click",
+    "class"
+  ],
+  "created": "2018-01-25T16:06:49.314Z"
+}
