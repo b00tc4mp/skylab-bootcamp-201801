@@ -119,6 +119,8 @@ Array.prototype.mostFrenquentItem = function (array) {
     return text;
 }
 
+// TODO ADD testing cases!
+
 /*moveElement
 Write a JavaScript function to move an 
 array element from one position to another.
@@ -129,3 +131,5 @@ Array.prototype.moveElement = function (array, index, pos) {
     array.splice(pos, 0, value[0]);
     return array;
 }
+
+// TODO ADD testing cases!
