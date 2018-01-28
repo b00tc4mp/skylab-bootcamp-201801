@@ -116,6 +116,8 @@ function arrayFilled(num, value) {
     return result;
 }
 
+// TODO ADD testing cases!!!
+
 /*
 Sum squares
 Write a JavaScript program to find the sum of squares of a numeric vector.
@@ -130,3 +132,5 @@ function sumSquares(numArr) {
     }
     return sum;
 }
+
+// TODO ADD testing cases!!!
