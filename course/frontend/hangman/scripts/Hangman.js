@@ -1,3 +1,75 @@
+function Hangman(word, attempts) {
+    var arrayWord = word.split("");
+    var numberOfLetters = arrayWord.length;
+
+    function preFilledArray(number, value) {
+        var arr = [];
+        for (var i = 0; i < number; i++) {
+            arr.push(value);
+        }
+        return arr;
+    }
+
+    
+    var win = "You have guessed the word, well done!";
+
+    var lose = "Sorry, you have not guessed... the correct word is " + word.toUpperCase() + '.';
+
+    var emptyWord = preFilledArray(numberOfLetters, "_");
+
+    this.try = function (letter) {
+        var numberOfTryLetters = letter.split("").length;
+        // if there is more than 1 letter, then we are trying to guess the complete word and call the function guessword
+        //   numberOfTryLetters > 1 ? guessWord(letter) : tryLetter(letter);
+
+        if (numberOfTryLetters > 1) {
+            if (letter === word) {
+                return win;
+            } else {
+                return lose;
+            }
+        } else {
+            tryLetter(letter);
+            return attempts + " " + emptyWord.join(" ");
+        }
+
+    };
+
+    function tryLetter(letter) {
+        if (arrayWord.includes(letter)) {
+            arrayWord.forEach(function (el, index) {
+                if (el.toUpperCase() === letter.toUpperCase()) {
+                    emptyWord[index] = letter.toUpperCase();
+                    //  return attempts + " " + emptyWord.join(" ");         
+                }
+
+            });
+        } else {
+            attempts--;
+
+            // return attempts + " " + emptyWord.join(" ");
+        }
+
+        //   console.log(attempts);
+        if (!emptyWord.includes("-")) {
+            return win;
+        }
+
+        if (attempts == 0) {
+            return lose;
+        }
+        //    console.log(attempts + " " + emptyWord.join(" "));  
+    }
+
+    function guessWord(letter) {
+        if (letter === word) {
+            return "GAME OVER";
+        } else {
+            return "GAME OVER";
+        }
+    }
+}
+
 function _Hangman(word, attemps) {
     var cadena = [];
     for (var i = 0; i < word.length; i++) {
@@ -161,10 +233,11 @@ function _Hangman(word, attempts) {
             return 'GAME OVER.'
         }
 
+// Upstream develop
     }
 }
 
-function Hangman(word, attemps) {
+function _Hangman(word, attemps) {
     var word = word.toLocaleLowerCase()
     if (word && attemps) {
         var correctLetters = []
