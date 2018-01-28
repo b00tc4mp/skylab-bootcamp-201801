@@ -1,4 +1,4 @@
-describe("Array", function() {
+describe("Array shuffle polyfill", function() {
   var array1;
 
   beforeEach(function() {
