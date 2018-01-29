@@ -1,0 +1,63 @@
+$main-color: lightgreen;
+$default-color: black;
+$active-color: yellow;
+
+@mixin round-border($radius, $style, $color) {
+    border: {
+        radius: $radius;
+        style: $style;
+        color: $color;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: $default-color;
+    @include round-border(10px, solid, $main-color);
+    height: 100% !important;
+    color: $main-color;
+    font-family: Courier New, Courier, monospace;
+    font-size: 16px;
+}
+
+button {
+    @include round-border(10px, solid, $main-color);
+    border-width: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: none;
+    padding: 10px;
+    background-color: transparent;
+    color: inherit;
+}
+
+button:hover {
+    background-color: $main-color;
+    color: $default-color;
+}
+
+button:active {
+    background-color: $active-color;
+    color: $default-color;
+    border-color: $active-color;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
