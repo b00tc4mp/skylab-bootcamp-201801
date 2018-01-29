@@ -18,8 +18,6 @@
 
 [What on Earth is Recursion? - Computerphile](https://www.youtube.com/watch?v=Mv9NEXX1VHc)
 
-## Training
-
 [Learn to code a to-do list app in JavaScript - Part 1](https://youtu.be/2wCpkOk2uCg)
 
 ## Advanced reading
@@ -27,3 +25,5 @@
 [The Right Way](http://jstherightway.org)
 
 [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
+
+[Implementing Memoization in JavaScript](https://www.sitepoint.com/implementing-memoization-in-javascript/)
