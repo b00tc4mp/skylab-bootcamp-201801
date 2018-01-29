@@ -1,0 +1,17 @@
+{
+  "title": "Hangman jQuery web",
+  "description": "Hangman game implemented in HTML with custom CSS, and presentation logic written in jQuery (challenge).",
+  "tags": [
+    "hangman",
+    "game",
+    "js",
+    "jquery",
+    "$",
+    "html",
+    "css",
+    "custom",
+    "web",
+    "challenge"
+  ],
+  "created": "2018-01-29T13:10:49.314Z"
+}

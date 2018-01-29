@@ -1,0 +1,44 @@
+@mixin format-border($color) {
+    border: {
+        radius: 10px;
+        color: $color;
+        width: 1px;
+    }
+}
+
+$padding-default: 10px;
+$padding-large: 20px;
+body {
+    background-color: white;
+    font: normal 14px courier, sans-serif
+}
+
+;
+.container {
+    padding: 25px;
+    position: fixed;
+}
+
+.form-login {
+    background-color: aquamarine;
+    padding-top: $padding-default;
+    padding-bottom: $padding-large;
+    padding-left: $padding-large;
+    padding-right: $padding-large;
+    @include format-border(black);
+}
+
+h4 {
+    border: 0 solid white;
+    border-bottom-width: 1px;
+    padding-bottom: $padding-default;
+    text-align: center;
+}
+
+.form-control {
+    @include format-border(grey);
+}
+
+.wrapper {
+    text-align: center;
+}
