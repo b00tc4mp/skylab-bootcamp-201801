@@ -1,4 +1,4 @@
-function gamePredator(word, attemps, gameWin, gameLost) {
+function HangmanPredator(word, attemps, gameWin, gameLost) {
     var word = word.toLocaleLowerCase()
     if (word && attemps) {
         var correctLetters = []

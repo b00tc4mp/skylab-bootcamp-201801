@@ -1,4 +1,4 @@
-var newGame
+var game
 var $noAnimation = $(".noAnimation");
 var $endGame = $(".endGame");
 var $endGameTitle = $("#endGameTitle");
@@ -21,12 +21,12 @@ function endGameWin() {
 }
 
 function startGame(word) {
-    newGame = new gamePredator(word, 10, endGameWin, endGameLost);
+    game = new HangmanPredator(word, 10, endGameWin, endGameLost);
     
     $noAnimation.children().addClass("hidden")
     $inGame.removeClass("hidden")
 
-    $myStatusTitleWord.text(newGame.print())
+    $myStatusTitleWord.text(game.print())
 }
 
 // Forms actions in Game
@@ -39,7 +39,7 @@ $(".initGame").submit(function (e) {
 $inGame.submit(function (e) {
     e.preventDefault();
     var tryIt = $inputInGame.val()
-    $myStatusTitleWord.text(newGame.try(tryIt))
+    $myStatusTitleWord.text(game.try(tryIt))
     $inputInGame.val("")
 })
 

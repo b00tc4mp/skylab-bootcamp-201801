@@ -1,5 +1,5 @@
 {
-  "title": "Basic jQuery template",
+  "title": "jQuery project template",
   "description": "Quickstart for projects based on HTML, CSS and jQuery.",
   "tags": [
     "js",
@@ -8,6 +8,7 @@
     "html",
     "css",
     "quickstart",
+    "project",
     "template",
     "base",
     "basic"
