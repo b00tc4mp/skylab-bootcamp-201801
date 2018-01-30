@@ -1,4 +1,5 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0; }
 
@@ -7,25 +8,33 @@ html {
 
 body {
   background-color: black;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: lightgreen;
   height: 100% !important;
-  color: lightgreen;
   font-family: Courier New, Courier, monospace;
-  font-size: 16px; }
+  font-size: 16px;
+  color: lightgreen; }
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border-color: lightgreen;
+  border-style: solid; }
 
 button {
+  background-color: transparent;
+  color: inherit;
+  border: none;
   border-radius: 10px;
-  border-style: solid;
   border-color: lightgreen;
-  border-width: 3px;
+  border-style: solid;
   font-family: inherit;
   font-size: inherit;
-  text-decoration: none;
   padding: 10px;
-  background-color: transparent;
-  color: inherit; }
+  cursor: pointer;
+  text-transform: uppercase; }
 
 button:hover {
   background-color: lightgreen;
@@ -36,12 +45,47 @@ button:active {
   color: black;
   border-color: yellow; }
 
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%; }
+input {
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  border-color: lightgreen;
+  border-style: solid;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 10px; }
+
+input::-webkit-input-placeholder {
+  color: lightgreen; }
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: lightgreen; }
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: lightgreen; }
+
+input:-ms-input-placeholder {
+  color: lightgreen; }
+
+ul {
+  display: inline-block;
+  border-radius: 10px;
+  border-color: lightgreen;
+  border-style: solid;
+  padding: 10px;
+  color: inherit;
+  text-align: center; }
+
+ul > li {
+  display: inline;
+  list-style-type: none; }
+
+form {
+  display: block;
+  float: right; }
 
 .hidden {
   display: none; }

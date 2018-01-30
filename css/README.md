@@ -16,6 +16,8 @@
 
 [Screen Fly](http://quirktools.com/screenfly/)
 
+[HOW TO CENTER IN CSS](http://howtocenterincss.com)
+
 # References
 
 [Evolution of CSS](https://www.slideshare.net/valicac/evolution-of-css)
