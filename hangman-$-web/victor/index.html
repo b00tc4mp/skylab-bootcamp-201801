@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>HangPredator</h1>
+            <img id='headerPredator' src="images/alien.png" alt="">
+        </section>
+    </header>
+    <main class='mainAnimation'>
+        <img class='alien' src="images/alien.gif" alt="">
+        <img class='predator' src="images/predator.png" alt="">
+    </main>
+
+    <main class='noAnimation'>
+        <form class='initGame'>
+            <h1>Insert a word to play in HangPredator</h1>
+            <input id="initWorldGame" type="text">
+            <button type="submit">DONE!</button>
+        </form>
+        <form class='inGame hidden'>
+            <h1 id="myStatusTitleWord"></h1>
+            <input id="inputInGame" type="text">
+            <button type="submit">Try...</button>
+        </form>
+        <section class='endGame hidden'>
+                <h1 id="endGameTitle"></h1>
+                <button id= 'replayButton' type="submit">Replay</button>
+        </section>
+    </main>
+
+
+
+
+
+
+    <script src="vendor/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/HangmanPredator.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
