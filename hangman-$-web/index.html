@@ -10,16 +10,42 @@
 </head>
 
 <body>
-    <section class="hidden">
-        <p>Wellcome to Hangman!</p>
-        <button>Play!</button>
+    <section class="_hidden">
+        <form>Wellcome to Hangman, game!
+            <button type="submit">Play!</button>
+        </form>
     </section>
-    <section class="hidden">
-        <p>Wellcome to Hangman!</p>
-        <button>Play!</button>
+    <section class="_hidden">
+        <form>
+            <input type="text" placeholder="Number of attemps?">
+            <input type="text" placeholder="Word?">
+            <button>Go!</button>
+        </form>
     </section>
-    <script src="vendor/jquery/3.3.1/jquery-3.3.1.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <section class="_hidden">
+        <form>
+            You have 9 attemps...
+            <ul>
+                <li>H</li>
+                <li>_</li>
+                <li>L</li>
+                <li>L</li>
+                <li>O</li>
+            </ul>
+            <input type="text" placeholder="Guess?">
+            <button>Try!</button>
+        </form>
+    </section>
+    <section class="_hidden">
+        <form>Well done! You guessed the word! :)
+            <button type="submit">Play again!</button>
+        </form>
+    </section>
+    <section class="_hidden">
+        <form>Sorry! You have not guessed the word! :(
+            <button type="submit">Play again!</button>
+        </form>
+    </section>
 </body>
 
 </html>
