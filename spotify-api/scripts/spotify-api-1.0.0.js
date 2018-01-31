@@ -52,7 +52,7 @@ var spotifyApi;
      * @param {Function} handleError - Handles an error.
      */
     retrieveAlbums: function(artistId, handleResults, handleError) {
-      call( 
+      call(
         this.baseUrl + "artists/" + artistId + "/albums",
         this.token,
         function(results) {
@@ -70,8 +70,19 @@ var spotifyApi;
      * @param {Function} handleResults - Handles the results.
      * @param {Function} handleError - Handles an error.
      */
-    retrieveTracks: function(artistId, handleResults, handleError) {
-      // TODO
+    retrieveTracks: function(albumId, handleResults, handleError) {
+      // TODO implement album's tracks retrieval by means of endpoint https://api.spotify.com/v1/albums/{id}/tracks
+    },
+
+    /**
+     * Retrieve track by id.
+     *
+     * @param {String} id - The id of the track to retrieve information from.
+     * @param {Function} handleResults - Handles the results.
+     * @param {Function} handleError - Handles an error.
+     */
+    retrieveTracks: function(id, handleResults, handleError) {
+      // TODO implement track information retrieval by means of endpoint https://api.spotify.com/v1/tracks/{id}
     }
   };
 })();
