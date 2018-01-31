@@ -16,7 +16,7 @@ describe("Beers API", function() {
       );
     });
 
-    it("should get beers on search", function() {
+    it("should get results on search", function() {
       expect(beers).not.toBeUndefined();
 
       expect(beers.length > 0).toBeTruthy();

@@ -2,6 +2,7 @@
   "title": "Beers API client",
   "description": "AJAX client abstraction component of Beers API.",
   "tags": [
+    "beers",
     "js",
     "jquery",
     "$",
