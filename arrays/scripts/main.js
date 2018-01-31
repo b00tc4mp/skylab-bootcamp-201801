@@ -459,3 +459,42 @@ function sumSquares(numArr) {
 }
 
 // TODO ADD testing cases!!!
+
+//###12 mergeArrays
+
+//Write a JavaScript function to merge two arrays and removes all duplicates elements.
+
+/*Test data :
+var array1 = [1, 2, 3];
+var array2 = [2, 30, 1];
+console.log(merge_array(array1, array2));
+[3, 2, 30, 1]*/
+
+function mergeArray(arr1, arr2) {
+    var arr3 = [];
+    arr1 = arr1.concat(arr2);
+    for (var i = 0; i < arr1.length; i++) {
+        if (arr3.indexOf(arr1[i]) === -1) {
+            arr3.push(arr1[i]);
+        }
+    }
+    return arr3;
+}
+mergeArray([1, 2, 3], [2, 30, 1])
+
+/******************************************/
+
+//###13 separateEven
+
+//Write a JavaScript program which accept a number as input and insert dashes(-) between each two even numbers.
+//For example if you accept 025468 the output should be 0 - 254 - 6 - 8.
+
+function separateEven(num) {
+    var str = num.toString();
+    var result = [str[0]];
+    for (var i = 1; i < str.length; i++) {
+        ((str[i - 1] % 2 === 0) && (str[i] % 2 === 0)) ? result.push('-', str[i]) : result.push(str[i]);
+    }
+    console.log(result.join(''));
+}
+separateEven(025468)
