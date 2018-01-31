@@ -1,0 +1,18 @@
+{
+  "title": "Beers client App",
+  "description": "Web client application for searching beers by means of AJAX through JSON API.",
+  "tags": [
+    "bs",
+    "bootstrap",
+    "css",
+    "jquery",
+    "$",
+    "project",
+    "beers",
+    "client",
+    "app",
+    "ajax",
+    "api"
+  ],
+  "created": "2018-01-30T16:45:23.148Z"
+}

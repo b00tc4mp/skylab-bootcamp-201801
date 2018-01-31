@@ -1,0 +1,15 @@
+{
+  "title": "Spotify API client",
+  "description": "AJAX client abstraction component of Spotify API.",
+  "tags": [
+    "spotify",
+    "js",
+    "jquery",
+    "$",
+    "ajax",
+    "api",
+    "client",
+    "component"
+  ],
+  "created": "2018-01-31T17:32:49.314Z"
+}
