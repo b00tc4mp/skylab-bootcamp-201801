@@ -1,0 +1,20 @@
+{
+  "title": "Inline calculator (challenge)",
+  "description": "Resolves basic math operations inline by means of method chaining design.",
+  "tags": [
+    "js",
+    "vanilla",
+    "inline",
+    "calculator",
+    "calc",
+    "challenge",
+    "method",
+    "chain",
+    "chaining",
+    "design",
+    "pattern",
+    "function",
+    "tool"
+  ],
+  "created": "2018-01-31T12:40:43.027Z"
+}
