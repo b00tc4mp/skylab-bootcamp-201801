@@ -27,7 +27,7 @@ var spotifyApi;
 
     /**
      * Searches artists by matching a text.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/console/get-search-item/
      *
      * @param {String} query - The text to search.
@@ -48,7 +48,7 @@ var spotifyApi;
 
     /**
      * Retrieve albums from an artist (by artist id).
-     * 
+     *
      * @see https://developer.spotify.com/web-api/console/get-artist-albums/
      *
      * @param {String} artistId - The id of the artist to retrieve the albums from.
@@ -69,7 +69,7 @@ var spotifyApi;
 
     /**
      * Retrieve tracks from an album (by album id).
-     * 
+     *
      * @see https://developer.spotify.com/web-api/console/get-album-tracks/
      *
      * @param {String} albumId - The id of the album to retrieve the tracks from.
@@ -77,12 +77,20 @@ var spotifyApi;
      * @param {Function} handleError - Handles an error.
      */
     retrieveTracks: function(albumId, handleResults, handleError) {
-      // TODO implement album's tracks retrieval by means of endpoint https://api.spotify.com/v1/albums/{id}/tracks
+      call(
+        this.baseUrl + "albums/" + albumId + "/tracks",
+        this.token,
+        function(results) {
+          handleResults(results.items);
+        },
+        handleError,
+        this.timeout
+      );
     },
 
     /**
      * Retrieve track by id.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/console/get-track/
      *
      * @param {String} id - The id of the track to retrieve information from.
