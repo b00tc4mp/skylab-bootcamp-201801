@@ -1,6 +1,6 @@
 {
   "title": "Hangman",
-  "description": "The Hangman game's logic.",
+  "description": "The Hangman game's logic (challenge).",
   "tags": [
     "js",
     "game",
