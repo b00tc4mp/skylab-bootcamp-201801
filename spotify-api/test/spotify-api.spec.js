@@ -1,4 +1,9 @@
 describe("Spotify API", function() {
+  beforeEach(function() {
+    spotifyApi.token =
+      "BQB9jM-R2ggfuz5VwExC21rCU0lY6-_fScopU8sraMGWp0M9yqlNSPmxC7rKyWiw_qM2KPBpraT6rcQboWZhaAw7I0I6A3Z2zkn2y8qiGJBB9eCagtjDltIoOmmcG7mwiXcPDnt7sO3GLfg";
+  });
+
   describe("search artists", function() {
     var artists;
 
@@ -44,6 +49,30 @@ describe("Spotify API", function() {
       expect(albums).not.toBeUndefined();
 
       expect(albums.length > 0).toBeTruthy();
+    });
+  });
+
+  describe("retrieve track", function() {
+    var track;
+
+    beforeEach(function(done) {
+      spotifyApi.retrieveTrack(
+        "4bs4s1VuZInTSdQksBdRfL",
+        function(_track) {
+          track = _track;
+
+          done();
+        },
+        function(error) {
+          done();
+        }
+      );
+    });
+
+    it("should get item on retrieve", function() {
+      expect(track).not.toBeUndefined();
+
+      expect(track.name).not.toBeUndefined();
     });
   });
 });
