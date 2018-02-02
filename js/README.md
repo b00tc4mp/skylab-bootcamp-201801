@@ -12,8 +12,26 @@
 
 [30 Day Vanilla JS Coding Challenge](https://javascript30.com)
 
-# Advanced reading
+## Videos
+
+[Recursion - Part 7 of Functional Programming in JavaScript](https://www.youtube.com/watch?v=k7-N8R0-KY4&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=7)
+
+[What on Earth is Recursion? - Computerphile](https://www.youtube.com/watch?v=Mv9NEXX1VHc)
+
+[Learn to code a to-do list app in JavaScript - Part 1](https://youtu.be/2wCpkOk2uCg)
+
+## Advanced reading
 
 [The Right Way](http://jstherightway.org)
 
 [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
+
+[Implementing Memoization in JavaScript](https://www.sitepoint.com/implementing-memoization-in-javascript/)
+
+# How to customize the console log output
+
+```js
+// sample
+
+console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
+```
