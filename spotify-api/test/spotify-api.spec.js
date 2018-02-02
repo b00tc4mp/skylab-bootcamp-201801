@@ -1,7 +1,7 @@
 describe("Spotify API", function() {
   beforeEach(function() {
     spotifyApi.token =
-      "BQB9jM-R2ggfuz5VwExC21rCU0lY6-_fScopU8sraMGWp0M9yqlNSPmxC7rKyWiw_qM2KPBpraT6rcQboWZhaAw7I0I6A3Z2zkn2y8qiGJBB9eCagtjDltIoOmmcG7mwiXcPDnt7sO3GLfg";
+      "BQDFceRaJ09Lm0fIlOXdCyo3_JOFSsrOXSUHdppYcPiS_w8o55QErZZtl6XSS2GIFQUSTpHEngeaCbrHprjleqYSKbAicjnhEXGflyv-HmTFQEVG9S9qjoDa-vkD-xuEt3q3WW_cszWbHjQ";
   });
 
   describe("search artists", function() {
@@ -49,6 +49,30 @@ describe("Spotify API", function() {
       expect(albums).not.toBeUndefined();
 
       expect(albums.length > 0).toBeTruthy();
+    });
+  });
+
+  describe("retrieve tracks", function() {
+    var tracks;
+
+    beforeEach(function(done) {
+      spotifyApi.retrieveTracks(
+        "391y4N0CepQ4aH3KdL0lPh",
+        function(_albums) {
+          tracks = _albums;
+
+          done();
+        },
+        function(error) {
+          done();
+        }
+      );
+    });
+
+    it("should get items on retrieve", function() {
+      expect(tracks).not.toBeUndefined();
+
+      expect(tracks.length > 0).toBeTruthy();
     });
   });
 
