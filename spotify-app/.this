@@ -1,0 +1,21 @@
+{
+  "title": "Spotify client App",
+  "description": "Web client application for searching artists, albums, and tracks, by means of AJAX through Spotify JSON API.",
+  "tags": [
+    "bs",
+    "bootstrap",
+    "css",
+    "jquery",
+    "$",
+    "project",
+    "spotify",
+    "client",
+    "app",
+    "ajax",
+    "api",
+    "artists",
+    "albums",
+    "tracks"
+  ],
+  "created": "2018-02-01T09:15:23.148Z"
+}

@@ -1,0 +1,116 @@
+$main-color: lightgreen;
+$main-back-color: black;
+$hover-color: $main-color;
+$hover-color-text: $main-back-color;
+$active-color: yellow;
+$active-color-text: $hover-color-text;
+$active-color-border: $active-color;
+$default-padding: 10px;
+
+@mixin round-border($radius, $style, $color) {
+  border: {
+    radius: $radius;
+    color: $color;
+    style: $style;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $main-back-color;
+  height: 100% !important;
+  font-family: Courier New, Courier, monospace;
+  font-size: 16px;
+  color: $main-color;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @include round-border(10px, solid, $main-color);
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  @include round-border(10px, solid, $main-color);
+  font-family: inherit;
+  font-size: inherit;
+  padding: $default-padding;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: $hover-color;
+  color: $hover-color-text;
+}
+
+button:active {
+  background-color: $active-color;
+  color: $active-color-text;
+  border-color: $active-color-border;
+}
+
+input {
+  background-color: $main-back-color;
+  border: none;
+  @include round-border(10px, solid, $main-color);
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: $default-padding;
+}
+
+input::-webkit-input-placeholder {
+  color: $main-color;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: $main-color;
+}
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $main-color;
+}
+
+input:-ms-input-placeholder {
+  color: $main-color;
+}
+
+ul {
+  display: inline-block;
+  @include round-border(10px, solid, $main-color);
+  padding: $default-padding;
+  color: inherit;
+  text-align: center;
+}
+
+ul > li {
+  display: inline;
+  list-style-type: none;
+}
+
+form {
+  display: block;
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
