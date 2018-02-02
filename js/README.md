@@ -27,3 +27,11 @@
 [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
 
 [Implementing Memoization in JavaScript](https://www.sitepoint.com/implementing-memoization-in-javascript/)
+
+# How to customize the console log output
+
+```js
+// sample
+
+console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
+```
