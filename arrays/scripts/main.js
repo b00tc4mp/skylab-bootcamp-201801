@@ -480,7 +480,8 @@ function mergeArray(arr1, arr2) {
     }
     return arr3;
 }
-mergeArray([1, 2, 3], [2, 30, 1])
+
+console.log(mergeArray([1, 2, 3], [2, 30, 1]));
 
 /******************************************/
 
@@ -497,4 +498,5 @@ function separateEven(num) {
     }
     console.log(result.join(''));
 }
-separateEven(025468)
+
+console.log(separateEven(025468));
