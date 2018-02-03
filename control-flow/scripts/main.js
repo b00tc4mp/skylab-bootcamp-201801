@@ -11,7 +11,6 @@ function largerInteger(num1, num2) {
 
 console.log('largerInteger should result 56 for inputs -34 and 56 =>', largerInteger(-34, 56));
 console.log('largerInteger should result -34 for inputs -34 and -56 =>', largerInteger(-34, -56));
-console.log('largerInteger should result -34 for inputs -34 and -56 =>', largerInteger(-34, -56));
 
 function _signProduct() {
     var isPositive = true;
