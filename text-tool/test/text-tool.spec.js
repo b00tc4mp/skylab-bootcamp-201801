@@ -17,8 +17,6 @@ describe("Text tool", function () {
 		expect(res).toEqual('#<{[$SOMETHING$]}>#');
 	});
 
-	// v2.0.0.0js +
-
 	it('should wrap and doOnChars and provide String methods', function () {
 		var res = text('something').wrap('$').wrap('[', ']').wrap('{', '}').wrap('<', '>').wrap('#').doOnChars().toString();
 
