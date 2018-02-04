@@ -3,26 +3,28 @@
  *
  * @version 1.0.0
  */
-var spotifyApi;
+
+
+
+let spotifyApi;
 (function () {
     "use strict";
 
+
+
     function call(url, token, handleSuccess, handleError, timeout) {
-        $.ajax({
-            url: url,
-            headers: { Authorization: "Bearer " + token },
-            timeout: timeout,
-            success: handleSuccess,
-            error: handleError
-        });
+
+        const headers = { Authorization: 'Bearer ' + token }
+        fetch(url, { headers })
+
+            .then(res => res.json())
+            .then(data => handleSuccess(data))
+            .catch(err => handleError(err))
     }
 
     spotifyApi = {
         baseUrl: "https://api.spotify.com/v1/",
-
-        token:
-            "BQDvbTj4Ih98WQBUy7JblKTEtCMLQ3qjmwJ_IdJstSOinpKKgc82Xb19ZPzIY8BSz-xAbIoG_NILnQtwKWvE0nVvoF61mu2JPznmxAN7iu_Gd3d5qolSI4Tff54yaZZlKRPCNvQ",
-
+        token: 'BQD5FkroFmek9HI1y7TOGFmp35zeYWlHqZ5mrCEDv1lo-Lky6I8_DDqcNfEZP8KnBP92iLehq4GMUMbo4hdh82SRQB5vtV-simMt2ibL41k7W7vMOjQSs7cd-0rsINYMvmFMnqA',
         timeout: 2000,
 
         /**
@@ -74,13 +76,13 @@ var spotifyApi;
             // TODO
             call(
                 this.baseUrl + "albums/" + albumId + "/tracks",
-                    this.token,
-                    function (results) {
-                        handleResults(results.items);
-                    },
-                    handleError,
-                    this.timeout
-                )        
+                this.token,
+                function (results) {
+                    handleResults(results.items);
+                },
+                handleError,
+                this.timeout
+            )
         },
 
         /**
