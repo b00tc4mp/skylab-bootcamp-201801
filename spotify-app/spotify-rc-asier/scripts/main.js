@@ -26,8 +26,8 @@ $(document).ready(function () {
     function listResult(artists) {
 
         $("#listArtists").empty();
-        
-    // if search doesn't return results, show error message  
+
+        // if search doesn't return results, show error message  
 
         if (artists.length < 1) {
             showError();
@@ -56,7 +56,7 @@ $(document).ready(function () {
     $(document).on('click', '#artistListed', function (e) {
         e.preventDefault();
         var artistId = $(this).attr("data-id");
-        
+
         $("#listArtists").hide();
 
         spotifyApi.retrieveAlbums(artistId, listAlbums, showError);
@@ -69,13 +69,13 @@ $(document).ready(function () {
 
         $(document).on('click', '#backToArtists', function (e) {
             e.preventDefault();
-            
+
             $("#listAlbums, #error, #backToArtists").hide();
             $("#listArtists").show();
 
         });
 
-        
+
         albums.forEach(function (album) {
 
             if (album.images.length < 1) {
@@ -104,9 +104,10 @@ $(document).ready(function () {
         var albumName = $(this).attr("data-name");
 
         $('.modal-body').css('background-image', 'url("' + albumImage + '")');
+        $(".modal-title").empty();
         $(".modal-title").append(albumName);
 
-        
+
         spotifyApi.retrieveTracks(albumId, listSongs, showError);
     });
 
