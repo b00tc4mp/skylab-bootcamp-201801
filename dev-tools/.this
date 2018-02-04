@@ -1,8 +1,8 @@
 {
-  "title": "Web Development Tools",
-  "description": "Web Development Tools and Resources for 2018.",
+  "title": "Development Tools",
+  "description": "Development tools and resources.",
   "tags": [
-    "web",
+    "dev",
     "development",
     "tool",
     "tools",
@@ -14,6 +14,7 @@
     "editor",
     "command-line",
     "vsc",
+    "visual-studio-code",
     "sublime",
     "html",
     "js",
