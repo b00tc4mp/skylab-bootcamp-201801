@@ -41,7 +41,6 @@ class HangPredator {
             this.status = true
             return this.getStatus()
         }
-
         this.attemps--;
         this.status = false
         return this.getStatus()
