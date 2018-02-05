@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/ebf5cda297.js"></script>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <header>
+        <img class="img-fluid" src="images/Spotify_Logo_RGB_White.png">
+    </header>
+
+    <div class="container-fluid pb-2 pt-4 section-info">
+        <p>Discover your favorite artists...</p>
+    </div>
+
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col">
+                <form>
+                    <input class="search-field" id="search-field" type="text" name="s" value="" aria-required="false" autocomplete="off" placeholder="Search&hellip;" />
+                    <button class="search-submit"><span class="screen-reader-text">Search</span><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <section class="section-artists">
+        <div class="row card-columns">
+        </div>
+    </section>
+
+    <section class="section-album" style="display:none">
+        <div class="row titles">
+            <div class="col p-2">
+            </div>
+        </div>
+        <div class="row gallery card-columns">
+        </div>
+    </section>    
+
+    <section class="section-tracks" style="display:none;">
+        <div class="row tracks">
+            <div class="col p-4">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-track" style="display:none;">
+        <div class="row">
+            <div class="col p-4 d-flex align-items-center justify-content-center">
+                <span class="text-white play">play</span>
+                <span class="text-white"> | </span>
+                <span class="text-white pause">pause</span>
+                <audio class="d-none" id='music' controls>
+                </audio>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="vendor/pooper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="script/spoty-api-1.0.0.js"></script>
+    <script src="script/main.js"></script>
+</body>
+
+</html>
