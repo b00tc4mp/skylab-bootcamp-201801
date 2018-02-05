@@ -22,12 +22,11 @@ $form.submit(function (e) {
 //API-CLIENT
 function getArtistFromAPI(query, type) {
     spotiApi.getArtists(query, type)
-    .then(res => res.artists.items)
-    .then(res => {
-        $mainBox.html(addArtistTemplate(res))
-        addEventsClickOnCardsArtist();
-    })
-    .catch(err => console.error("err -->", err))
+        .then(artists => {
+            $mainBox.html(addArtistTemplate(artists))
+            addEventsClickOnCardsArtist();
+        })
+        .catch(err => console.error("err -->", err))
 }
 
 function addEventsClickOnCardsArtist() {
@@ -44,13 +43,12 @@ function addEventsClickOnCardsArtist() {
 
 function getAlbumsFromIdArtist(id) {
     spotiApi.getAlbums(id)
-    .then(res => res.items)
-    .then(res => {
-        console.log(res)
-        $albumBox.html(addAlbumTemplate(res));
-        addEventClickAlbumArtis();
-    })
-    .catch(err => console.error("err -->", err))
+        .then(albums => {
+            console.log(albums)
+            $albumBox.html(addAlbumTemplate(albums));
+            addEventClickAlbumArtis();
+        })
+        .catch(err => console.error("err -->", err))
 }
 
 function addEventClickAlbumArtis() {
@@ -62,13 +60,12 @@ function addEventClickAlbumArtis() {
 
 function getAllTraksFromAlbum(id) {
     spotiApi.getTraks(id)
-    .then(res => res.items)
-    .then(res => {
-        console.log(res)
-        $('#modal').html(addTraksTemplate(res))
-        $('.modal-trak').modal('show')
-    })
-    .catch(err => console.error("err -->", err))
+        .then(tracks => {
+            console.log(tracks)
+            $('#modal').html(addTraksTemplate(tracks))
+            $('.modal-trak').modal('show')
+        })
+        .catch(err => console.error("err -->", err))
 }
 
 //Functions Content jQuery
@@ -85,7 +82,7 @@ function goToPosition(divid) {
     }, 'slow');
 }
 
-$('button').on('click',  () => {
+$('button').on('click', () => {
     goToPosition($input)
     $albumBox.addClass("hidden")
     $('button').addClass('hidden')

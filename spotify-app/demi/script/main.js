@@ -1,6 +1,6 @@
 "use strict";
 
-var token = "BQCjEfCuo2da52gFfGpGqdL6mLx2qqLB2jJazdFpzEFP4Dvur9JO9B8-kbnE72yxAdotCA36rbzPlTs-eTKYHdQgpt6OTaaNs3AZnu8GA5JTfluXgp9Zl5bKKlCMB5v2uCQsZ6Co7nW7ujs"
+var token = "BQC7gVrjIfVrm0QdpZWHmAppJZ_ppamf0mgewKvPZg17QOGYkyoHz4VNewAnoydsaBaFbvEfhDs9GnU6WfT-znfTFlEUjlzgnLatBnRk9vpqN3IZVopJzOAQd42FriykyrjTLsxEEuWnibM"
 
 $('form').submit(function (e) {
 

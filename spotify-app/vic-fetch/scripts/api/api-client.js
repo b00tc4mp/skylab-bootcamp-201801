@@ -1,25 +1,35 @@
-const FETCH_TIMEOUT = 3000
 const spotiApi = {
 	baseURL: "https://api.spotify.com/v1/",
 
-	token: "BQCE_IS_xznlK4Ga4yyBewF4Mc17iWQvgTjDdZcL2XtP2udbTf_99pVfLhmh5lgtnP1sGqZ03Wtpe1VNjXTsnqryq4jPKAyAIyHMZbwo-SYDH2W676f5Lzqx1P7LK4qE9rxFwAXYoSk6XaO_r-98K5-pWE-vbnne-ycVkQ",
+	token: "BQC7gVrjIfVrm0QdpZWHmAppJZ_ppamf0mgewKvPZg17QOGYkyoHz4VNewAnoydsaBaFbvEfhDs9GnU6WfT-znfTFlEUjlzgnLatBnRk9vpqN3IZVopJzOAQd42FriykyrjTLsxEEuWnibM",
 
-	call: function (_PATH, _header) {
-		return new Promise(function (resolve, reject) {
+	getHeaders: function() {
+		return {
+			headers: {
+				'Authorization': 'Bearer ' + this.token
+			}
+		}
+	},
+
+	timeout: 2000,
+
+	call: function (_PATH) {
+		return new Promise((resolve, reject) => {
 				const timeout = setTimeout(function () {
 					reject(new Error('Request timed out'));
-				}, FETCH_TIMEOUT);
+				}, this.timeout);
 
-				fetch(_PATH, _header)
+				fetch(_PATH, this.getHeaders())
 					.then(res => {
 						clearTimeout(timeout);
-						return resolve(res);
+
+						return res.json();
 					})
+					.then(data => resolve(data))
 					.catch(function (err) {
 						reject(err);
 					})
 			})
-			.then(res => res.json())
 			.catch(err => {
 				throw new Error(err)
 			})
@@ -27,29 +37,19 @@ const spotiApi = {
 
 	getArtists: function (query, type) {
 		let path = this.baseURL + "search?q=" + query + "&type=" + type;
-		const header = {
-			headers: {
-				'Authorization': 'Bearer ' + this.token
-			}
-		}
-		return this.call(path, header)
+		
+		return this.call(path).then(res =>  res.artists.items)
 	},
+
 	getAlbums: function (id) {
 		let path = this.baseURL + 'artists/' + id + "/albums";
-		const header = {
-			headers: {
-				'Authorization': 'Bearer ' + this.token
-			}
-		}
-		return this.call(path, header)
+		
+		return this.call(path).then(res =>  res.items)
 	},
+
 	getTraks: function (id) {
 		let path = this.baseURL + "albums/" + id + "/tracks"
-		const header = {
-			headers: {
-				'Authorization': 'Bearer ' + this.token
-			}
-		}
-		return this.call(path, header)
+
+		return this.call(path).then(res =>  res.items)
 	}
 }

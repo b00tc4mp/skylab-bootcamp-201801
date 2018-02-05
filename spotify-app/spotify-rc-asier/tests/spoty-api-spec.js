@@ -1,7 +1,7 @@
 describe('Spotify API', function () {
     
     beforeEach(function () {
-        spotifyApi.token = 'BQD5FkroFmek9HI1y7TOGFmp35zeYWlHqZ5mrCEDv1lo-Lky6I8_DDqcNfEZP8KnBP92iLehq4GMUMbo4hdh82SRQB5vtV-simMt2ibL41k7W7vMOjQSs7cd-0rsINYMvmFMnqA';
+        spotifyApi.token = 'BQC7gVrjIfVrm0QdpZWHmAppJZ_ppamf0mgewKvPZg17QOGYkyoHz4VNewAnoydsaBaFbvEfhDs9GnU6WfT-znfTFlEUjlzgnLatBnRk9vpqN3IZVopJzOAQd42FriykyrjTLsxEEuWnibM';
     });
 
     describe("search artists", function () {

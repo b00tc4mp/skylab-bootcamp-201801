@@ -37,7 +37,7 @@ $(document).ready(function () {
         artists.forEach(artist => {
 
             if (artist.images.length < 1) {
-                $("#listArtists").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="artistListed"  data-id="' + artist.id + '"  > <img class="card-img-top img-fluid" src="https://pixabay.com/get/eb32b40f20fd033ed1584d05fb0938c9bd22ffd41cb0164792f3c17ea3/singing-2750892_1280.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Albums</span></div></div></a></div></div>');
+                $("#listArtists").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="artistListed"  data-id="' + artist.id + '"  > <img class="card-img-top img-fluid" src="img/noImage.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Albums</span></div></div></a></div></div>');
 
             } else {
 
