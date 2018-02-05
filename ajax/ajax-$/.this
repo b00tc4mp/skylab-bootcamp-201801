@@ -6,7 +6,8 @@
     "jquery",
     "$",
     "basic",
-    "ajax"
+    "ajax",
+    "xhr"
   ],
   "created": "2018-01-26T15:25:49.314Z"
 }
