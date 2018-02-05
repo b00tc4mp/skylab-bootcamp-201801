@@ -1,5 +1,6 @@
+// SEE https://developer.spotify.com/web-api/console/get-search-item/
 const url = 'https://api.spotify.com/v1/search?q=madonna&type=artist'
-const token = 'BQDzmNyF-05ihJ4EELuLBvm5rgyFImKCIc3b6XR8J6jpjvifpoyb7iIIN8z0xAtFqvoPcvJV-28cM7yC4X8HC6ygcewj76MUV7Q7x8UoTaC7YBMLCNjhFuMCsOn-3eZe7MFdYf4BLh9l5Lo' // SEE https://developer.spotify.com/web-api/console/get-search-item/
+const token = 'BQA0IbqTIM6Wi9uGpbHJ5XseA139I8bv1VottB2hiYGBEj0cIoBLA6UiFJ8uflJI_JuHAeFw68EqL2TQoOShHWSIHKp-YGbDllqjIYl2FL80Xu80NaDi6QDCZUBpPi-1JbjbYQwmLIUKAQQ'
 const headers = { Authorization: 'Bearer ' + token }
 
 // jquery ajax

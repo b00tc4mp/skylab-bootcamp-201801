@@ -3,6 +3,7 @@
   "description": "Ajax is a set of Web development techniques using many Web technologies on the client side to create asynchronous Web applications.",
   "tags": [
     "ajax",
+    "vanilla",
     "js",
     "asynchronous",
     "async",

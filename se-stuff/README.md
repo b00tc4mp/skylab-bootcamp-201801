@@ -12,3 +12,5 @@
 
 [SOLID (object-oriented design)](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
 
+[Don't repeat yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+
