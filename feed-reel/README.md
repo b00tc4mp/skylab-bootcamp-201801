@@ -1,5 +1,9 @@
 # A place to share interesing stuff for self-learning
 
+Making the T-REX appear in [VOGUE](http://www.vogue.co.uk/) website, by doing the following keyboard sequence: "arrow up (twice), arrow down (twice), arrow left, arrow right, arrow left, arrow right, b, a".
+
+[The Packing Checklist](https://belen-albeza.github.io/packing/#/)
+
 [A hosted REST-API ready to respond to your AJAX requests](https://reqres.in)
 
 [¿Que es el Callback Hell y como evitarlo? – Code Army](https://codearmy.co/que-es-el-callback-hell-y-como-evitarlo-4af418a6ed14)
