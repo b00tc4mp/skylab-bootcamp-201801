@@ -28,6 +28,9 @@ Temporary Items
 ### VisualStudioCode ###
 .vscode/*
 .vscode
+<<<<<<< HEAD
+.sass-cache
+=======
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -57,3 +60,4 @@ $RECYCLE.BIN/
 
 # Sass
 .sass-cache
+>>>>>>> upstream/develop
