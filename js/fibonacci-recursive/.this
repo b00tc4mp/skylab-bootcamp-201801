@@ -1,10 +1,10 @@
 {
-  "title": "dibonacci-recursive",
+  "title": "Recursive Fibonacci",
   "description": "challenge fibonacci recursive & memoization",
   "tags": [
     "js",
     "fibonacci",
-    "momization",
+    "memoization",
     "challenge",
     "recursive"
   ],
