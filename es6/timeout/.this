@@ -1,0 +1,16 @@
+{
+  "title": "Promised Timeout",
+  "description": "Promise implementation of setTimeout",
+  "tags": [
+    "js",
+    "es6",
+    "promise",
+    "async",
+    "asynchronous",
+    "set",
+    "timeout",
+    "set-timeout",
+    "settimeout"
+  ],
+  "created": "2018-02-02T12:43:19.856Z"
+}
