@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci Recursive</title>
+</head>
+
+<body>
+    <script>
+        function fibonacci(n) {
+            if (!fibonacci.answers) fibonacci.answers = {}
+            return fibonacci.answers[n] || n > 0 ? (n != 1 ? fibonacci.answers[n] = fibonacci(n - 1) + fibonacci(n - 2) : 1) : 0
+        }
+    </script>
+</body>
+
+</html>
