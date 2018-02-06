@@ -1,7 +1,7 @@
 let spotifyApi;
 
 (function(){
-    const token = "_BQBx2MZot5IjGJW5lsPnYhHONzIekoqVGrLKH7SDyxXPOLUmdI7xOgleudJMi_SspZcR7HKZ34sPfqvn9ZEot1Z5trvyS586tvCaHA093hDWLIPuOIhyfV9WXkAEUe-Ao3G4QdbdYRvHYK4";
+    const token = "BQBj-UX71ONZKOYhdTlNzFQljmn_v6Iv46qnK1lR_xzKASRueMSuUrZ7mqtL3NzCrl0prjAmUmF7Z3k1Aa_aCAanjemOnWNKf2Zb_q2ehTwgGkd5Xxy9H81_DZY5YFXiO9MGTxuPK_goz4g";
     const headers = { Authorization: 'Bearer ' + token }
 
     function call (url,token,handleSuccess,handleError){// generic function with arguments that we invoke inside each method
