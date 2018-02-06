@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Hangman HTML CSS JS</title>
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+   <header>
+       <h1>hangman</h1>
+   </header>
+   <section class="section-start">
+       <div class="subsection-start">
+           <button id="play"><a href="">Play!!!</a></button>
+       </div>
+   </section>
+   <div style="margin-top:10px"></div>
+   <section class="section-data hidden">
+       <div class="subsection-data">
+           <div>
+               <label>Enter a word</label>
+               <input type="text" id="word">
+           </div>
+           <div>
+
+               <label>Select your attemps</label><input type="text"  id="attemps">
+           </div>
+           <button id = "go"><a href="">Go!!</a></button>
+       </div>
+   </section>
+   <div style="margin-top:10px"></div>
+   <section class="section-word hidden">
+       <div class="subsection-word">
+           <div>
+               <p><span>You have </span><span id="nattemps">**number</span><span> attemps</span></p>
+               <ul>
+                   <li>_</li>
+                   <li>_</li>
+                   <li>_</li>
+                   <li>_</li>
+               </ul>
+           </div>
+           <div>
+               <label>Enter a word</label>
+               <input type="text" id="tryText">
+               <button id="try"><a href="">Go!!</a></button>
+           </div>
+       </div>
+   </section>
+   <div style="margin-top:10px"></div>
+   <section class="section-end hidden">
+       <div class="subsection-end">
+           <p class="win">
+               <span>You win !! 😀 the word is</span>
+               <span>**nombre de la palabra</span>
+               <span>number of attemps:</span><span>3</span>
+           </p>
+           <p class="lose">You loose!! :(((((</p>
+           <div>
+               <button><a href="">Play Again!!!</a></button>
+           </div>
+       </div>
+   </section>
+
+   <script src="scripts/Hangman.js"></script>
+   <script src="vendor/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+   <script src="scripts/main.js"></script>
+</body>
+</html>

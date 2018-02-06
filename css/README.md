@@ -16,6 +16,12 @@
 
 [Screen Fly](http://quirktools.com/screenfly/)
 
+[HOW TO CENTER IN CSS](http://howtocenterincss.com)
+
+[FLEX: A simple visual cheatsheet for flexbox](http://flexbox.malven.co/)
+
+[GRID: A simple visual cheatsheet for CSS Grid Layout](http://grid.malven.co/)
+
 # References
 
 [Evolution of CSS](https://www.slideshare.net/valicac/evolution-of-css)
@@ -79,3 +85,5 @@
 [GridBugs](https://github.com/rachelandrew/gridbugs)
 
 [Responsive Web Design - Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)
+
+[A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

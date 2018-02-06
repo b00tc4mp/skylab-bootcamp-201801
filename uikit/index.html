@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor/uikit/3.0.0-beta.38/css/uikit.min.css" />
+</head>
+
+<body>
+    ACCORDION
+    <ul uk-accordion>
+        <li>
+            <a class="uk-accordion-title" href="#">LINK</a>
+            <div class="uk-accordion-content">DIV</div>
+        </li>
+        <li>
+            <a class="uk-accordion-title" href="#">LINK</a>
+            <div class="uk-accordion-content">DIV</div>
+        </li>
+    </ul>
+
+    <hr> MODAL
+    <!-- This is a button toggling the modal -->
+    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-example">Open</button>
+
+    <!-- This is an anchor toggling the modal -->
+    <a href="#modal-example" uk-toggle>Open</a>
+
+    <!-- This is the modal -->
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Headline</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button">Save</button>
+            </p>
+        </div>
+    </div>
+
+    <hr> LIGHTBOX
+    <div uk-lightbox>
+        <a class="uk-button uk-button-default" href="images/download.png">Open Lightbox</a>
+    </div>
+
+    <script src="vendor/uikit/3.0.0-beta.38/js/uikit.min.js"></script>
+    <script src="vendor/uikit/3.0.0-beta.38/js/uikit-icons.min.js"></script>
+</body>
+
+</html>
