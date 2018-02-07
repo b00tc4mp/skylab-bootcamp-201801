@@ -1,3 +1,9 @@
+![React nightmare!](images/react-nightmare.jpg)
+
+# Components lifecycle
+
+![Components lifecycle](images/react-lifecycle.png)
+
 # References
 
 [Introduction to React Data Flow](http://blog.embengineering.com/post/2016/04/16/introduction-to-react-data-flow/)
