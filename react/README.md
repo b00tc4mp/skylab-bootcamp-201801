@@ -1,8 +1,8 @@
 ![React nightmare!](images/react-nightmare.jpg)
 
-# Components lifecycle
+# Component's lifecycle
 
-![Components lifecycle](images/react-lifecycle.png)
+![Component's lifecycle](images/react-lifecycle.png)
 
 # References
 
