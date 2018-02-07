@@ -1,10 +1,12 @@
 {
-  "title": "Task List (jQuery)",
-  "description": "Simple task list implemented in jQuery.",
+  "title": "Task App (jQuery)",
+  "description": "Simple task list application implemented in jQuery.",
   "tags": [
     "js",
     "task",
     "list",
+    "app",
+    "application",
     "todo",
     "done",
     "jquery",

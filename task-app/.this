@@ -1,10 +1,12 @@
 {
-  "title": "Task List (Vanilla JS)",
-  "description": "Simple task list implemented in Vanilla JS.",
+  "title": "Task App (Vanilla JS)",
+  "description": "Simple task list application implemented in Vanilla JS.",
   "tags": [
     "js",
     "task",
     "list",
+    "app",
+    "application",
     "todo",
     "done",
     "vanilla",
