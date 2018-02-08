@@ -13,3 +13,5 @@ Making the T-REX appear in [VOGUE](http://www.vogue.co.uk/) website, by doing th
 [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
 
 [Checking out pull requests locally - User Documentation](https://help.github.com/articles/checking-out-pull-requests-locally/)
+
+[Marc was almost ready to implement his "hello world" React app](https://twitter.com/thomasfuchs/status/708675139253174273)
