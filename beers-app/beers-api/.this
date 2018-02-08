@@ -1,6 +1,6 @@
 {
-  "title": "Beers API client",
-  "description": "AJAX client abstraction component of Beers API.",
+  "title": "Beers API client based on jQuery AJAX and callbacks",
+  "description": "AJAX client abstraction component of Beers API implemented with jQuery AJAX and callbacks.",
   "tags": [
     "beers",
     "js",
@@ -9,7 +9,8 @@
     "ajax",
     "api",
     "client",
-    "component"
+    "component",
+    "callback"
   ],
   "created": "2018-01-31T16:32:49.314Z"
 }
