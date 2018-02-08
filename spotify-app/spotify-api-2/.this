@@ -1,0 +1,15 @@
+{
+  "title": "Spotify API client based on Fetch API",
+  "description": "AJAX client abstraction component of Spotify API implemented with Fetch API.",
+  "tags": [
+    "spotify",
+    "api",
+    "js",
+    "es6",
+    "fetch",
+    "ajax",
+    "client",
+    "component"
+  ],
+  "created": "2018-02-08T12:32:49.314Z"
+}

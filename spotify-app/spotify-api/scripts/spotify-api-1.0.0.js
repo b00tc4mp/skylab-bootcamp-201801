@@ -1,27 +1,27 @@
 /**
- * Spotify API client.
+ * Spotify API client based on jQuery AJAX.
  *
  * @version 1.0.0
  */
 var spotifyApi;
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
-  function call(url, token, handleSuccess, handleError, timeout) {
+  function call(path, handleSuccess, handleError) {
     $.ajax({
-      url: url,
-      headers: { Authorization: "Bearer " + token },
-      timeout: timeout,
+      url: inst.baseUrl + path,
+      headers: { Authorization: 'Bearer ' + inst.token },
+      timeout: inst.timeout,
       success: handleSuccess,
       error: handleError
     });
   }
 
-  spotifyApi = {
-    baseUrl: "https://api.spotify.com/v1/",
+  var inst = {
+    baseUrl: 'https://api.spotify.com/v1/',
 
     token:
-      "BQDLbGZo3xveEZQ-Z8pRl65FLGoHW5nWXu8X3crs4V5mMVw9ioY6-rvHwaZQa1kLeGssbLdUI4avzH8VqNQiWg8dPUKD0KxPBCx2HIKrr-aWJGhzkR0vX1N9By1ELEN4hHfqeEWjCvD_kUg",
+      'BQBYglQ3pgysTwXgZA1JYDWDF7qp8XlxYvrFxqXmU7-rROKeVfmJu3ToGTF50h8IqsxIE3D50-bhJ6H9hXXUcKRP44gHsRB-x5EkXNegVsrpNU8Dko0zmAwjSU38jh-kwmfkOcRInylcNnk',
 
     timeout: 2000,
 
@@ -34,15 +34,13 @@ var spotifyApi;
      * @param {Function} handleResults - Handles the results.
      * @param {Function} handleError - Handles an error.
      */
-    searchArtists: function(query, handleResults, handleError) {
+    searchArtists: function (query, handleResults, handleError) {
       call(
-        this.baseUrl + "search?type=artist&q=" + query,
-        this.token,
-        function(results) {
+        'search?type=artist&q=' + query,
+        function (results) {
           handleResults(results.artists.items);
         },
-        handleError,
-        this.timeout
+        handleError
       );
     },
 
@@ -55,15 +53,13 @@ var spotifyApi;
      * @param {Function} handleResults - Handles the results.
      * @param {Function} handleError - Handles an error.
      */
-    retrieveAlbums: function(artistId, handleResults, handleError) {
+    retrieveAlbums: function (artistId, handleResults, handleError) {
       call(
-        this.baseUrl + "artists/" + artistId + "/albums",
-        this.token,
-        function(results) {
+        'artists/' + artistId + '/albums',
+        function (results) {
           handleResults(results.items);
         },
-        handleError,
-        this.timeout
+        handleError
       );
     },
 
@@ -76,15 +72,13 @@ var spotifyApi;
      * @param {Function} handleResults - Handles the results.
      * @param {Function} handleError - Handles an error.
      */
-    retrieveTracks: function(albumId, handleResults, handleError) {
+    retrieveTracks: function (albumId, handleResults, handleError) {
       call(
-        this.baseUrl + "albums/" + albumId + "/tracks",
-        this.token,
-        function(results) {
+        'albums/' + albumId + '/tracks',
+        function (results) {
           handleResults(results.items);
         },
-        handleError,
-        this.timeout
+        handleError
       );
     },
 
@@ -97,14 +91,14 @@ var spotifyApi;
      * @param {Function} handleResults - Handles the results.
      * @param {Function} handleError - Handles an error.
      */
-    retrieveTrack: function(id, handleResults, handleError) {
+    retrieveTrack: function (id, handleResults, handleError) {
       call(
-        this.baseUrl + "tracks/" + id,
-        this.token,
+        'tracks/' + id,
         handleResults,
-        handleError,
-        this.timeout
+        handleError
       );
     }
   };
+
+  spotifyApi = inst;
 })();
