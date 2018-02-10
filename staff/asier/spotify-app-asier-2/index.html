@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor\bootstrap\4.0.0\css\bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="shortcut icon" href="img\favicon.ico" type="image/x-icon">
+
+    <title>SpotyLab</title>
+</head>
+
+<body class="bg-gradient-primary">
+
+    <nav class="navbar py-3">
+        <a href="#" onclick="location.reload()"> <img src="img\Spotify_Logo_RGB_White.png" width="150" height="50" class="d-inline-block align-top ml-2" alt=""> </a>
+        <span class="navbar-brand mx-auto">Find your favorite music</span>
+    </nav>
+   
+   <main class="container-fluid">
+        
+        <!-- <h2 class="flex-column text-center p-5">Encuentra tu artista favorito</h2> -->
+        <div id="search" class=" row">
+           <form class="row justify-content-center col-12">
+               <input class="form-control form-control-lg mt-5 col-10 text-center text-uppercase font-weight-bold" type="text" placeholder="search for an artist" required autofocus>
+               <input class="btn-success btn-block rounded my-4 py-3 col-6 col align-self-center button"type="submit" value="Search">
+           </form>
+        <button type="button" id="backToArtists" class="btn btn-success mx-auto rounded mb-3 button">Back to artists</button>
+            
+
+        </div>
+            
+       <section class="container-fluid col-12">
+
+           <div id="listArtists" class=" card-columns">
+               
+
+           </div>
+
+           <div id="listAlbums" class=" card-columns">
+                
+           </div>
+
+            <div id="listSongs" class=" card-columns">
+            
+            </div>
+
+            <div id="error">
+
+            </div>
+
+            <div class="modal fade" id="myPlayer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" data-dismiss="modal"  id="exampleModalLongTitle"></h5>
+                           
+                            
+                        </div>
+                        <div id="player" class="d-flex justify-content-center"></div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+       </section>
+       
+   </main>
+   
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="vendor\jquery\3.3.1\jquery-3.3.1.min.js"></script>
+    <script src="vendor\pooper\popper.min.js"></script>
+    <script src="vendor\bootstrap\4.0.0\js\bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts\spotify-api-1.0.0.js"></script>
+</body>
+
+</html>

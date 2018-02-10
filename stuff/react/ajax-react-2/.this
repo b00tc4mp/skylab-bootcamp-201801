@@ -1,0 +1,13 @@
+{
+  "title": "AJAX React 2",
+  "description": "Basic demo of React and AJAX using fetch, loading data using React Component's lifecycle method.",
+  "tags": [
+    "js",
+    "react",
+    "ajax",
+    "fetch",
+    "component",
+    "lifecycle"
+  ],
+  "created": "2018-02-08T09:16:47.115Z"
+}
