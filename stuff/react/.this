@@ -1,0 +1,23 @@
+{
+  "title": "React JS",
+  "description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable and easier to debug.",
+  "tags": [
+    "react",
+    "js",
+    "jsx",
+    "lib",
+    "library",
+    "fwk",
+    "framework",
+    "presentation",
+    "view",
+    "controller",
+    "model",
+    "mvc",
+    "ui",
+    "user-interface",
+    "user",
+    "interface"
+  ],
+  "created": "2018-02-05T16:14:24.691Z"
+}

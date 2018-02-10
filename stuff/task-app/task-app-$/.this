@@ -1,0 +1,19 @@
+{
+  "title": "Task App (jQuery)",
+  "description": "Simple task list application implemented in jQuery.",
+  "tags": [
+    "js",
+    "task",
+    "list",
+    "app",
+    "application",
+    "todo",
+    "done",
+    "jquery",
+    "$",
+    "event",
+    "bubbling",
+    "capturing"
+  ],
+  "created": "2018-01-26T14:05:51.938Z"
+}

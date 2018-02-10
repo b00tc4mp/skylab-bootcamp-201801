@@ -1,0 +1,14 @@
+{
+  "title": "Task App React Bootstrap II",
+  "description": "Task application implemented in React and Bootstrap with a components hierarchy (one container and two presentational).",
+  "tags": [
+    "js",
+    "react",
+    "task",
+    "app",
+    "bootstrap",
+    "componet",
+    "components"
+  ],
+  "created": "2018-02-07T14:03:22.069Z"
+}

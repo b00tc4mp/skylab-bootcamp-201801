@@ -1,0 +1,242 @@
+/* resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: lightgray;
+}
+
+/* "horizontal" styles (reusable) */
+
+a.a-round-box,
+a.a-round-box-black,
+a.a-round-box-black-gradient,
+a.a-round-box-red-gradient {
+    border: 1px solid;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+a.a-round-box-black-gradient {
+    border: black;
+    background: linear-gradient(rgb(80, 81, 76) 50%, rgb(62, 62, 55) 50%);
+}
+
+a.a-round-box-black {
+    border: black;
+    background-color: rgb(63, 63, 55);
+}
+
+a.a-round-box-red-gradient {
+    border: red;
+    background: linear-gradient(rgb(239, 106, 88) 50%, rgb(237, 90, 72) 50%);
+}
+
+ul.ul-round-box-inline {
+    display: inline-block;
+    background-color: rgb(209, 239, 244);
+    border-radius: 5px;
+    font-size: 0;
+}
+
+ul.ul-round-box-inline > li {
+    display: inline-block;
+    border-right: 1px solid rgb(221, 247, 250);
+    border-left: 1px solid rgb(184, 210, 214);
+    padding: 10px;
+    font-size: initial;
+    line-height: 20px;
+}
+
+ul.ul-round-box-inline > li:first-child {
+    border-left: unset;
+}
+
+ul.ul-round-box-inline > li:last-child {
+    border-right: unset;
+}
+
+ul.ul-round-box-inline > li > a {
+    text-decoration: none;
+    color: rgb(43, 45, 40);
+}
+
+input.input-search {
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-origin: content-box;
+    background-color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 20px;
+    box-shadow: inset 0 0 1px rgb(108, 112, 111);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* "cross" styles (reusable in current view) */
+
+.margin-up {
+    margin-top: 10px;
+}
+
+.margin-left {
+    margin-left: 10px;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.margin-down {
+    margin-bottom: 10px;
+}
+
+/* "vertical" styles (custom for current view) */
+
+header {
+    background-color: rgb(83, 190, 213);
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 50px;
+    text-align: center;
+}
+
+a > img.logo {
+    margin: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+a.log-in {
+    display: block;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+}
+
+nav.nav {
+    display: inline-block;
+    text-align: right;
+}
+
+img.img-chimp {
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+p.p-newsletters {
+    margin-top: 20px;
+    display: inline-block;
+    width: 457px;
+    height: 100%;
+    text-align: left;
+    vertical-align: top;
+}
+
+section#whats-new {
+    background-color: rgb(240, 240, 240);
+    width: 90%;
+    height: 600px;
+    position: relative;
+    margin: -54px auto 0 auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+section#whats-new > ul {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+section#whats-new > ul > li {
+    display: inline-block;
+    width: 22%;
+    padding: 10px;
+}
+
+article.new-article {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0;
+    text-align: left;
+}
+
+article.new-article > h2 {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+article.new-article > h3 {
+    font-size: 20px;
+}
+
+article.new-article > img {
+    top: 0;
+    border-top: 1px solid lightgray;
+    width: 100%;
+    vertical-align: middle;
+}
+
+article.new-article > p {
+    margin-top: 20px;
+    height: 100px;
+    font-size: 14px;
+    color: gray;
+}
+
+article.new-article > a {
+    width: 100%;
+}
+
+footer {
+    background-color: rgb(25, 24, 20);
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+footer nav {
+    text-align: center;
+}
+
+footer ul.links {
+    display: inline-block;
+    width: 90%;
+}
+
+footer ul.links  > li {
+    display: inline-block;
+    width: 24%;
+    text-align: left;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+footer ul.links h4 {
+    color: white;
+}
+
+footer ul.links a {
+    text-decoration: none;
+    color: gray;
+}
+
+footer > small {
+    color: gray;
+    vertical-align: text-bottom;
+
+}

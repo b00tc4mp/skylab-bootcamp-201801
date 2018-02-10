@@ -1,0 +1,22 @@
+{
+  "title": "React Task App with Components",
+  "description": "Task application implemented with React components (one 'smart' parent, and two 'dumb' children).",
+  "tags": [
+    "js",
+    "react",
+    "task",
+    "app",
+    "application",
+    "components",
+    "component",
+    "container",
+    "parent",
+    "smart",
+    "presentation",
+    "presentational",
+    "child",
+    "children",
+    "dumb"
+  ],
+  "created": "2018-02-06T12:56:22.069Z"
+}
