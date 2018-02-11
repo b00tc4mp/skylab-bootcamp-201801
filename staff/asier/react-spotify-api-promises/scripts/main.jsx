@@ -32,44 +32,53 @@ class SpotyApp extends React.Component {
     // click on "back to artists" button
 
     goBack = () => {
-        this.setState({ showArtists: true })
-        this.setState({ showAlbums: false })
-        this.setState({ showSongs: false })
 
+        this.setState({
+            showArtists: true,
+            showAlbums: false,
+            showSongs: false
+        })
     }
 
 
     fetchArtists = (query) => {
 
-        this.setState({ showArtists: true })
-        this.setState({ showAlbums: false })
-        this.setState({ showSongs: false })
+        this.setState({
+            showArtists: true,
+            showAlbums: false,
+            showSongs: false
+        })
+
 
         spotifyApi.searchArtists(query)
-            .then((listOfArtists) => {
-                let images = this.fixResultsWithoutPictures(listOfArtists)
+            .then(listOfArtists => {
+                let artistsImages = this.fixResultsWithoutPictures(listOfArtists)
                 this.setState({
-                    artists: images
+                    artists: artistsImages
                 })
             })
-            .catch(err => console.error("err -->", err))
+            .catch(console.error)
     }
 
     fetchAlbums = artistId => {
 
-        this.setState({ showArtists: false })
-        this.setState({ showAlbums: true })
+        this.setState({
+            showArtists: false,
+            showAlbums: true,
+        })
+
+
 
         spotifyApi.retrieveAlbums(artistId)
             .then((listOfAlbums) => {
-                let images = this.fixResultsWithoutPictures(listOfAlbums)
+                let albumsImages = this.fixResultsWithoutPictures(listOfAlbums)
                 this.setState({
-                    albums: images
+                    albums: albumsImages
 
                 })
 
             })
-            .catch(err => console.error("err -->", err))
+            .catch(console.error)
 
     }
 
@@ -86,7 +95,7 @@ class SpotyApp extends React.Component {
                 })
 
             })
-            .catch(err => console.error("err -->", err))
+            .catch(console.error)
 
     }
 
@@ -100,7 +109,7 @@ class SpotyApp extends React.Component {
                 })
 
             })
-            .catch(err => console.error("err -->", err))
+            .catch(console.error)
 
     }
 
