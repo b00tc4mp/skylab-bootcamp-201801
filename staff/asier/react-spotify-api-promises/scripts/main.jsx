@@ -1,7 +1,5 @@
 'use strict'
 
-// https://stackoverflow.com/questions/24502898/show-or-hide-element
-
 
 class SpotyApp extends React.Component {
     constructor() {
@@ -94,7 +92,7 @@ class SpotyApp extends React.Component {
 
     playSong = songId => {
 
-        spotifyApi.playTracks(songId)
+        spotifyApi.retrieveTrack(songId)
             .then((track) => {
                 this.setState({
                     songId: track
