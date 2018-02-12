@@ -10,7 +10,7 @@ describe('Google Places client', () => {
   })
 
   describe('search places', () => {
-    let places
+    let places, error
 
     beforeEach(done => {
       target.init()
@@ -20,10 +20,16 @@ describe('Google Places client', () => {
 
           done()
         })
-        .catch(done)
+        .catch(() => {
+          error = true
+
+          done()
+        })
     })
 
-    it('should get results on search', () => {
+    it('should get results on valid query', () => {
+      expect(error).toBeFalsy()
+
       expect(places).not.toBeUndefined()
 
       expect(places.length > 0).toBeTruthy()

@@ -22,7 +22,7 @@ let placesApi;
       }
       script.onerror = reject
 
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${inst.key}&libraries=places` // &callback=initMap
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${inst.key}&libraries=places`
 
       document.head.appendChild(script)
     })
