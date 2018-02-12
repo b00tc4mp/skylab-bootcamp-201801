@@ -1,15 +1,15 @@
 {
-  "title": "Spotify API client based on Fetch API",
-  "description": "AJAX client abstraction component of Spotify API implemented with Fetch API.",
+  "title": "Google Places client based on Google Places client API lib",
+  "description": "Abstraction component of Google Places client implemented on Google Places client API lib.",
   "tags": [
-    "spotify",
+    "google",
+    "places",
     "api",
     "js",
     "es6",
-    "fetch",
     "ajax",
     "client",
     "component"
   ],
-  "created": "2018-02-08T12:32:49.314Z"
+  "created": "2018-02-12T16:02:49.314Z"
 }
