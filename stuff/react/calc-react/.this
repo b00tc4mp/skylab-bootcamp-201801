@@ -1,0 +1,13 @@
+{
+  "title": "React Calculator",
+  "description": "Very basic calculator (only sum operation) developed in React without components.",
+  "tags": [
+    "js",
+    "react",
+    "calculator",
+    "calc",
+    "sum",
+    "jsx"
+  ],
+  "created": "2018-02-05T16:46:47.115Z"
+}
