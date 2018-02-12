@@ -20,15 +20,17 @@ let placesApi;
 
         resolve()
       }
-      script.onerror = reject
+      script.onerror = () => reject(Error('Places lib could not be loaded'))
 
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${inst.key}&libraries=places`
+      script.src = `${inst.baseUrl}/js?libraries=places&key=${inst.key}`
 
       document.head.appendChild(script)
     })
   }
 
   const inst = {
+    baseUrl: 'https://maps.googleapis.com/maps/api',
+
     key: 'AIzaSyChp6OnyYbZ2HKZSskxFqdzJC1drMGPzVQ',
 
     init,
@@ -43,7 +45,7 @@ let placesApi;
      */
     search: query => new Promise((resolve, reject) =>
       places.textSearch({ query }, (results, status) =>
-        status === google.maps.places.PlacesServiceStatus.OK ? resolve(results) : reject(Error(`places returned status ${status}`))
+        status === google.maps.places.PlacesServiceStatus.OK ? resolve(results) : status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS ? resolve([]) : reject(Error(`Places returned status ${status}`))
       ))
   }
 
