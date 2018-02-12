@@ -6,7 +6,7 @@ describe('Google Places client', () => {
   placesApi = undefined
 
   beforeEach(() => {
-    target.token = 'AIzaSyChp6OnyYbZ2HKZSskxFqdzJC1drMGPzVQ'
+    target.key = 'AIzaSyChp6OnyYbZ2HKZSskxFqdzJC1drMGPzVQ'
   })
 
   describe('search places', () => {
