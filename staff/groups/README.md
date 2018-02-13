@@ -9,16 +9,19 @@ LISTA DE APIS PUBLICAS SEMANA 5!!!
 
 PROPOSALS for the group names:
 
-- asier / alexadark -> "el duo dinamico"
-- vic / nacho / pablo -> "el tricicle"
-- didaquis / carlos / eahob -> "the cerebrains"
-- robert / demi / mario -> "los judokis"
+- asier / alexadark -> "the dynamics"
 - asix / pink / jaime -> "the pink panters"
-- mediacloner / edgar / jaime 2" -> "los chachis"
+- mediacloner / edgar / jaime 2" -> "the chachis"
 
-- Manu, Alex & Michel -> "the magicals"
+(- Manu, Alex & Michel -> "the magicals")
 
-# Details
+# Repos
 
-## the-cerebrains
+[The Cerebrains (didaquis / carlos / eahob)](https://github.com/didaquis/skylab-bootcamp-one-week-hackathon)
+
+[The Judokis (robert / demi / mario)](https://github.com/Robertvera/RocketMan)
+
+[The Tricycle (vic / nacho / pablo)](github.com/VGamezz19/CryptoPyto)
+
+
 
