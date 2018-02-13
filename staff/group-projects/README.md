@@ -24,9 +24,9 @@
 
 ["The Judokis" (robert / demi / mario)](https://github.com/Robertvera/RocketMan)
 
-["The Tricycle" alias "Team Develop" (vic / nacho / pablo)](github.com/VGamezz19/CryptoPyto)
+["The Tricycle" alias "Team Develop" (vic / nacho / pablo)](https://github.com/VGamezz19/CryptoPyto)
 
-["The Dynamics" (asier / alexadark)](PENDING)
+["The Dynamics" (asier / alexadark)](https://github.com/AsierDev/project-skyplaces)
 
 ["The Pink Panthers" (asix / pink / jaime)](PENDING)
 
