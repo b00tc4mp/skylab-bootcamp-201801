@@ -1,4 +1,11 @@
-# Groups names?
+# Shares
+
+LISTA DE APIS PUBLICAS SEMANA 5!!!
+[toddmotto/public-apis](https://github.com/toddmotto/public-apis)
+
+## Groups
+
+# Names?
 
 PROPOSALS for the group names:
 
@@ -11,7 +18,7 @@ PROPOSALS for the group names:
 
 - Manu, Alex & Michel -> "the magicals"
 
-# Shares
+# Details
 
-LISTA DE APIS PUBLICAS SEMANA 5!!!
-[toddmotto/public-apis](https://github.com/toddmotto/public-apis)
+## the-cerebrains
+
