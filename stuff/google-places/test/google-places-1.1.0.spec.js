@@ -13,7 +13,7 @@ describe('Google Places client', () => {
     let places, error
 
     beforeEach(done => {
-      target.init()
+      target.load()
         .then(() => target.search('restaurante gracia'))
         .then(_places => {
           places = _places
@@ -40,7 +40,7 @@ describe('Google Places client', () => {
     let places, error
 
     beforeEach(done => {
-      target.init()
+      target.load()
         .then(() => target.search('%&·%&·$%&'))
         .then(_places => {
           places = _places
@@ -69,7 +69,7 @@ describe('Google Places client', () => {
     beforeEach(done => {
       target.baseUrl = 'https://wrong_maps.googleapis.com/maps/api'
 
-      target.init()
+      target.load()
         .then(done)
         .catch(err => {
           error = err.message

@@ -3,7 +3,7 @@
  * 
  * @author manuelbarzi
  *
- * @version 1.0.0
+ * @version 1.1.0
  */
 let placesApi;
 (() => {
@@ -11,7 +11,7 @@ let placesApi;
 
   let places
 
-  const init = () => {
+  const load = () => {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script')
 
@@ -33,7 +33,7 @@ let placesApi;
 
     key: 'AIzaSyChp6OnyYbZ2HKZSskxFqdzJC1drMGPzVQ',
 
-    init,
+    load,
 
     /**
      * Searches places by query.

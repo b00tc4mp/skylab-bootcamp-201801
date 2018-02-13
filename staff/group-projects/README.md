@@ -18,7 +18,7 @@
 
 [toddmotto/public-apis](https://github.com/toddmotto/public-apis)
 
-## Groups
+# Groups
 
 ["The Cerebrains" (didaquis / carlos / eahob)](https://github.com/didaquis/skylab-bootcamp-one-week-hackathon)
 
