@@ -20,12 +20,14 @@
 
 ## Groups
 
-- asier / alexadark -> "the dynamics"
-- asix / pink / jaime -> "the pink panters"
-- mediacloner / edgar / jaime 2" -> "the chachis"
+["The Cerebrains" (didaquis / carlos / eahob)](https://github.com/didaquis/skylab-bootcamp-one-week-hackathon)
 
-[The Cerebrains (didaquis / carlos / eahob)](https://github.com/didaquis/skylab-bootcamp-one-week-hackathon)
+["The Judokis" (robert / demi / mario)](https://github.com/Robertvera/RocketMan)
 
-[The Judokis (robert / demi / mario)](https://github.com/Robertvera/RocketMan)
+["The Tricycle" alias "Team Develop" (vic / nacho / pablo)](github.com/VGamezz19/CryptoPyto)
 
-[The Tricycle alias "Team Develop" (vic / nacho / pablo)](github.com/VGamezz19/CryptoPyto)
+["The Dynamics" (asier / alexadark)](PENDING)
+
+["The Pink Panthers" (asix / pink / jaime)](PENDING)
+
+["The Chachis" (mediacloner / edgar / jaime 2)](PENDING)
