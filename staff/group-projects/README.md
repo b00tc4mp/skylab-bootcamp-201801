@@ -28,6 +28,6 @@
 
 ["The Dynamics" (asier / alexadark)](https://github.com/AsierDev/project-skyplaces)
 
-["The Pink Panthers" (asix / pink / jaime)](PENDING)
+["The Pink Panthers" (asix / pink / jaime)](https://github.com/JaimeRC/ThePinkPanter) [MISSING STUFF YET...]
 
-["The Chachis" (mediacloner / edgar / jaime 2)](PENDING)
+["The Chachis" (mediacloner / edgar / jaime 2)](https://github.com/Jaimek89/emptyplanet) [MISSING STUFF YET...]
