@@ -9,7 +9,8 @@
     "cp",
     "unix-like",
     "command",
-    "cli"
+    "cli",
+    "challenge"
   ],
   "created": "2018-02-21T11:52:18.725Z"
 }
