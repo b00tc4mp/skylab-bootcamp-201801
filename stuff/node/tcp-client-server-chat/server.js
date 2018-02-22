@@ -1,6 +1,6 @@
 const net = require('net')
 
-const server = net.createServer(socket => {
+const server = net.createServer(socket => { // connection
     socket.on('data', data => {
         console.log(`${socket.remoteAddress}:${socket.remotePort} -> ${data.toString().substring(0, 100)}`)
 
