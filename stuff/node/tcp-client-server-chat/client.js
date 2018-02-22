@@ -1,6 +1,6 @@
-const net = require('net')
+const { Socket } = require('net')
 
-const client = new net.Socket();
+const client = new Socket();
 
 client.connect(3000, '192.168.0.16', () => {   
     client.write('Vota Tony Pepperoni!!')
