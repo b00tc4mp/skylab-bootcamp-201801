@@ -1,4 +1,8 @@
-const userData = require('./userData')
+const userData = require('../data/userData')
+
+function validate(username, password) {
+    if (!username || !password) throw Error('Invalid username and/or password.')
+}
 
 const userLogic = {
     list() {
@@ -6,7 +10,7 @@ const userLogic = {
     },
 
     register(username, password) {
-        if (!username || !password) throw Error('Invalid username and/or password.')
+        validate(username, password)
 
         try{
             userData.retrieve(username)
@@ -24,7 +28,7 @@ const userLogic = {
     },
 
     update(username, password, newPassword) {
-        if (!username || !password) throw Error('Invalid username and/or password.')
+        validate(username, password)
 
         const user = userData.retrieve(username)
 
@@ -35,7 +39,7 @@ const userLogic = {
     },
 
     destroy(username, password) {
-        if (!username || !password) throw Error('Invalid username and/or password.')
+        validate(username, password)
 
         const user = userData.retrieve(username)
 
