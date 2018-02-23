@@ -26,6 +26,38 @@ app.post('/api/users', jsonBodyParser, (req, res) => {
     res.json(ok('User registration succeeded.'))
 })
 
+app.put('/api/users', jsonBodyParser, (req, res) => {
+    const { username, password } = req.body
+
+    if (!username || !password) return res.json(ko('User update failed.', 'Invalid username and/or password.'))
+
+    const alreadyExists = users.some(user => user.username === username)
+
+    if (!alreadyExists) return res.json(ko('User update failed.', 'Username does not exists.'))
+
+    const index = users.findIndex(user => user.username === username)
+   
+    users[index].password = password
+
+    res.json(ok('User update succeeded'))
+})
+
+app.delete('/api/users', jsonBodyParser, (req, res) => {
+    const { username, password } = req.body
+
+    if (!username || !password) return res.json(ko('User deletion failed.', 'Invalid username and/or password.'))
+
+    const alreadyExists = users.some(user => user.username === username)
+
+    if (!alreadyExists) return res.json(ko('User deletion failed.', 'Username does not exists.'))
+
+    const index = users.findIndex(user => user.username === username)
+   
+    users.splice(index, 1)
+
+    res.json(ok('User deletion succeeded'))
+})
+
 function ok(message, data) {
     const res = { status: 'OK', message }
 
