@@ -10,3 +10,27 @@ $ git fetch --all
 $ git reset --hard upstream/develop
 $ git push
 ```
+
+----------
+
+# Git alias
+
+### Crear un alias:
+Esto es un ejemplo de como crear el alias "lodag". Fíjate que el comando de git se entrecomilla con comilla simple y que el nombre del alias se concatena a "alias."
+```sh
+git config --global alias.lodag 'log --oneline --decorate --all --graph'
+```
+
+
+### Listar alias creados:
+```sh
+git config --global --get-regexp alias
+```
+
+
+### Eliminar alias:
+Esto es un ejemplo de como eliminar un alias llamado "alias_de_prueba":
+```sh
+git config --global --unset alias.alias_de_prueba
+```
+
