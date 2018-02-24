@@ -10,3 +10,29 @@ $ git fetch --all
 $ git reset --hard upstream/develop
 $ git push
 ```
+
+--------
+# Como inspeccionar una pull request de manera local
+
+Es posible bajarse una pull request a un repo local para inspeccionar el código.
+
+Averigua el ID de la PR que quieres inspeccionar. Lo encontrarás en la interfaz gráfica de GitHub, al lado del título de la PR (ejemplo: `FIX BUG #67`)
+
+
+Ahora en el terminal vamos a crear una nueva rama con el contenido de ese PR:
+```sh
+git fetch origin pull/xx/head:foo_branch
+```
+NOTA: Puedes seleccionar origin o upstream según necesites. Sustituye “xx” por el id del PR que quieras descargar. Observa que “head” se escribe en minúscula y va seguido de dos puntos ”:”. Detrás de esos dos puntos especifica el nombre de una nueva rama la cual será el destino del código de ese PR.
+
+Ahora ya puedes ir a esa nueva rama:
+```sh
+git checkout foo_branch
+```
+
+Ya puedes revisar el código.  
+
+Una vez revisado tienes diferentes opciones, por ejemplo:
+* Aprobar/descartar el PR desde la interfaz de GitHub
+* Hacer un merge en tu rama develop y/o master
+* Hacer un push y después un PR
