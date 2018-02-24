@@ -89,7 +89,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 
 ### Sass ###
@@ -124,6 +124,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#webstorm
+.idea/
 
 
 # End of https://www.gitignore.io/api/git,node,sass,macos,windows,visualstudiocode

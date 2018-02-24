@@ -1,0 +1,17 @@
+{
+  "title": "Staff API",
+  "description": "HTTP API that operates on Staff.",
+  "tags": [
+    "node",
+    "js",
+    "express",
+    "api",
+    "staff",
+    "list",
+    "find",
+    "query",
+    "shuffle",
+    "challenge"
+  ],
+  "created": "2018-02-22T14:54:49.955Z"
+}
