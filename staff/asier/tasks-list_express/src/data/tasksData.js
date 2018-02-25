@@ -37,7 +37,7 @@ const tasksData = {
     /*  /// Remove task from tasklist */
 
     delete(id) {
-        const index = tasks.findIndex(x => x.taskId === Number(id))
+        const index = tasks.findIndex(task => task.taskId === Number(id))
 
         if (index < 0) throw Error('task does not exist.')
 
