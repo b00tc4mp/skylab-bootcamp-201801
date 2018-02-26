@@ -1,0 +1,27 @@
+{
+	"id":1,
+	"username":"Nacho",
+	"email":"nachomirsol@gmail.com",
+	"password":"1234"
+}
+
+{
+	"id":2,
+	"username":"Jaime",
+	"email":"jaime_rubio@gmail.com",
+	"password":"55432"
+}
+
+{
+	"id":3,
+	"username":"Didac",
+	"email":"didaquis@gmail.com",
+	"password":"burguer"
+}
+
+{
+	"id":4,
+	"username":"Edgar",
+	"email":"edgarho@gmail.com",
+	"password":"reacter34"
+}
