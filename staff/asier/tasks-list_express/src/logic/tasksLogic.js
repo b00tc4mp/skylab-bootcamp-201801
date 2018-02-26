@@ -1,24 +1,21 @@
 const tasksData = require('../data/tasksData')
 
-function validateText(text) {
+function validate(text) {
     if (!text) throw Error('You need to add some text')
 }
 
-function validateUsername(username) {
-    if (!username) throw Error('You need to add an user')
-}
 
 
 const tasksLogic = {
 
     /* /// create task /// */
 
-    create(text, username) {
+    create(text) {
 
-        validateText(text)
-        validateUsername(username)
+        validate(text)
 
-        tasksData.create(text, username)        
+
+        tasksData.create(text)
     },
 
     /* /// List every task /// */
@@ -30,8 +27,12 @@ const tasksLogic = {
 
     /* /// Mark task as done  ///  */
 
-    markDone(id) {       
-        tasksData.markDone(id)
+    markDone(id) {
+        const task = tasksData.retrieve(id)
+        const text = task.text
+
+        tasksData.update(id, text, true)
+
 
     },
 
@@ -39,19 +40,19 @@ const tasksLogic = {
 
     remove(id) {
 
-        tasksData.delete(id)         
+        tasksData.delete(id)
     },
 
     /* /// List tasks already done /// */
 
     listDone() {
-        return tasksData.listDone()
+        return tasksData.list().filter((task) => task.done == true).map(({ id, text }) => ({ id, text }))
     },
 
     /* /// List tasks pending to do /// */
 
     listToDo() {
-        return tasksData.listToDo()
+        return tasksData.list().filter((task) => task.done == false).map(({ id, text }) => ({ id, text }))
     },
 
     /* ///  Delete all tasks  /// */
@@ -62,30 +63,11 @@ const tasksLogic = {
 
     /* /// Update task /// */
 
-    update(id, text, username) {
+    update(id, text, done) {
 
-        if (text || username) {
-
-            tasksData.update(id, text, username)
-
-        } else {
-            validateText(text)
-            validateUsername(username)
-        }
-        
+        tasksData.update(id, text)
     },
 
-    /* /// List tasks per user /// */
-
-    userTasks(username) {
-        return tasksData.userTasks(username)
-    },
-
-    /*  /// List all the users /// */
-
-    listUsers() {
-        return tasksData.listUsers()
-    }
 
 }
 

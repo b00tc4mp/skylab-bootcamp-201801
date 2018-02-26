@@ -1,21 +1,15 @@
 const tasks = []
 
-const users = []
-
 let taskId = 0
 
 const tasksData = {
 
     /* /// create task /// */
 
-    create(text, username) {
-        
-        if (!users.includes(username)) {
-            users.push(username)
-        }
+    create(text) {
 
         taskId += 1
-        tasks.push({ taskId, text, username, done: false })
+        tasks.push({ taskId, text, done: false })
     },
 
     /* /// List every task /// */
@@ -52,72 +46,14 @@ const tasksData = {
 
     },
 
-    /* /// Mark task as done  ///  */
-
-    markDone(id) {
-        const index = tasks.findIndex(x => x.taskId === Number(id))
-
-        if (index < 0) throw Error('task does not exist.')
-
-        if (tasks[index].done === true) throw Error('Task is already done')
-
-        tasks[index].done = true
-
-    },
-
-    /* /// List tasks pending to do /// */
-
-    listToDo() {
-        const todoList = []
-
-        for (let i = 0; i < tasks.length; i++) {
-
-            if (tasks[i].done === false) todoList.push(tasks[i])
-        }
-
-        if (todoList < 1 || tasks.length < 1) throw Error('There are no tasks to show')
-
-        return todoList
-    },
-
-    /* /// List tasks already done /// */
-
-    listDone() {
-        const doneList = []
-
-        for (let i = 0; i < tasks.length; i++) {
-
-
-            if (tasks[i].done === true) doneList.push(tasks[i])
-        }
-
-        if (doneList < 1 || tasks.length < 1) throw Error('There are no tasks to show')
-
-        return doneList
-    },
-
     /* /// Update task /// */
 
-    update(id, text, username) {
+    update(id, text, done) {
         const task = this.retrieve(id)
 
-        // check if username already exist. if not, add it to the userList.
-        if (!users.includes(username)) {
-            users.push(username)
-        }
+        task.text = text
+        task.done = done
 
-        if (username && text) {
-
-            task.text = text
-            task.username = username 
-
-        } else if (username && !text) {
-            task.username = username 
-
-        } else if (text && !username) {
-
-            task.text = text
-        }
 
     },
 

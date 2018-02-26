@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"text\" : \"agua\",\n\t\"username\" : \"paco\"\n}"
+					"raw": "{\n  \"text\" : \"agua\",\n  \"username\" : \"paco\"\n}"
 				},
 				"url": {
 					"raw": "localhost:5556/api/task",
@@ -31,7 +31,7 @@
 						"task"
 					]
 				},
-				"description": "\t"
+				"description": "  "
 			},
 			"response": []
 		},
@@ -52,7 +52,7 @@
 						"tasks"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -76,7 +76,7 @@
 						"tasks"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -98,7 +98,7 @@
 						"1"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -120,7 +120,7 @@
 						"1"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -142,7 +142,7 @@
 						"todo"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -164,12 +164,12 @@
 						"done"
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
 		{
-			"name": "ACTUALIZAR task or user",
+			"name": "ACTUALIZAR task",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -180,7 +180,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"text\" : \"queso\",\n\t\"username\" : \"paco\" \n}"
+					"raw": "{\n  \"text\" : \"queso\",\n  \"username\" : \"paco\" \n}"
 				},
 				"url": {
 					"raw": "localhost:5556/api/task/1",
@@ -194,50 +194,7 @@
 						"1"
 					]
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "LIST user tasks",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:5556/api/tasks/asier",
-					"host": [
-						"localhost"
-					],
-					"port": "5556",
-					"path": [
-						"api",
-						"tasks",
-						"asier"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "LIST all users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:5556/api/users",
-					"host": [
-						"localhost"
-					],
-					"port": "5556",
-					"path": [
-						"api",
-						"users"
-					]
-				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		}

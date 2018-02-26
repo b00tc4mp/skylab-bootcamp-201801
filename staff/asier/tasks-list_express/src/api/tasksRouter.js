@@ -13,10 +13,10 @@ const { success, fail } = require('../api/api-utils')
 /* /// create task /// */
 
 router.post('/task', jsonBodyParser, (req, res) => {
-    const { text, username } = req.body
+    const { text } = req.body
 
     try {
-        tasksLogic.create(text, username)
+        tasksLogic.create(text)
 
         res.json(success('Task has been created'))
     } catch (err) {
@@ -33,18 +33,28 @@ router.get('/tasks', (req, res) => res.json(success("Tasks listed correctly", ta
 router.delete('/task/:id', (req, res) => {
     const { params: { id } } = req
 
+    try {
+
         tasksLogic.remove(id)
-    
+
         res.json(success('Task removed correctly'))
-        
+    } catch (err) {
+        res.json(fail(`Something went wrong, couldn't delete the task`))
+    }
 })
 
 /* ///  Delete all tasks  /// */
 
 router.delete('/tasks', (req, res) => {
-    tasksLogic.removeAll()
 
-    res.json(success('Tasks removed correctly'))
+    try {
+        tasksLogic.removeAll()
+
+        res.json(success('Tasks removed correctly'))
+
+    } catch (err) {
+        res.json(fail(`Couldn't remove the tasks.`))
+    }
 
 })
 
@@ -53,9 +63,14 @@ router.delete('/tasks', (req, res) => {
 router.put('/task/:id', (req, res) => {
     const { params: { id } } = req
 
+    try {
+
         tasksLogic.markDone(id)
-    
         res.json(success('Task marked as done'))
+    } catch (err) {
+        res.json(fail(`Couldn't mark the task as done.`, err.message))
+    }
+
 
 })
 
@@ -73,32 +88,24 @@ router.get('/tasks/done', (req, res) => {
 
 /* /// Update task /// */
 
-// If you don't need to update the user or the text, dont put them in the body. Otherwise, write "username" : "name" or "text" : "task to do"
-
 router.patch('/task/:id', jsonBodyParser, (req, res) => {
     const { params: { id } } = req
-    const { text, username } = req.body
 
-    tasksLogic.update(id, text, username)
-    
-    res.json(success('Task updated correctly'))
-           
-})
+    const { text } = req.body
 
-/* /// List tasks per user /// */
+    try {
+        tasksLogic.update(id, text)
 
-router.get('/tasks/:username', jsonBodyParser, (req, res) => {
-    const { params: { username } } = req
+        res.json(success('Task updated correctly'))
 
-    res.json(success('User tasks listed correctly', tasksLogic.userTasks(username)))
+    } catch (err) {
+
+        res.json(fail(`Something went wrong updating the task`))
+    }
 
 })
 
-/*  /// List all the users /// */
 
-router.get('/users', (req, res) => {
-    res.json(success('Tasks done listed correctly', tasksLogic.listUsers()))
-})
 
 
 module.exports = router
