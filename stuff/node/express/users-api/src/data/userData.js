@@ -24,6 +24,8 @@ const userData = {
     delete(username) {
         const index = users.findIndex(user => user.username === username)
 
+        if (index < 0) throw Error('User does not exist.')
+
         users.splice(index, 1)
     }
 }
