@@ -11,13 +11,11 @@ $ git reset --hard upstream/develop
 $ git push
 ```
 
---------
 # Como inspeccionar una pull request de manera local
 
 Es posible bajarse una pull request a un repo local para inspeccionar el código.
 
 Averigua el ID de la PR que quieres inspeccionar. Lo encontrarás en la interfaz gráfica de GitHub, al lado del título de la PR (ejemplo: `FIX BUG #67`)
-
 
 Ahora en el terminal vamos a crear una nueva rama con el contenido de ese PR:
 ```sh
@@ -36,3 +34,22 @@ Una vez revisado tienes diferentes opciones, por ejemplo:
 * Aprobar/descartar el PR desde la interfaz de GitHub
 * Hacer un merge en tu rama develop y/o master
 * Hacer un push y después un PR
+
+# Git alias
+
+### Crear un alias:
+Esto es un ejemplo de como crear el alias "lodag". Fíjate que el comando de git se entrecomilla con comilla simple y que el nombre del alias se concatena a "alias."
+```sh
+git config --global alias.lodag 'log --oneline --decorate --all --graph'
+```
+
+### Listar alias creados:
+```sh
+git config --global --get-regexp alias
+```
+
+### Eliminar alias:
+Esto es un ejemplo de como eliminar un alias llamado "alias_de_prueba":
+```sh
+git config --global --unset alias.alias_de_prueba
+```
