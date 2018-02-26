@@ -10,6 +10,13 @@ const users = []
 
 app.get('/api/users', (req, res) => res.json(ok('Users listing succeeded.', users.map(({ username }) => ({ username })))))
 
+// users.map(({ username }) => ({ username })))
+// EQ to
+// users.map(user => {
+//     return { username: user.username }
+// })
+
+// EX: /api/users/pepito
 app.get('/api/users/:username', (req, res) => {
     //const username = req.params.username
     //const { username } = req.params
@@ -34,7 +41,7 @@ app.get('/api/users/:username', (req, res) => {
     }
 })
 
-const jsonBodyParser = bodyParser.json()
+const jsonBodyParser = bodyParser.json() // EQ to req.body = JSON.parse(<raw body>)
 
 app.post('/api/users', jsonBodyParser, (req, res) => {
     const { username, password } = req.body
