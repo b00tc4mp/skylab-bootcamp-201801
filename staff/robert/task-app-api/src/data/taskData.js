@@ -3,8 +3,8 @@ let id = 0
 const taskData = {
     list() { return tasks },
 
-    create(text) {
-        tasks.push({ id, text, done: false })
+    create(text, done) {
+        tasks.push({ id, text, done })
         id++
     },
 

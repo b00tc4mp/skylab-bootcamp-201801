@@ -24,7 +24,7 @@ router.post('/tasks', jsonBodyParser, (req,res)=> {
     
 })
 
-router.put('/tasks/:id', jsonBodyParser, (req,res) => {
+router.put('/tasks/:id', (req,res) => {
     const { params: { id } } = req
 
     try {
@@ -36,7 +36,7 @@ router.put('/tasks/:id', jsonBodyParser, (req,res) => {
     }
 })
 
-router.delete('/tasks/:id', jsonBodyParser, (req,res) => {
+router.delete('/tasks/:id', (req,res) => {
     const {params: { id } } = req
 
     try {
@@ -56,7 +56,7 @@ router.get('/tasks/todo', (req,res) => {
     res.json(success('Tasks to-do listing succeeded', taskLogic.listTodo()))
 })
 
-router.delete('/tasks', jsonBodyParser, (req,res) => {
+router.delete('/tasks', (req,res) => {
     try {
         taskLogic.removeAll()
 
@@ -66,7 +66,7 @@ router.delete('/tasks', jsonBodyParser, (req,res) => {
     }
 })
 
-router.patch('/tasks/:id', jsonBodyParser, (req,res) => {
+router.patch('/tasks/:id', (req,res) => {
     const {params: { id } } = req
 
     const { text } = req.body

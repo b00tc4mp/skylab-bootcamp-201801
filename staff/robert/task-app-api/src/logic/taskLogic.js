@@ -8,7 +8,7 @@ const taskLogic = {
     create(text) {
         validate(text)
 
-        taskData.create(text)
+        taskData.create(text, false)
     },
 
     markDone(id) {
