@@ -1,0 +1,21 @@
+{
+  "name": "task-API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch":"nodemon src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
