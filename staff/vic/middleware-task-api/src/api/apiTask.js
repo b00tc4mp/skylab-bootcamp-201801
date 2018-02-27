@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const URL = `http://localhost:5000/api`
+
 function __get (path) {
     return axios.get(path)
         .then(res => res.data)
@@ -19,16 +21,16 @@ function __delete (path) {
 
 const apiTask = {
     getAllTasks: function () {
-        return __get(`http://localhost:5000/api/tasks/all`)
+        return __get(`${URL}/tasks/all`)
     },
     setCreateTask: function(text) {
-        return __post(`http://localhost:5000/api/tasks/`,text)
+        return __post(`${URL}/tasks/`,text)
     },
     setMarkDone: function(id) {
-        return __put(`http://localhost:5000/api/tasks/${id}`)
+        return __put(`${URL}/tasks/${id}`)
     },
     deleteTask : function(id){
-        return __delete(`http://localhost:5000/api/tasks/${id}`)
+        return __delete(`${URL}/tasks/${id}`)
     }
 }
 
