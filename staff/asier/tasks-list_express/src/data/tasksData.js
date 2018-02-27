@@ -6,10 +6,10 @@ const tasksData = {
 
     /* /// create task /// */
 
-    create(text) {
+    create(text, done) {
 
         taskId += 1
-        tasks.push({ taskId, text, done: false })
+        tasks.push({ taskId, text, done })
     },
 
     /* /// List every task /// */

@@ -15,7 +15,7 @@ const tasksLogic = {
         validate(text)
 
 
-        tasksData.create(text)
+        tasksData.create(text, false)
     },
 
     /* /// List every task /// */
@@ -65,7 +65,7 @@ const tasksLogic = {
 
     update(id, text, done) {
 
-        tasksData.update(id, text)
+        tasksData.update(id, text, done)
     },
 
 
