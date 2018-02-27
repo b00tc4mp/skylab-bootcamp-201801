@@ -33,7 +33,7 @@ const taskLogic = {
     },
 
 
-    removeAll: () =>  tasks.length = 0,
+    removeAll: () =>  taskData.list().length = 0,
 
     markDone: (id) =>{
         const task = taskData.retrieve(id)
