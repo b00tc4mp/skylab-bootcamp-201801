@@ -1,0 +1,27 @@
+//- template.pug
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body
+     form(action="/tasks", method="post")
+      input(type="text", name="text")
+      input(type="submit", value="add task")
+     - const taskTodo = tasks.some(task => task.done===false)
+        if taskTodo
+            h2 TODO
+             ul
+              each task in tasks
+               if !task.done
+                li #{task.text}
+                 a(href='/tasks/'+task.id+'/done')  &#9989
+     - const taskDone = tasks.some(task => task.done)
+        if taskDone
+            h2 DONE
+            ul
+             each task in tasks
+              if task.done
+               li #{task.text}
+                 a(href='/tasks/'+task.id+'/delete')  &#10008
