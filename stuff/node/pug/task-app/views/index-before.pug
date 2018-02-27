@@ -9,20 +9,22 @@ html(lang="en")
         form(action="/tasks", method="post")
             input(type="text", name="text")
             input(type="submit", value="Add")
-        if todos.length
+        - const hasTodos = tasks.some(task => !task.done)
+        if hasTodos
             h2 TODOs
             ul
-                each task in todos
+                each task in tasks
                     if !task.done
                         li
                             form(action=`/tasks/${task.id}/done`, method="get")
                                 | #{task.text}
                                 |
                                 input(type="submit", value="✓")
-        if dones.length
+        - const hasDones = tasks.some(task => task.done)
+        if hasDones
             h2 DONEs
             ul
-                each task in dones
+                each task in tasks
                     if task.done
                         li
                             form(action=`/tasks/${task.id}/remove`, method="get")
