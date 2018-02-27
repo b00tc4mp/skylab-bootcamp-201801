@@ -4,3 +4,4 @@ function camelCase(text) {
     return text;
 }
 camelCase('hangmanResultsWellDoneWhenAssertingWordOnThe7thAttempt');
+ 
