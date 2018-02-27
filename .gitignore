@@ -98,6 +98,13 @@ typings/
 
 ### VisualStudioCode ###
 .vscode/*
+<<<<<<< HEAD
+.vscode
+<<<<<<< HEAD
+.sass-cache
+=======
+=======
+>>>>>>> upstream/develop
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -125,5 +132,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+<<<<<<< HEAD
+# Sass
+.sass-cache
+>>>>>>> upstream/develop
+=======
 
 # End of https://www.gitignore.io/api/git,node,sass,macos,windows,visualstudiocode
+>>>>>>> upstream/develop
