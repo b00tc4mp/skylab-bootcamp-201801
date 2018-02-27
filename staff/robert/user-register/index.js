@@ -1,5 +1,3 @@
-// require('dotenv').config()
-
 const express = require('express')
 
 const bodyParser = require('body-parser')
@@ -27,73 +25,52 @@ app.post('/api/users', jsonBodyParser, (req, res) => {
     res.json(ok('User registration succeeded.'))
 })
 
-app.put('/api/users',jsonBodyParser, (req,res) => {
-    const {username, oldPassword, newPassword} = req.body
-
-    const exists = users.some(user => user.username === username)
-
-    if (!exists) return res.json('User not found')
-    
-    users.map(user=> {
-        if (username === user.username && oldPassword !== user.password) {
-            return res.json(changePasswordKO('Sorry, password NOT UPDATED, old password does not match with the current password.'))
-        }
-    })
-
-    users.map(user=> {
-        if (username === user.username && oldPassword === user.password) {
-            user.password = newPassword
-            return res.json(changePasswordOK('Password updated'))
-        }
-    })    
-})
-
-app.delete('/api/users', jsonBodyParser, (req,res) => {
-    const {username, password} = req.body
+app.put('/api/users', jsonBodyParser, (req, res) => {
+    const { username, oldPassword, newPassword } = req.body
 
     const exists = users.some(user => user.username === username)
 
     if (!exists) return res.json('User not found')
 
-    users.map(user=> {
-        if (username === user.username && password === user.password) {            
-            _.pull(users, user)
-            return res.json(removeOK('User removed.'))
+    for (let i = 0; i < users.length; i++) {
+        if (username === users[i].username && oldPassword !== users[i].password) {
+            return res.json(ko('Sorry, password NOT UPDATED, old password does not match with the current password.'))
         }
-       
-    }) 
 
-    users.map(user=> {
-        if (username === user.username && password !== user.password) {
-            return res.json(removeKO('Wrong password, user not deleted.'))
+    }
+
+    for (let i = 0; i < users.length; i++) {
+        if (username === users[i].username && oldPassword === users[i].password) {
+            users[i].password = newPassword
+            return res.json(ok('Password updated'))
         }
-    })
 
+    }
 })
 
-function changePasswordOK(message) {
-    const res = {status: 'OK', message}
+app.delete('/api/users', jsonBodyParser, (req, res) => {
+    const { username, password } = req.body
 
-    return res
-}
+    const exists = users.some(user => user.username === username)
 
-function changePasswordKO(message) {
-    const res = {status: 'KO', message}
+    if (!exists) return res.json('User not found')
 
-    return res
-}
+    for (let i = 0; i < users.length; i++) {
+        if (username === users[i].username && password === users[i].password) {
+            _.pull(users, users[i])
+            return res.json(ok('User removed.'))
+        }
 
-function removeOK(message) {
-    const res = {status: 'OK', message}
+    }
 
-    return res
-}
+    for (let i = 0; i < users.length; i++) {
+        if (username === users[i].username && password !== users[i].password) {
+            return res.json(ko('Wrong password, user not deleted.'))
+        }
+        
+    }
 
-function removeKO(message) {
-    const res = {status: 'KO', message}
-
-    return res
-}
+})
 
 function ok(message, data) {
     const res = { status: 'OK', message }
