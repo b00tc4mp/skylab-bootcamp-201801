@@ -1,0 +1,14 @@
+{
+  "title": "Task App with Pug",
+  "description": "Simple task application implemented with Pug and Express.",
+  "tags": [
+    "node",
+    "js",
+    "pug",
+    "task",
+    "app",
+    "express",
+    "challenge"
+  ],
+  "created": "2018-02-26T16:00:57.257Z"
+}
