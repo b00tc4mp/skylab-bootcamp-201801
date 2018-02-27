@@ -33,16 +33,18 @@ const taskLogic = {
     },
 
 
-    removeAll: () =>  taskData.deleteAll(),
+    removeAll: () =>  tasks.length = 0,
 
     markDone: (id) =>{
-        taskData.retrieve(id)
-       taskData.markDone(id)
+        const task = taskData.retrieve(id)
+        task.done = true
     },
 
     assign(id, username){
-        taskData.retrieve(id)
-        taskData.assign(id, username)
+        const task = taskData.retrieve(id)
+        if(task.done) throw Error('this task is already done')
+        if(task.username)throw Error('this task is already assigned')
+        task.username = username
 
     },
     listUsername: (username) => taskData.list().filter(task => task.username === username)

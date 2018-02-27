@@ -20,20 +20,6 @@ const taskData = {
         const task = this.retrieve(id)
         task.text = text
     },
-    deleteAll: ()=>{
-        tasks.length = 0
-    },
-    markDone(id){
-        const task = this.retrieve(id)
-
-        task.done = true
-    },
-    assign(id,username){
-        const task = this.retrieve(id)
-        if(task.done) throw Error('this task is already done')
-        if(task.username)throw Error('this task is already assigned')
-        task.username = username
-    }
 }
 
 module.exports = taskData
