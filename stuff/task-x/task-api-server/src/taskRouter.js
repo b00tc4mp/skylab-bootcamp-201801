@@ -21,7 +21,7 @@ router.post('/task', jsonBodyParser, (req, res) => {
 
         res.json(success({ id }))
     } catch (err) {
-        res.json(fail(err))
+        res.json(fail(err.message))
     }
 })
 

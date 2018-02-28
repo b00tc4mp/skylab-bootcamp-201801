@@ -5,56 +5,79 @@ class TaskApi {
     constructor(protocol, host, port) {
         this.baseUrl = `${protocol}://${host}`
 
-        if (port) this.baseUrl += `:${port}/api/`
+        if (port) this.baseUrl += `:${port}`
+
+        this.baseUrl += '/api/'
     }
 
+    /**
+     * Creates a task
+     * 
+     * @param {String} title - The task title
+     * @param {String} description - The task description
+     * 
+     * @returns {Promise<Response>}
+     */
     create(title, description) {
-        return axios.post(url.resolve(this.baseUrl, 'task'), { title, description }).then(res => res.data)
+        return data(axios.post(url.resolve(this.baseUrl, 'task'), { title, description }))
     }
 
     list() {
-        return axios.get(url.resolve(this.baseUrl, 'tasks')).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, 'tasks')))
     }
 
     retrieve(id) {
-        return axios.get(url.resolve(this.baseUrl, `task/${id}`)).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, `task/${id}`)))
     }
 
     remove(id) {
-        return axios.delete(url.resolve(this.baseUrl, `task/${id}`)).then(res => res.data)
+        return data(axios.delete(url.resolve(this.baseUrl, `task/${id}`)))
     }
 
     markDoing(id) {
-        return axios.put(url.resolve(this.baseUrl, `task/${id}/DOING`)).then(res => res.data)
+        return data(axios.put(url.resolve(this.baseUrl, `task/${id}/DOING`)))
     }
 
     listDoing() {
-        return axios.get(url.resolve(this.baseUrl, 'tasks/DOING')).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, 'tasks/DOING')))
     }
 
     markReview(id) {
-        return axios.put(url.resolve(this.baseUrl, `task/${id}/REVIEW`)).then(res => res.data)
+        return data(axios.put(url.resolve(this.baseUrl, `task/${id}/REVIEW`)))
     }
 
     listReview() {
-        return axios.get(url.resolve(this.baseUrl, 'tasks/REVIEW')).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, 'tasks/REVIEW')))
     }
 
     markDone(id) {
-        return axios.put(url.resolve(this.baseUrl, `task/${id}/DONE`)).then(res => res.data)
+        return data(axios.put(url.resolve(this.baseUrl, `task/${id}/DONE`)))
     }
 
     listDone() {
-        return axios.get(url.resolve(this.baseUrl, 'tasks/DONE')).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, 'tasks/DONE')))
     }
 
     markTodo(id) {
-        return axios.put(url.resolve(this.baseUrl, `task/${id}/TODO`)).then(res => res.data)
+        return data(axios.put(url.resolve(this.baseUrl, `task/${id}/TODO`)))
     }
 
     listTodo() {
-        return axios.get(url.resolve(this.baseUrl, 'tasks/TODO')).then(res => res.data)
+        return data(axios.get(url.resolve(this.baseUrl, 'tasks/TODO')))
     }
+}
+
+/**
+ * Simplifies all axios calls, by extracting the data field
+ * 
+ * @example It simplifies, for example, this: axios.get(url.resolve(this.baseUrl, 'tasks/TODO')).then(res => res.data)
+ * 
+ * @param {Promise} resp - The promise to extract data from
+ * 
+ * @returns {Promise<Response>}
+ */
+function data(resp) {
+    return resp.then(res => res.data)
 }
 
 module.exports = TaskApi

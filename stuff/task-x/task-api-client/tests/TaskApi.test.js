@@ -27,6 +27,13 @@ describe('Task API', () => {
             .then(res => {
                 assert.equal(res.status, 'OK', 'should retrieve task')
 
+                const task = res.data
+
+                assert.equal(task.id, id, 'id should match')
+                assert.equal(task.title, title, 'title should match')
+                assert.equal(task.description, description, 'description should match')
+                assert.equal(task.status, Task.TODO, 'status should match')
+
                 return taskApi.remove(id)
             })
             .then(res => {
@@ -40,8 +47,14 @@ describe('Task API', () => {
     it('should list tasks', done => {
         const title = 'title', description = 'description'
 
+        let id
+
         taskApi.create(title, description)
-            .then(() => taskApi.list())
+            .then(res => {
+                id = res.data.id
+
+                return taskApi.list()
+            })
             .then(res => {
                 assert.equal(res.status, 'OK', 'should list tasks')
 
@@ -51,6 +64,7 @@ describe('Task API', () => {
                 const [task] = res.data
 
                 assert(task.id, 'should have id')
+                assert.equal(task.id, id, 'id should match')
                 assert(task.title, 'should have title')
                 assert.equal(task.title, title, 'title should match')
                 assert(!task.description, 'should not have description')
@@ -96,15 +110,15 @@ describe('Task API', () => {
     it('should list tasks DOING', done => {
         let title = 'title', description = 'description'
 
-        let id
+        let _id, id
 
         taskApi.create(title, description)
             .then(res => {
                 assert.equal(res.status, 'OK', 'should create task')
                 assert(res.data, 'should respond with data')
 
-                id = res.data.id
-                assert(id, 'should respond with id in data')
+                _id = res.data.id
+                assert(_id, 'should respond with id in data')
 
                 title += '-DOING'
                 description += '-DOING'
@@ -145,6 +159,11 @@ describe('Task API', () => {
             .then(res => {
                 assert.equal(res.status, 'OK', 'should remove task')
 
+                return taskApi.remove(_id)
+            })
+            .then(res => {
+                assert.equal(res.status, 'OK', 'should remove task')
+
                 done()
             })
             .catch(done)
@@ -153,15 +172,15 @@ describe('Task API', () => {
     it('should list tasks REVIEW', done => {
         let title = 'title', description = 'description'
 
-        let id
+        let _id, id
 
         taskApi.create(title, description)
             .then(res => {
                 assert.equal(res.status, 'OK', 'should create task')
                 assert(res.data, 'should respond with data')
 
-                id = res.data.id
-                assert(id, 'should respond with id in data')
+                _id = res.data.id
+                assert(_id, 'should respond with id in data')
 
                 title += '-REVIEW'
                 description += '-REVIEW'
@@ -198,6 +217,11 @@ describe('Task API', () => {
                 assert.equal(task.status, Task.REVIEW, 'title should match')
                 
                 return taskApi.remove(id)
+            })
+            .then(res => {
+                assert.equal(res.status, 'OK', 'should remove task')
+
+                return taskApi.remove(_id)
             })
             .then(res => {
                 assert.equal(res.status, 'OK', 'should remove task')

@@ -2,6 +2,13 @@
  * Task entity
  */
 class Task {
+    /**
+     * 
+     * @param {String} id - The task id
+     * @param {String} title - The task title
+     * @param {String} description - The task description
+     * @param {Number} status - The task status
+     */
     constructor(id, title, description, status) {
         this.id = id
         this.title = title
@@ -9,6 +16,11 @@ class Task {
         this.status = status
     }
 
+    /**
+     * Clones a task
+     * 
+     * @param {Taks} param0 - The task to clone from 
+     */
     static from({id, title, description, status}) {
         return new Task(id, title, description, status)
     }

@@ -64,23 +64,28 @@ describe('Task Logic', () => {
 
         const id = taskLogic.create(title, description)
 
+        let count = 1
+        taskLogic.create(title, description)
+        count++
+        taskLogic.create(title, description)
+        count++
+        taskLogic.create(title, description)
+
         assert(tasks.length > 0, 'task should be created')
 
         taskLogic.remove(id)
 
-        const task = tasks[0]
-
-        assert(tasks.length === 0, 'task should be removed')
+        assert.equal(tasks.length, count, 'task should be removed')
     })
 
     it('should mark task DOING', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
+        taskLogic.markDoing(id)
+        
         const task = tasks[0]
-
-        taskLogic.markDoing(task.id)
 
         assert.equal(task.status, Task.DOING, 'task status should match DOING')
     })
@@ -88,11 +93,11 @@ describe('Task Logic', () => {
     it('should mark task REVIEW', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
+        taskLogic.markReview(id)
+        
         const task = tasks[0]
-
-        taskLogic.markReview(task.id)
 
         assert.equal(task.status, Task.REVIEW, 'task status should match REVIEW')
     })
@@ -100,11 +105,11 @@ describe('Task Logic', () => {
     it('should mark task DONE', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
-
+        const id = taskLogic.create(title, description)
+        
+        taskLogic.markDone(id)
+        
         const task = tasks[0]
-
-        taskLogic.markDone(task.id)
 
         assert.equal(task.status, Task.DONE, 'task status should match DONE')
     })
@@ -112,11 +117,11 @@ describe('Task Logic', () => {
     it('should mark task TODO', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
+        taskLogic.markTodo(id)
+        
         const task = tasks[0]
-
-        taskLogic.markTodo(task.id)
 
         assert.equal(task.status, Task.TODO, 'task status should match TODO')
     })
