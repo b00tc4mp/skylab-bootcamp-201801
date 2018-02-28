@@ -1,0 +1,20 @@
+{
+  "name": "task-pug",
+  "version": "1.0.0",
+  "description": "Task-app-pug-api",
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "nodemon": "^1.15.1",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mario Montalban",
+  "license": "ISC"
+}

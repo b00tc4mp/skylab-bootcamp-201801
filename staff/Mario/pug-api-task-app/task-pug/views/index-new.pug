@@ -1,0 +1,31 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body
+        h1 Task App
+        form(action="/tasks", method="post")
+            input(type="text", name="text")
+            input(type="submit", value="Add")
+        if todos.length
+            h2 TODOs
+            ul
+                each task in todos
+                    if !task.done
+                        li
+                            form(action=`/tasks/${task.id}/done`, method="get")
+                                | #{task.text}
+                                |
+                                input(type="submit", value="✓")
+        if dones.length
+            h2 DONEs
+            ul
+                each task in dones
+                    if task.done
+                        li
+                            form(action=`/tasks/${task.id}/remove`, method="get")
+                                | #{task.text}
+                                |
+                                input(type="submit", value="✗")
