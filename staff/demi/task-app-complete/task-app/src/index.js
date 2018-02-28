@@ -13,8 +13,6 @@ app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
     
-    dones = todos = []
-
     taskApi.getTasks().then(tasks => {
 
         const todos = tasks.filter(task => task.status == false)
