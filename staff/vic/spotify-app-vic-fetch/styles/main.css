@@ -1,0 +1,70 @@
+body {
+  background-color: #334c0169; }
+
+main {
+  position: relative; }
+  main button {
+    left: 0em;
+    position: fixed;
+    top: 0em; }
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  header img {
+    max-width: 100%;
+    height: auto;
+    padding: 1em;
+    margin: 1em; }
+
+#selectSearch {
+  margin-bottom: 0 !important;
+  margin-top: 1em; }
+
+.jumbotron {
+  margin: 3em 20em 1em 20em;
+  padding: 2em;
+  width: auto; }
+
+.card-columns {
+  display: inline-block !important; }
+
+#box .card img,
+#albumBox .card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1em; }
+#box .card .card-body,
+#albumBox .card .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; }
+  #box .card .card-body h5,
+  #albumBox .card .card-body h5 {
+    text-align: center; }
+  #box .card .card-body a,
+  #albumBox .card .card-body a {
+    width: 100%; }
+#box section,
+#albumBox section {
+  align-items: center;
+  display: flex; }
+
+audio {
+  width: 100%;
+  margin-bottom: 2em; }
+
+.hidden {
+  display: none; }
+
+#albumBox {
+  margin-top: 5em; }
+
+.modal-header button {
+  position: absolute;
+  top: 0.7em; }
+.modal-header h5 {
+  margin-left: 2em; }
+
+/*# sourceMappingURL=main.css.map */

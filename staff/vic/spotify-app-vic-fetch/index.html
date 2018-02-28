@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpotifySky</title>
+    <link rel="stylesheet" href="vendor/bootstrap/4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <header>
+        <img class='col-hidden-sm img-fluid' data-depth="0.6" id = 'headerImg'src="img/spotify_logo.png" alt="">
+    </header>
+    <main class="container-fluid" data-depth="0.6">
+        <div class="col-md-4 offset-md-4 mb-5 col-sm-12">
+            <form action="" method="get">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">
+                            <span class="oi oi-musical-note"></span>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="inputSearch" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </form>
+        </div>
+        <div class='row'>
+            <div id="box" class="card-columns col-md-10 offset-md-1  col-sm-12">
+
+            </div>
+        </div>
+
+        <div class='row'>
+
+            <div id="albumBox" class="card-columns  hidden col-md-10 offset-md-1 col-sm-12">
+
+            </div>
+        </div>
+        <div id="modal">
+
+        </div>
+        <button type="button" class="hidden btn btn-secondary">
+            <span class="oi oi-chevron-top"></span>
+        </button>
+    </main>
+
+    <script src="vendor/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendor/popper/1.2/popper.min.js"></script>
+    <script src="vendor/bootstrap/4.0/js/bootstrap.min.js"></script>
+    <script src="scripts/api/api-client.js"></script>
+    <script src="scripts/template/artist-template.js"></script>
+    <script src="scripts/template/album-template.js"></script>
+    <script src="scripts/template/traks-template.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
