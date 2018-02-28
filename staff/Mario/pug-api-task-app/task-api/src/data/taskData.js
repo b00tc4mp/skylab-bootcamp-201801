@@ -1,4 +1,3 @@
-//const tasks = [];
 const tasks = [
 	{
 		"id": "1519557912254973",
