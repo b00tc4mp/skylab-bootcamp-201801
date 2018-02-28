@@ -17,9 +17,9 @@ router.post('/task', jsonBodyParser, (req, res) => {
     const { body: { title, description } } = req
 
     try {
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
-        res.json(success())
+        res.json(success({ id }))
     } catch (err) {
         res.json(fail(err))
     }

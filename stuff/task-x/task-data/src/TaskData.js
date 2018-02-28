@@ -61,6 +61,8 @@ class TaskData {
         const _task = Task.from(task)
 
         this.tasks.push(_task)
+
+        return task.id
     }
 
     /**

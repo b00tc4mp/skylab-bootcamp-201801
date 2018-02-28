@@ -22,7 +22,7 @@ class TaskLogic {
      * @param {String} description - The task description
      */
     create(title, description) {
-        this.taskData.insert(new Task(undefined, title, description, Task.TODO))
+        return this.taskData.insert(new Task(undefined, title, description, Task.TODO))
     }
 
     /**
@@ -34,6 +34,24 @@ class TaskLogic {
      */
     retrieve(id) {
         return this.taskData.retrieve(id)
+    }
+
+    /**
+     * Updates a task
+     * 
+     * @param {Number} id - The task id
+     * @param {String} title - The task title
+     * @param {String} description - The task description
+     * 
+     * @throws {Error} - If task id is not valid, or task not found
+     */
+    update(id, title, description) {
+        const task = this.taskData.retrieve(id)
+
+        task.title = title
+        task.description = description
+
+        this.taskData.update(task)
     }
 
     /**

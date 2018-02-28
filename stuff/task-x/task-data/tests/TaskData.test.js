@@ -14,9 +14,10 @@ describe('Task Data', () => {
     })
 
     it('should create a task', () => {
-        taskData.insert(task)
+        const id = taskData.insert(task)
 
         assert(task.id, 'task should have id')
+        assert.equal(task.id, id, 'task id should match returned')
     })
 
     it('should list tasks', () => {
