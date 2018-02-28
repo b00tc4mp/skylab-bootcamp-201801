@@ -1,12 +1,12 @@
 const bodyParser = require('body-parser')
 
-const taskLogic = require('../logic/taskLogic')
-
 const { Router } = require('express')
 
-const { success, fail } = require('./api-utils')
-
 const router = Router()
+
+const taskLogic = require('../logic/taskLogic')
+
+const { success, fail } = require('./api-utils')
 
 const jsonBodyParser = bodyParser.json()
 

@@ -35,8 +35,6 @@ const taskLogic = {
     },
 
     update(id, text) {
-        // const task = taskData.retrieve(id)
-
         taskData.update(id, text)
     }
 }
