@@ -18,10 +18,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n  \"title\": \"buy milk\",\n  \"description\": \"get avena and rice ones only\"\n}"
+					"raw": "{ \n\t\"title\": \"buy milk\",\n\t\"description\": \"get avena and rice ones only\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/tasks",
+					"raw": "http://localhost:5000/api/task",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +29,7 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"tasks"
+						"task"
 					]
 				},
 				"description": null
@@ -77,7 +77,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/tasks/d73b4557-dd2c-40cc-bbd5-62cdec0513a9/DONE",
+					"raw": "http://localhost:5000/api/task/d73b4557-dd2c-40cc-bbd5-62cdec0513a9/DONE",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -85,7 +85,7 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"tasks",
+						"task",
 						"d73b4557-dd2c-40cc-bbd5-62cdec0513a9",
 						"DONE"
 					]
@@ -104,7 +104,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/tasks/3f957e41-8e95-479e-8adb-b0700655219c",
+					"raw": "http://localhost:5000/api/task/3f957e41-8e95-479e-8adb-b0700655219c",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -112,8 +112,34 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"tasks",
+						"task",
 						"3f957e41-8e95-479e-8adb-b0700655219c"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/task/9c997745-8022-4c51-8ae1-c1350b26b770",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"9c997745-8022-4c51-8ae1-c1350b26b770"
 					]
 				},
 				"description": ""

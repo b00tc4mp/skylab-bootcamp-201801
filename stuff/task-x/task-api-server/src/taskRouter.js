@@ -13,7 +13,7 @@ const router = Router()
 
 const jsonBodyParser = bodyParser.json()
 
-router.post('/tasks', jsonBodyParser, (req, res) => {
+router.post('/task', jsonBodyParser, (req, res) => {
     const { body: { title, description } } = req
 
     try {
@@ -46,7 +46,19 @@ function compress(tasks) {
     return tasks.map(({ id, title, status }) => ({ id, title, status }))
 }
 
-router.put('/tasks/:id/:status', (req, res) => {
+router.get('/task/:id', (req, res) => {
+    const { params : { id }} = req
+
+    try {
+        const task = taskLogic.retrieve(id)
+
+        res.json(success(task))
+    } catch(err) {
+        res.json(fail(err.message))
+    }
+})
+
+router.put('/task/:id/:status', (req, res) => {
     const { params : { id, status }} = req
 
     try {
@@ -71,7 +83,7 @@ router.put('/tasks/:id/:status', (req, res) => {
     }
 })
 
-router.delete('/tasks/:id', (req, res) => {
+router.delete('/task/:id', (req, res) => {
     const { params : { id }} = req
 
     try {
