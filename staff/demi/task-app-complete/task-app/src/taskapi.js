@@ -2,34 +2,40 @@ const axios = require('axios')
 
 let taskApi;
 
+const port = process.env.PORTAPI
+const url = `http://localhost:${port}/api/tasks`
+
+
 taskApi = {
 
-    //wdkw
     createTask: (task) => {
-        axios.post('http://localhost:5000/api/tasks', { task, status:false})
+        axios.post(url, { task, status:false})
     },
 
     getTasks: () => {
-        return axios.get('http://localhost:5000/api/tasks')
+        return axios.get(url)
             .then(function (response) {
                 return response.data.data
             })
+            .catch((error) => {console.log(error)})
     },
 
     modifyTask: (id) =>{
 
-        return axios.put(`http://localhost:5000/api/tasks/${id}`)
+        return axios.put(`${url}/${id}`)
             .then(function (response) {
                 return response.data
             })
+            .catch((error) => {console.log(error)})
     },
 
     removeTask: (id) => {
 
-        return axios.delete(`http://localhost:5000/api/tasks/${id}`)
+        return axios.delete(`${url}/${id}`)
         .then(function (response) {
             return response.data
         })
+        .catch((error) => {console.log(error)})
 
     }
 

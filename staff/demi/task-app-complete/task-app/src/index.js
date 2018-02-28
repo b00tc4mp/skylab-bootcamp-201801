@@ -12,7 +12,6 @@ const app = express()
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-    
     taskApi.getTasks().then(tasks => {
 
         const todos = tasks.filter(task => task.status == false)
