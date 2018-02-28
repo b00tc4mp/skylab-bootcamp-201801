@@ -12,8 +12,6 @@ const app = express()
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-    
-    dones = todos = []
 
     taskApi.getTasks().then(tasks => {
 
