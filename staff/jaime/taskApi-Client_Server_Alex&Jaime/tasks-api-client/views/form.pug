@@ -1,0 +1,24 @@
+html
+ head
+ body
+  form(action="/add", method="post")
+    input(type="text", name="task", placeholder="Write the task")
+    input(type="submit" value="ADD")
+
+  label #{message}
+
+  h5 TODOs
+  ul
+    each task in todo
+      li= task.text + " "
+        a(href=`/done/${task.id}`) ✅
+    else 
+      label
+        
+  h5 DONEs
+  ul
+    each task in done
+      li= task.text + " "
+        a(href=`/delete/${task.id}`) 🗑
+    else 
+      label

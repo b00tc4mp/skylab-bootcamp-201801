@@ -1,0 +1,187 @@
+{
+	"info": {
+		"name": "Task API",
+		"_postman_id": "b8012498-9be7-e7d1-205a-41aa581b755c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/showtasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"showtasks"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\",\n\t\"text\": \"fregar los platos\",\n\t\"done\": true,\n\t\"username\": \"Jaime\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/createtask",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"createtask"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"lavar los platos\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/tasks/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"update",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete One Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/tasks/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"delete",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Done",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/done/task/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"done",
+						"task",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List Done",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/listdone/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"listdone",
+						"tasks"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/deleteall/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"deleteall",
+						"tasks"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
