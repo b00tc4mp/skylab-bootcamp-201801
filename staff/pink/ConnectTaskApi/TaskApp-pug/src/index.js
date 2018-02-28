@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const TaskApi = require('./api/index.js')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -9,7 +7,7 @@ const formBodyParser = bodyParser.urlencoded({ extended: false })
 const app = express()
 app.use(express.static('public'))
 app.set('view engine', 'pug')
-let ids = 1
+
 
 const tasks = []//[{ id: ids++, text: 'comprar pan', done: false }, { id: ids++, text: 'comprar leche', done: false }, { id: ids++, text: 'comprar huevos', done: false }, { id: ids++, text: 'ir al gym', done: true }, { id: ids++, text: 'condones', done: true }]
 
