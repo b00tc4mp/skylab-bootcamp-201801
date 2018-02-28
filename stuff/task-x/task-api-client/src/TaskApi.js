@@ -28,16 +28,32 @@ class TaskApi {
         return axios.put(url.resolve(this.baseUrl, `task/${id}/DOING`)).then(res => res.data)
     }
 
+    listDoing() {
+        return axios.get(url.resolve(this.baseUrl, 'tasks/DOING')).then(res => res.data)
+    }
+
     markReview(id) {
         return axios.put(url.resolve(this.baseUrl, `task/${id}/REVIEW`)).then(res => res.data)
+    }
+
+    listReview() {
+        return axios.get(url.resolve(this.baseUrl, 'tasks/REVIEW')).then(res => res.data)
     }
 
     markDone(id) {
         return axios.put(url.resolve(this.baseUrl, `task/${id}/DONE`)).then(res => res.data)
     }
 
+    listDone() {
+        return axios.get(url.resolve(this.baseUrl, 'tasks/DONE')).then(res => res.data)
+    }
+
     markTodo(id) {
         return axios.put(url.resolve(this.baseUrl, `task/${id}/TODO`)).then(res => res.data)
+    }
+
+    listTodo() {
+        return axios.get(url.resolve(this.baseUrl, 'tasks/TODO')).then(res => res.data)
     }
 }
 
