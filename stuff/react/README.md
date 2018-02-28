@@ -1,9 +1,3 @@
-![React nightmare!](images/react-nightmare.jpg)
-
-# Component's lifecycle
-
-![Component's lifecycle](images/react-lifecycle.png)
-
 # References
 
 [Introduction to React Data Flow](http://blog.embengineering.com/post/2016/04/16/introduction-to-react-data-flow/)
@@ -23,3 +17,5 @@
 [Smart and Dumb Components in React](https://jaketrent.com/post/smart-dumb-components-react/)
 
 [Presentational and container React components](http://krasimirtsonev.com/blog/article/react-js-presentational-container-components)
+
+[ReactJs component lifecycle methods — A deep dive](https://hackernoon.com/reactjs-component-lifecycle-methods-a-deep-dive-38275d9d13c0)
