@@ -8,14 +8,17 @@ function getReq (path) {
 
 function postReq (path, text){
     return axios.post(path, {text})
+    .then(res=>res.data)
 }
 
 function putReq (path){
     return axios.put(path)
+    .then(res=>res.data)
 }
 
 function deleteReq (path) {
     return axios.delete(path)
+    .then(res=>res.data)
 }
 
 const taskApi = {

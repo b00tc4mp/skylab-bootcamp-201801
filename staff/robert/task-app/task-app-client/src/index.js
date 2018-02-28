@@ -3,7 +3,6 @@ require('dotenv').config()
 const { taskApi } = require('./task-api-client')
 const express = require('express')
 const bodyParser = require('body-parser')
-const axios = require('axios')
 
 const app = express()
 
@@ -25,14 +24,14 @@ app.post('/tasks', formBodyParser, (req, res) => {
     const text = req.body.text    
 
     taskApi.createTask(text)
-        res.redirect('/')
+        .then(res.redirect('/'))
 })
 
 app.get('/tasks/:id', (req, res) => {
     const { id } = req.params
 
     taskApi.markDone(id)    
-        res.redirect('/')
+        .then(res.redirect('/'))
 
 })
 
@@ -40,7 +39,7 @@ app.get('/tasks/delete/:id', (req, res) => {
     const { id } = req.params
     
     taskApi.deleteTask(id)
-        res.redirect('/')
+        .then(res.redirect('/'))
 })
 
 const port = process.env.PORT
