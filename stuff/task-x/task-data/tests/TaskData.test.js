@@ -30,7 +30,7 @@ describe('Task Data', () => {
 
         const [ _task ] = _tasks
 
-        assert.deepStrictEqual(_task, _task, 'task listed should be the one inserted')
+        assert.deepStrictEqual(_task, task, 'task listed should be the one inserted')
     })
 
     it('should retrieve task', () => {
@@ -46,8 +46,8 @@ describe('Task Data', () => {
 
         const _task = taskData.retrieve(task.id)
 
-        _task.title = task.title + '...'
-        _task.description = task.description + '...'
+        _task.title += '...'
+        _task.description += '...'
         _task.status = Task.DONE
 
         taskData.update(_task)

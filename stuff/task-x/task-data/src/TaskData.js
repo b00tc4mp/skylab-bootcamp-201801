@@ -43,7 +43,7 @@ class TaskData {
      * @throws {Error} - If task id is not valid
      */
     _validateId(id) {
-        if (typeof id !== 'string') throw Error(`id cannot be ${id}`)
+        if (typeof id !== 'string' || !id.trim().length) throw Error(`id cannot be ${id}`)
     }
 
     /**
