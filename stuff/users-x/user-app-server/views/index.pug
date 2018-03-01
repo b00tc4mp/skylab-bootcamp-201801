@@ -1,0 +1,36 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body
+        h1 USER-APP
+        form(action="/register", method="post")
+            input(type="text", name="name")
+            input(type="text", name="surname")
+            input(type="text", name="email")
+            input(type="text", name="username")
+            input(type="password", name="password")
+            input(type="submit", value="Register")
+        if users.length
+            h2 USERS
+            ul
+                - function edit(user) { return user.id === id }
+                each user in users
+                    if (!edit(user))
+                        li
+                            form(action=`/edit/${user.id}`, method='get')
+                                | #{user.name}
+                                |
+                                input(type="submit", value='Edit')
+                    else
+                        li
+                            form(action=`/save/${user.id}`, method='post')
+                                input(type="text", name="name" value=user.name)
+                                input(type="text", name="surname" value=user.surname)
+                                input(type="text", name="email" value=user.email)
+                                input(type="text", name="username" value=user.username)
+                                input(type="password", name="password")
+                                input(type="submit", value="Save")
+
