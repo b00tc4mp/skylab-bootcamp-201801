@@ -10,6 +10,8 @@ class AsyncUserData extends UserData {
      * Constructs an instance (not allowed in this interface)
      */
     constructor() {
+        super()
+        
         if (new.target === AsyncUserData)
             throw Error('cannot instantiate')
     }

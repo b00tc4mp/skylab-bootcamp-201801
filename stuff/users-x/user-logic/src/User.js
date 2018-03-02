@@ -11,8 +11,7 @@ class User {
     }
 
     copy(user) {
-        for (const prop of User.model)
-            this[prop] = user[prop]
+        User.copy(this, user)
     }
 
     matches(user) {
@@ -20,14 +19,19 @@ class User {
     }
 }
 
-User.match = function(user, vs) {
+User.copy = function (user, from) {
+    for (const prop of User.model)
+        user[prop] = from[prop]
+}
+
+User.match = function (user, vs) {
     let matches = true
 
     for (const prop of User.model) {
         const value = vs[prop]
 
         if (typeof value !== 'undefined')
-            matches = matches && user[prop] === value 
+            matches = matches && user[prop] === value
 
     }
 
@@ -46,7 +50,7 @@ User.validate = function (user) {
     }
 }
 
-User.validateId = function(id) {
+User.validateId = function (id) {
     if (typeof id !== 'string' && !id.trim().length) throw Error(`id cannot be ${id}`)
 }
 
