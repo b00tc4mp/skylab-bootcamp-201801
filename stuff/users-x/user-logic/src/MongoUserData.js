@@ -89,6 +89,7 @@ class MongoUserData extends AsyncUserData {
     }
 
     filter(user) {
+        // TODO filter in mongo, instead of using all data
         return this.list()
             .then(users => users.filter(_user => User.match(_user, user)))
     }
