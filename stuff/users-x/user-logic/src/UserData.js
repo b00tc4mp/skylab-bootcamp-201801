@@ -4,61 +4,39 @@ const uuidv4 = require('uuid/v4')
 const model = new User()
 
 /** 
- * User Data (storage manager)
+ * User Data (storage manager) interface
  * 
  * @version 1.0.0
  */
 class UserData {
-    constructor(users) {
-        this.users = users
+    constructor() {
+        if (new.target === UserData)
+            throw Error('cannot instantiate')
     }
 
     insert(user) {
-        User.validate(user)
-
-        const id = uuidv4()
-
-        user.id = id
-
-        this.users.push(User.clone(user))
-
-        return id
+        throw Error('not implemented')
     }
 
     retrieve(id) {
-        User.validateId(id)
-
-        const user = this.users.find(user => user.id === id)
-
-        if (user) return User.clone(user)
-
-        throw Error('User does not exist.')
+        throw Error('not implemented')
     }
 
     update(user) {
-        const { id } = user
-
-        User.validateId(id)
-        User.validate(user)
-
-        const _user = this.users.find(user => user.id === id)
-
-        if (_user) return _user.copy(user)
-
-        throw Error('User does not exist.')
+        throw Error('not implemented')
     }
 
     delete(id) {
-        const index = this.users.findIndex(user => user.id === id)
-
-        if (index < 0) throw Error('User does not exist.')
-
-        this.users.splice(index, 1)
+        throw Error('not implemented')
     }
 
-    list() { return this.users.map(user => User.clone(user)) }
+    list() {
+        throw Error('not implemented')
+    }
 
-    filter(user) { return this.users.filter(_user => _user.matches(user)).map(user => User.clone(user)) }
+    filter(user) {
+        throw Error('not implemented')
+    }
 }
 
 module.exports = UserData

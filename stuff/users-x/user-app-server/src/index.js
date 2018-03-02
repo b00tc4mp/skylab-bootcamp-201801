@@ -2,74 +2,87 @@ require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
-//const { MongoClient } = require('mongodb')
-const { User, UserData, UserLogic } = require('user-logic')
+const { User, MongoUserData, AsyncUserLogic } = require('user-logic')
 const url = require('url')
+const mongo = require('./mongo')
 
-const users = []
-const userLogic = new UserLogic(new UserData(users))
+const host = process.env.MONGO_HOST
+const port = process.env.MONGO_PORT
 
-const app = express()
+mongo(host, port, 'bootcamp', init)
 
-app.set('view engine', 'pug')
+function init(err, db) {
+    if (err) throw err
 
-app.get('/', (req, res) => {
-    let { query: { id, user, error } } = req
+    const userLogic = new AsyncUserLogic(new MongoUserData(db))
 
-    if (user) user = JSON.parse(user)
+    const app = express()
 
-    const users = userLogic.list()
+    app.set('view engine', 'pug')
 
-    res.render('index', { id, user, error, users })
-})
+    app.get('/', (req, res) => {
+        let { query: { id, user, error } } = req
 
-const formBodyParser = bodyParser.urlencoded({ extended: false })
+        if (user) user = JSON.parse(user)
 
-app.post('/register', formBodyParser, (req, res) => {
-    const { body: { name, surname, email, username, password } } = req
+        const users = userLogic.list().then(users => {
+            res.render('index', { id, user, error, users })
+        })
+    })
 
-    try {
+    const formBodyParser = bodyParser.urlencoded({ extended: false })
+
+    app.post('/register', formBodyParser, (req, res) => {
+        const { body: { name, surname, email, username, password } } = req
+
         userLogic.register(name, surname, email, username, password)
+            .then(id => {
+                res.redirect('/')
+            })
+            .catch(err => {
+                res.redirect(url.format({
+                    pathname: "/",
+                    query: { user: JSON.stringify({ name, surname, email, username }), error: err.message }
+                }))
+            })
+    })
 
-        res.redirect('/')
-    } catch (err) {
-        res.redirect(url.format({
-            pathname: "/",
-            query: { user: JSON.stringify({ name, surname, email, username }), error: err.message }
-        }))
-    }
-})
+    app.get('/edit/:id', (req, res) => {
+        const { params: { id } } = req
 
-app.get('/edit/:id', (req, res) => {
-    const { params: { id } } = req
+        userLogic.retrieve(id)
+            .then(user => {
+                res.redirect(url.format({
+                    pathname: "/",
+                    query: { id }
+                }))
+            })
+            .catch(err => {
+                res.redirect(url.format({
+                    pathname: "/",
+                    query: { id, error: err.message }
+                }))
+            })
+    })
 
-    const user = userLogic.retrieve(id)
+    app.post('/save/:id', formBodyParser, (req, res) => {
+        const { params: { id } } = req
+        const { body: { name, surname, email, newUsername, newPassword, username, password } } = req
 
-    res.redirect(url.format({
-        pathname: "/",
-        query: { id }
-    }))
-})
-
-app.post('/save/:id', formBodyParser, (req, res) => {
-    const { params: { id } } = req
-    const { body: { name, surname, email, newUsername, newPassword, username, password } } = req
-
-    try {
         userLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
-        
-        res.redirect('/')
-    } catch (err) {
-        res.redirect(url.format({
-            pathname: "/",
-            query: { id, user: JSON.stringify({ name, surname, email, username, newUsername }), error: err.message }
-        }))
-    }
+            .then(() => {
+                res.redirect('/')
+            })
+            .catch(err => {
+                res.redirect(url.format({
+                    pathname: "/",
+                    query: { id, user: JSON.stringify({ name, surname, email, username, newUsername }), error: err.message }
+                }))
+            })
 
-})
+    })
 
-const port = process.env.PORT
+    const port = process.env.PORT
 
-app.listen(port, () => console.log(`server running on port ${port}`))
-
-
+    app.listen(port, () => console.log(`server running on port ${port}`))
+}

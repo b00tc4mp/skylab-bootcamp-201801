@@ -16,18 +16,22 @@ class User {
     }
 
     matches(user) {
-        let matches = true
-
-        for (const prop of User.model) {
-            const value = user[prop]
-
-            if (typeof value !== 'undefined')
-                matches = matches && this[prop] === value 
-
-        }
-
-        return matches
+        return User.match(this, user)
     }
+}
+
+User.match = function(user, vs) {
+    let matches = true
+
+    for (const prop of User.model) {
+        const value = vs[prop]
+
+        if (typeof value !== 'undefined')
+            matches = matches && user[prop] === value 
+
+    }
+
+    return matches
 }
 
 User.model = ['id', 'name', 'surname', 'email', 'username', 'password']
