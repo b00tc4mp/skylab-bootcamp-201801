@@ -1,5 +1,5 @@
 const User = require('./User')
-const UserData = require('./UserData')
+const SyncUserData = require('./SyncUserData')
 const uuidv4 = require('uuid/v4')
 
 const model = new User()
@@ -11,13 +11,27 @@ const model = new User()
  * 
  * @version 1.0.0
  */
-class ArrayUserData extends UserData {
+class ArrayUserData extends SyncUserData {
+    /**
+     * Constructs an instance
+     * 
+     * @param {Array} users - The array used to store users
+     */
     constructor(users) {
         super()
 
         this.users = users
     }
 
+    /**
+     * Inserts a user
+     * 
+     * @param {User} user - The user to insert
+     * 
+     * @returns {String} id - The inserted user id
+     * 
+     * @throws {Error} - If user not valid
+     */
     insert(user) {
         User.validate(user)
 
@@ -30,6 +44,15 @@ class ArrayUserData extends UserData {
         return id
     }
 
+    /**
+     * Retrieves a user
+     * 
+     * @param {String} id - The id of the user to retrieve
+     * 
+     * @returns {User} user - The retrieved user
+     * 
+     * @throws {Error} - If not valid id or user not found
+     */
     retrieve(id) {
         User.validateId(id)
 
@@ -40,6 +63,13 @@ class ArrayUserData extends UserData {
         throw Error('User does not exist.')
     }
 
+    /**
+     * Updates a user
+     * 
+     * @param {User} user - The user to update
+     * 
+     * @throws {Error} - If not valid id, not valid user, or user not found
+     */
     update(user) {
         const { id } = user
 
@@ -53,6 +83,13 @@ class ArrayUserData extends UserData {
         throw Error('User does not exist.')
     }
 
+    /**
+     * Deletes a user
+     * 
+     * @param {User} user - The user to delete
+     * 
+     * @throws {Error} - If not valid id, or user not found
+     */
     delete(id) {
         const index = this.users.findIndex(user => user.id === id)
 
@@ -61,8 +98,18 @@ class ArrayUserData extends UserData {
         this.users.splice(index, 1)
     }
 
+    /** 
+     * List users
+     * 
+     * @returns {Array<User>} - All users in array
+     */
     list() { return this.users.map(user => User.clone(user)) }
 
+    /**
+     * Returns filtered users that match the fields of the input user
+     * 
+     * @param {User} user - The user the fields of which are used to filter results
+     */
     filter(user) { return this.users.filter(_user => _user.matches(user)).map(user => User.clone(user)) }
 }
 

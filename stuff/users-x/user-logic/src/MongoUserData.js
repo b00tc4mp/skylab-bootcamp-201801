@@ -1,5 +1,5 @@
 const User = require('./User')
-const UserData = require('./UserData')
+const AsyncUserData = require('./UserData')
 const uuidv4 = require('uuid/v4')
 
 const model = new User()
@@ -11,7 +11,7 @@ const model = new User()
  * 
  * @version 1.0.0
  */
-class MongoUserData extends UserData {
+class MongoUserData extends AsyncUserData {
     /**
      * Constructs an instance
      * 

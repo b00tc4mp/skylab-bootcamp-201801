@@ -1,5 +1,6 @@
 const User = require('./User')
 const UserLogic = require('./UserLogic')
+const AsyncUserData = require('./AsyncUserData')
 
 /**
  * Async(hronous) User Logic (business object)
@@ -14,6 +15,8 @@ class AsyncUserLogic extends UserLogic {
      */
     constructor(userData) {
         super()
+
+        if (!userData instanceof AsyncUserData) throw Error('userData is not asynchronous')
 
         this.userData = userData
     }

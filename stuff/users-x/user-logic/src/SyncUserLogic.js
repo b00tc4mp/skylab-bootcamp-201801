@@ -1,5 +1,6 @@
 const User = require('./User')
 const UserLogic = require('./UserLogic')
+const SyncUserData = require('./SyncUserData')
 
 /**
  * Sync(hronous) User Logic (business object)
@@ -14,6 +15,8 @@ class SyncUserLogic extends UserLogic {
      */
     constructor(userData) {
         super()
+
+        if (!userData instanceof SyncUserData) throw Error('userData is not synchronous')
         
         this.userData = userData
     }
