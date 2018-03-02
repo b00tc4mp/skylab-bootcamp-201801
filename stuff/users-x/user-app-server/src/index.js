@@ -14,9 +14,13 @@ const app = express()
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-    const { query: { id } } = req
+    let { query: { id, user, error } } = req
 
-    res.render('index', { users: userLogic.list(), id })
+    if (user) user = JSON.parse(user)
+
+    const users = userLogic.list()
+
+    res.render('index', { id, user, error, users })
 })
 
 const formBodyParser = bodyParser.urlencoded({ extended: false })
@@ -24,11 +28,16 @@ const formBodyParser = bodyParser.urlencoded({ extended: false })
 app.post('/register', formBodyParser, (req, res) => {
     const { body: { name, surname, email, username, password } } = req
 
-    userLogic.register(name, surname, email, username, password)
+    try {
+        userLogic.register(name, surname, email, username, password)
 
-    console.log(users)
-
-    res.redirect('/')
+        res.redirect('/')
+    } catch (err) {
+        res.redirect(url.format({
+            pathname: "/",
+            query: { user: JSON.stringify({ name, surname, email, username }), error: err.message }
+        }))
+    }
 })
 
 app.get('/edit/:id', (req, res) => {
@@ -44,13 +53,19 @@ app.get('/edit/:id', (req, res) => {
 
 app.post('/save/:id', formBodyParser, (req, res) => {
     const { params: { id } } = req
-    const { body: { name, surname, email, username, password } } = req
+    const { body: { name, surname, email, newUsername, newPassword, username, password } } = req
 
-    userLogic.update(id, username, password, name, surname, email, username, password)
+    try {
+        userLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
+        
+        res.redirect('/')
+    } catch (err) {
+        res.redirect(url.format({
+            pathname: "/",
+            query: { id, user: JSON.stringify({ name, surname, email, username, newUsername }), error: err.message }
+        }))
+    }
 
-    console.log(users)
-
-    res.redirect('/')
 })
 
 const port = process.env.PORT

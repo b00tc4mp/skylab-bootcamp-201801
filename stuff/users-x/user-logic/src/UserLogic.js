@@ -31,7 +31,15 @@ class UserLogic {
     }
 
     update(id, username, password, name, surname, email, newUsername, newPassword) {
-        const user = this.userData.retrieve(id)
+        let user = new User()
+
+        user.username = newUsername
+
+        const users = this.userData.filter(user)
+
+        if (users.length && users[0].id !== id) throw Error('User already exists')
+
+        user = this.userData.retrieve(id)
 
         if (user.username = username && user.password === password) {
             user.name = name
@@ -61,20 +69,20 @@ class UserLogic {
 
 module.exports = UserLogic
 
-const users = []
-const userLogic = new UserLogic(new UserData(users))
+// const users = []
+// const userLogic = new UserLogic(new UserData(users))
 
-const id = userLogic.register('n','s','e','u','p')
+// const id = userLogic.register('n','s','e','u','p')
 
-const user = userLogic.retrieve(id)
-//console.log(user)
+// const user = userLogic.retrieve(id)
+// //console.log(user)
 
-userLogic.update(id, 'u', 'p', 'n.','s.','e.','u.','p.')
+// userLogic.update(id, 'u', 'p', 'n.','s.','e.','u.','p.')
 
-console.log(userLogic.list())
+// console.log(userLogic.list())
 
-userLogic.destroy(id, 'u.', 'p.')
+// userLogic.destroy(id, 'u.', 'p.')
 
-console.log(userLogic.list())
+// console.log(userLogic.list())
 
 //console.log(users)
