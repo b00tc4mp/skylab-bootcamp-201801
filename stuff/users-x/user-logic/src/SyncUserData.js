@@ -1,9 +1,11 @@
+const UserData = require('./UserData')
+
 /** 
  * Sync(hronous) User Data (storage manager) interface
  * 
  * @version 1.0.0
  */
-class SyncUserData {
+class SyncUserData extends UserData {
     /** 
      * Constructs an instance (not allowed in this interface)
      */

@@ -48,7 +48,7 @@ class FileUserData extends AsyncUserData {
      */
     write(users) {
         return new Promise((resolve, reject) => {
-            const json = JSON.stringify(users)
+            const json = JSON.stringify(users, null, 4)
 
             fs.writeFile(this.jsonFilePath, json, 'utf-8', err => {
                 if (err) return reject(err)

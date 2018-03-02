@@ -21,9 +21,10 @@ function init(filePath) {
 
         if (user) user = JSON.parse(user)
 
-        const users = userLogic.list().then(users => {
-            res.render('index', { id, user, error, users })
-        })
+        const users = userLogic.list()
+            .then(users => {
+                res.render('index', { id, user, error, users })
+            })
     })
 
     const formBodyParser = bodyParser.urlencoded({ extended: false })

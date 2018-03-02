@@ -63,7 +63,3 @@ User.clone = function (user) {
 }
 
 module.exports = User
-
-// const user = new User(1,2,3,4,5,6)
-
-// console.log(User.clone(user))
