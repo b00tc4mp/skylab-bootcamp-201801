@@ -35,7 +35,7 @@ $(document).ready(function () {
 $('#inputNumber').keyup(function () {
   var disable = false;
       $('#inputNumber').each(function(){
-           if($(this).val()==""){
+           if($(this).val() == ""){
                 disable = true;      
            }
       });
@@ -46,6 +46,7 @@ function showResults (value){
 
   var array = calcula(value);
   $("#showhere").html('Estás convirtiendo \n'+inputNumber+' '+ currency1+ ' a '+ currency2+': ' +'\n'+ value+' '+currency2 +' \n  esos '+inputNumber+' si fueran euros serían : '+'\n'+array).wrap('<pre />');
+  
   // 
   
   
