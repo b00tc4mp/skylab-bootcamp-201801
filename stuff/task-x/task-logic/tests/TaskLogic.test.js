@@ -16,13 +16,14 @@ describe('Task Logic', () => {
     it('should create a task', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
         assert(tasks.length > 0, 'task should be created')
 
         const task = tasks[0]
 
         assert(task instanceof Task, 'task should be instance of Task')
+        assert.equal(task.id, id, 'task id should match')
         assert.equal(task.title, title, 'task title should match')
         assert.equal(task.description, description, 'task description should match')
         assert.equal(task.status, Task.TODO, 'task status should match')
@@ -40,14 +41,51 @@ describe('Task Logic', () => {
         assert.deepStrictEqual(_task, task, 'task retrieved should be the one created')
     })
 
-    it('should mark task DOING', () => {
-        const title = 'title', description = 'description'
+    it('should update a task', () => {
+        let title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
+
+        title += '...'
+        description += '...'
+
+        taskLogic.update(id, title, description)
 
         const task = tasks[0]
 
-        taskLogic.markDoing(task.id)
+        assert.equal(task.id, id, 'task id should match')
+        assert.equal(task.title, title, 'task title should match')
+        assert.equal(task.description, description, 'task description should match')
+        assert.equal(task.status, Task.TODO, 'task status should match')
+    })
+
+    it('should remove a task', () => {
+        const title = 'title', description = 'description'
+
+        const id = taskLogic.create(title, description)
+
+        let count = 1
+        taskLogic.create(title, description)
+        count++
+        taskLogic.create(title, description)
+        count++
+        taskLogic.create(title, description)
+
+        assert(tasks.length > 0, 'task should be created')
+
+        taskLogic.remove(id)
+
+        assert.equal(tasks.length, count, 'task should be removed')
+    })
+
+    it('should mark task DOING', () => {
+        const title = 'title', description = 'description'
+
+        const id = taskLogic.create(title, description)
+
+        taskLogic.markDoing(id)
+        
+        const task = tasks[0]
 
         assert.equal(task.status, Task.DOING, 'task status should match DOING')
     })
@@ -55,11 +93,11 @@ describe('Task Logic', () => {
     it('should mark task REVIEW', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
+        taskLogic.markReview(id)
+        
         const task = tasks[0]
-
-        taskLogic.markReview(task.id)
 
         assert.equal(task.status, Task.REVIEW, 'task status should match REVIEW')
     })
@@ -67,11 +105,11 @@ describe('Task Logic', () => {
     it('should mark task DONE', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
-
+        const id = taskLogic.create(title, description)
+        
+        taskLogic.markDone(id)
+        
         const task = tasks[0]
-
-        taskLogic.markDone(task.id)
 
         assert.equal(task.status, Task.DONE, 'task status should match DONE')
     })
@@ -79,11 +117,11 @@ describe('Task Logic', () => {
     it('should mark task TODO', () => {
         const title = 'title', description = 'description'
 
-        taskLogic.create(title, description)
+        const id = taskLogic.create(title, description)
 
+        taskLogic.markTodo(id)
+        
         const task = tasks[0]
-
-        taskLogic.markTodo(task.id)
 
         assert.equal(task.status, Task.TODO, 'task status should match TODO')
     })
