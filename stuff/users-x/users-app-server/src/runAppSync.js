@@ -1,14 +1,10 @@
-require('dotenv').config()
-
 const express = require('express')
 const bodyParser = require('body-parser')
-const { User, ArrayUserData, SyncUserLogic } = require('user-logic')
 const url = require('url')
+const { UsersLogicSync } = require('users-logic')
 
-init()
-
-function init() {
-    const userLogic = new SyncUserLogic(new ArrayUserData([]))
+function runAppSync(port, usersLogic) {
+    if (!usersLogic instanceof UsersLogicSync) throw Error('users logic is not synchronous')
 
     const app = express()
 
@@ -19,7 +15,7 @@ function init() {
 
         if (user) user = JSON.parse(user)
 
-        const users = userLogic.list()
+        const users = usersLogic.list()
 
         res.render('index', { id, user, error, users })
     })
@@ -30,7 +26,7 @@ function init() {
         const { body: { name, surname, email, username, password } } = req
 
         try {
-            userLogic.register(name, surname, email, username, password)
+            usersLogic.register(name, surname, email, username, password)
 
             res.redirect('/')
         } catch (err) {
@@ -44,7 +40,7 @@ function init() {
     app.get('/edit/:id', (req, res) => {
         const { params: { id } } = req
 
-        const user = userLogic.retrieve(id)
+        const user = usersLogic.retrieve(id)
 
         res.redirect(url.format({
             pathname: "/",
@@ -57,7 +53,7 @@ function init() {
         const { body: { name, surname, email, newUsername, newPassword, username, password } } = req
 
         try {
-            userLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
+            usersLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
 
             res.redirect('/')
         } catch (err) {
@@ -69,7 +65,7 @@ function init() {
 
     })
 
-    const port = process.env.PORT
-
-    app.listen(port, () => console.log(`server running on port ${port}`))
+    app.listen(port, () => console.log(`users app server running on port ${port}`))
 }
+
+module.exports = runAppSync

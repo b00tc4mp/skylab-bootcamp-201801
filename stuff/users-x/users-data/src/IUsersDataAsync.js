@@ -1,18 +1,20 @@
-const UserData = require('./UserData')
+const IUsersData = require('./IUsersData')
 
 /** 
- * Async(hronous) User Data (storage manager) interface
+ * Users Data Async(hronous) interface (contract)
+ * 
+ * Defines an asynchronous storage manager for users data
  * 
  * @version 1.0.0
  */
-class AsyncUserData extends UserData {
+class IUsersDataAsync extends IUsersData {
     /** 
      * Constructs an instance (not allowed in this interface)
      */
     constructor() {
         super()
         
-        if (new.target === AsyncUserData)
+        if (new.target === IUsersDataAsync)
             throw Error('cannot instantiate')
     }
 
@@ -79,4 +81,4 @@ class AsyncUserData extends UserData {
     }
 }
 
-module.exports = AsyncUserData
+module.exports = IUsersDataAsync

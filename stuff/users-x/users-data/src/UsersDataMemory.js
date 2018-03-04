@@ -1,17 +1,17 @@
 const User = require('./User')
-const SyncUserData = require('./SyncUserData')
+const IUsersDataSync = require('./IUsersDataSync')
 const uuidv4 = require('uuid/v4')
 
 const model = new User()
 
 /** 
- * Array User Data (storage manager)
+ * Users Data on Memory (storage manager)
  * 
- * It stores data in Array.
+ * Manages users data in Array storage
  * 
  * @version 1.0.0
  */
-class ArrayUserData extends SyncUserData {
+class UsersDataMemory extends IUsersDataSync {
     /**
      * Constructs an instance
      * 
@@ -60,7 +60,7 @@ class ArrayUserData extends SyncUserData {
 
         if (user) return User.clone(user)
 
-        throw Error('User does not exist.')
+        throw Error('user does not exist')
     }
 
     /**
@@ -80,7 +80,7 @@ class ArrayUserData extends SyncUserData {
 
         if (_user) return _user.copy(user)
 
-        throw Error('User does not exist.')
+        throw Error('user does not exist')
     }
 
     /**
@@ -93,7 +93,7 @@ class ArrayUserData extends SyncUserData {
     delete(id) {
         const index = this.users.findIndex(user => user.id === id)
 
-        if (index < 0) throw Error('User does not exist.')
+        if (index < 0) throw Error('user does not exist')
 
         this.users.splice(index, 1)
     }
@@ -113,4 +113,4 @@ class ArrayUserData extends SyncUserData {
     filter(user) { return this.users.filter(_user => _user.matches(user)).map(user => User.clone(user)) }
 }
 
-module.exports = ArrayUserData
+module.exports = UsersDataMemory

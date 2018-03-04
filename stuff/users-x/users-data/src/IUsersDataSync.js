@@ -1,14 +1,20 @@
+const IUsersData = require('./IUsersData')
+
 /** 
- * User Data (storage manager) interface
+ * Users Data Sync(hronous) interface (contract)
+ * 
+ * Defines a synchronous storage manager for users data
  * 
  * @version 1.0.0
  */
-class UserData {
+class IUsersDataSync extends IUsersData {
     /** 
      * Constructs an instance (not allowed in this interface)
      */
     constructor() {
-        if (new.target === UserData)
+        super()
+        
+        if (new.target === IUsersDataSync)
             throw Error('cannot instantiate')
     }
 
@@ -22,7 +28,7 @@ class UserData {
      * @throws {Error} - If user not valid
      */
     insert(user) {
-        throw Error('not implemented')
+        super.insert()
     }
 
     /**
@@ -35,7 +41,7 @@ class UserData {
      * @throws {Error} - If not valid id or user not found
      */
     retrieve(id) {
-        throw Error('not implemented')
+        super.retrieve()
     }
 
     /**
@@ -46,7 +52,7 @@ class UserData {
      * @throws {Error} - If not valid id, not valid user, or user not found
      */
     update(user) {
-        throw Error('not implemented')
+        super.update()
     }
 
     /**
@@ -57,7 +63,7 @@ class UserData {
      * @throws {Error} - If not valid id, or user not found
      */
     delete(id) {
-        throw Error('not implemented')
+        super.delete()
     }
 
     /** 
@@ -66,7 +72,7 @@ class UserData {
      * @returns {Array<User>} - All users in array
      */
     list() {
-        throw Error('not implemented')
+        super.list()
     }
 
     /**
@@ -75,8 +81,8 @@ class UserData {
      * @param {User} user - The user the fields of which are used to filter results
      */
     filter(user) {
-        throw Error('not implemented')
+        super.filter()
     }
 }
 
-module.exports = UserData
+module.exports = IUsersDataSync

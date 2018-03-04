@@ -1,6 +1,8 @@
 /** 
  * User (model)
  * 
+ * Modelizes a user
+ * 
  * @version 1.0.0
  */
 class User {

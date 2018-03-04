@@ -1,24 +1,25 @@
-const User = require('./User')
-const UserLogic = require('./UserLogic')
-const AsyncUserData = require('./AsyncUserData')
+const { User, IUsersDataAsync } = require('users-data')
+const IUsersLogic = require('./IUsersLogic')
 
 /**
- * Async(hronous) User Logic (business object)
+ * Users Logic Async(hronous)
+ * 
+ * Business object that manages users logic asynchronously
  * 
  * @version 1.0.0
  */
-class AsyncUserLogic extends UserLogic {
+class UsersLogicAsync extends IUsersLogic {
     /**
      * Constructs an instance
      * 
-     * @param {UserData} userData - The user data store manager (must be asynchronous)
+     * @param {IUsersDataAsync} usersData - The users data storage manager (asynchronous)
      */
-    constructor(userData) {
+    constructor(usersData) {
         super()
 
-        if (!userData instanceof AsyncUserData) throw Error('userData is not asynchronous')
+        if (!usersData instanceof IUsersDataAsync) throw Error('users data storage manager is not asynchronous')
 
-        this.userData = userData
+        this.usersData = usersData
     }
 
     register(name, surname, email, username, password) {
@@ -26,21 +27,21 @@ class AsyncUserLogic extends UserLogic {
 
         user.username = username
 
-        return this.userData.filter(user)
+        return this.usersData.filter(user)
             .then(users => {
-                if (users.length) throw Error('User already exists')
+                if (users.length) throw Error('user already exists')
 
                 user.name = name
                 user.surname = surname
                 user.email = email
                 user.password = password
 
-                return this.userData.insert(user)
+                return this.usersData.insert(user)
             })
     }
 
     retrieve(id) {
-        return this.userData.retrieve(id)
+        return this.usersData.retrieve(id)
     }
 
     update(id, username, password, name, surname, email, newUsername, newPassword) {
@@ -49,17 +50,17 @@ class AsyncUserLogic extends UserLogic {
 
             user.username = newUsername
 
-            this.userData.filter(user)
+            this.usersData.filter(user)
                 .then(users => {
                     const _user = users[0]
 
-                    if (_user && _user.id !== id) throw Error('User already exists')
+                    if (_user && _user.id !== id) throw Error('user already exists')
 
                     return this.retrieve(id)
                 })
                 .then(user => {
                     if (user.username !== username || user.password !== password)
-                        throw Error('Wrong username and/or password.')
+                        throw Error('wrong username and/or password.')
 
                     user.name = name
                     user.surname = surname
@@ -67,7 +68,7 @@ class AsyncUserLogic extends UserLogic {
                     user.username = newUsername || username
                     user.password = newPassword || password
 
-                    return this.userData.update(user)
+                    return this.usersData.update(user)
                 })
                 .then(resolve)
                 .catch(reject)
@@ -76,18 +77,18 @@ class AsyncUserLogic extends UserLogic {
 
     destroy(id, username, password) {
         // TODO make async!
-        
-        const user = this.userData.retrieve(id)
+
+        const user = this.usersData.retrieve(id)
 
         if (user.username = username && user.password === password) {
-            this.userData.delete(id)
+            this.usersData.delete(id)
         } else
-            throw Error('Wrong username and/or password.')
+            throw Error('wrong username and/or password.')
     }
 
     list() {
-        return this.userData.list().then(users => users.map(({ id, name, surname, email, username }) => ({ id, name, surname, email, username })))
+        return this.usersData.list().then(users => users.map(({ id, name, surname, email, username }) => ({ id, name, surname, email, username })))
     }
 }
 
-module.exports = AsyncUserLogic
+module.exports = UsersLogicAsync

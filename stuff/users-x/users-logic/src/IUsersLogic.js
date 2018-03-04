@@ -1,18 +1,20 @@
-const User = require('./User')
+const { User } = require('users-data')
 
 /**
- * User Logic (business object) interface
+ * Users Logic (business object) interface (contract)
+ * 
+ * Defines the business object that manages users logic
  * 
  * @version 1.0.0
  */
-class UserLogic {
+class IUsersLogic {
     /**
      * Constructs an instance
      * 
      * @param {UserData} userData - The users data store manager (must implement the interface)
      */
     constructor(userData) {
-        if (new.target === UserLogic)
+        if (new.target === IUsersLogic)
             throw Error('cannot instantiate')
     }
 
@@ -83,4 +85,4 @@ class UserLogic {
     }
 }
 
-module.exports = UserLogic
+module.exports = IUsersLogic

@@ -1,17 +1,17 @@
 const User = require('./User')
-const AsyncUserData = require('./UserData')
+const IUsersDataAsync = require('./IUsersDataAsync')
 const uuidv4 = require('uuid/v4')
 
 const model = new User()
 
 /** 
- * Mongo User Data (storage manager)
+ * Users Data on Mongo (storage manager) 
  * 
- * It stores data in Mongo DB.
+ * Manages users data in Mongo DB storage
  * 
  * @version 1.0.0
  */
-class MongoUserData extends AsyncUserData {
+class UsersDataMongo extends IUsersDataAsync {
     /**
      * Constructs an instance
      * 
@@ -47,7 +47,7 @@ class MongoUserData extends AsyncUserData {
 
             this.collection().findOne({ id })
                 .then(user => {
-                    if (!user) return reject(Error('User does not exist.'))
+                    if (!user) return reject(Error('user does not exist'))
 
                     resolve(user)
                 })
@@ -73,7 +73,7 @@ class MongoUserData extends AsyncUserData {
 
         const index = this.db.findIndex(user => user.id === id)
 
-        if (index < 0) throw Error('User does not exist.')
+        if (index < 0) throw Error('user does not exist')
 
         this.db.splice(index, 1)
     }
@@ -95,4 +95,4 @@ class MongoUserData extends AsyncUserData {
     }
 }
 
-module.exports = MongoUserData
+module.exports = UsersDataMongo

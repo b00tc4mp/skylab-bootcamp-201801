@@ -1,18 +1,18 @@
 const User = require('./User')
-const AsyncUserData = require('./AsyncUserData')
+const IUsersDataAsync = require('./IUsersDataAsync')
 const uuidv4 = require('uuid/v4')
 const fs = require('fs')
 
 const model = new User()
 
 /** 
- * File User Data (storage manager)
+ * Users Data on Disk (storage manager)
  * 
- * It stores data in JSON file.
+ * Manages users data in JSON file storage
  * 
  * @version 1.0.0
  */
-class FileUserData extends AsyncUserData {
+class UsersDataDisk extends IUsersDataAsync {
     /**
      * Constructs an instance
      * 
@@ -61,7 +61,7 @@ class FileUserData extends AsyncUserData {
     /**
      * Inserts a user
      * 
-     * @see AsyncUserData.insert
+     * @see IUsersDataAsync.insert
      */
     insert(user) {
         return new Promise((resolve, reject) => {
@@ -100,7 +100,7 @@ class FileUserData extends AsyncUserData {
 
                     if (user) return resolve(user)
 
-                    reject(Error('User does not exist.'))
+                    reject(Error('user does not exist'))
                 })
                 .catch(reject)
         })
@@ -129,7 +129,7 @@ class FileUserData extends AsyncUserData {
 
                         return this.write(users)
 
-                    } else reject(Error('User does not exist.'))
+                    } else reject(Error('user does not exist'))
                 })
                 .then(resolve)
                 .catch(reject)
@@ -147,7 +147,7 @@ class FileUserData extends AsyncUserData {
         // TODO 
         const index = users.findIndex(user => user.id === id)
 
-        if (index < 0) throw Error('User does not exist.')
+        if (index < 0) throw Error('user does not exist')
 
         this.users.splice(index, 1)
     }
@@ -170,4 +170,4 @@ class FileUserData extends AsyncUserData {
     }
 }
 
-module.exports = FileUserData
+module.exports = UsersDataDisk

@@ -1,20 +1,10 @@
-require('dotenv').config()
-
 const express = require('express')
 const bodyParser = require('body-parser')
-const { User, MongoUserData, AsyncUserLogic } = require('user-logic')
 const url = require('url')
-const mongo = require('./mongo')
+const { UsersLogicAsync } = require('users-logic')
 
-const host = process.env.MONGO_HOST
-const port = process.env.MONGO_PORT
-
-mongo(host, port, 'bootcamp', init)
-
-function init(err, db) {
-    if (err) throw err
-
-    const userLogic = new AsyncUserLogic(new MongoUserData(db))
+function runAppAsync(port, usersLogic) {
+    if (!usersLogic instanceof UsersLogicAsync) throw Error('users logic is not asynchronous')
 
     const app = express()
 
@@ -25,9 +15,10 @@ function init(err, db) {
 
         if (user) user = JSON.parse(user)
 
-        const users = userLogic.list().then(users => {
-            res.render('index', { id, user, error, users })
-        })
+        const users = usersLogic.list()
+            .then(users => {
+                res.render('index', { id, user, error, users })
+            })
     })
 
     const formBodyParser = bodyParser.urlencoded({ extended: false })
@@ -35,7 +26,7 @@ function init(err, db) {
     app.post('/register', formBodyParser, (req, res) => {
         const { body: { name, surname, email, username, password } } = req
 
-        userLogic.register(name, surname, email, username, password)
+        usersLogic.register(name, surname, email, username, password)
             .then(id => {
                 res.redirect('/')
             })
@@ -50,7 +41,7 @@ function init(err, db) {
     app.get('/edit/:id', (req, res) => {
         const { params: { id } } = req
 
-        userLogic.retrieve(id)
+        usersLogic.retrieve(id)
             .then(user => {
                 res.redirect(url.format({
                     pathname: "/",
@@ -69,7 +60,7 @@ function init(err, db) {
         const { params: { id } } = req
         const { body: { name, surname, email, newUsername, newPassword, username, password } } = req
 
-        userLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
+        usersLogic.update(id, username, password, name, surname, email, newUsername, newPassword)
             .then(() => {
                 res.redirect('/')
             })
@@ -82,7 +73,7 @@ function init(err, db) {
 
     })
 
-    const port = process.env.PORT
-
-    app.listen(port, () => console.log(`server running on port ${port}`))
+    app.listen(port, () => console.log(`users server running on port ${port}`))
 }
+
+module.exports = runAppAsync
