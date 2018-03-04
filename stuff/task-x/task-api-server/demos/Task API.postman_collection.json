@@ -1,6 +1,6 @@
 {
 	"info": {
-		"name": "Task API 201801",
+		"name": "Task API",
 		"_postman_id": "af92fbc8-4397-614c-7369-14c418eb014b",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -51,7 +51,7 @@
 					"raw": "{ \n\t\"title\": \"buy milk\",\n\t\"description\": \"get avena and rice ones only\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/tasks/TODO",
+					"raw": "http://localhost:5000/api/tasks",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -59,8 +59,7 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"tasks",
-						"TODO"
+						"tasks"
 					]
 				},
 				"description": null
