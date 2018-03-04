@@ -30,8 +30,8 @@ MongoClient.connect('mongodb://localhost:27017', (err, database) => {
     const db = database.db('usersDB') // SI NO EXISTE, SE CREA LA BBDD 'userDB'
 
     function validateUser(name,password) {
-        db.collection('users').find({"user":name, "password":password}, (err,data) => {
-            return user
+        db.collection('users').find({"name":name, "password":password}).toArray((err,data) => {
+            return name
         })
         
     }
@@ -66,7 +66,7 @@ MongoClient.connect('mongodb://localhost:27017', (err, database) => {
             edit = new Array()
 
             res.render('index',user )
-        }else if (validateUser(name,password)) {
+        }else if (!validateUser(name,password)) {
             user = [{name,surname,email,username}]
             error = [{"error": `A user "${name}" with this password already exists`}]
             edit = new Array()
