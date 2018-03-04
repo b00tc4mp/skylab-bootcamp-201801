@@ -1,3 +1,3 @@
 # Projection
 
-![UML](runApp.png)
+![draw.io projection diagram](runApp.png)

@@ -1,3 +1,3 @@
 # Projection
 
-![UML](UsersLogic.png)
+![draw.io projection diagram](UsersLogic.png)
