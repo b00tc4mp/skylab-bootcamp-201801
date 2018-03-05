@@ -14,3 +14,9 @@
 
 [Don't repeat yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 
+[Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#commandpatternjavascript)
+
+[Software design patterns implemented in EcmaScript 6](http://loredanacirstea.github.io/es6-design-patterns/)
+
+[Object-Oriented JavaScript — A Deep Dive into ES6 Classes](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
+
