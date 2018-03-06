@@ -77,6 +77,8 @@ MongoClient.connect(`mongodb://${host}:${port}`, (err, conn) => {
                 return db.collection(collection).findOne({ id })
             })
             .then(user => {
+                if (!user) throw Error('user does not exists')
+                
                 if (user.username !== username || user.password !== password) throw Error('username and/or password wrong')
 
                 return db.collection(collection).updateOne({ id }, { $set: { name, surname, email, username: newUsername, password: newPassword } })
@@ -97,12 +99,10 @@ MongoClient.connect(`mongodb://${host}:${port}`, (err, conn) => {
             .then(() => {
                 validate({ id, username, password })
 
-                return db.collection(collection).findOne({ username })
+                return db.collection(collection).findOne({ id })
             })
             .then(user => {
                 if (!user) throw Error('user does not exist')
-
-                if (user.id !== id) throw Error('user id does not match the one provided')
 
                 if (user.username !== username || user.password !== password) throw Error('username and/or password wrong')
 
