@@ -3,5 +3,5 @@
 
 # [Whiteboard](https://docs.google.com/document/d/1sXhC2zKXtrObzM79ByO6NsMDnWDgGQCGQxRmBBcsqYM/edit)
 
-# [Slides](https://docs.google.com/presentation/d/1Ysjno_thUZMFuOiR47qjRmzsNxBSvsIzfZEwO2EZ-Uc/edit?usp=sharing)
+# <a href="doc/FullStack WebDev BootCamp 201801.pdf">Slides</a>
 

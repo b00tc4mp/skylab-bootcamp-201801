@@ -1,12 +1,13 @@
 {
   "title": "Users API server",
-  "description": "REST API for managing users.",
+  "description": "REST API for managing users in storage through Mongo Client.",
   "tags": [
     "node",
     "js",
     "express",
     "api",
     "mongo",
+    "client",
     "db",
     "users",
     "manager",
