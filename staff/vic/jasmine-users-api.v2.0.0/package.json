@@ -4,9 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src",
-    "debug": "devtool src --watch",
-    "watch": "nodemon src",
+    "jasmineCli": "node ./src/jasmineCLI.spec.js",
+    "start": "node .",
+    "debug": "devtool . --watch",
+    "watch": "nodemon .",
     "test": "jasmine --config=./spec/config/jasmine.json"
   },
   "keywords": [],
