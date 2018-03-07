@@ -1,7 +1,5 @@
 const rp = require('request-promise')
 
-// TODO implement api client
-
 const api = {
     
     _baseUrl() {
@@ -11,8 +9,6 @@ const api = {
     },
 
     _call(method, path, body) {
-        // return rp(`${this._baseUrl()}/${path}`)
-        //     .then(res => JSON.parse(res))
         return rp({
             method,
             uri: `${this._baseUrl()}/${path}`,
@@ -25,8 +21,25 @@ const api = {
         return this._call('get', 'users')
     },
 
+<<<<<<< HEAD
     create(name, surname, email, username, password) {
         return this._call('post', 'users', { name, surname, email, username, password })
+=======
+    register(name, surname, email, username, password) {
+        return this._call('post', 'user', { name, surname, email, username, password })
+    },
+
+    remove(id, username, password) {
+        return this._call('delete', `user/${id}`, { username, password })
+    },
+
+    retrieve(id) {
+        return this._call('get', `user/${id}`)
+    },
+
+    update(id, name, surname, email, newUsername, newPassword, username, password) {
+        return this._call('put', `user/${id}`, { name, surname, email, newUsername, newPassword, username, password })
+>>>>>>> upstream/develop
     }
 }
 

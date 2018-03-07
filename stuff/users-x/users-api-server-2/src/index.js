@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const routes = require('./routes')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const mongo = {
     host: process.env.MONGO_HOST,
@@ -15,6 +16,8 @@ with(mongo) {
 }
 
 const app = express()
+
+app.use(cors())
 
 app.use('/api', routes)
 
