@@ -1,0 +1,14 @@
+{
+  "title": "Users App (React client)",
+  "description": "Client-side React application for managing users through API.",
+  "tags": [
+    "node",
+    "js",
+    "react",
+    "client",
+    "users",
+    "app",
+    "challenge"
+  ],
+  "created": "2018-03-05T17:48:19.169Z"
+}

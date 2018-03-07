@@ -1,0 +1,18 @@
+{
+  "title": "Users API server",
+  "description": "REST API for managing users in storage through Mongoose.",
+  "tags": [
+    "node",
+    "js",
+    "express",
+    "api",
+    "mongo",
+    "mongoose",
+    "db",
+    "users",
+    "manager",
+    "server",
+    "challenge"
+  ],
+  "created": "2018-03-06T13:48:19.169Z"
+}
