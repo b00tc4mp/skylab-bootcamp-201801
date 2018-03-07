@@ -1,6 +1,6 @@
 {
   "title": "Users API server",
-  "description": "REST API for managing users in storage through Mongoose, with separation of concerns in layers.",
+  "description": "REST API for managing users in storage through Mongoose, with separation of concerns (layers and components).",
   "tags": [
     "node",
     "js",
