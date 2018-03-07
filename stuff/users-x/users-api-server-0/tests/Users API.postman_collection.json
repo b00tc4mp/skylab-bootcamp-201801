@@ -18,17 +18,17 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"shaktimaan2\",\n  \"password\": \"123\"\n}"
+					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\"\n}"
 				},
 				"url": {
-					"raw": "localhost:5000/api/users",
+					"raw": "localhost:5000/api/user",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
 						"api",
-						"users"
+						"user"
 					]
 				},
 				"description": null
@@ -68,10 +68,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"password\": \"123\",\n  \"newPassword\": \"456\"\n}"
+					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\",\n  \"newUsername\": \"u2\",\n  \"newPassword\": \"p\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users/shaktimaan",
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -79,8 +79,8 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"users",
-						"shaktimaan"
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
 					]
 				},
 				"description": null
@@ -99,10 +99,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"password\": \"456\"\n}"
+					"raw": "{\n  \"username\": \"u2\",\n  \"password\": \"p\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users/shaktimaan",
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,8 +110,8 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"users",
-						"shaktimaan"
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
 					]
 				},
 				"description": null
@@ -125,15 +125,15 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:5000/api/users/shaktimaan",
+					"raw": "localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
 						"api",
-						"users",
-						"shaktimaan"
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
 					]
 				},
 				"description": null
