@@ -3,6 +3,7 @@ const rp = require('request-promise')
 // TODO implement api client
 
 const api = {
+    
     _baseUrl() {
         with (this) {
             return `${protocol}://${host}:${port}/api`
@@ -25,7 +26,7 @@ const api = {
     },
 
     create(name, surname, email, username, password) {
-        return this._call('post', 'user', { name, surname, email, username, password })
+        return this._call('post', 'users', { name, surname, email, username, password })
     }
 }
 

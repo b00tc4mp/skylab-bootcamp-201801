@@ -10,6 +10,7 @@ api.host = API_HOST
 api.port = API_PORT
 
 describe('api', () => {
+    
     it('should list', done => {
         api.list()
             .then(res => {
