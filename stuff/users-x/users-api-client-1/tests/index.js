@@ -64,9 +64,13 @@ describe('api', () => {
             .catch(done)
     })
 
-    !true && it('should delete', done => {
-        api.register('n', 's', 'e', 'u', 'p')
-            .then(res => api.remove(res.data.id, 'u', 'p'))
+    true && it('should delete', done => {
+        api.register(token, 'n', 's', 'e', 'u22', 'p')
+            .then(res => {
+                assert.equal(res.status, 'OK', `results should be OK, but got error: ${res.error}`)
+
+                return api.remove(token, res.data.id, 'u22', 'p')
+            })
             .then(res => {
                 assert.equal(res.status, 'OK', `results should be OK, but got error: ${res.error}`)
 
