@@ -9,6 +9,16 @@
 		{
 			"name": "CREATE user",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InUiLCJpYXQiOjE1MjA1MDgxMTAsImV4cCI6MTUyMDUxMTcxMH0.MPtGGevAvuZO50NRjEQxp5Stb38rFMVTA_3Jt5eHfmU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -38,6 +48,16 @@
 		{
 			"name": "LIST users",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InUiLCJpYXQiOjE1MjA1MDgxMTAsImV4cCI6MTUyMDUxMTcxMH0.MPtGGevAvuZO50NRjEQxp5Stb38rFMVTA_3Jt5eHfmU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -59,6 +79,16 @@
 		{
 			"name": "UPDATE user",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InUiLCJpYXQiOjE1MjA1MDgxMTAsImV4cCI6MTUyMDUxMTcxMH0.MPtGGevAvuZO50NRjEQxp5Stb38rFMVTA_3Jt5eHfmU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -71,7 +101,7 @@
 					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\",\n  \"newUsername\": \"u2\",\n  \"newPassword\": \"p\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"raw": "http://localhost:5000/api/user/77a11665-ad10-447b-8ae1-ba36335cfd97",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -80,7 +110,7 @@
 					"path": [
 						"api",
 						"user",
-						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+						"77a11665-ad10-447b-8ae1-ba36335cfd97"
 					]
 				},
 				"description": null
@@ -90,6 +120,16 @@
 		{
 			"name": "DELETE user",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InUiLCJpYXQiOjE1MjA1MDgxMTAsImV4cCI6MTUyMDUxMTcxMH0.MPtGGevAvuZO50NRjEQxp5Stb38rFMVTA_3Jt5eHfmU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [
 					{
@@ -102,7 +142,7 @@
 					"raw": "{\n  \"username\": \"u2\",\n  \"password\": \"p\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"raw": "http://localhost:5000/api/user/77a11665-ad10-447b-8ae1-ba36335cfd97",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -111,7 +151,7 @@
 					"path": [
 						"api",
 						"user",
-						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+						"77a11665-ad10-447b-8ae1-ba36335cfd97"
 					]
 				},
 				"description": null
@@ -121,11 +161,21 @@
 		{
 			"name": "RETRIEVE user",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InUiLCJpYXQiOjE1MjA1MDgxMTAsImV4cCI6MTUyMDUxMTcxMH0.MPtGGevAvuZO50NRjEQxp5Stb38rFMVTA_3Jt5eHfmU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"raw": "localhost:5000/api/user/77a11665-ad10-447b-8ae1-ba36335cfd97",
 					"host": [
 						"localhost"
 					],
@@ -133,10 +183,39 @@
 					"path": [
 						"api",
 						"user",
-						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+						"77a11665-ad10-447b-8ae1-ba36335cfd97"
 					]
 				},
 				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"u\",\n\t\"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": ""
 			},
 			"response": []
 		}
