@@ -10,14 +10,8 @@ api.host = API_HOST
 api.port = API_PORT
 
 describe('api', () => {
-<<<<<<< HEAD
-    
-    it('should list', done => {
-        api.list()
-=======
     true && it('should register', done => {
         api.register('n', 's', 'e', 'u', 'p')
->>>>>>> upstream/develop
             .then(res => {
                 assert.equal(res.status, 'OK', 'results should be OK')
 
