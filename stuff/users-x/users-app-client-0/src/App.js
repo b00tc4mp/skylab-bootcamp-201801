@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import api from 'users-api-client-0'
-
-api.protocol = 'http'
-api.host = 'localhost'
-api.port = '5000'
+import api from './api'
 
 class App extends Component {
   constructor() {

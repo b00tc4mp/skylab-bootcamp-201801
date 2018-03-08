@@ -1,16 +1,14 @@
 {
-  "title": "Users App client",
-  "description": "Client application implemented in React to manage users through REST API.",
+  "title": "Users App (React client)",
+  "description": "Client-side React application for managing users through API.",
   "tags": [
-    "react",
+    "node",
     "js",
+    "react",
+    "client",
     "users",
     "app",
-    "manager",
-    "application",
-    "client",
-    "rest",
-    "api"
+    "challenge"
   ],
   "created": "2018-03-07T14:47:58.854Z"
 }
