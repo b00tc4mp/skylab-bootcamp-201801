@@ -1,5 +1,5 @@
 {
-  "title": "passport-demo-1.1.0",
+  "title": "passport-demo-0.1.0",
   "description": "Passport demo with local and jwt strategies, and data handling with passport local mongoose plugin.",
   "tags": [
     "passport",
