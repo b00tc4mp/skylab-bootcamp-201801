@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.92% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>92/93</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.86% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>24/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>92/92</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">require('dotenv').config()
+&nbsp;
+const api = require('../src/index')
+const assert = require('assert')
+&nbsp;
+const mongoose = require('mongoose')
+&nbsp;
+const {
+    API_PROTOCOL,
+    API_HOST,
+    API_PORT
+} = process.env
+&nbsp;
+let index = 0
+let name, surname, email, username, password
+&nbsp;
+api.protocol = API_PROTOCOL
+api.host = API_HOST
+api.port = API_PORT
+&nbsp;
+describe('API', () =&gt; {
+&nbsp;
+    before(function (done) {
+&nbsp;
+        require('./db')
+&nbsp;
+        mongoose.connection.once('connected', () =&gt; {
+            mongoose.connection.db.collection('users').drop(err =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >done(err)</span>
+                done()
+            });
+        });
+    })
+&nbsp;
+    describe('Succes CASES', () =&gt; {
+        beforeEach(() =&gt; {
+            index++;
+&nbsp;
+            name = `n${index}`
+            surname = `s${index}`
+            email = `e${index}`
+            username = `u${index}`
+            password = `p${index}`
+&nbsp;
+        });
+&nbsp;
+        it('should exist', () =&gt; {
+&nbsp;
+            assert(api, 'should exist api')
+&nbsp;
+            assert(api.protocol, 'api.protocol should exist')
+&nbsp;
+            assert(api.host, 'api.host should exist')
+&nbsp;
+            assert(api._call, 'api._cal should exist')
+&nbsp;
+            assert(api.list, 'api.list should exist')
+&nbsp;
+            assert(api.create, 'api.create should exist')
+&nbsp;
+            assert(api.update, 'api.update should exist')
+&nbsp;
+            assert(api.retrieve, 'api.retrieve should exist')
+&nbsp;
+            assert(api.remove, 'api.remove should exist')
+&nbsp;
+            assert.equal(typeof (api), 'object', 'should instace of as Object')
+        })
+&nbsp;
+        it('should list', done =&gt; {
+&nbsp;
+            api.create(name, surname, email, username, password)
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.id, 'should return data id')
+&nbsp;
+                    return api.list()
+&nbsp;
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK, but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.length &gt; 0, `should return data array`)
+&nbsp;
+                    done()
+                })
+                .catch(done)
+&nbsp;
+        })
+&nbsp;
+        it('should create', done =&gt; {
+            api.create(name, surname, email, username, password)
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.id, 'should return data id')
+&nbsp;
+                    done()
+                })
+                .catch(done)
+        })
+&nbsp;
+        it('should retrieve', done =&gt; {
+            let id
+            api.create(name, surname, email, username, password)
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.id, 'should return data id')
+&nbsp;
+                    id = res.data.id
+&nbsp;
+                    return api.retrieve(id)
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert.equal(res.data.name, name, `${res.data.name} should be same as name --&gt; ${name}`)
+&nbsp;
+                    assert.equal(res.data.surname, surname, `${res.data.surname} should be same as surname --&gt; ${surname}`)
+&nbsp;
+                    assert.equal(res.data.email, email, `${res.data.email} should be same as email --&gt; ${email}`)
+&nbsp;
+                    assert.equal(res.data.username, username, `${res.data.username} should be same as username --&gt; ${username}`)
+&nbsp;
+                    assert.equal(res.data.password, undefined, `password should be undefine, but return something`)
+&nbsp;
+                    assert.equal(res.data.id, id, `${res.data.id} should be same as id --&gt; ${id}`)
+&nbsp;
+                    done()
+                })
+                .catch(done)
+        })
+&nbsp;
+        it('should update', done =&gt; {
+            let newPassword = "paco",
+                newUsername = "paquito",
+                id
+            api.create(name, surname, email, username, password)
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.id, 'should return data id')
+&nbsp;
+                    id = res.data.id
+&nbsp;
+                    return api.update(id, name, surname, email, username, password, newUsername, newPassword)
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    return api.retrieve(id)
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert.equal(res.data.name, name, `${res.data.name} should be same as name --&gt; ${name}`)
+&nbsp;
+                    assert.equal(res.data.surname, surname, `${res.data.surname} should be same as surname --&gt; ${surname}`)
+&nbsp;
+                    assert.equal(res.data.email, email, `${res.data.email} should be same as email --&gt; ${email}`)
+&nbsp;
+                    assert.equal(res.data.username, newUsername, `${res.username} should be same as newUsername --&gt; ${newUsername}`)
+&nbsp;
+                    assert.equal(res.data.password, undefined, `password should be undefine, but return something`)
+&nbsp;
+                    assert.equal(res.data.id, id, `${res.data.id} should be same as id --&gt; ${id}`)
+&nbsp;
+                    done()
+                })
+                .catch(done)
+        })
+&nbsp;
+        it('should delete', done =&gt; {
+&nbsp;
+            api.create(name, surname, email, username, password)
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+                    assert(res.data &amp;&amp; res.data.id, 'should return data id')
+&nbsp;
+                    id = res.data.id
+&nbsp;
+                    return api.remove(id, username, password)
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'OK', `results should be OK , but got error ${res.error}`)
+&nbsp;
+&nbsp;
+                    return api.retrieve(id)
+                })
+                .then(res =&gt; {
+&nbsp;
+                    assert.equal(res.status, 'KO', `results should be KO becouse user does not exist`)
+&nbsp;
+                    done()
+                })
+                .catch(done)
+        })
+    })
+&nbsp;
+    after(() =&gt; {
+        mongoose.disconnect()
+    })
+&nbsp;
+})</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 07 2018 17:04:28 GMT+0100 (CET)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
