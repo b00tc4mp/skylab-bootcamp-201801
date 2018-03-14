@@ -135,6 +135,11 @@ describe('models', () => {
                 .then(() => {
                     // TODO Post.find
 
+                    let result = Post.find({ idUser })// Add by alex
+                        .then(posts => {
+                            return User.populate(posts, { path: 'idUser', select: 'user' })
+                        })
+
                     done()
                 })
                 .catch(done)
