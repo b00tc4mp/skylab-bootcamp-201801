@@ -84,6 +84,7 @@ describe('models', () => {
         before(done => {
             user = new User({
                 name: 'name',
+                _id : '111',  // Add by alex
                 surame: 'surname',
                 email: 'email',
                 username: 'username',
@@ -132,13 +133,21 @@ describe('models', () => {
                     .then(_post1 => post1 = _post1),
                 post2.save()
                     .then(_post2 => post2 = _post2)])
-                .then(() => {
+                    .then(() => {
                     // TODO Post.find
-
+                    let result = Post.find({idUser})// Add by alex
+                                .then(posts=>{
+                                    return User.populate(posts, {path:'idUser', select: 'user' })
+                                })
+                    try {
+                    if (result =! 1) throw err('do not filter correctly')
                     done()
+                    }
+                    catch (err){ // Add by alex
+                        console.log (err)
+                        done()
+                    }
                 })
-                .catch(done)
-        })
 
         it('should find post by user id', () => {
             assert(user, 'should have saved user')
