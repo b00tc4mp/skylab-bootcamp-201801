@@ -10,3 +10,5 @@
 
 [Testing React App SEO using Fetch as Google](https://spin.atomicobject.com/2017/12/04/react-fetch-as-google/)
 
+# [Final project](https://github.com/AsierDev/book-buddies)
+

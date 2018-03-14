@@ -33,8 +33,8 @@ const api = {
         return this._call('post', 'user', { name, surname, email, username, password }, token)
     },
 
-    remove(id, username, password) {
-        return this._call('delete', `user/${id}`, { username, password })
+    remove(token, id, username, password) {
+        return this._call('delete', `user/${id}`, { username, password }, token)
     },
 
     retrieve(token, id) {
