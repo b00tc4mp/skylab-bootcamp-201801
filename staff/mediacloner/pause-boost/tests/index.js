@@ -136,15 +136,18 @@ describe('models', () => {
                 .then(() => {
                     // TODO Post.find
                    
-                    let result = Post.find({idUser})
+                    let result = Post.find({idUser})// Add by alex
                         .then(posts=>{
                             return User.populate(posts, {path:'idUser', select: 'user' })
 
-                    if (result =! 1) throw error ('do not filter correctly')
+                    if (result =! 1) throw err
                         
                     done()
                 })
-                .catch(done)
+                .catch(err){// Add by alex
+                    console.log ('do not filter correctly')
+                    done()
+                }
         })
 
         it('should find post by user id', () => {
