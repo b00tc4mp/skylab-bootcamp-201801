@@ -79,7 +79,7 @@ describe('models', () => {
     })
 
     describe('find post by user id', () => {
-        let user, post1, post2
+        let user, post1, post2, posts
 
         before(done => {
             user = new User({
@@ -131,14 +131,13 @@ describe('models', () => {
                 post1.save()
                     .then(_post1 => post1 = _post1),
                 post2.save()
-                    .then(_post2 => post2 = _post2)])
+                    .then(_post2 => post2 = _post2)
+            ])
                 .then(() => {
-                    // TODO Post.find
-
-                    let result = Post.find({ idUser })// Add by alex
-                        .then(posts => {
-                            return User.populate(posts, { path: 'idUser', select: 'user' })
-                        })
+                    return Post.find({ owner: user._id }).populate({ path: 'owner', select: 'username' })
+                })
+                .then(_posts => {
+                    posts = _posts
 
                     done()
                 })
@@ -151,6 +150,16 @@ describe('models', () => {
             assert(post1, 'should have saved post1')
 
             assert(post2, 'should have saved post2')
+
+            assert(posts && posts instanceof Array && posts.length === 1, 'should have found one post for the user')
+
+            const [post] = posts
+
+            assert.equal(post._id.toString(), post1._id.toString(), 'should found post match post 1')
+
+            assert(post.owner, 'should owner of found be defined')
+
+            assert.equal(post.owner.username, user.username, 'should owner of found post match user')
         })
     })
 
