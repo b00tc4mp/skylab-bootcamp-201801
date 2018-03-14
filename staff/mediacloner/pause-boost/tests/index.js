@@ -84,6 +84,7 @@ describe('models', () => {
         before(done => {
             user = new User({
                 name: 'name',
+                _id : '111',  // Add by alex
                 surame: 'surname',
                 email: 'email',
                 username: 'username',
@@ -134,7 +135,13 @@ describe('models', () => {
                     .then(_post2 => post2 = _post2)])
                 .then(() => {
                     // TODO Post.find
+                   
+                    let result = Post.find({idUser})
+                        .then(posts=>{
+                            return User.populate(posts, {path:'idUser', select: 'user' })
 
+                    if (result =! 1) throw error ('do not filter correctly')
+                        
                     done()
                 })
                 .catch(done)
