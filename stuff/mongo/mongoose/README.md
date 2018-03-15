@@ -12,5 +12,9 @@
 
 [MongoDB, Mongoose: How to find subdocument in found document?](https://stackoverflow.com/questions/21142524/mongodb-mongoose-how-to-find-subdocument-in-found-document)
 
+[Automatically remove referencing objects on deletion in MongoDB](https://stackoverflow.com/questions/11904159/automatically-remove-referencing-objects-on-deletion-in-mongodb)
+
 [Mongoose middlewares](http://mongoosejs.com/docs/middleware.html)
+
+[Mongoose schema property with specific values](https://stackoverflow.com/questions/13284157/mongoose-schema-property-with-specific-values)
 
