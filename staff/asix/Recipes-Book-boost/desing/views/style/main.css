@@ -1,0 +1,60 @@
+/* Main Start */
+
+main{
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+/* Main End */
+
+/* Header Start */
+
+.color-header{
+    background-color: #2646ea;
+}
+    
+.color-header-active{
+    background-color: #263ba8;
+}
+
+.navbar-inverse .navbar-brand{
+    color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+
+img{
+    width: 130px;
+    padding-top: 0px;
+}
+
+.ancor-footer{
+    color: white;
+}
+
+.ancor-footer:hover{
+    color: white;
+    text-decoration: none;
+}
+
+/* Header End */
+
+
+/* Footer Start */
+
+.footer{
+    background-color: #2646ea;
+    color: white;
+}
+
+.logo-footer{
+    margin-top: 20px;
+}
+
+.description{
+    margin-top: 15px;
+}
+
+/* Footer End */
