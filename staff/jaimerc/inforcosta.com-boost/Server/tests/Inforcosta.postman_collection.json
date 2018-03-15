@@ -1,0 +1,303 @@
+{
+	"info": {
+		"name": "Inforcosta",
+		"_postman_id": "f480b804-b079-4eb5-9f46-41a961c5b15f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List Subcategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/categories/subcategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"subcategories"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar catgoria por idCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/categories/830",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"830"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todas las categorias segun Busqueda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/categories/search/alm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"search",
+						"alm"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/HD3332087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"HD3332087"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar articulo segun \"Articulo\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/retrieve/HD3332087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"retrieve",
+						"HD3332087"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los productos segun Subcategoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/subcategory/862",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"subcategory",
+						"862"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Listrar 4 productos de Ofertas (Random)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"offers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar articulo en Description y ShortDescription",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/search/pen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"search",
+						"pen"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los pedidos segun IdUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idUser\":\"1111\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedido segun idUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idUser\":\"1111\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/order/321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"order",
+						"321"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un Pedido por idUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"idUser\":\"1111\",\n \"idProducts\": [\n \t {\n            \"id\": \"PC13154049\",\n            \"unit\": 2,\n            \"price\": 20\n        },\n         {\n            \"id\": \"PC13154049\",\n            \"unit\": 2,\n            \"price\": 20\n        },\n         {\n            \"id\": \"PC13154049\",\n            \"unit\": 2,\n            \"price\": 20\n        },\n         {\n            \"id\": \"PC13154049\",\n            \"unit\": 2,\n            \"price\": 20\n        }\n        ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"create"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
