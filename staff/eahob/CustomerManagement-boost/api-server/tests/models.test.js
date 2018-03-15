@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
-const dbUri = 'mongodb://localhost/customer-management-models-test'
 const assert = require('assert')
 const { Customer, Ticket, Service, Product } = require('../src/models')
 
 
 describe('models', () => {
     before(done => {
-        mongoose.connect(dbUri)
+        mongoose.connect('mongodb://localhost/customer-management-models-test')
 
         const db = mongoose.connection
 
