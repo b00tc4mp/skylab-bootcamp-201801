@@ -12,3 +12,5 @@
 
 [MongoDB, Mongoose: How to find subdocument in found document?](https://stackoverflow.com/questions/21142524/mongodb-mongoose-how-to-find-subdocument-in-found-document)
 
+[Mongoose middlewares](http://mongoosejs.com/docs/middleware.html)
+
