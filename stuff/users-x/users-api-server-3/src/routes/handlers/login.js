@@ -1,4 +1,4 @@
-const { success, fail } = require('./api-utils')
+const { success, fail } = require('../../utils/api-utils')
 const logic = require('../../logic')
 const jwt = require('jsonwebtoken')
 
@@ -10,8 +10,8 @@ module.exports = (req, res) => {
     const { body: { username, password } } = req
 
     logic.verify(username, password)
-        .then(() => {
-            const token = jwt.sign({ username }, secret, { expiresIn })
+        .then(({ id }) => {
+            const token = jwt.sign({ id }, secret, { expiresIn })
 
             res.json(success({ token }))
         })

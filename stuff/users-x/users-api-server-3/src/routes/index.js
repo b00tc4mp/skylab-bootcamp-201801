@@ -22,18 +22,18 @@ function jwtValidate(req, res, next) {
 
 const router = Router()
 
-router.get('/users', jwtValidate, list)
+router.get('/users', jwtValidator, list)
 
 const jsonBodyParser = bodyParser.json()
 
 router.post('/login', jsonBodyParser, login)
 
-router.post('/user', [jwtValidate, jsonBodyParser], create)
+router.post('/user', [jwtValidator, jsonBodyParser], create)
 
-router.put('/user/:id', [jwtValidate, jsonBodyParser], update)
+router.put('/user/:id', [jwtValidator, jsonBodyParser], update)
 
-router.delete('/user/:id', [jwtValidate, jsonBodyParser], _delete)
+router.delete('/user/:id', [jwtValidator, jsonBodyParser], _delete)
 
-router.get('/user/:id', jwtValidate, retrieve)
+router.get('/user/:id', jwtValidator, retrieve)
 
 module.exports = router
