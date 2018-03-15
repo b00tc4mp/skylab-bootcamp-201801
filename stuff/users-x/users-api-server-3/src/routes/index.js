@@ -4,7 +4,7 @@ const { login, list, create, update, delete: _delete, retrieve } = require('./ha
 const { success, fail } = require('./handlers/api-utils')
 
 const jwt = require('jsonwebtoken')
-const secret = process.env.JWT_SECRET 
+const secret = process.env.JWT_SECRET
 
 function jwtValidate(req, res, next) {
     const auth = req.get('authorization')
