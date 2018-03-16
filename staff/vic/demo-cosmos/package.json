@@ -1,0 +1,17 @@
+{
+  "name": "demo-cosmos",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "cosmos": "cosmos"
+  },
+  "devDependencies": {
+    "react-cosmos": "^3.7.1",
+    "react-cosmos-router-proxy": "^3.6.1"
+  }
+}
