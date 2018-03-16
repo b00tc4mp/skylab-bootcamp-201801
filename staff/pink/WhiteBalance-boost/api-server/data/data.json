@@ -1,0 +1,41 @@
+[
+    {
+        "_id": ObjectId("5aabf4c6ace69405ec452b11"),
+        "following": [],
+        "name": "name",
+        "username": "username-follower2",
+        "password": "password",
+        "images": [],
+        "__v": 0
+    },
+    {
+        "_id": ObjectId("5aabf4c6ace69405ec452b0f"),
+        "following": [ ObjectId("5aabf4c6ace69405ec452b10"), ObjectId("5aabf4c6ace69405ec452b11")
+        ],
+        "name": "name",
+        "username": "username",
+        "password": "password",
+        "images": [
+            {
+                "comments": [],
+                "_id": ObjectId("5aabf4c6ace69405ec452b12"),
+                "url": "http://images.com/123123"
+            },
+            {
+                "comments": [],
+                "_id": ObjectId("5aabf4c6ace69405ec452b13"),
+                "url": "http://images.com/4567456"
+            }
+        ],
+        "__v": 2
+    },
+    {
+        "_id": ObjectId("5aabf4c6ace69405ec452b10"),
+        "following": [],
+        "name": "name",
+        "username": "username-follower",
+        "password": "password",
+        "images": [],
+        "__v": 0
+    }
+]
