@@ -16,6 +16,10 @@ const api = {
         })
     },
 
+    login(username,password) {
+
+    },
+
     list() {
         return this._call('get', 'users')
     },
