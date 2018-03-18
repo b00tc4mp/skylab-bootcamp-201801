@@ -88,7 +88,11 @@ describe('models', () => {
 
             assert.equal(_image._id.toString(), image._id.toString(), 'should image match')
 
+            assert.equal(_image.url, image.url, 'should image url match')
+
             assert.equal(_image2._id.toString(), image2._id.toString(), 'should image2 match')
+
+            assert.equal(_image2.url, image2.url, 'should image2 match')
 
             const [following_id, following_id2] = user.following
 
@@ -98,9 +102,9 @@ describe('models', () => {
         })
     })
 
-    // after(done => {
-    //     return mongoose.connection.db.dropDatabase(() => {
-    //         mongoose.connection.close(done)
-    //     })
-    // })
+    after(done => {
+        return mongoose.connection.db.dropDatabase(() => {
+            mongoose.connection.close(done)
+        })
+    })
 })
