@@ -3,7 +3,7 @@ import TripListItem from './TripListItem'
 
 
 const TripList = () => (
-    <div className="trip-list">
+    <div className="trip-list" >
         <TripListItem/>
         <TripListItem/>
         <TripListItem/>

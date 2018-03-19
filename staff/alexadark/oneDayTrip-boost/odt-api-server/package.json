@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha **/*.test.js",
+    "test": "mocha tests/",
     "test-watch": "nodemon --exec 'npm test'"
   },
   "keywords": [],

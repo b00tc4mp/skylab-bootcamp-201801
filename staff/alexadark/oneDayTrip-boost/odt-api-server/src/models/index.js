@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
-const { Schema, Schema: { ObjectId } } = mongoose
 
-const Comment = new Schema({
+const Comment = new mongoose.Schema({
     user: {
-        type: ObjectId, ref: 'User'
-    },
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     date: Date,
     comment: String,
     rating: {
-        type: Number,
-        min: 1,
-        max: 5
+        type:Number,
+        min:1,
+        max:5
     }
 
-})
+});
 
-const User = new Schema({
+
+
+
+const User = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -48,7 +49,7 @@ const User = new Schema({
     comments: [Comment]
 });
 
-const Trip = new Schema({
+const Trip = new mongoose.Schema({
     from: {
         type: String,
         required: true,
@@ -86,13 +87,13 @@ const Trip = new Schema({
     tripTime: Number,
     description: String,
     creator: {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     passengers: [
         {
-            type: ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         }
     ]

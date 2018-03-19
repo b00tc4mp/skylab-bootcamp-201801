@@ -1,4 +1,5 @@
-const { User, Trip, Comment } = require('../models')
+const User = require('../models/User');
+const Trip = require('../models/Trip');
 
 
 module.exports = {
@@ -12,10 +13,11 @@ module.exports = {
      * @param username
      * @param password
      */
-    registerUser: (name, surname, email, picture, username, password) =>
-        User.findOne({ username })
-            .then(user => {
-                return User.create({ name, surname, email, picture, username, password })
-            })
+   registerUser: ({name, surname, email, picture, username, password}) => Promise.resolve()
+        .then(() => User.findOne({username}))
+       .then(user => {
+           if (user) throw Error('username already exists');
 
+           return User.create({name, surname, email, picture, username, password});
+       })
 }

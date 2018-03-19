@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
-const {User, Trip, Comment} = require('./models/index');
+const moment = require('moment')
+const { User, Trip, Comment } = require('../src/models')
 
 describe('models', () => {
     before(done => {
@@ -11,6 +12,13 @@ describe('models', () => {
         db.on('error', done)
 
         db.once('open', done)
+    })
+
+    beforeEach(() => {
+        return Promise.all([
+            User.remove(),
+            Trip.remove()
+        ])
     })
 
     describe('join passengers to trip', () => {
@@ -102,6 +110,62 @@ describe('models', () => {
             assert.equal(_id2.toString(), passenger2._id.toString(), 'should passenger 2 match')
         })
     })
+
+    describe('find trips between dates', () => {
+        let trips
+
+        before(() => {
+            const insertions = []
+
+            creator = new User({
+                name: 'name',
+                surname: 'surname',
+                email: 'email',
+                username: 'username-creator',
+                password: 'password'
+            })
+
+            insertions.push(creator.save()
+                .then(_creator => creator = _creator))
+
+            for (let i = 0; i < 10; i++)
+                insertions.push(new Trip({
+                    from: 'from',
+                    to: 'to',
+                    meetingPoint: 'meetingPoint',
+                    price: 20,
+                    departureDate: newDate(2018, 1, 1 + i, i, i),
+                    returnDate: new Date,
+                    seats: 3,
+                    distance: 60,
+                    tripTime: 1.75,
+                    description: 'description',
+                    creator: creator._id,
+                    passengers: []
+                }).save())
+
+            return Promise.all(insertions)
+                .then(() => {
+                    return Trip.find({
+                        departureDate: {
+                            $gte: newDate(2018, 1, 1, 0, 0).toISOString(),
+                            $lte: newDate(2018, 1, 5, 23, 59).toISOString()
+                        }
+                    })
+                })
+                .then(_trips => trips = _trips)
+        })
+
+        it('should find trips between dates', () => {
+            assert(trips, 'should trips be found')
+
+            assert.equal(trips.length, 5, 'should trips found be 5')
+        })
+    })
+
+    function newDate(year, month, day, hours, minutes) {
+        return new Date(year, month - 1, day, hours, minutes)
+    }
 
     after(function (done) {
         mongoose.connection.db.dropDatabase(() => {
