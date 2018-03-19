@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import Search from './Search';
 import TripList from './TripList'
-import api from '../api'
-import TripListItem from './TripListItem'
+import { withRouter, Route } from 'react-router-dom'
 
 //TODO list by date
 //TODO send location to url
@@ -17,17 +15,12 @@ class Home extends Component{
         super(props)
 
         this.state = {
-            location:'',
-            trips: []
+            location:''
 
         }
     }
     searchTrips = () =>{
-        api.listTrips(this.state.location)
-            .then((trips) => {
-                this.setState({trips, location: ''})
-
-            })
+        this.props.history.push(`home/${this.state.location}`)
     }
 
     keepLocation = location => this.setState({location})
@@ -79,18 +72,10 @@ class Home extends Component{
                     </div>
                 </div>
 
-
-                <div className="uk-container uk-padding">
-                    <h2 className="uk-text-center">This week in your area</h2>
-
-                    <div className="trip-list" >
-                        {this.state.trips.map(trip => <TripListItem trip={trip}/>)}
-
-                    </div>
-                </div>
+                <Route path={`/home/:location`} component={TripList} />
             </div>
         )
     }
 }
 
-export default Home;
+export default withRouter(Home)
