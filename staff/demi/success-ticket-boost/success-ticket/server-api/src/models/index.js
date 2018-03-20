@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema
+const { Schema, Schema: { ObjectId } } = mongoose
+
+const Company = new Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    }
+})
 
 const User = new Schema({
     name: {
@@ -11,10 +19,10 @@ const User = new Schema({
         type: String,
         required: true
     },
-    company: {
-        type: String,
-        required: true
-    },
+    companies: [{
+        type: ObjectId,
+        ref: 'Company'
+    }],
     email: {
         type: String,
         required: true
@@ -32,10 +40,13 @@ const User = new Schema({
         type: String,
         required: true
     },
-    events: [{ type: Schema.ObjectId, ref: 'Event' }]
+    events: [{
+        type: ObjectId,
+        ref: 'Event'
+    }]
 })
 
-const Ticket = new mongoose.Schema({
+const Ticket = new Schema({
     code: {
         type: String,
         required: true,
@@ -45,7 +56,7 @@ const Ticket = new mongoose.Schema({
     validated: Date
 })
 
-const Session = new mongoose.Schema({
+const Session = new Schema({
     date: {
         type: Date,
         required: true
@@ -57,14 +68,15 @@ const Session = new mongoose.Schema({
     tickets: [Ticket]
 })
 
-const Event = new mongoose.Schema({
+const Event = new Schema({
     title: {
         type: String,
         required: true
     },
     subtitle: String,
     company: {
-        type: String,
+        type: ObjectId,
+        ref: 'Company',
         required: true
     },
     image: {
@@ -79,4 +91,5 @@ module.exports = {
     Event: mongoose.model('Event', Event),
     Session: mongoose.model('Session', Session),
     Ticket: mongoose.model('Ticket', Ticket),
+    Company: mongoose.model('Company', Company)
 }

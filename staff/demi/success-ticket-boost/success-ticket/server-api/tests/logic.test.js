@@ -1,17 +1,29 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
-const { User, Event, Session, Ticket } = require('../src/models')
+const { User, Event, Session, Ticket, Company } = require('../src/models')
+const logic = require('../src/logic')
 
-
-describe('models', () => {
+describe('logic', () => {
     before(() => {
-        return mongoose.connect('mongodb://localhost/success-ticket-models-test')
+        return mongoose.connect('mongodb://localhost/success-ticket-logic-test')
+    })
+
+    beforeEach(() => {
+        return Promise.all([
+            User.remove(),
+            Event.remove(),
+            Company.remove()
+        ])
     })
 
     describe('validate ticket', () => {
-        let event, session, ticket
+        let company, event, session, ticket
 
         before(() => {
+            company = new Company({
+                name: 'name'
+            })
+            
             ticket = new Ticket({
                 code: '123'
             })
@@ -24,7 +36,7 @@ describe('models', () => {
 
             event = new Event({
                 title: 'title',
-                company: 'company',
+                company: company._id,
                 image: 'image',
                 sessions: [session]
             })
@@ -37,15 +49,9 @@ describe('models', () => {
 
                     return Event.findOne({_id: id})
                 })
-                .then(event => {
-                    const sessionId = session._id.toString()
-                    const ticketId = ticket._id.toString()
-
-                    event.sessions.id(sessionId).tickets.id(ticketId).set({ status: true })
-
-                    return event.save()
-                })
                 .then(_event => event = _event)
+                .then(() => logic.updateTicket(event._id.toString(), session._id.toString(), ticket._id.toString()))
+                .then(_ticket => ticket = _ticket)
         })
 
         it('should validate ticket', () => {
@@ -63,7 +69,7 @@ describe('models', () => {
 
             assert.equal(_ticket._id.toString(), ticket._id.toString(), 'should ticket match')
 
-            assert(_ticket.status, 'should ticket be validated')
+            assert(ticket.status, 'should ticket be validated')
         })
     })
 

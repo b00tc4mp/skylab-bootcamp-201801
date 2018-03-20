@@ -1,7 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 var _ = require('lodash');
-const { User, Event, Session, Ticket } = require('./src/models')
+const { User, Event, Session, Ticket } = require('../src/models')
 
 const host = process.env.MONGO_HOST
 const portMongo = process.env.MONGO_PORT
@@ -17,22 +17,22 @@ mongoose.connect(`mongodb://${host}:${portMongo}/${database}`)
 function main() {
 
 const user = User({
-    name: 'Isabelda',
-    surname: 'Fernandez',
+    name: 'Isabelda01',
+    surname: 'Fernandez01',
     company:'TikTakTickets!',
-    email: 'mail@mail.com',
+    email: 'mail01@mail.com',
     role: 'ADMIN',
-    username: 'isa',
+    username: 'isa01',
     password: '123',
 })
 
 user.save()
 
 const event = new Event({
-    title: 'Concierto Daft Punk',
-    subtitle: 'Gira Mundial',
-    company: 'Daft Punk Company',
-    image: 'http://image.com',
+    title: 'Concierto Daft Punk01',
+    subtitle: 'Gira Mundial01',
+    company: 'Daft Punk Company01',
+    image: 'https://rtvc-assets-radionica3.s3.amazonaws.com/s3fs-public/styles/image_750x422/public/senalradionica/articulo-noticia/galeriaimagen/front_dp.jpg?itok=4jq3x0B9',
 })
 
 const session = new Session({
@@ -42,7 +42,7 @@ const session = new Session({
 
 function addTickets(){
 
-    for(let i=0;i<10;i++){
+    for(let i=20;i<30;i++){
         const code = i +'QWERTYU'
         const ticket = new Ticket({
             code,

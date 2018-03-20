@@ -63,14 +63,14 @@ eventRoute.route('/sessions/tickets/:eventId/:sessionId')
 })
 
 /* find ticket */
-eventRoute.route('/sessions/ticket/:userId/:ticketId')
+eventRoute.route('/sessions/ticket/:eventId/:sessionId/:ticketId')
     .get((req, res)=>{
-        const { params: { userId, ticketId } } = req
-        logic.findTicket(userId, ticketId)
+        const { params: { eventId, sessionId, ticketId } } = req
+        logic.findTicket(eventId, sessionId, ticketId)
         .then(tickets=>{
             res.json({
                 status:"OK",
-                message:"tickets from this user recieved succesfuly",
+                message:"ticket from this user recieved succesfuly",
                 data: tickets
             })
         })
@@ -82,14 +82,15 @@ eventRoute.route('/sessions/ticket/:userId/:ticketId')
         }) 
     })
 
-eventRoute.route('/sessions/validate-ticket/:userId/:ticketId')
+/* update ticket */
+eventRoute.route('/sessions/validate-ticket/:eventId/:sessionId/:ticketId')
     .put((req, res)=>{
-        const { params: { userId, ticketId } } = req
-        logic.updateTicket(userId, ticketId)
+        const { params: { eventId, sessionId, ticketId } } = req
+        logic.updateTicket(eventId, sessionId, ticketId)
         .then(tickets=>{
             res.json({
                 status:"OK",
-                message:"tickets from this user recieved succesfuly",
+                message:"ticket validated successfully",
                 data: tickets
             })
         })
