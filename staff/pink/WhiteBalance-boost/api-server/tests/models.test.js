@@ -8,6 +8,13 @@ describe('models', () => {
         return mongoose.connect('mongodb://localhost/white-balance-models-test')
     })
 
+    beforeEach(() => {
+        return Promise.all([
+            User.remove(),
+            Image.remove()
+        ])
+    })
+
     describe('create user with images and followings', () => {
         let user, image, image2, following, following2
 
