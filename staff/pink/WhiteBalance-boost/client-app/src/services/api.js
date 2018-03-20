@@ -18,20 +18,39 @@ const api = {
     _call(method, path, body) {
         return rp({
             method,
-            uri: `${protocol}://${host}:${port}/${path}`,
+            uri: `${protocol}://${host}:${port}/users/${path}`,
             body,
             json: true,
             
         })
     },
 
+    login(username, password) {
+        return this._call('post', '/login')
+    },
+
+    create() {
+        return this._call('post', '/create')
+    },
+
+
     listUser(idUser) {
-        return this._call('get', `users/${idUser}`)
+        return this._call('get', `${idUser}`)
     },
 
     listFollowing(idUser) {
-        return this._call('get', `/${idUser}/following`)
+        return this._call('get', `${idUser}/following`)
     },
+
+    update(_id) {
+        return this._call('post', `${_id}/update`)
+    },
+
+    delete(_id) {
+        return this._call('post', `${_id}/delete`)
+    }
+
+
 }
 
 
