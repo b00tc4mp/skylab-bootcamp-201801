@@ -85,8 +85,9 @@ function Topic({ match }) {
 
   return (
     <div>
-      <ForceRoute  />
-      
+      <GoTo path={'reactjs'} exact={true}>Go to reactjs (exact)</GoTo>
+      <GoTo path={'reactjs'}>Go to reactjs</GoTo>
+
       <h2>{topic.name}</h2>
       <p>{topic.description}</p>
 
@@ -132,9 +133,21 @@ function Home() {
   )
 }
 
-const ForceRoute = withRouter(function(props) {
+const GoTo = withRouter(function (props) {
   return (
-    <button onClick={() => props.history.push(`${path.join(props.match.path, 'holamundo')}`)}>force route!</button>
+    <button onClick={() => {
+      const index = props.location.pathname.indexOf(props.path)
+
+      if (index > -1) {
+        if (props.exact) {
+          const path = props.location.pathname.substring(0, index) + props.path
+
+          props.history.push(path)
+        }
+      } else
+        props.history.push(props.path)
+
+    }}>{props.children}</button>
   )
 })
 
@@ -143,7 +156,8 @@ class App extends Component {
     return (
       <Router>
         <div style={{ width: 1000, margin: '0 auto' }}>
-          <ForceRoute  />
+          <GoTo path={'topics'} exact={true}>Go to topics (exact)</GoTo>
+          <GoTo path={'topics'}>Go to topics</GoTo>
 
           <ul>
             <li><Link to='/'>Home</Link></li>
