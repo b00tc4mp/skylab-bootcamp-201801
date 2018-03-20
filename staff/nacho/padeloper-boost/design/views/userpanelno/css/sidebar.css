@@ -1,0 +1,40 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+ #sidebar {
+    width: inherit;
+    min-width: 220px;
+    max-width: 220px;
+    background-color:#4A4D5E;
+    float: left;
+    height:100%;
+    position:relative;
+    overflow-y:auto;
+    overflow-x:hidden;
+  }
+  .sidebar{
+    margin:0px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-bottom:20
+  }
+  .sidebar-title{
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    margin:0px;
+    background-color:#333;
+    color:#BFC4DC
+  }
+
+  .ulsidebar{
+    margin-top:100px;
+    font-size:16px;
+    margin-left:10px;
+  }
+
+  .nav-pills>li>a{
+      color:#BFC4DC;
+  }
