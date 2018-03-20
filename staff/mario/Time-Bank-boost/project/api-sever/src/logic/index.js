@@ -3,7 +3,7 @@ const validate = require('./validate')
 const uuid = require('uuid/v4')
 
 
-const logic = {
+module.exports = {
     register(name, surname, email, username, password) {
         return Promise.resolve()
             .then(() => {
@@ -22,7 +22,14 @@ const logic = {
     },
 
     list() {
-        return User.find({})
+        // return User.find({}, { _id: 0, name: 1, surname: 1, email: 1, username: 1 })
+
+        return new Promise((resolve,reject)=>{
+            User.find({})
+            .then(users=>resolve(users))
+            .catch(reject)    
+        })
+        
     },
 
     update(id, name, surname, email, username, password, newUsername, newPassword) {
@@ -47,15 +54,15 @@ const logic = {
             })
     },
 
-    retrieve(id) {
+    retrieve(_id) {
         return Promise.resolve()
             .then(() => {
-                validate({ id })
-
+                validate({ _id })
                 //return User.findOne({ id }, 'id name surname email username') // WARN! it returns _id too!
-                return User.findOne({ id }, { _id: 0, password: 0 })
+                return User.findOne({ _id }, { _id: 0, password: 0 })
             })
             .then(user => {
+                console.log(user)
                 if (!user) throw Error('user does not exist')
 
                 return user
@@ -78,5 +85,3 @@ const logic = {
             })
     }
 }
-
-module.exports = logic
