@@ -1,0 +1,41 @@
+.userinfo{    
+    min-height:135px;
+    background-color:#fff;
+    padding-top:15px;
+
+}
+
+.userinitial{
+    text-align:center;
+    width:90px;
+    height:90px;
+    border:1px solid rgba(115,116,229,0.9);
+    border-radius:70px 70px 70px 70px;
+}
+
+.userinitial p{
+    text-align:center;
+    font-size:60px;
+    color:#929191
+}
+
+.name{
+    margin-top:20px;
+    text-align:center;
+    border-left:1px solid rgba(115,116,229,0.9);
+    padding-top:10px;
+
+}
+.name .bold{
+    font-weight:bold;
+}
+
+.level{
+    color:rgba(115,116,229,0.9);
+    text-align:center;
+    margin-top:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:20px;
+    border-left:1px solid rgba(115,116,229,0.9);
+}

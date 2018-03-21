@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 60px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body {
+  background-color: #E5FCC2;
+}
+
+.bg-light {
+  background-color: #1899AF!important;
+}
+
+.user {
+  /* background-color: #1899AF; */
+  background-color: #9DE0AD;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background-color: #45ADA8;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #45ADA8;
+  color: white;
+  border-color: #547980;
+}
+
+.searchField {
+  background-color: #E5FCC2;
+  padding: 0px;
+}
+
+#logo {
+  padding-left: 100px;
+  padding-right: 100px;
+}

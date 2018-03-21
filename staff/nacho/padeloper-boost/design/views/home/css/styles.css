@@ -1,0 +1,119 @@
+/* html,body,.col-md-12,.row {
+    height:100%;
+    background-color:rgb(115, 116, 229);
+    padding: 20px 10px 10px 10px;
+  }
+  .row > div {
+    height:100%;
+  } */
+  @font-face {
+    font-family: 'phosphate';
+    src: url('../../fonts/PhosphateSolid.ttf'); /* IE9 Compat Modes */
+    src: url('../../fonts/PhosphateSolid.ttf')  format('truetype'), /* Safari, Android, iOS */
+  }
+
+  @font-face {
+    font-family: 'heisei';
+    src: url('../../fonts/Heisei Kaku Gothic Std W5.otf') format("opentype"); /* IE9 Compat Modes */
+    src: url('../../fonts/Heisei Kaku Gothic Std W5.ttf')  format('truetype'), /* Safari, Android, iOS */
+  }
+
+  html,body{
+    height:100%;
+    background-color:white;
+    margin:10px 12px 12px 12px;
+      
+
+  }
+  .content-index{
+    height:100%;
+    z-index:100;
+    background-color:rgba(115,116,229,0.9);
+    /* background-color:#7374E5; */
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/silueta.png"); */
+  
+  }
+
+  .content-logo{
+    /* z-index:1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/silueta.png");
+    background-color:transparent; */
+  }
+
+  .navbar-default{
+    background-color:#fff;
+    border:none;
+    text-align:center;
+  }
+  .padeloper{
+    text-align:center;
+    font-family:'phosphate', sans-serif;
+    font-size:30px;   
+    line-height:40px;
+    color:#555;
+  }
+  .h1-silohuette{
+      text-align:center;
+      color:white;
+      margin-top:100px;
+  }
+
+  .content-silhouette{
+    width:100%;
+    height:600px;
+    position:absolute;
+    margin:auto;
+    padding:auto;
+    z-index:-1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/silueta.png");
+    background-size:650px 650px;
+    background-color:transparent;
+    opacity:0.15;
+  }
+
+  .silhouette{
+      width:auto;
+      height:auto;
+      margin:auto;
+      text-align:center;
+      opacity:0.15;
+      z-index:1;
+  }
+
+  h1{
+    z-index:1000;
+    color:white;
+    text-align:center;
+    font-family:'heisei', sans-serif;
+    font-weight:bold;
+    font-size:45px;
+    margin-top:200px;
+  }
+
+  .log{
+      text-align:center;
+      color:white;
+      margin-top:100px;
+  }
+  .login{
+      border:1px solid white;
+      padding:10px 20px 10px 20px;
+      margin:20px;
+      
+  }
+  .text{
+      text-align:center;
+      font-family:'Avenir Next',sans-serif;
+      color:white;
+      margin-top:100px;
+  }
+
+  .text p{
+      font-size:20px;
+  }

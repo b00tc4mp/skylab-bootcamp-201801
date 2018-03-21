@@ -1,0 +1,26 @@
+
+.title-3{
+    font-size: 18px;
+    font-family: 'Roboto Condensed',sans-serif;
+    font-weight: 700;
+    color: #4c4c4c;
+    text-transform: uppercase;
+    border-bottom: 3px solid #2646ea;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.img-recipe{
+    width: 350px;
+    height: 200px;
+    
+}
+
+.inside{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.recipe{
+    height: 370px;
+}

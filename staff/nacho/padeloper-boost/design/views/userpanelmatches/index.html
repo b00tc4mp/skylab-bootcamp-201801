@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PADELOPER - MATCHES PANEL</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 class="padeloper">PADELOPER</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>WELCOME NACHAL</p>
+
+                <li>
+                    <a href="#">Stats</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">League</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="#">Home 1</a></li>
+                        <li><a href="#">Home 2</a></li>
+                        <li><a href="#">Home 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Tournament</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Round Robin</a>
+                </li>
+
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li><a href="#" class="download">Create League</a></li>
+                <li><a href="#" class="article">Back to home</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+            
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="navbar-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">My leagues</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class='container'>
+
+                <div class='row'>
+                  <div class='col-md-3 leaguelinks'>
+                        <a href="#" class="linkpanel">Players</a>
+                  </div>
+                  <div class='col-md-3 leaguelinks'>
+                        <a href="#" class="linkpanel">Teams</a>
+                  </div>
+                  <div class='col-md-3 leaguelinks'>
+                        <a href="#" class="linkpanel">Matches</a>
+                  </div>
+                  <div class='col-md-3 leaguelinks'>
+                        <a href="#" class="linkpanel">qualifying</a>
+                  </div>
+                </div>
+                
+        </div>
+                  
+
+            <div class="line"></div>
+
+            <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <h3>MATCHES</h3>
+                        <div class="table-responsive">
+                          <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+                            <thead>
+                              <tr>
+                                <th class="table-header">Teamname A</th>
+                                <th class="table-header">SET</th>
+                                <th class="table-header">player2</th>
+                                <th class="table-header">Teamname B</th>
+                                <th class="table-header">Action</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><p>Team1</p></td>
+                                <td><p>2</p></td>
+                                <td><p>0</p></td>
+                                <td><p>Team2</p></td>
+                                <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
+                              </tr>
+                              
+                            </tbody>
+                            <tfoot>
+
+                          </table>
+                        </div><!--end of .table-responsive-->
+                        <button type="button" class="btn btn-primary btn-sm">Generate Matches</button>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+                
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src = "../../public/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>

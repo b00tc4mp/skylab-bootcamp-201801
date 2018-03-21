@@ -1,0 +1,113 @@
+/* Latest Recipes */
+
+.title-3{
+    font-size: 18px;
+    font-family: 'Roboto Condensed',sans-serif;
+    font-weight: 700;
+    color: #4c4c4c;
+    text-transform: uppercase;
+    border-bottom: 3px solid #2646ea;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.img-recipe{
+    width: 350px;
+    height: 200px;
+    
+}
+
+.inside{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.recipe{
+    height: 370px;
+}
+
+/* Slider Start */
+
+h1{
+	font-size: 5em;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1em;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+h6{
+	font-size: 0.75em;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	letter-spacing: .2em;
+	color: #fff;
+	line-height: 1em;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+section ul.main-slider li{
+	height: 400px;
+	padding-top: 100px;
+	text-align: center;
+}
+
+section ul.main-slider li a.square-button{
+	margin: 45px auto 0;
+}
+
+section ul.main-slider li.first{
+	background: url('../images/slider01.jpg') no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+section ul.main-slider li.second{
+	background: url('../images/slider02.jpg') no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+section ul.main-slider li.third{
+	background: url('../images/slider03.jpg') no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+section ul.main-slider h2{
+	font-size: 5em;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1em;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+a.square-button{
+	display: block;
+	width: 240px;
+	height: 45px;
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	line-height: 45px;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-size: 0.75em;
+	font-weight: 900;
+	color: #fff;
+	letter-spacing: .2em;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+}
+
+a.square-button:hover{
+	background-color: #2646ea;
+	color: #fff;
+	border-color: #2646ea;
+}
+
+/* Slider End */

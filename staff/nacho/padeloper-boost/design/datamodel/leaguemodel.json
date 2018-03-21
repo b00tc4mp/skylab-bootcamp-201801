@@ -1,0 +1,40 @@
+{
+    "id":1,
+    "idadmin": "1",
+    "name": "nachal",
+    "city": "Valencia",
+    "club": "7padel",
+    "category": 1,
+    "type": "public",
+    "created": "2018-03-12",
+    "players":["iduserx","iduserx2"],
+    "teams":[
+        {
+            "id":1,
+            "name":"teamname",
+            "players": ["iduserx","iduserx2"]
+        },
+        {
+            "id":2,
+            "name":"teamname2",
+            "players": ["iduserx3","iduserx4"]
+        }
+    ],
+    "matches":[
+        {
+            "id":1,
+            "teams":["idteamx","idteamx2"],
+            "result":{
+                "winner":{
+                    "idteam":"idteamx",
+                    "games":[7,3,6]
+                },
+                "loser":{
+                    "idteam":"idteamx2",
+                    "games":[4,6,4]
+                }
+            }
+           
+        }
+    ]
+}
