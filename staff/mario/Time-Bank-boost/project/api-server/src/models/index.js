@@ -43,7 +43,6 @@ const User = new Schema({
     services: [{
         type: ObjectId,
         ref: 'Service',
-        //unique: true,
         required: true
     }],
     city: {
@@ -91,7 +90,17 @@ const Contract = new Schema({
         default: 'pending',
         enum: ['pending', 'accepted', 'rejected', 'done', 'validated', 'cancelled']
     },
-    amount: {
+    estimatedTime: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    investedTime: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    validatedTime: {
         type: Number,
         required: true,
         default: 0

@@ -79,7 +79,7 @@ describe('models', () => {
                     contractStatus.push(contract.status)
 
                     contract.status = 'accepted'
-                    contract.amount = 10
+                    contract.estimatedTime = 10
 
                     return contract.save()
                 })
@@ -87,6 +87,7 @@ describe('models', () => {
                     contractStatus.push(contract.status)
 
                     contract.status = 'done'
+                    contract.investedTime = 12
 
                     return contract.save()
                 })
@@ -94,6 +95,7 @@ describe('models', () => {
                     contractStatus.push(contract.status)
 
                     contract.status = 'validated'
+                    contract.validatedTime = 11
 
                     return contract.save()
                 })
@@ -156,7 +158,9 @@ describe('models', () => {
             assert.equal(contractStatus[1], 'accepted', 'should contract status match')
             assert.equal(contractStatus[2], 'done', 'should contract status match')
             assert.equal(contract.status, 'validated', 'should contract status be pending')
-            assert.equal(contract.amount, 10, 'should contract amount match')
+            assert.equal(contract.estimatedTime, 10, 'should contract estimated time match')
+            assert.equal(contract.investedTime, 12, 'should contract invested time match')
+            assert.equal(contract.validatedTime, 11, 'should contract validated time match')
 
             assert(user.reviews, 'should user have reviews')
             assert.equal(user.reviews.length, 1, 'should user have 1 review')
@@ -273,7 +277,58 @@ describe('models', () => {
         })
     })
 
+    describe('find services by ids', () => {
+        let bicyclesMechanicService, cookingService, mathTeachingService, serviceIds, foundServices
 
+        before(() => {
+            bicyclesMechanicService = new Service({
+                title: 'bicycles mechaninc'
+            })
+
+            cookingService = new Service({
+                title: 'cooking'
+            })
+
+            mathTeachingService = new Service({
+                title: 'math teaching'
+            })
+
+            serviceIds = [
+                bicyclesMechanicService._id.toString(),
+                cookingService._id.toString(),
+                mathTeachingService._id.toString()
+            ]
+
+            return Promise.all([
+                bicyclesMechanicService.save()
+                    .then(_service => bicyclesMechanicService = _service),
+                cookingService.save()
+                    .then(_service => cookingService = _service),
+                mathTeachingService.save()
+                    .then(_service => mathTeachingService = _service)
+            ])
+            .then(() => {
+                return Service.find({ _id: {$in : serviceIds }})
+            })
+            .then(_services => foundServices = _services)
+        })
+
+        it('should find services by ids', () => {
+            assert(foundServices, 'should foundServices be defined')
+
+            assert.equal(foundServices.length, 3, 'should foundServices have 3 items')
+
+            const [foundService1, foundService2, foundService3] = foundServices
+
+            assert(serviceIds.includes(foundService1._id.toString()), 'should service id be valid')
+            assert(serviceIds.includes(foundService2._id.toString()), 'should service id be valid')
+            assert(serviceIds.includes(foundService3._id.toString()), 'should service id be valid')
+
+            assert(foundService1._id.toString() !== foundService2._id.toString(), 'should service ids be different')
+            assert(foundService2._id.toString() !== foundService3._id.toString(), 'should service ids be different')
+            assert(foundService3._id.toString() !== foundService1._id.toString(), 'should service ids be different')
+        })
+    })
 
     after(done => {
         return mongoose.connection.db.dropDatabase(() => {
