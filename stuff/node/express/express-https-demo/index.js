@@ -1,19 +1,24 @@
-var fs = require('fs')
-var http = require('http')
-var https = require('https')
-var privateKey  = fs.readFileSync('ssl/server.key', 'utf8')
-var certificate = fs.readFileSync('ssl/server.crt', 'utf8')
+require('dotenv').config()
 
-var credentials = {key: privateKey, cert: certificate, passphrase: 'secret'}
-var express = require('express')
-var app = express()
+const fs = require('fs')
+const http = require('http')
+const https = require('https')
+const privateKey = fs.readFileSync('ssl/server.key', 'utf-8')
+const certificate = fs.readFileSync('ssl/server.crt', 'utf-8')
+const secret = fs.readFileSync('ssl/passphrase.txt', 'utf-8')
+
+const credentials = { key: privateKey, cert: certificate, passphrase: secret }
+const express = require('express')
+const app = express()
 
 app.get('/', (req, res) => {
     res.end('ok')
 })
 
-var httpServer = http.createServer(app)
-var httpsServer = https.createServer(credentials, app)
+const httpServer = http.createServer(app)
+const httpsServer = https.createServer(credentials, app)
 
-httpServer.listen(8080) // TRY http://localhost:8080
-httpsServer.listen(8443) // TRY https://localhost:8443
+const { PORT, PORT_SSL } = process.env
+
+httpServer.listen(PORT, () => console.log(`running http server on port ${PORT}`)) // TRY http://localhost:8080
+httpsServer.listen(PORT_SSL, () => console.log(`running https server on port ${PORT_SSL}`)) // TRY https://localhost:8443
