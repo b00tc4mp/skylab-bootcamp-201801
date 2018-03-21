@@ -10,24 +10,41 @@ import UserProfile from './components/UserProfile';
 import TripInfo from './components/TripInfo';
 import TripList from './components/TripList';
 
+
 import './App.css';
 
 class App extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            user: {
+                id: '',
+                username: ''
+            }
+        }
+    }
+
+    onUserLoggedIn = (id, username) => {
+        this.setState({ user: { id, username } })
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <div>
-                    <Header />
+                    <Header onUserLoggedIn={this.onUserLoggedIn} />
                     <Switch>
                         <Route path="/" exact={true} render={() => (<Redirect to="/home" />)} />
                         <Route path="/home" component={Home} />
                         <Route path="/:username/publish" component={Publish} />
                         <Route path="/sign-up" component={SignUp} />
                         {/*<Route   component={NotFoundPage}/>*/}
-                        <Route path="/user-panel" component={UserPanel} />
-                        <Route path="/user-profile" component={UserProfile} />
+                        <Route path="/user-panel/:username" component={UserPanel} />
+                        <Route path="/user-profile/:username" component={UserProfile} />
                         <Route path="/trip-info/:tripId" component={TripInfo} />
-                        {/*<Route path="/available-trips/:destination"  component={TripList}/>*/}
+
+
                     </Switch>
                 </div>
 

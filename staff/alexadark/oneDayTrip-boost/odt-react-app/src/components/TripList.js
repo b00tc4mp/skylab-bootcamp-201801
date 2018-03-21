@@ -1,36 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import api from '../api'
-import TripListItem from './TripListItem'
-import { Route } from 'react-router-dom'
+import TripListItem  from './TripListItem'
+import {
+    Route
+} from 'react-router-dom'
 
-const { Component } = React
 
 class TripList extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            trips: []
-        }
+constructor(props) {
+    super(props);
+    this.state = {
+        trips: []
     }
-
-    componentDidMount() {
-        const { match: { params: { location } } } = this.props
-
-        api.listTrips(location)
-            .then((trips) => {
-                this.setState({ trips })
-            })
-    }
+}
+componentDidMount(){
+    const {match: {params: {location, arrival,departure}}} = this.props //getting the parameters for listTrips from the url
+    api.listTrips(location, arrival, departure)
+    .then(trips => {
+      this.setState({ trips });
+    });
+}
 
     render() {
-        return <div className="uk-container uk-padding">
-            <h2 className="uk-text-center">This week in your area</h2>
-
-            <div className="trip-list" >
-                {this.state.trips.map((trip, index) => <TripListItem trip={trip} key={index} />)}
-            </div>
-        </div>
+        return <div className="trip-list uk-container">
+            {this.state.trips.map((trip, index) => <TripListItem trip={trip} key={index}/>)}
+          </div>;
     }
 }
 

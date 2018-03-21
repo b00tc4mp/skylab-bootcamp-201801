@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import api from '../api'
-import {Redirect} from 'react-router-dom';
+
 
 
 class SignUp extends Component {

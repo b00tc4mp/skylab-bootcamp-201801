@@ -5,6 +5,8 @@ import api from '../api'
 
 //TODO pass name of creator
 
+//TODO replace icons by passengers image and link to public profile
+
 
 
 class TripInfo extends Component {

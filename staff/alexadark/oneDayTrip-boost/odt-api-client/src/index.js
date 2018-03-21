@@ -5,14 +5,18 @@ const api = {
 
     call(method, path, body){
         return axios[method](`${this.baseUrl}/${path}`, body)
-            .then(res => res.data.data)
+            .then(res => res.data)
     },
 
 
     registerUser(name, surname, email, picture, username, password) {
         return this.call('post', 'user', { name, surname, email, picture, username, password })
     },
-
+    
+    login(username, password){
+        return this.call('post', 'login', {username, password})
+        
+    },
 
     getUsernameId(username){
         return this.call('get',`user/${username}`)
@@ -44,11 +48,15 @@ const api = {
 
 
     listUserPublishedTrips(creatorId){
-        return this.call('get',`trip/${creatorId}`)
+        return this.call('get',`trips/${creatorId}`)
     },
 
-    listTrips(destination){
-        return this.call('get',`available-trips/${destination}`)
+    listUserBookedTrips(userId){
+        return this.call('get',`booked-trips/${userId}`)
+    },
+
+    listTrips(destination,arrival,departure){
+        return this.call('get',`available-trips/${destination}/${arrival}/${departure}`)
     },
 
 
@@ -80,6 +88,10 @@ const api = {
     comment(commentedUserId, userId, comment, rating){
         return this.call('put',`trip/${commentedUserId}/${userId}`,{comment, rating})
     },
+    geoLocalize(lat,lng){
+        return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI`)
+            .then(res => res.results.address_components)
+    }
 
 
 };

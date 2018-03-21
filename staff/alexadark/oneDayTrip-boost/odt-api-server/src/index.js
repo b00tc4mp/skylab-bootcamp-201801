@@ -3,9 +3,9 @@ const express = require('express');
 // const routes = require('./routes');
 
 const mongoose = require('mongoose');
-const {success, fail} = require('./api-utils');
+const { success, fail } = require('./api-utils');
 const bodyParser = require('body-parser');
-const {User, Trip, Comment} = require('./models/index');
+const { User, Trip, Comment } = require('./models/index');
 const _ = require('lodash')
 
 const moment = require('moment');
@@ -33,24 +33,47 @@ const jsonBodyParser = bodyParser.json();
  */
 router.post('/user', jsonBodyParser, (req, res) => {
 
-    const {body: {name, surname, email, picture, username, password}} = req;
+    const { body: { name, surname, email, picture, username, password } } = req;
 
-    User.findOne({username})
-            .then(user => {
-                return User.create({name, surname, email, picture, username, password})
-            })
-            .then(username => res.json(success({username})))
-            .catch(err => res.json(fail(err.message)))
+    User.findOne({ username })
+        .then(user => {
+            return User.create({ name, surname, email, picture, username, password })
+        })
+        .then(username => res.json(success({ username })))
+        .catch(err => res.json(fail(err.message)))
 
 });
 
 /**
+ * Login
+ */
+
+router.post('/login', jsonBodyParser, (req, res) => {
+    const { body: { username, password } } = req
+    User.findOne({ username })
+        .then(user => {
+            if (!user) throw Error("user does not exists");
+            if (user.password !== password) throw Error("wrong password");
+
+            return user._id
+        })
+
+        .then(id => {
+            res.json(success({ id }));
+        })
+        .catch(err => {
+            res.json(fail(err.message));
+        });
+
+})
+
+/**
  * Find user ID by username
  */
-router.get('/user/:username', (req,res) =>{
-    const {username} = req.params
+router.get('/user/:username', (req, res) => {
+    const { username } = req.params
 
-     User.findOne({username})
+    User.findOne({ username })
         .then(user => {
             if (!user) throw Error('user does not exists')
             return user._id
@@ -65,10 +88,10 @@ router.get('/user/:username', (req,res) =>{
 /**
  * Find user by ID
  */
-router.get('/userid/:id', (req,res)=>{
-    const {id} = req.params
+router.get('/userid/:id', (req, res) => {
+    const { id } = req.params
 
-    User.findOne({"_id": ObjectId(id)})
+    User.findOne({ "_id": ObjectId(id) })
         .then(user => {
             return user
         })
@@ -81,10 +104,10 @@ router.get('/userid/:id', (req,res)=>{
  * Find Trip by ID
  */
 
-router.get('/trip/:id', (req,res)=>{
-    const {id} = req.params
+router.get('/trip/:id', (req, res) => {
+    const { id } = req.params
 
-    Trip.findOne({"_id": ObjectId(id)})
+    Trip.findOne({ "_id": ObjectId(id) })
         .then(trip => {
             return trip
         })
@@ -97,15 +120,15 @@ router.get('/trip/:id', (req,res)=>{
  * Delete user
  */
 router.delete('/user/:id', jsonBodyParser, (req, res) => {
-    const {body: {password}} = req;
-    const {params: {id}} = req;
+    const { body: { password } } = req;
+    const { params: { id } } = req;
 
-    User.findOne({"_id": ObjectId(id)})
+    User.findOne({ "_id": ObjectId(id) })
         .then(user => {
             if (!user) throw Error('user does not exists');
             if (user.password !== password) throw Error('wrong password');
 
-            return User.deleteOne({"_id": ObjectId(id)})
+            return User.deleteOne({ "_id": ObjectId(id) })
 
         })
         .then(() => {
@@ -121,15 +144,15 @@ router.delete('/user/:id', jsonBodyParser, (req, res) => {
  * Update user
  */
 router.put('/user/:id', jsonBodyParser, (req, res) => {
-    const {body: {name, surname, email, picture, password, newPassword}} = req;
-    const {params: {id}} = req;
+    const { body: { name, surname, email, picture, password, newPassword } } = req;
+    const { params: { id } } = req;
 
-    User.findOne({"_id": ObjectId(id)})
+    User.findOne({ "_id": ObjectId(id) })
         .then(user => {
             if (!user) throw Error('user does not exists');
             if (user.password !== password) throw Error('wrong password');
 
-            return User.updateOne({"_id": ObjectId(id)}, {name, surname, email, picture, password: newPassword})
+            return User.updateOne({ "_id": ObjectId(id) }, { name, surname, email, picture, password: newPassword })
 
         })
         .then(() => {
@@ -145,26 +168,26 @@ router.put('/user/:id', jsonBodyParser, (req, res) => {
  * Create Trip
  */
 router.post('/trip/:creatorId', jsonBodyParser, (req, res) => {
-    const {body: {from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description}} = req;
-    const {params: {creatorId}} = req;
-    const departureDate = moment(`${date} ${departureTime}`);
-    const returnDate = moment(`${date} ${returnTime}`);
+    const { body: { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description } } = req;
+    const { params: { creatorId } } = req;
+    const departureDate = moment(`${date} ${departureTime}`).toDate();
+    const returnDate = moment(`${date} ${returnTime}`).toDate();
 
     Trip.create({
-            from,
-            to,
-            meetingPoint,
-            departureDate,
-            returnDate,
-            price,
-            distance,
-            tripTime,
-            seats,
-            description,
-            creator: {"_id": ObjectId(creatorId)}
-        })
+        from,
+        to,
+        meetingPoint,
+        departureDate,
+        returnDate,
+        price,
+        distance,
+        tripTime,
+        seats,
+        description,
+        creator: { "_id": ObjectId(creatorId) }
+    })
         .then(trip => {
-            res.json(success({trip}))
+            res.json(success({ trip }))
         })
         .catch(err => {
             res.json(fail(err.message))
@@ -174,11 +197,17 @@ router.post('/trip/:creatorId', jsonBodyParser, (req, res) => {
 /**
  * List trips by destination and date
  */
-router.get('/available-trips/:destination/', (req,res) =>{
-    const {params: {destination}} = req
-    Trip.find({from:destination})
-        .then(trips =>{
-            if(!trips) throw Error('there is no trips with these criterias')
+router.get('/available-trips/:destination/:arrival/:departure', (req, res) => {
+    const { params: { destination, arrival, departure } } = req
+    Trip.find({
+        from: destination,
+        departureDate: {
+            $gte: moment(arrival).toDate(),
+            $lte: moment(departure).toDate()
+        }
+    })
+        .then(trips => {
+            if (!trips) throw Error('there is no trips with these criterias')
             return trips
         })
         .then((trips) => {
@@ -193,9 +222,9 @@ router.get('/available-trips/:destination/', (req,res) =>{
  * list user published trips
  */
 router.get('/trips/:creatorId', (req, res) => {
-    const {params: {creatorId}} = req;
+    const { params: { creatorId } } = req
 
-    Trip.find({creator:ObjectId(creatorId)})
+    Trip.find({ creator: ObjectId(creatorId) })
         .then(trips => {
             res.json(success(trips))
         })
@@ -204,17 +233,31 @@ router.get('/trips/:creatorId', (req, res) => {
 });
 
 /**
+ * List user booked trips
+ */
+
+router.get('/booked-trips/:userId', (req, res) => {
+    const { params: { userId } } = req
+
+    Trip.find({ passengers: { "_id": ObjectId(userId) } })
+        .then(trips => {
+            res.json(success(trips))
+        })
+
+})
+
+/**
  * cancel trip
  */
 router.delete('/trip/:creatorId/:tripId', jsonBodyParser, (req, res) => {
-    const {body: {password}} = req;
-    const {params: {creatorId, tripId}} = req;
+    const { body: { password } } = req;
+    const { params: { creatorId, tripId } } = req;
 
-    User.findOne({"_id": ObjectId(creatorId)})
+    User.findOne({ "_id": ObjectId(creatorId) })
         .then(user => {
             if (user.password !== password) throw Error('wrong password');
 
-            return Trip.deleteOne({"_id": ObjectId(tripId)})
+            return Trip.deleteOne({ "_id": ObjectId(tripId) })
 
         })
         .then(() => {
@@ -230,14 +273,14 @@ router.delete('/trip/:creatorId/:tripId', jsonBodyParser, (req, res) => {
  * Update trip
  */
 router.put('/trip/:creatorId/:tripId', jsonBodyParser, (req, res) => {
-    const {body: {from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password}} = req;
-    const {params: {creatorId, tripId}} = req;
+    const { body: { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password } } = req;
+    const { params: { creatorId, tripId } } = req;
 
-    User.findOne({"_id": ObjectId(creatorId)})
+    User.findOne({ "_id": ObjectId(creatorId) })
         .then(user => {
             if (user.password !== password) throw Error('wrong password');
 
-            return Trip.updateOne({"_id": ObjectId(tripId)}, {
+            return Trip.updateOne({ "_id": ObjectId(tripId) }, {
                 from,
                 to,
                 date,
@@ -265,16 +308,16 @@ router.put('/trip/:creatorId/:tripId', jsonBodyParser, (req, res) => {
  */
 
 router.put('/trip/join/:tripId/:passengerId', (req, res) => {
-    const {params: {tripId, passengerId}} = req;
+    const { params: { tripId, passengerId } } = req;
 
 
-    Trip.findOne({"_id": ObjectId(tripId)})
+    Trip.findOne({ "_id": ObjectId(tripId) })
         .then(trip => {
             if (!trip.passengers) trip.passengers = [];
             //TODO error if a passenger is already on a trip
-            if ((trip.passengers).includes({"_id": ObjectId(passengerId)})) throw Error('this passenger has already' +
+            if ((trip.passengers).includes({ "_id": ObjectId(passengerId) })) throw Error('this passenger has already' +
                 ' joined this trip')
-            trip.passengers.push({"_id": ObjectId(passengerId)})
+            trip.passengers.push({ "_id": ObjectId(passengerId) })
             return trip.save()
         })
         .then(() => {
@@ -289,10 +332,10 @@ router.put('/trip/join/:tripId/:passengerId', (req, res) => {
  * Unjoin trip
  */
 router.delete('/trip/unjoin/:tripId/:passengerId', (req, res) => {
-    const {params: {tripId, passengerId}} = req;
-    const passenger = {"_id": ObjectId(passengerId)}
+    const { params: { tripId, passengerId } } = req;
+    const passenger = { "_id": ObjectId(passengerId) }
 
-   Trip.findOne({"_id": ObjectId(tripId)})
+    Trip.findOne({ "_id": ObjectId(tripId) })
         .then(trip => {
             const passengersArray = trip.passengers
             const index = passengersArray.indexOf(passenger)
@@ -314,10 +357,10 @@ router.delete('/trip/unjoin/:tripId/:passengerId', (req, res) => {
  */
 
 router.put('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) => {
-    const {params: {commentedUserId, userId}} = req;
-    const {body: {comment, rating}} = req;
-    const commentedUser = {"_id": ObjectId(commentedUserId)};
-    const user = {"_id": ObjectId(userId)};
+    const { params: { commentedUserId, userId } } = req;
+    const { body: { comment, rating } } = req;
+    const commentedUser = { "_id": ObjectId(commentedUserId) };
+    const user = { "_id": ObjectId(userId) };
     const commentObj = {
         user,
         date: moment(),
