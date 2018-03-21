@@ -1,13 +1,12 @@
-const User = require('../models/User')
+const { User, Service, Contract, Review } = require('../models')
 const validate = require('./validate')
-const uuid = require('uuid/v4')
 
 
 const logic = {
-    register(name, surname, email, username, password) {
+    register(name, surname, username, password, city, borrough, email) {
         return Promise.resolve()
             .then(() => {
-                validate({ name, surname, email, username, password })
+                validate({ name, surname, username, password, city, borrough, email })
 
                 return User.findOne({ username })
             })
@@ -16,7 +15,7 @@ const logic = {
 
                 const id = uuid()
 
-                return User.create({ id, name, surname, email, username, password })
+                return User.create({ id, name, surname, username, password, city, borrough, email })
                     .then(() => id)
             })
     },
@@ -47,13 +46,13 @@ const logic = {
             })
     },
 
-    retrieve(id) {
+    retrieve(_id) {
         return Promise.resolve()
             .then(() => {
-                validate({ id })
+                validate({ _id })
 
                 //return User.findOne({ id }, 'id name surname email username') // WARN! it returns _id too!
-                return User.findOne({ id }, { _id: 0, password: 0 })
+                return User.findOne({ _id }, { _id: 0, password: 0 })
             })
             .then(user => {
                 if (!user) throw Error('user does not exist')
@@ -76,6 +75,10 @@ const logic = {
 
                 return User.deleteOne({ id })
             })
+    },
+
+    services() {
+        return Service.find({})
     }
 }
 
