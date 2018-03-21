@@ -1,25 +1,72 @@
 const mongoose = require('mongoose')
 const { Schema, Schema: { ObjectId } } = mongoose
 
+const Review = new Schema({
+    contract: {
+        type: ObjectId,
+        ref: 'Contract',
+        required: true
+    },
+    user: {
+        type: ObjectId,
+        ref: 'User',
+        required: true
+    },
+    comment: {
+        type: String,
+        required: true
+    },
+    valuation: {
+        type: Number,
+        required: true
+    }
+})
+
 const User = new Schema({
     name: {
         type: String,
         required: true
     },
-    surname: String,
+    surname: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true,
         unique: true
     },
-    password: String,
-    services: Array,
-    city: String,
-    borrough: String,
-    email: String,
-    comments: Array,
-    walt: Number,
-    value: Number
+    password: {
+        type: String,
+        required: true
+    },
+    services: [{
+        type: ObjectId,
+        ref: 'Service',
+        //unique: true,
+        required: true
+    }],
+    city: {
+        type: String,
+        required: true
+    },
+    borough: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    wallet: {
+        type: Number,
+        default: 0
+    },
+    valuation: {
+        type: Number,
+        default: 0
+    },
+    reviews: [Review]
 })
 
 const Contract = new Schema({
@@ -43,6 +90,11 @@ const Contract = new Schema({
         required: true,
         default: 'pending',
         enum: ['pending', 'accepted', 'rejected', 'done', 'validated', 'cancelled']
+    },
+    amount: {
+        type: Number,
+        required: true,
+        default: 0
     }
 })
 
@@ -56,5 +108,6 @@ const Service = new Schema({
 module.exports = {
     User: mongoose.model('User', User),
     Contract: mongoose.model('Contract', Contract),
-    Service: mongoose.model('Service', Service)
+    Service: mongoose.model('Service', Service),
+    Review: mongoose.model('Review', Review)
 }
