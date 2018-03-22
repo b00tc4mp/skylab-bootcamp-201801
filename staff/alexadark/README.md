@@ -25,4 +25,13 @@ emmet en jsx en visual code (una de las razones que me fui a webstorm es porque 
 y tambien : 
 [Reactjs code snippets - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets)
 
+Como pasar props a un componente con react router
+
+[Pass props to a component rendered by React Router](https://tylermcginnis.com/react-router-pass-props-to-components/)
+
+ejemplo
+
+```<Route path="/publish"  render={() => <Publish  user = {this.state.user}/>}/>```
+
+
 # [Final project](https://github.com/alexadark/oneDayTrip)
