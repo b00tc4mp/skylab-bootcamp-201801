@@ -5,10 +5,11 @@ const portMongo = process.env.MONGO_PORT
 const database = process.env.MONGO_DB
 const port = process.env.PORT
 
-const productRoute = require('./products/route_product')
-const categoryRoute = require('./categories/route_category')
-const orderRoute = require('./orders/route_order')
-const userRoute = require('./users/route_user')
+const productRoute = require('./routes/product')
+const categoryRoute = require('./routes/category')
+const orderRoute = require('./routes/order')
+const userRoute = require('./routes/user')
+const passport = require('passport')
 
 const express = require('express')
 const app = express()
@@ -17,6 +18,8 @@ const cors = require('cors')
 app.use(cors())
 
 const mongoose = require('mongoose')
+
+app.use(passport.initialize())
 
 //Cors
 app.use((req, res, next) => {

@@ -1,6 +1,6 @@
 # Grow.it: grow more... buy less
 
-![HTML5,CSS3 and JS](doc/images/logos/html5-css3-js.png)          [![Bootstrap](doc/images/logos/bootstrap.png)](http://getbootstrap.com/)          [![React](doc/images/logos/react.png)](https://facebook.github.io/react/)          [![NodeJS](doc/images/logos/nodejs.png)](https://nodejs.org/)          [![MongoDB](doc/images/logos/mongodb.png)](https://www.mongodb.com/)          [![Skylab](doc/images/logos/skylab-56.png)](http://www.skylabcoders.com/)  
+![HTML5,CSS3 and JS](doc/images/html5-css3-js.png)          [![Bootstrap](doc/images/bootstrap.png)](http://getbootstrap.com/)          [![React](doc/images/react.png)](https://facebook.github.io/react/)          [![NodeJS](doc/images/nodejs.png)](https://nodejs.org/)          [![MongoDB](doc/images/mongodb.png)](https://www.mongodb.com/)          [![Skylab](doc/images/skylab-56.png)](http://www.skylabcoders.com/)  
 
 ## Target
 

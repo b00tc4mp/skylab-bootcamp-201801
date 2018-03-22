@@ -2,10 +2,10 @@ const { success, fail } = require('./api-utils')
 const logic = require('../../logic')
 
 module.exports = (req, res) => {
-    const { body: { name, surname, email, username, password, newUsername, newPassword } } = req
-    const { params: { id } } = req
+    const { body: { name, surname, email, username, password, newUsername, newPassword, description } } = req
+    const { params: { _id } } = req
 
-    logic.update(id, name, surname, email, username, password, newUsername, newPassword)
+    logic.update(_id, name, surname, email, username, password, newUsername, newPassword, description)
         .then(() => {
             res.json(success())
         })

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import api from '../../services/api'
-import Register from '../register'
+// import api from '../../services/api'
+import RegisterWithRouter from '../register'
 import Following from '../following'
 import User from '../user'
 import Account from '../account'
@@ -16,31 +16,25 @@ class Home extends Component {
         }
     }
 
-    componentWillMount() {
-        api.listUser("5aad319e734d1d1b8288cc6f")
-            .then(users => this.setState({ users }))
-
-     }
 
     render() {
         return (
             <div>
 
+                <Route path="/user" component={User} />
+
                 <Route exact path="/" render={() => (
-                    <User users={this.state.users} />
+                    <RegisterWithRouter />
                 )} />
 
-                 <Route  path="/following" render={() => (
+                <Route path="/following" render={() => (
                     <Following />
-                )} />  
-
-                <Route path="/register" render={() => (
-                    <Register />
                 )} />
-        
+
                 <Route path="/account" render={() => (
                     <Account />
                 )} />
+
 
             </div>
 

@@ -1,0 +1,37 @@
+.searchBar{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.dropdown{
+    margin-top: 4%;
+}
+
+.searchDropdown, .btn-search, .form-search{
+    width: 250px;
+    height: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.results, .cardResult{
+    margin-top: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+}
+
+.card{
+    max-width: 40%;
+    min-width: 350px;
+}
+
+.card-title{
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color:greenyellow;
+}
+
+.card-text{
+    font-size: 20px;
+}

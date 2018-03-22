@@ -5,7 +5,7 @@ const routes = express.Router()
 //Listar todas las Categorias
 routes.route('/')
     .get((req, res) => {
-        logic.getTotalCategories()
+        logic.getAllCategories()
             .then(categories => {
                 res.json({
                     status: "OK",
@@ -66,7 +66,7 @@ routes.route('/:category')
 routes.route('/subcategories/:subcategory')
     .get((req, res) => {
         const { params: { subcategory } } = req
-console.log(subcategory)
+
         logic.getSubcategoryById(subcategory)
             .then(data => {
                 res.json({
