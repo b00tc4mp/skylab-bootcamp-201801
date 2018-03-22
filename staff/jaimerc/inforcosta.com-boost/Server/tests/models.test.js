@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
-const { Category, SubCategory, Product } = require('../models')
+const { Category, SubCategory, Product, Order, Product } = require('../models')
 
 describe('models', () => {
     before(done => {
@@ -14,7 +14,7 @@ describe('models', () => {
     })
 
     describe('create a product with category and subcategry', () => {
-        let category, subcategory, product
+        let category, subcategory, product, order, user
 
         before(async () => {
             category = new Category({
@@ -38,6 +38,42 @@ describe('models', () => {
                 ean: 1
             })
 
+            order = new Order({
+                idUser: user._id,
+                products: [
+                    {
+                        idProduct: product._id,
+                        unit: 2
+                    },
+                    {
+                        idProduct: product._id,
+                        unit: 1
+                    }
+                ],
+                paymentMethod: {
+                    Method: "Paypal",
+                    status: true
+                },
+                purchase: {
+                    status: "Enviado",
+                    deliveryDate: new Date()
+                },
+                date: new Date(),
+            })
+
+            user = new User({
+                name: "Jaime",
+                lastName: "Rubio",
+                address1: "calle pepe",
+                address2: "",
+                telf: 655555555,
+                email: "plan@hot.com",
+                nif: "123456789",
+                username: "manolo",
+                password: "123",
+                orders: ""
+            })
+
             await Promise.all([
                 category.save()
                     .then(_category => category = _category),
@@ -45,6 +81,10 @@ describe('models', () => {
                     .then(_subcategory => subcategory = _subcategory),
                 product.save()
                     .then(_product => product = _product),
+                user.save()
+                    .then(_user => user = _user),
+                order.save()
+                    .then(_order => order = _order)
             ])
                 .then(() => {
                     const id = product._id.toString()

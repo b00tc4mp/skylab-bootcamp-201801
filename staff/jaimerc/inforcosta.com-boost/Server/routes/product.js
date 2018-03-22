@@ -2,15 +2,16 @@ const logic = require('../logic')
 const express = require('express')
 const routes = express.Router()
 
-//Listar todas las Categorias
+
+//Listar todos los productos
 routes.route('/')
     .get((req, res) => {
-        logic.getAllCategories()
-            .then(categories => {
+        logic.getTotalProducts()
+            .then(products => {
                 res.json({
                     status: "OK",
-                    message: "Listados de todas las Categorias",
-                    data: categories
+                    message: "Listados de todos los productos",
+                    data: products
                 })
             })
             .catch(err => {
@@ -21,15 +22,18 @@ routes.route('/')
             })
     })
 
-//Listar todas las subcategorias
-routes.route('/subcategories')
+
+//Listar por codigo de ariculo
+routes.route('/retrieve/:article')
     .get((req, res) => {
-        logic.getTotalSubcategories()
-            .then(subcategories => {
+        const { params: { article } } = req
+
+        logic.getProductByArticle(article)
+            .then(product => {
                 res.json({
                     status: "OK",
-                    message: "Listados de todas las Subategorias",
-                    data: subcategories
+                    message: `Producto ${product.ARTICULO}`,
+                    data: product
                 })
             })
             .catch(err => {
@@ -39,40 +43,17 @@ routes.route('/subcategories')
                 })
             })
     })
-
-
-//Listar Subcategoria segun Categoria
-routes.route('/:category')
-    .get((req, res) => {
-        const { params: { category } } = req
-
-        logic.getSubcategoryByCategoryId(category)
-            .then(category => {
-                res.json({
-                    status: "OK",
-                    message: `Categoria ${category.CATEGORIA}`,
-                    data: category
-                })
-            })
-            .catch(err => {
-                res.json({
-                    status: "KO",
-                    message: err.message
-                })
-            })
-    })
-
-//Mostrar Subcategoria segun su id
+//Listar productos por subcategorias
 routes.route('/subcategories/:subcategory')
     .get((req, res) => {
         const { params: { subcategory } } = req
 
-        logic.getSubcategoryById(subcategory)
-            .then(data => {
+        logic.getProductBySubcat(subcategory)
+            .then(products => {
                 res.json({
                     status: "OK",
-                    message: `Subcategoria ${data}`,
-                    data: data
+                    message: `Productos de la Subcategoria ${subcategory}`,
+                    data: products
                 })
             })
             .catch(err => {
@@ -83,18 +64,38 @@ routes.route('/subcategories/:subcategory')
             })
     })
 
+//Listar 4 productos de todos los productos (sustituye a los 4 productos de oferta)
+routes.route('/offers')
+    .get((req, res) => {
 
+        logic.getOffers()
+            .then(products => {
+                res.json({
+                    status: "OK",
+                    message: `Productos en Promocion`,
+                    data: products
+                })
+            })
+            .catch(err => {
+                res.json({
+                    status: "KO",
+                    message: err.message
+                })
+            })
 
+    })
+
+//Busca la "query" en los campos de Descripcion y Shortdescription de todos los productos
 routes.route('/search/:q')
     .get((req, res) => {
         const { params: { q } } = req
 
-        logic.getCategorySearch(q)
-            .then(categories => {
+        logic.getProductSearch(q)
+            .then(products => {
                 res.json({
                     status: "OK",
-                    message: 'Todas las Categorias encontradas',
-                    data: categories
+                    message: `Productos encontrados con la palabra ${q}`,
+                    data: products
                 })
             })
             .catch(err => {
@@ -105,5 +106,5 @@ routes.route('/search/:q')
             })
     })
 
-
 module.exports = routes
+
