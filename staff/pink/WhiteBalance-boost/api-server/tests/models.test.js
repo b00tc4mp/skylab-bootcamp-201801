@@ -88,7 +88,7 @@ describe('models', () => {
             assert(user.images, 'should user have images')
 
             assert(user.following, 'should user have following')
-            
+
             assert.equal(user.images.length, 2, 'should user have 2 images')
 
             const [_image, _image2] = user.images
