@@ -1,0 +1,25 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_extends';
+.collapsible {
+    li {
+        @extend %flex-in-column;
+    }
+    .collapsible-header {
+
+        @extend %rectangle-container;
+
+        background-color: $folder-item-color !important;
+        border-bottom: 1px solid gray !important;
+        border-top: unset !important;
+        
+        i { //Icons Folders Arrow and Folder
+            margin-right: 2rem !important;
+        }
+    }
+    .collapsible-body {
+        padding: 0;
+        .content-files {
+            @extend %flex-in-column;
+        }
+    }
+}
