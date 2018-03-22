@@ -4,4 +4,8 @@
 
 ![React Component's lifecycle](images/react-components-lifecycle.png)
 
-# [Final project](https://github.com/didaquis/until-now-frontend)
+# Final project
+
+[front-end](https://github.com/didaquis/until-now-frontend)
+[api-client](https://github.com/didaquis/until-now-client-api)
+[api-server](https://github.com/didaquis/until-now-server-api)
