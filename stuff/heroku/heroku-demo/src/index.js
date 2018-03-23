@@ -4,11 +4,12 @@ const express = require('express')
 
 const app = express()
 
+const { PORT, HELLO_ENV } = process.env
+
 app.get('/', (req, res) => {
-    res.end('<h1>Welcome to my first Heroku app</h1>')
+    res.json({ salute: HELLO_ENV })
 })
 
-const { PORT, HELLO_ENV } = process.env
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
