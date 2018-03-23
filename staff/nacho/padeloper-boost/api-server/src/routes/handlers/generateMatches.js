@@ -2,9 +2,9 @@ const { success, fail } = require('./api-utils')
 const logic = require('../../logic')
 
 module.exports = (req,res) => {
-    const { params: { idLeague,idPlayer } } = req
+    const { params: { idLeague } } = req
     
-    logic.addPlayerToLeague(idLeague,idPlayer)
+    logic.generateMatches(idLeague)
 
         .then(league => res.json(success(league)))
 

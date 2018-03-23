@@ -4,7 +4,7 @@ const logic = require('../../logic')
 module.exports = (req,res) => {
     const { params: { idLeague,idPlayer } } = req
     
-    logic.addPlayerToLeague(idLeague,idPlayer)
+    logic.removePlayerFromLeague(idLeague,idPlayer)
 
         .then(league => res.json(success(league)))
 

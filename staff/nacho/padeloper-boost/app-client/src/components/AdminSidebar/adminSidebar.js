@@ -10,7 +10,7 @@ function AdminSidebar(props){
             <h3 className="padeloper-admin">PADELOPER</h3>
           </div>
           <ul className="list-unstyled components">
-            <p className ='welcomeadmin'>WELCOME NACHAL</p>
+            <p className ='welcomeadmin'>Welcome {props.userName.username}</p>
             <li>
               <a>Stats</a>
             </li>
@@ -36,8 +36,8 @@ function AdminSidebar(props){
           </ul>
           <ul className="list-unstyled CTAs">
             
-            <li><NavLink to = '/adminleaguecreate'><a className="download">Create League</a></NavLink></li>
-            <li><NavLink to = '/adminleagues'><a className="article">Home</a></NavLink></li>
+            <li><NavLink to = '/adminleaguecreate' className="download">Create League</NavLink></li>
+            <li><NavLink to = '/adminleagues' className="article">Admin Panel</NavLink></li>
           </ul>
         </nav>
     )

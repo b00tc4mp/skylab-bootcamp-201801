@@ -9,7 +9,7 @@ class AdminLeagueMatches extends Component{
         return(
             <div className="wrapper">
             {/* Sidebar Holder */}
-              <AdminSidebar />
+            <AdminSidebar userName = {this.props.userInfo}/>
             {/* Page Content Holder */}
             <div id="content">
               <AdminHeader />
@@ -21,6 +21,7 @@ class AdminLeagueMatches extends Component{
               <div className="col-xs-12">
             <h3 className="title">MATCHES</h3>
             <div className="table-responsive">
+              <form>
               <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" className="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -32,19 +33,23 @@ class AdminLeagueMatches extends Component{
                   </tr>
                 </thead>
                 <tbody>
-                <tr>
-                        
-                        <td>The Timberwolves</td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>The Spurs</td>
-                        <td><button type="button" className="btn btn-primary btn-sm actionbutton">Edit</button><button type="button" className="btn btn-primary btn-sm">Result</button></td>
-                    </tr>
+  
+                  <tr>
+                          
+                          <td>The Timberwolves</td>
+                          <td><input type="number"/></td>
+                          <td><input type = "number"/></td>
+                          <td>The Spurs</td>
+                          <td><button type="button" className="btn btn-primary btn-sm actionbutton">Edit</button><button type="button" className="btn btn-primary btn-sm">Result</button></td>
+                          
+                  </tr>
+                
                 </tbody>
                 <tfoot>
                 </tfoot></table>
+                </form>
             </div>{/*end of .table-responsive*/}
-            <button type="button" className="btn btn-primary btn-sm actionbutton">Generate Teams</button>
+            <button type="button" className="btn btn-primary btn-sm actionbutton">Generate Matches</button>
           </div>
                 
           

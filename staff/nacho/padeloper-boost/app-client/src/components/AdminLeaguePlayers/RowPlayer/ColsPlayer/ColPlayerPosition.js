@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColPlayerPosition(props) {
     return (
-         <td> Right</td>
+         <td>{props.nameCol}</td>
     )
 }
 

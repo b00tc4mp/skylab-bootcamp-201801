@@ -12,7 +12,7 @@ function RowPlayer(props){
             
                 <tr>
                     <ColPlayerInitial />
-                    <ColPlayerName />
+                    <ColPlayerName/>
                     <ColPlayerPosition />
                     <ColPlayerLevel />
                     <ColPlayerJoined />

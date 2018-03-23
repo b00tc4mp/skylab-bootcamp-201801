@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColPlayerName(props) {
     return (
-         <td> Nachal</td>
+         <td>{props.nameCol}</td>
     )
 }
 

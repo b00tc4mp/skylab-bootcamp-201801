@@ -10,7 +10,7 @@ class AdminMyLeagues extends Component{
         return(
             <div className="wrapper">
         {/* Sidebar Holder */}
-          <AdminSidebar />
+        <AdminSidebar userName = {this.props.userInfo}/>
         {/* Page Content Holder */}
         <div id="content">
           <AdminHeader />

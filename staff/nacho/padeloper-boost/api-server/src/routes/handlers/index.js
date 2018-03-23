@@ -8,6 +8,11 @@ const searchLeagues = require('./searchLeagues')
 const retrieveLeague = require('./retrieveLeague')
 // const listUserLeagues = require('./listUserLeagues')
 const createLeague = require('./createLeague')
+const addPlayerToLeague = require('./addPlayerToLeague')
+const removePlayerFromLeague = require('./removePlayerFromLeague')
+const generateTeams = require('./generateTeams')
+const removeTeams = require('./removeTeams')
+const generateMatches = require('./generateMatches')
 
 
 
@@ -21,5 +26,10 @@ module.exports = {
     searchLeagues,
     retrieveLeague,
     // listUserLeagues,
-    createLeague
+    createLeague,
+    addPlayerToLeague,
+    removePlayerFromLeague,
+    generateTeams,
+    removeTeams,
+    generateMatches
 }

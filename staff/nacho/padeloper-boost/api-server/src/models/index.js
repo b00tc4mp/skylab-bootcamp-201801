@@ -1,5 +1,3 @@
-//import { ObjectID } from '../../../../../Library/Caches/typescript/2.6/node_modules/@types/bson';
-
 const mongoose = require('mongoose')
 
 const { Schema, Schema: { ObjectId } } = mongoose
@@ -21,7 +19,7 @@ const Stats = new Schema({
         win: Number,
         lost: Number
     },
-    level: Number
+    level: { type: Number, default: 3 }
 })
 
 const User = new Schema({
@@ -33,37 +31,45 @@ const User = new Schema({
     },
     username: String,
     password: String,
+    position: { type: String, default: 'left' },
     stats: Stats
 })
 
 
 const Team = new Schema({
-    name: String,
-    players: [{ 
-        type: ObjectId, ref: 'User' 
+    name: { type: String, default: 'Team' },
+    players: [{
+        type: ObjectId, ref: 'User'
     }]
 })
 
 const Result = new Schema({
     winner: {
-        team: { 
-            type: ObjectId, 
-            ref: 'Team' 
+        team: {
+            type: ObjectId,
+            ref: 'Team'
         },
         games: [Number]
     },
     loser: {
-        team: { 
-            type: ObjectId, 
-            ref: 'Team' 
+        team: {
+            type: ObjectId,
+            ref: 'Team'
         },
         games: [Number]
     }
 })
 
 const Match = new Schema({
-    teams: [Team],
-    result: Result
+    teams: [{
+        type: ObjectId,
+        ref: 'Team'
+    }],
+    result: Result,
+    date: {
+        type: Date,
+        default: Date.now()
+    }
 })
 
 const League = new Schema({
@@ -77,13 +83,13 @@ const League = new Schema({
     club: String,
     category: String,
     type: String,
-    maxplayers:Number,
-    created: Date,
-    players: [{ 
-        type: ObjectId, ref: 'User' 
+    date: Date,
+    maxplayers: Number,
+    players: [{
+        type: ObjectId, ref: 'User'
     }],
     teams: [Team],
-    match: [Match]
+    matches: [Match]
 })
 
 module.exports = {

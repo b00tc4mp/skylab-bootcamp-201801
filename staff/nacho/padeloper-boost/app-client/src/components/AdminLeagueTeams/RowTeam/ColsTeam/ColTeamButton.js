@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColTeamButton(props) {
     return (
-         <td><button type="button" className="btn btn-primary btn-sm removebutton">Edit</button></td>
+         <td><button type="button" className="btn btn-primary btn-sm removebutton" onClick = {props.editTeam}>Edit</button></td>
     )
 }
 

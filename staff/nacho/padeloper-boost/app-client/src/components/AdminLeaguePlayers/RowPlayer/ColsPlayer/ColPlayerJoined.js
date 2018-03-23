@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColPlayerJoined(props) {
     return (
-         <td>2018-03-22</td>
+         <td>{props.nameCol}</td>
     )
 }
 
