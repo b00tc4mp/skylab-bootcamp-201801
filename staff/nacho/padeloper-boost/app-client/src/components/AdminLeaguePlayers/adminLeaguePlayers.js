@@ -92,7 +92,7 @@ class AdminLeaguePlayers extends Component{
           <AdminLeagueLinks leagueId = {this.props.match.params.idOfLeague}/>
         <div className="line" />
         <InfoLeague leagueInfo = {this.state.league} />
-        <div className="line" />
+        <div className="line separator" />
           <div className="row">
           <div className="col-xs-12">
         <h3 className="title">PLAYERS</h3>

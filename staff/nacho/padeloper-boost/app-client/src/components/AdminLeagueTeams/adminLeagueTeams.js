@@ -18,8 +18,7 @@ class AdminLeagueTeams extends Component{
     }
 
     componentDidMount(){
-      api_client.retrieveLeague(this.props.match.params.idOfLeague)
-      
+      api_client.retrieveLeague(this.props.match.params.idOfLeague)    
       .then(res => {  
         this.setState({league:res})
       })
@@ -90,7 +89,7 @@ class AdminLeagueTeams extends Component{
         showCancelButton: true,
         inputValidator: function(value) {
           return new Promise(function(resolve, reject) {
-            if (value == "500") {
+            if (value === "500") {
               resolve();
               // I will make call to api_client
             } else {
@@ -137,7 +136,7 @@ class AdminLeagueTeams extends Component{
                       <tr key = {index}>
                         
                         <ColTeamName  nameCol = {element.name +' '+(index+1)}/>
-                        <ColTeamPlayer1 nameCol={element.players[0]} />
+                        <ColTeamPlayer1 nameCol={this.state.league.players[element.players[0]]} />
                         <ColTeamPlayer2 nameCol = {element.players[1]}/>
                         {this.state.league.creator===this.props.userInfo._id ? <td><button type="button" className="btn btn-primary btn-sm removebutton" onClick = {this.editTeam}>Edit</button></td>:""}
                       </tr>

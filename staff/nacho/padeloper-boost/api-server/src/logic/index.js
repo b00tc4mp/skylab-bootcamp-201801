@@ -4,11 +4,9 @@ const uuid = require('uuid/v4')
 const mongoose = require('mongoose')
 
 module.exports = {
-
     listUsers(){
         return User.find({},{_id: 0, id: 1, name: 1, surname: 1, email: 1, username: 1})
     },
-
 
     retrieveUser(id){
         return Promise.resolve()
@@ -209,7 +207,7 @@ module.exports = {
                 const matches = createMatches(leagueWithTeams.teams)
                 //todo: guardar matches
                 return League.update({_id:idLeague},{matches})
-
+                .then(()=> League.findOne({ _id: idLeague }))
             })
 
         })

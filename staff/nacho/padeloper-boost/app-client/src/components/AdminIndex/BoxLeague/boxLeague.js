@@ -9,7 +9,7 @@ class BoxLeague extends Component{
             <div className="col-md-4">
               <div className="box-league">
                 <div className="info-league">
-                  <div className="joined">{this.props.leagueInfo.players.length}</div>
+                  <div className="joined">{this.props.leagueInfo.players? this.props.leagueInfo.players.length:""}</div>
                   <div className="textleague">
                     <p>
                       League <span className="leaguename">{this.props.leagueInfo.name} </span> created by <span>Nachal </span>

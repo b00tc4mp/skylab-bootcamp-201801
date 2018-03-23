@@ -7,7 +7,7 @@ let api_client;
     api_client = {
         
         registerUser : function(name, surname, email, username, password){
-            return axios.post(`${baseUrl}/user`, {name, surname, email, username, password}).then(res => res.data.data)
+            return axios.post(`${baseUrl}/user`, {name, surname, email, username, password}).then(res => res.data)
         },
 
         loginUser : function(email,username,password){
@@ -48,6 +48,10 @@ let api_client;
 
         removeTeams : function(idLeague){
             return axios.put(`${baseUrl}/league/${idLeague}/remove-teams`).then(res => res.data)
+        },
+
+        generateMatches : function(idLeague){
+            return axios.put(`${baseUrl}/league/${idLeague}/generate-matches`).then(res => res.data)
         }
 
     }

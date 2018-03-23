@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './css/main.css'
 import Header from '../Header/header'
 import Form from './Form/form'
+import swal from 'sweetalert2'
 import api_client from 'api-client'
 
 class Register extends Component{
@@ -24,12 +25,33 @@ class Register extends Component{
       const {name, surname, email, username, password} = this.state
 
         api_client.registerUser(name, surname, email, username, password)
-          .then((data) => {
-            console.log(data)
-          })
+          .then((data) => {console.log(data)})
+          // .then(() => {
+          //   swal({
+          //     type: 'success',
+          //     title: 'User generated successfully',
+          //     showConfirmButton: false,
+          //     timer: 1500
+          //   })
+          // })
           .catch(console.error)
-     
     }
+
+    // .then(res => {res.status === 'OK'?
+    //     console.log(res.status)
+    //     (swal({
+    //         type: 'success',
+    //         title: 'user registered',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     }))
+    //     :
+    //     (swal({
+    //         type: 'error',
+    //         title: 'error',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     }))
 
 
     keepInputName = (e) => {e.preventDefault(); this.setState({name:e.target.value})}
