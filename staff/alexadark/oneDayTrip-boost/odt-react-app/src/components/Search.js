@@ -24,6 +24,7 @@ class Search extends Component {
         api.listTrips(this.state.location)
             .then(res => {
                 this.setState({trips: res.data})
+
             })
     }
 

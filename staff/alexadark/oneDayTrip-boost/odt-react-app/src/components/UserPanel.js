@@ -15,10 +15,9 @@ class UserPanel extends Component {
   }
 
   componentDidMount() {
-    api
-      .getUsernameId(this.props.match.params.username)
-      .then(res => api.getUserFromId(res.data))
-        .then(res => this.setState({user: res.data}));
+    api.getUserFromId(this.props.user.id)
+        .then(res => this.setState({user: res.data}))
+
   }
 
   render() {
@@ -31,9 +30,9 @@ class UserPanel extends Component {
             Delete Profile
           </button>
           <NavLink to="/user-profile">
-            <button className="uk-button uk-button-primary uk-button-small uk-margin-right">
+            <NavLink to={`/user-profile/${this.props.user.id}`} className="uk-button uk-button-primary uk-button-small uk-margin-right">
               see my reviews
-            </button>
+            </NavLink>
           </NavLink>
         </div>
 
@@ -41,8 +40,8 @@ class UserPanel extends Component {
           className="user-panels uk-margin-large-top uk-child-width-1-2@m"
           data-uk-grid
         >
-          <UserPublishedTrips user={this.state.user} />
-          <UserBookedTrips user={this.state.user} />
+          <UserPublishedTrips user={this.props.user} />
+          <UserBookedTrips user={this.props.user} />
         </div>
       </div>
     );

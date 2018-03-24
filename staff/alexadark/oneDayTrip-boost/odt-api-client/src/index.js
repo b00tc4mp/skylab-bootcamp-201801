@@ -1,10 +1,11 @@
 const axios = require('axios');
 
 const api = {
-    baseUrl: 'http://localhost:5000/api',
+    baseUrl : 'https://fast-headland-72756.herokuapp.com/api',
 
-    call(method, path, body) {
+    call(method, path, body){
         return axios[method](`${this.baseUrl}/${path}`, body)
+            // .then(res => res.data)
             .then(({ data }) => data)
     },
 
@@ -12,83 +13,84 @@ const api = {
     registerUser(name, surname, email, picture, username, password) {
         return this.call('post', 'user', { name, surname, email, picture, username, password })
     },
-
-    login(username, password) {
-        return this.call('post', 'login', { username, password })
-
+    
+    login(username, password){
+        return this.call('post', 'login', {username, password})
+        
     },
 
-    getUsernameId(username) {
-        return this.call('get', `user/${username}`)
+    getUsernameId(username){
+        return this.call('get',`user/${username}`)
     },
 
-    getUserFromId(id) {
-        return this.call('get', `userid/${id}`)
+    getUserFromId(id){
+        return this.call('get',`userid/${id}`)
     },
 
-    getTripFromId(id) {
-        return this.call('get', `trip/${id}`)
+    getTripFromId(id){
+        return this.call('get',`trip/${id}`)
     },
 
-    deleteUser(id, password) {
-        return this.call('delete', `user/${id}`, { password })
-    },
-
-
-    updateUser(id, name, surname, email, picture, password, newPassword) {
-        return this.call('put', `user/${id}`, { name, surname, email, picture, password, newPassword })
+    deleteUser(id, password){
+       return this.call('delete',`user/${id}`, {password})
     },
 
 
-
-    createTrip(creatorId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description) {
-        return this.call('post', `trip/${creatorId}`, { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description })
+    updateUser(id, name, surname, email, picture, password, newPassword){
+        return this.call('put',`user/${id}`, {name, surname, email, picture, password, newPassword})
     },
 
 
 
-    listUserPublishedTrips(creatorId) {
-        return this.call('get', `trips/${creatorId}`)
-    },
-
-    listUserBookedTrips(userId) {
-        return this.call('get', `booked-trips/${userId}`)
-    },
-
-    listTrips(destination, arrival, departure) {
-        return this.call('get', `available-trips/${destination}/${arrival}/${departure}`)
+    createTrip(creatorId,from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description){
+        return this.call('post',`trip/${creatorId}`,{from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description})
     },
 
 
 
-    cancelTrip(creatorId, password) {
-        return this.call('delete', `trip/${creatorId}`, { password })
+    listUserPublishedTrips(creatorId){
+        return this.call('get',`trips/${creatorId}`)
+    },
+
+    listUserBookedTrips(userId){
+        return this.call('get',`booked-trips/${userId}`)
+    },
+
+    listTrips(destination,arrival,departure){
+        return this.call('get',`available-trips/${destination}/${arrival}/${departure}`)
     },
 
 
 
-    updateTrip(creatorId, tripId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password) {
-        return this.call('put', `trip/${creatorId}/${tripId}`, { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password })
+    cancelTrip(creatorId, tripId, password){
+        return this.call('delete',`trip/${creatorId}/${tripId}`, {password})
     },
 
 
 
-    joinTrip(tripId, passengerId) {
-        return this.call('put', `trip/join/${tripId}/${passengerId}`)
+    updateTrip(creatorId, tripId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password){
+        return this.call('put',`trip/${creatorId}/${tripId}`, {from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password})
     },
 
 
 
-    unjoinTrip(tripId, passengerId) {
-        return this.call('delete', `trip/unjoin${tripId}/${passengerId}`)
+    joinTrip(tripId, passengerId){
+        return this.call('put',`trip/join/${tripId}/${passengerId}`)
     },
 
 
 
-    comment(commentedUserId, userId, comment, rating) {
-        return this.call('put', `trip/${commentedUserId}/${userId}`, { comment, rating })
+    unjoinTrip(tripId, passengerId){
+        return this.call('delete',`trip/unjoin/${tripId}/${passengerId}`)
+
     },
-    geoLocalize(lat, lng) {
+
+
+
+    comment(commentedUserId, userId, comment, rating){
+        return this.call('put',`user/comment/${commentedUserId}/${userId}`,{comment, rating})
+    },
+    geoLocalize(lat,lng){
         return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI`)
             .then(res => res.results.address_components)
     }

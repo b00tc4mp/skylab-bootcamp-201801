@@ -16,11 +16,12 @@ class UserBookedTrips extends Component {
 
         api
             .getUsernameId(this.props.match.params.username)
+            .then(res=>res.data)
             .then(userId => {
                 api
                     .listUserBookedTrips(userId)
-                    .then(trips => {
-                        this.setState({ trips });
+                    .then(res => {
+                        this.setState({ trips: res.data });
 
                     });
             })
@@ -33,7 +34,7 @@ class UserBookedTrips extends Component {
                 <h3>Booked trips</h3>
 
                 {this.state.trips.map((trip, index) => (
-                    <BookedTripItem trip={trip} key={index} />
+                    <BookedTripItem trip={trip} key={index} user={this.props.user} />
                 ))}
             </div>
         </div>;

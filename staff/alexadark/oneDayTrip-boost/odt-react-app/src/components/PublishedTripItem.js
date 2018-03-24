@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UpdateTrip from './UpdateTrip'
 import CancelTrip from './CancelTrip'
+import ViewTrip from './ViewTrip'
 
 
 class PublishedTripItem extends Component {
@@ -25,11 +26,9 @@ class PublishedTripItem extends Component {
                 <div className="buttons">
                  <UpdateTrip trip={this.props.trip}/>
                   <br />
-                  <button className="uk-button uk-button-small uk-margin-small-bottom uk-button-primary ">
-                    View Trip
-                  </button>
+                    <ViewTrip trip={this.props.trip} user={this.props.user} />
                   <br />
-                  <CancelTrip/>
+                  <CancelTrip trip={this.props.trip}/>
                   <br />
                 </div>
               </div>

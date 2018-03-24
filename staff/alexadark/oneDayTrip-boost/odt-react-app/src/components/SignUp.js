@@ -26,7 +26,6 @@ class SignUp extends Component {
 
     }
 
-    //TODO refactor these functions
 
     keepName = name => this.setState({name});
     keepSurname = surname => this.setState({surname});

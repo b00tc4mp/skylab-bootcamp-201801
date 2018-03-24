@@ -14,14 +14,14 @@ class CancelTrip extends Component {
 
     componentDidMount() {
         api.getUsernameId(this.props.match.params.username)
-            .then((res) => this.setState({creatorId: res.data.creatorId}))
+            .then((res) => this.setState({creatorId: res.data}))
 
     }
 
     cancel() {
         const {creatorId,  password} = this.state
 
-        api.cancelTrip(creatorId,  password)
+        api.cancelTrip(creatorId, this.props.trip._id,  password)
 
             .then(() => this.setState({
                 creatorId: '',

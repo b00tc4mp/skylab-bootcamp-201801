@@ -3,8 +3,6 @@ import TripList from './TripList'
 import api from '../api'
 import { withRouter, Route } from "react-router-dom"
 
-
-//TODO clean url and serach when new search
 //TODO put date and location into the title: This week ...
 
 //TODO geolocalize and show trips for the next 7 days
@@ -35,8 +33,8 @@ class Home extends Component{
     // }
     searchTrips = () =>{
         const {location, arrival, departure} = this.state
-        //Send state in url parameters
-        this.props.history.push(`home/${location}/${arrival}/${departure}`)
+        //Send state in url parametersj
+        this.props.history.push(`/home/${location}/${arrival}/${departure}`)
     }
 
     keepLocation = location => this.setState({location})

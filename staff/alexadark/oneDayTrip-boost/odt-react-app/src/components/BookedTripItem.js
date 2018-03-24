@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import api from  '../api'
+import ViewTrip from './ViewTrip'
 
 
 class BookedTripItem extends Component {
     constructor(props){
         super(props)
     }
+
+    unjoinTrip = ()=>{
+       return api.unjoinTrip(this.props.trip._id,this.props.user.id)
+
+    }
+
+
 
     render(){
 
@@ -19,12 +28,11 @@ class BookedTripItem extends Component {
                         <br />
                     </div>
                     <div className="buttons">
-                        <button className="uk-button uk-button-small uk-button-primary uk-margin-small-bottom">
-                            View Trip
-                        </button>
+                        <ViewTrip trip={this.props.trip} user={this.props.user} />
                         <br />
 
-                        <button className="uk-button uk-button-small uk-margin-small-bottom uk-button-primary ">
+                        <button className="uk-button uk-button-small uk-margin-small-bottom uk-button-primary "
+                        onClick={this.unjoinTrip()}>
                             Unjoin Trip
                         </button>
                         <br />
@@ -36,4 +44,4 @@ class BookedTripItem extends Component {
 }
 
 
-export default BookedTripItem;
+export default BookedTripItem

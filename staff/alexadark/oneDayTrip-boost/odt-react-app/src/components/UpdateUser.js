@@ -6,7 +6,7 @@ class UpdateUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
+            name: props.user.name,
             surname: '',
             email: '',
             picture: '',
@@ -19,6 +19,7 @@ class UpdateUser extends Component {
 //TODO add values from props user to the state, so values are not erased when we don;t enter a value
     componentWillReceiveProps(){
         const user = this.props.user
+        console.log(user)
         this.setState({
             name: user.name,
             surname: user.surname,
