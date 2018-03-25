@@ -1,6 +1,6 @@
 {
 	"info": {
-		"name": "passport-demo-1.0.0",
+		"name": "passport-local-n-jwt",
 		"_postman_id": "31dd0e18-98bf-45d7-a8ca-de1c43b1f032",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
