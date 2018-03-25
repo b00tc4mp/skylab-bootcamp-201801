@@ -24,7 +24,7 @@ module.exports = {
     retrieve(id) {
         return User.findById(id)
             .then(user => {
-                if (!user) throw Error('username and/or password wrong')
+                if (!user) throw Error(`no user found with id ${id}`)
 
                 return publicUserData(user)
             })
