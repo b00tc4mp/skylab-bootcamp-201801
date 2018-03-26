@@ -2,16 +2,18 @@ import React from 'react'
 
 import {
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown,
-  DropdownToggle, DropdownMenu, DropdownItem, Button, Form, FormGroup, Label, Input
+  DropdownToggle, DropdownMenu, DropdownItem, Button, Form, FormGroup, Input
 } from 'reactstrap';
 import "../../styles/navbar.css";
 import "../../styles/main.css";
 import Timeline from '../../components/timeline'
 import Newpost from '../../components/newpost'
 import Post from '../../components/post'
-import ApiClient from "../../models/api-client/src/index.js";
+import Following from '../../components/following'
 
-const apiClient = new ApiClient("http", "localhost", 5000);  
+
+
+
 
 export default class NavbarHead extends React.Component {
 
@@ -26,7 +28,9 @@ export default class NavbarHead extends React.Component {
       show : 'timeline', 
       timelineName: '·|my timeline|·',
       search: '',
-      postId: ''
+      postId: '', 
+      userId: '5aafaa281ca9687a2d6bb1b4',
+      userView : ''
     };
   }
 
@@ -37,8 +41,19 @@ export default class NavbarHead extends React.Component {
     if (e.target.id === 'myTimeline') this.setState( {timelineName: '·|my timeline|·', show:'timeline'})
     else if (e.target.id === 'ourTimeline') this.setState( {timelineName: '·|our timeline|·', show:'timeline'})
     else if (e.target.id === 'justnowTimeline') this.setState( {timelineName: '·|just now timeline|·', show:'timeline'})
+    else if (e.target.id === 'otheruser') this.setState( {timelineName: '·|selected user|·', show:'timeline'})
     else if (e.target.id === 'search') this.setState( {timelineName: '·|results|·', show:'timeline'})
     else if (e.target.id === 'newpost') this.setState( {timelineName: '·|new post|·',  show:'newpost'})
+    else if (e.target.id === 'following'){ this.setState( {timelineName: '·|following|·',  show:'following'})}
+  }
+
+
+  otherUserView = (userId) => {
+   //e.preventDefault()
+
+   console.log('YEP')
+   this.setState({userView: userId })
+   //this.setState( {timelineName: '·|selected user|·',  show:'otheruser'})
   }
 
    
@@ -50,6 +65,7 @@ export default class NavbarHead extends React.Component {
     e.preventDefault()
     this.setState({show: 'post', postId: e.target.id })
    }
+
    
    postResult=()=>{
     this.setState({timelineName: '·|my timeline|·',show: 'timeline'})
@@ -93,7 +109,7 @@ export default class NavbarHead extends React.Component {
                 <NavLink id='newpost'onClick={this.handleViews} href="">New Post</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="">Settings</NavLink>
+                <NavLink id='following'onClick={this.handleViews}href="">Following</NavLink>
               </NavItem>
               <Form inline  id="search" onSubmit={ this.prevent }>
                 <FormGroup  id="search" className="mb-2 mr-sm-2 mb-sm-0">
@@ -108,7 +124,9 @@ export default class NavbarHead extends React.Component {
 
             {this.state.show === 'newpost'?<Newpost postResult= {this.postResult}/>:undefined}
             {this.state.show === 'post'?<Post postId={this.state.postId} />:undefined}
-            {this.state.show === 'timeline'?<Timeline search= {this.state.search} postView = {this.postView} show = {this.state.show} header = {this.state.timelineName}/>:undefined}
+            {this.state.show === 'timeline'?<Timeline userView={this.state.userView} userId={this.state.userId} search= {this.state.search} postView = {this.postView} show = {this.state.show} header = {this.state.timelineName}/>:undefined}
+            {this.state.show === 'following'?<Following otherUserView={this.otherUserView} />:undefined}
+
       </div>
     );
   }

@@ -4,27 +4,25 @@ import {
   Button,
   Form,
   FormGroup,
-  Label,
   Input,
-  FormText,
-  Container,
   Media
 } from "reactstrap";
 import "../../styles/main.css";
-import KudosImg from "./../../img/kudos_ico_red.svg";
-import LinkImg from "./../../img/link_ico_red.svg";
-import CommentsImg from "./../../img/comments_ico_red.svg";
+import KudosImg from "./../../img/kudos.svg";
+import KudosImgGold from "./../../img/kudosGold.svg";
+import LinkImg from "./../../img/link.svg";
+import CommentsImg from "./../../img/comments.svg";
 import WaveImg from "./../../img/wave.svg";
-import ApiClient from "../../models/api-client/src/index.js";
 import Moment from "react-moment";
 import "moment-timezone";
-const apiClient = new ApiClient("http", "localhost", 5000);
+import apiClient from "../../services/api-config";
 
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      id: 0,
       title: " ",
       shortDescription: " ",
       fullDescription: " ",
@@ -38,39 +36,66 @@ export default class Post extends React.Component {
       URLpath: " ",
       showComments: false,
       comments: [],
-      newComment:""
+      newComment: "",
+      counterKudos: 0
     };
   }
 
   componentDidMount = () => {
+    this.retrievePost(this.props.postId);
+  };
+
+  enableComments = e => {
+    e.preventDefault();
+    this.state.showComments
+      ? this.setState({ showComments: false })
+      : this.setState({ showComments: true });
+  };
+
+  newComment = e => {
+    this.setState({ newComment: e.target.value });
+  };
+
+  addNewComment = () => {
     apiClient
-      .retrievePost(this.props.postId)
-      .then(post => {
-        return this.handleFillResult(post);
+      .createComment(
+        this.state.id,
+        "5aafaa281ca9687a2d6bb1b4",
+        this.state.newComment
+      )
+      .then(() => {
+        this.retrievePost(this.props.postId);
       })
-      //.then (this.props.postResult())
       .catch(console.error);
   };
 
+  retrievePost = postId => {
+    apiClient
+      .retrievePost(postId)
+      .then(post => {
+        return this.handleFillResult(post);
+      })
+      .catch(console.error);
+  };
 
-  enableComments = (e) => {
-    console.log('yep')
-    e.preventDefault()
-    this.state.showComments?this.setState({showComments: false}):this.setState({showComments: true})
-   
- }
-  addNewComment = () => {
+  addKudo = e => {
+    if (this.state.counterKudos < 5) {
+      apiClient
+        .addKudo(this.state.id)
+        .then(() => {
+          this.setState({ counterKudos: this.state.counterKudos + 1 });
+        })
+        .then(() => {
+          this.retrievePost(this.props.postId);
+        })
+        .catch(console.error);
+    }
+  };
 
-        //TODO: Working
-
-
-        //TODO: pop up url onClick={e.preventDefault(window.open(props.URLpath))}
-
-  }
   youtubeParser = url => {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
     var match = url.match(regExp);
-    return match && match[7].length == 11 ? match[7] : false;
+    return match && match[7].length === 11 ? match[7] : false;
   };
 
   handleViewsPost = e => {
@@ -79,6 +104,7 @@ export default class Post extends React.Component {
   };
   handleFillResult = post => {
     let {
+      _id,
       title,
       shortDescription,
       fullDescription,
@@ -87,11 +113,13 @@ export default class Post extends React.Component {
       idPostTemplate,
       tag,
       time,
+      comments,
       createAt,
       URLpath,
       kudos
     } = post.data[0];
     this.setState({
+      id: _id, //test
       title,
       shortDescription,
       fullDescription,
@@ -100,6 +128,7 @@ export default class Post extends React.Component {
       idPostTemplate,
       tag,
       time,
+      comments,
       createAt,
       URLpath,
       kudos
@@ -108,8 +137,9 @@ export default class Post extends React.Component {
   render() {
     return (
       <div>
-        {this.state.idPostTemplate == "0" ? (
+        {this.state.idPostTemplate === "0" ? (
           <Audio
+            id={this.state.id}
             title={this.state.title}
             shortDescription={this.state.shortDescription}
             fullDescription={this.state.fullDescription}
@@ -122,17 +152,19 @@ export default class Post extends React.Component {
             URLpath={this.state.URLpath}
             kudos={this.state.kudos}
             comments={this.state.comments}
-            newComment={this.state.newComment}
+            newComment={this.newComment}
             showComments={this.state.showComments}
             addNewComment={this.addNewComment}
+            addKudo={this.addKudo}
+            counterKudos={this.state.counterKudos}
             enableComments={this.enableComments}
-
           />
         ) : (
           undefined
         )}
-        {this.state.idPostTemplate == "1" ? (
+        {this.state.idPostTemplate === "1" ? (
           <Youtube
+            id={this.state.id}
             title={this.state.title}
             shortDescription={this.state.shortDescription}
             fullDescription={this.state.fullDescription}
@@ -146,16 +178,19 @@ export default class Post extends React.Component {
             URLpath={this.state.URLpath}
             kudos={this.state.kudos}
             comments={this.state.comments}
-            newComment={this.state.newComment}
+            newComment={this.newComment}
             youtubeParser={this.youtubeParser}
             addNewComment={this.addNewComment}
+            addKudo={this.addKudo}
+            counterKudos={this.state.counterKudos}
             enableComments={this.enableComments}
           />
         ) : (
           undefined
         )}
-        {this.state.idPostTemplate == "2" ? (
+        {this.state.idPostTemplate === "2" ? (
           <Quote
+            id={this.state.id}
             title={this.state.title}
             shortDescription={this.state.shortDescription}
             fullDescription={this.state.fullDescription}
@@ -169,9 +204,10 @@ export default class Post extends React.Component {
             URLpath={this.state.URLpath}
             kudos={this.state.kudos}
             comments={this.state.comments}
-            newComment={this.state.newComment}
+            newComment={this.newComment}
             header={this.state.timelineName}
             addNewComment={this.addNewComment}
+            counterKudos={this.state.counterKudos}
             enableComments={this.enableComments}
           />
         ) : (
@@ -183,7 +219,8 @@ export default class Post extends React.Component {
 }
 
 function Youtube(props) {
-  return <div>
+  return (
+    <div>
       <div>
         <main role="main" className="container topmed">
           <div className="row">
@@ -199,82 +236,112 @@ function Youtube(props) {
                 <p className="blog-post-meta">
                   {" "}
                   <Moment format="DD/MM/YYYY HH:MM ">{props.createAt}</Moment>
-                  <a href="#">{props.owner.username}</a>
+                  <a href="">{props.owner.username}</a>
                 </p>
                 <h3>Short Description</h3>
                 <p>{props.shortDescription}</p>
                 <h3>Video</h3>
                 <div className="embed-responsive embed-responsive-16by9">
-                  <iframe width={560} height={315} src={"https://www.youtube.com/embed/" + props.youtubeParser(props.URLpath) + "?start=" + props.time} frameBorder={0} allow="autoplay; encrypted-media" allowFullScreen />
+                  <iframe title="Youtube"
+                    width={560}
+                    height={315}
+                    src={
+                      "https://www.youtube.com/embed/" +
+                      props.youtubeParser(props.URLpath) +
+                      "?start=" +
+                      props.time
+                    }
+                    frameBorder={0}
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  />
                 </div>
                 <blockquote>
                   <p>{props.fullDescription}</p>
                 </blockquote>
                 <div className="btn-group">
-                  <button type="button" className="btn">
-                    <img src={KudosImg} /> {props.kudos} Kudos
+                  <button type="button" className="btn" onClick={props.addKudo}>
+                    <img alt="kudos"
+                      src={props.counterKudos < 5 ? KudosImg : KudosImgGold}
+                      width={30}
+                    />{" "}
+                    {props.kudos} Kudos
                   </button>
-                  <button type="button"  className="btn btn-secondary">
-                  <a href={'http://www.google.com'} target={'_blank'} style={{ textDecoration: 'none', color: 'white'}}>
-                    <img src={LinkImg}  width={30} />Source
-                  </a>
+                  <button type="button" className="btn btn-secondary">
+                    <a
+                      className="urlButton"
+                      href={props.URLpath}
+                      target={"_blank"}
+                    >
+                      <img alt="Source" src={LinkImg} width={30} />Source
+                    </a>
                   </button>
-                  <button type="button"  className="btn btn-dark" onClick={props.enableComments}>
-                    <img src={CommentsImg} width={30} />Discuss
+                  <button
+                    type="button"
+                    className="btn btn-dark"
+                    onClick={props.enableComments}
+                  >
+                    <img alt="Discuss" src={CommentsImg} width={30} />Discuss
                   </button>
                 </div>
                 <hr />
                 <p className="text-muted">
-                  Kudos (from the Ancient Greek: κῦδος) is acclaim or praise
-                  for exceptional achievement.
+                  Kudos (from the Ancient Greek: κῦδος) is acclaim or praise for
+                  exceptional achievement.
                 </p>
               </div>
 
-              {props.showComments === true ? <div>
+              {props.showComments === true ? (
+                <div>
                   <div>
                     <h2 className="text-right pauseFont text-muted">
                       ·|comments|·
                     </h2>
-                    <div className="row">
-                      <div className="col blog-main text-center">
-                        <div className="box">
-                          <div className="box-content">
-                            <h2 className="tag-title">mediacloner</h2>
-                            <hr />
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipiscing elit. Curabitur arcu erat, accumsan
-                              id imperdiet et, porttitor at sem. Proin eget
-                              tortor risus.Cras ultricies ligula sed magna
-                              dictum porta. Vivamus magna justo, lacinia eget
-                              consectetur sed, convallis at tellus. Curabitur
-                              non nulla sit amet nisl tempus convallis quis ac
-                              lectus.
-                            </p>
-                            <br />
-                            <a href="ppc.html" className="btn btn-info">
-                              User Timeline
-                            </a>
+
+                    {props.comments.map((comment, index) => {
+                      return (
+                        <div className="row" key={comment._id}>
+                          <div className="col blog-main text-center">
+                            <div className="box">
+                              <div className="box-content">
+                                <h2 className="tag-title">
+                                  {comment.userId.username}
+                                </h2>
+                                <hr />
+                                <p>{comment.comment}</p>
+                                <br />
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
 
+                  <hr />
                   <Form>
                     <FormGroup row>
-                      <Label for="fullDescription" sm={2}>
-                        Comment:
-                      </Label>
-                      <Col sm={10}>
-                        <Input type="textarea" onChange={props.newComment} name="fullDescription" id="fullDescription" placeholder="write the description that could you see from the post " />
+                      <Col>
+                        <Input
+                          type="textarea"
+                          onChange={props.newComment}
+                          name="fullDescription"
+                          id="fullDescription"
+                          placeholder="write the description that could you see from the post "
+                        />
                       </Col>
                     </FormGroup>
-                    <Button onClick={props.addNewComment} className="float-right btn-info">
+                    <Button
+                      onClick={props.addNewComment}
+                      className="float-right btn-info"
+                    >
                       Submit
                     </Button>
                   </Form>
-                </div> : undefined}
+                </div>
+              ) : (
+                undefined
+              )}
             </div>
             {/* /.blog-main */}
             <aside className="col-md-4 blog-sidebar">
@@ -286,13 +353,13 @@ function Youtube(props) {
                 <h4 className="font-italic">Elsewhere</h4>
                 <ol className="list-unstyled">
                   <li>
-                    <a href="#">GitHub</a>
+                    <a href="">GitHub</a>
                   </li>
                   <li>
-                    <a href="#">Twitter</a>
+                    <a href="">Twitter</a>
                   </li>
                   <li>
-                    <a href="#">Facebook</a>
+                    <a href="">Facebook</a>
                   </li>
                 </ol>
               </div>
@@ -302,7 +369,8 @@ function Youtube(props) {
           {/* /.row */}
         </main>
       </div>
-    </div>;
+    </div>
+  );
 }
 
 function Audio(props) {
@@ -322,13 +390,13 @@ function Audio(props) {
                 <h2 className="blog-post-title">{props.title}</h2>
                 <p className="blog-post-meta">
                   <Moment format="DD/MM/YYYY HH:MM ">{props.createAt}</Moment>{" "}
-                  <a href="#">{props.owner.username}</a>
+                  <a href="">{props.owner.username}</a>
                 </p>
                 <h3>Short Description</h3>
                 <p>{props.shortDescription}</p>
                 <h3>Audio</h3>
                 <Media left href="#">
-                  <img src={WaveImg} />
+                  <img alt="wave" src={WaveImg} />
                 </Media>
                 <div>
                   <audio id="myAudio" controls>
@@ -342,14 +410,27 @@ function Audio(props) {
                   <p>{props.fullDescription}</p>
                 </blockquote>
                 <div className="btn-group">
-                  <button type="button" className="btn">
-                    <img src={KudosImg} width={35} /> {props.kudos} Kudos
+                  <button type="button" className="btn" onClick={props.addKudo}>
+                    <img alt="kudos"
+                      src={props.counterKudos < 5 ? KudosImg : KudosImgGold}
+                    />{" "}
+                    {props.kudos} Kudos
                   </button>
-                  <button type="button" className="btn btn-secondary" >
-                    <img src={LinkImg} width={35} />Source
+                  <button type="button" className="btn btn-secondary">
+                    <a
+                      className="urlButton"
+                      href={props.URLpath}
+                      target={"_blank"}
+                    >
+                      <img alt="Source" src={LinkImg} width={30} />Source
+                    </a>
                   </button>
-                  <button type="button" className="btn btn-dark " onClick={props.enableComments}>
-                    <img src={CommentsImg} width={35} />Comments
+                  <button
+                    type="button"
+                    className="btn btn-dark"
+                    onClick={props.enableComments}
+                  >
+                    <img  alt="Discuss" src={CommentsImg} width={30} />Discuss
                   </button>
                 </div>
                 <hr />
@@ -358,8 +439,6 @@ function Audio(props) {
                   exceptional achievement.
                 </p>
               </div>
-          
-
 
               {props.showComments === true ? (
                 <div>
@@ -367,40 +446,44 @@ function Audio(props) {
                     <h2 className="text-right pauseFont text-muted">
                       ·|comments|·
                     </h2>
-                    <div className="row">
-                      <div className="col blog-main text-center">
-                        <div className="box">
-                          <div className="box-content">
-                            <h2 className="tag-title">mediacloner</h2>
-                            <hr />
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Curabitur arcu erat, accumsan id imperdiet
-                              et, porttitor at sem. Proin eget tortor risus.Cras
-                              ultricies ligula sed magna dictum porta. Vivamus
-                              magna justo, lacinia eget consectetur sed,
-                              convallis at tellus. Curabitur non nulla sit amet
-                              nisl tempus convallis quis ac lectus.
-                            </p>
-                            <br />
-                            <a href="ppc.html" className="btn btn-info">
-                              User Timeline
-                            </a>
+
+                    {props.comments.map((comment, index) => {
+                      return (
+                        <div className="row" key={comment._id}>
+                          <div className="col blog-main text-center">
+                            <div className="box">
+                              <div className="box-content">
+                                <h2 className="tag-title">
+                                  {comment.userId.username}
+                                </h2>
+                                <hr />
+                                <p>{comment.comment}</p>
+                                <br />
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
+
+                  <hr />
                   <Form>
                     <FormGroup row>
-                      <Label for="fullDescription" sm={2}>
-                        Comment:
-                      </Label>
-                      <Col sm={10}>
-                        <Input type="textarea" onChange={props.newComment} name="fullDescription" id="fullDescription" placeholder="write the description that could you see from the post " />
+                      <Col>
+                        <Input
+                          type="textarea"
+                          onChange={props.newComment}
+                          name="fullDescription"
+                          id="fullDescription"
+                          placeholder="write the description that could you see from the post "
+                        />
                       </Col>
                     </FormGroup>
-                    <Button onClick={props.addNewComment} className="float-right btn-info">
+                    <Button
+                      onClick={props.addNewComment}
+                      className="float-right btn-info"
+                    >
                       Submit
                     </Button>
                   </Form>
@@ -408,9 +491,6 @@ function Audio(props) {
               ) : (
                 undefined
               )}
-
-
-
             </div>
             {/* /.blog-main */}
 
@@ -423,13 +503,13 @@ function Audio(props) {
                 <h4 className="font-italic">Elsewhere</h4>
                 <ol className="list-unstyled">
                   <li>
-                    <a href="#">GitHub</a>
+                    <a href="">GitHub</a>
                   </li>
                   <li>
-                    <a href="#">Twitter</a>
+                    <a href="">Twitter</a>
                   </li>
                   <li>
-                    <a href="#">Facebook</a>
+                    <a href="">Facebook</a>
                   </li>
                 </ol>
               </div>
@@ -462,7 +542,7 @@ function Quote(props) {
                 <Moment format="DD/MM/YYYY HH:MM ">
                   {props.createAt}
                 </Moment>{" "}
-                <a href="#">{props.owner.username}</a>
+                <a href="">{props.owner.username}</a>
               </p>
               <div className="jumbotron p-3 p-md-5 text-white rounded bg-dark">
                 <div className="col-md-6 px-0">
@@ -474,14 +554,25 @@ function Quote(props) {
                 <p>{props.fullDescription}</p>
               </blockquote>
               <div className="btn-group">
-                <button type="button" className="btn">
-                  <img src={KudosImg} width={35} /> {props.kudos} Kudos
+                <button type="button" className="btn" onClick={props.addKudo}>
+                  <img  alt="kudos" src={props.counterKudos < 5 ? KudosImg : KudosImgGold} />{" "}
+                  {props.kudos} Kudos
                 </button>
-                <button type="button" className="btn btn-secondary" >
-                  <img src={LinkImg} width={35} />Source
+                <button type="button" className="btn btn-secondary">
+                  <a
+                    className="urlButton"
+                    href={props.URLpath}
+                    target={"_blank"}
+                  >
+                    <img alt="Source" src={LinkImg} width={30} />Source
+                  </a>
                 </button>
-                <button type="button" className="btn btn-dark" onClick={props.enableComments}>
-                  <img src={CommentsImg} width={35} />Comments
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  onClick={props.enableComments}
+                >
+                  <img alt="Discuss" src={CommentsImg} width={30} />Discuss
                 </button>
               </div>
               <hr />
@@ -490,59 +581,57 @@ function Quote(props) {
                 exceptional achievement.
               </p>
             </div>
-
-
-
             {props.showComments === true ? (
               <div>
                 <div>
                   <h2 className="text-right pauseFont text-muted">
                     ·|comments|·
                   </h2>
-                  <div className="row">
-                    <div className="col blog-main text-center">
-                      <div className="box">
-                        <div className="box-content">
-                          <h2 className="tag-title">mediacloner</h2>
-                          <hr />
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Curabitur arcu erat, accumsan id imperdiet et,
-                            porttitor at sem. Proin eget tortor risus.Cras
-                            ultricies ligula sed magna dictum porta. Vivamus
-                            magna justo, lacinia eget consectetur sed, convallis
-                            at tellus. Curabitur non nulla sit amet nisl tempus
-                            convallis quis ac lectus.
-                          </p>
-                          <br />
-                          <a href="ppc.html" className="btn btn-info">
-                            User Timeline
-                          </a>
+
+                  {props.comments.map((comment, index) => {
+                    return (
+                      <div className="row" key={comment._id}>
+                        <div className="col blog-main text-center">
+                          <div className="box">
+                            <div className="box-content">
+                              <h2 className="tag-title">
+                                {comment.userId.username}
+                              </h2>
+                              <hr />
+                              <p>{comment.comment}</p>
+                              <br />
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </div>
+
+                <hr />
                 <Form>
-                    <FormGroup row>
-                      <Label for="fullDescription" sm={2}>
-                        Comment:
-                      </Label>
-                      <Col sm={10}>
-                        <Input type="textarea" onChange={props.newComment} name="fullDescription" id="fullDescription" placeholder="write the description that could you see from the post " />
-                      </Col>
-                    </FormGroup>
-                    <Button onClick={props.addNewComment} className="float-right btn-info">
-                      Submit
-                    </Button>
-                  </Form>
+                  <FormGroup row>
+                    <Col>
+                      <Input
+                        type="textarea"
+                        onChange={props.newComment}
+                        name="fullDescription"
+                        id="fullDescription"
+                        placeholder="write the description that could you see from the post "
+                      />
+                    </Col>
+                  </FormGroup>
+                  <Button
+                    onClick={props.addNewComment}
+                    className="float-right btn-info"
+                  >
+                    Submit
+                  </Button>
+                </Form>
               </div>
             ) : (
               undefined
             )}
-
-
-
           </div>
           {/* /.blog-main */}
           <aside className="col-md-4 blog-sidebar">
@@ -559,13 +648,13 @@ function Quote(props) {
               <h4 className="font-italic">Elsewhere</h4>
               <ol className="list-unstyled">
                 <li>
-                  <a href="#">GitHub</a>
+                  <a href="">GitHub</a>
                 </li>
                 <li>
-                  <a href="#">Twitter</a>
+                  <a href="">Twitter</a>
                 </li>
                 <li>
-                  <a href="#">Facebook</a>
+                  <a href="">Facebook</a>
                 </li>
               </ol>
             </div>

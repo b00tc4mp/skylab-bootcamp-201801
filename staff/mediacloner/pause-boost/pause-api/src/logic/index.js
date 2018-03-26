@@ -4,7 +4,7 @@ const uuid = require("uuid/v4");
 const ObjectId = require("mongoose").Types.ObjectId;
 
 module.exports = {
-  register(name, surname, email, username, password) {
+  registerUser(name, surname, email, username, password) {
     return Promise.resolve()
       .then(() => {
         validate({ name, surname, email, username, password });
