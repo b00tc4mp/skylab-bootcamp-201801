@@ -48,7 +48,7 @@ var api = {
         return this.call('get', 'available-trips/' + destination + '/' + arrival + '/' + departure);
     },
     cancelTrip: function cancelTrip(creatorId, tripId, password) {
-        return this.call('delete', 'trip/' + creatorId + '/' + tripId, { password: password });
+        return this.call('delete', 'trip/' + creatorId + '/' + tripId, { data: { password: password }});
     },
     updateTrip: function updateTrip(creatorId, tripId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password) {
         return this.call('put', 'trip/' + creatorId + '/' + tripId, { from: from, to: to, date: date, meetingPoint: meetingPoint, departureTime: departureTime, returnTime: returnTime, tripTime: tripTime, price: price, distance: distance, seats: seats, description: description, password: password });

@@ -14,7 +14,10 @@ class UserPublishedTrips extends Component {
     }
 
     componentDidMount = () => {
+        this.listTrips()
+    }
 
+    listTrips() {
         api
             .getUsernameId(this.props.match.params.username)
             .then(res => res.data)
@@ -26,14 +29,6 @@ class UserPublishedTrips extends Component {
 
                     })
             })
-        //  api
-        //      .listUserPublishedTrips(this.props.user._id)
-        //      .then(trips => {
-        //          this.setState({ trips });
-        //
-        //      })
-
-
     }
 
     render() {
