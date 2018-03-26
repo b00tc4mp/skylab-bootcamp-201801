@@ -89,14 +89,16 @@ input[type="submit"],
 
 
 @mixin hook-button(){
-  text-transform: $button-text-transform;
+  //text-transform: $button-text-transform;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   -webkit-transition-property: color, background-color, border-color;
   transition-property: color, background-color, border-color;
-  font-weight:bold;
+  font-weight:400;
   letter-spacing: 1px;
   border-radius: $global-border-radius;
+  font-family: $global-heading-font-family;
+  font-size:18px;
 }
 @mixin hook-button-hover(){
 
@@ -171,9 +173,10 @@ input[type="submit"],
   }
   .uk-button-default{
     border-color: $white;
+    border: none;
     &:hover{
-      background: $white;
-      color:$black;
+      background: darken($primary-color, 20%);
+      color:$white;
     }
   }
 }

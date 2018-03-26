@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
+const should = require('should')
 const moment = require('moment')
 const { User, Trip, Comment } = require('../src/models')
 
@@ -14,12 +15,10 @@ describe('models', () => {
         db.once('open', done)
     })
 
-    beforeEach(() => {
-        return Promise.all([
-            User.remove(),
-            Trip.remove()
-        ])
-    })
+    beforeEach(() => Promise.all([
+        User.remove(),
+        Trip.remove()
+    ]))
 
     describe('join passengers to trip', () => {
         let creator, trip, passenger1, passenger2
@@ -166,6 +165,82 @@ describe('models', () => {
     function newDate(year, month, day, hours, minutes) {
         return new Date(year, month - 1, day, hours, minutes)
     }
+
+    describe('comment a user', () => {
+        let user, commentator, comment, dateNow = new Date()
+
+        before(() => {
+            user = new User({
+                name: 'name',
+                surname: 'surname',
+                email: 'email',
+                username: 'username',
+                password: 'password'
+            })
+
+            commentator = new User({
+                name: 'name',
+                surname: 'surname',
+                email: 'email',
+                username: 'username-commentator',
+                password: 'password'
+            })
+
+            passenger2 = new User({
+                name: 'name',
+                surname: 'surname',
+                email: 'email',
+                username: 'username-passenger-2',
+                password: 'password'
+            })
+
+            return Promise.all([
+                user.save()
+                    .then(_user => user = _user),
+                commentator.save()
+                    .then(_user => commentator = _user)
+            ])
+                .then(() => {
+                    comment = new Comment({
+                        user: commentator._id,
+                        date: dateNow,
+                        comment: 'comment',
+                        rating: 5
+                    })
+
+                    user.comments = []
+
+                    user.comments.push(comment)
+
+                    return user.save()
+                })
+                .then(_user => user = _user)
+        })
+
+        it('should comment a user', () => {
+            assert(user, 'should creator been saved')
+
+            assert(commentator, 'should commentator been saved')
+
+            should(user.comments.length).be.exactly(1)
+
+            const [_comment] = user.comments
+
+            should(_comment._id.toString()).be.exactly(comment._id.toString())
+
+            should(_comment.user.toString()).be.exactly(commentator._id.toString())
+
+            should(_comment.date.getYear()).be.exactly(dateNow.getYear())
+            should(_comment.date.getMonth()).be.exactly(dateNow.getMonth())
+            should(_comment.date.getDate()).be.exactly(dateNow.getDate())
+            should(_comment.date.getHours()).be.exactly(dateNow.getHours())
+            should(_comment.date.getMinutes()).be.exactly(dateNow.getMinutes())
+
+            should(_comment.comment).be.exactly('comment')
+
+            should(_comment.rating).be.exactly(5)
+        })
+    })
 
     after(function (done) {
         mongoose.connection.db.dropDatabase(() => {

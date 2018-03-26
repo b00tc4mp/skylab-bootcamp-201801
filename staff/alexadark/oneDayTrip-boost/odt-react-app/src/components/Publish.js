@@ -29,8 +29,17 @@ class Publish extends Component {
         const { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description} = this.state
 
         api.createTrip(this.props.user.id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description)
+            .then(res => {
+                try {
+                    this.setState({success:true, from:'', to:'', date:'',  departureTime:'', returnTime:'', tripTime:'', price:'', distance:'',seats:'', meetingPoint: '', description:''})
+                }
+                catch(error){
+                    this.setState({error: res.error})
+                }
 
-            .then(() => this.setState({from:'', to:'', date:'',  departureTime:'', returnTime:'', tripTime:'', price:'', distance:'',seats:'', meetingPoint: '', description:''}))
+            })
+
+
 
 
     }
@@ -80,14 +89,14 @@ class Publish extends Component {
                                value={this.state.date}/>
                     </div>
                     <div className="uk-width-1-3@m">
-                        <input type="text"
+                        <input type="time"
                                className="uk-input" placeholder="Departure time"
                                required="true"
                                onChange={e => this.keepDeparture(e.target.value)}
                                value={this.state.departureTime}/>
                     </div>
                     <div className="uk-width-1-3@m">
-                        <input type="text"
+                        <input type="time"
                                className="uk-input" placeholder="Return Time"
                                required="true"
                                onChange={e => this.keepReturn(e.target.value)}
@@ -141,6 +150,8 @@ class Publish extends Component {
                     </div>
 
                 </form>
+                {this.state.error? <h4 className="uk-text-danger uk-text-center">{this.state.error}</h4>: ''}
+                {this.state.success? <h4 className="uk-text-success uk-text-center">Your trip to {this.state.to} has been published</h4>: ''}
             </div>
 
         )

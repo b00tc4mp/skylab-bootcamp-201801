@@ -3,11 +3,11 @@
 var axios = require('axios');
 
 var api = {
-    // baseUrl: 'https://fast-headland-72756.herokuapp.com/api',
-    baseUrl: 'http://localhost:5000/api',
-
+    getBaseUrl: function getBaseUrl() {
+        return this.baseUrl;
+    },
     call: function call(method, path, body) {
-        return axios[method](this.baseUrl + '/' + path, body)
+        return axios[method](this.getBaseUrl() + '/' + path, body)
         // .then(res => res.data)
         .then(function (_ref) {
             var data = _ref.data;
@@ -47,8 +47,8 @@ var api = {
     listTrips: function listTrips(destination, arrival, departure) {
         return this.call('get', 'available-trips/' + destination + '/' + arrival + '/' + departure);
     },
-    cancelTrip: function cancelTrip(creatorId, password) {
-        return this.call('delete', 'trip/' + creatorId, { password: password });
+    cancelTrip: function cancelTrip(creatorId, tripId, password) {
+        return this.call('delete', 'trip/' + creatorId + '/' + tripId, { password: password });
     },
     updateTrip: function updateTrip(creatorId, tripId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password) {
         return this.call('put', 'trip/' + creatorId + '/' + tripId, { from: from, to: to, date: date, meetingPoint: meetingPoint, departureTime: departureTime, returnTime: returnTime, tripTime: tripTime, price: price, distance: distance, seats: seats, description: description, password: password });
@@ -64,7 +64,7 @@ var api = {
     },
     geoLocalize: function geoLocalize(lat, lng) {
         return axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI').then(function (res) {
-            return res.results.address_components;
+            return res.data;
         });
     }
 };

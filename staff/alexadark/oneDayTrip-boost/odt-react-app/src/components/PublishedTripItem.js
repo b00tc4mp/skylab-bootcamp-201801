@@ -8,6 +8,8 @@ class PublishedTripItem extends Component {
     constructor(props){
         super(props)
     }
+
+
    
 
     render(){
@@ -33,7 +35,7 @@ class PublishedTripItem extends Component {
                 </div>
               </div>
             </div>
-          </div>;
+          </div>
     }
 }
 

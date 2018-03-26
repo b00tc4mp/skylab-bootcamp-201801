@@ -40,8 +40,8 @@ class TripInfo extends Component {
             .then(res => {
                 try{
                     this.setState({success: res.data})
-                    // api.getTripFromId(this.props.match.params.tripId)
-                    //     .then((res) => this.setState({trip: res.data}))
+                    api.getTripFromId(this.props.match.params.tripId)
+                        .then((res) => this.setState({trip: res.data}))
                 }
                 catch(error){
                     this.setState({error: res.error})
@@ -95,7 +95,7 @@ class TripInfo extends Component {
                             {seats} seats available
                             <div className="book-button uk-flex uk-flex-center">
                                 <button className="uk-button uk-button-primary"
-                                onClick={this.book()}>
+                                onClick={() => this.book()}>
                                     Book!
                                 </button>
 

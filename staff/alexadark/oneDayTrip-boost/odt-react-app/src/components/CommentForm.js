@@ -14,6 +14,18 @@ class CommentForm extends Component {
 
     comment = ()=>{
         return api.comment(this.props.trip.creator, this.props.user.id, this.state.comment, this.state.rating)
+            .then(res => {
+                try {
+                    this.setState({closeModal:true})
+
+                }
+                catch(error){
+                    this.setState({error: res.error})
+                }
+
+
+
+            })
     }
 
     keepComment = comment  => this.setState({comment});
@@ -29,11 +41,10 @@ class CommentForm extends Component {
                 </button>
 
                 <div id="comment"
-                     data-uk-modal>
+                     data-uk-modal
+                     className={this.state.closeModal ? "closeModal" : ''}>
                     <div className="uk-modal-dialog uk-modal-body">
-                        <button className="uk-modal-close-default"
-                                type="button"
-                                uk-close/>
+
                         <h2 className="uk-modal-title">Rate and comment this user</h2>
                         <form onSubmit={e => {
                             e.preventDefault();
@@ -41,7 +52,7 @@ class CommentForm extends Component {
                         }}>
 
                             <div className="uk-margin-bottom" >
-                                <label htmlFor="rating">Seelect your rating</label>
+                                <label htmlFor="rating">Select your rating</label>
                                 <select className="uk-select" id="rating" onChange={e => this.keepRating(e.target.value)}
                                         value={this.state.rating}>
                                     <option>1</option>
@@ -64,6 +75,7 @@ class CommentForm extends Component {
                                        value="Submit your opinion"/>
                             </div>
                         </form>
+                        {this.state.error? <h2 className="uk-text-center uk-text-danger">{this.state.error}</h2>:''}
                     </div>
                 </div>
             </div>

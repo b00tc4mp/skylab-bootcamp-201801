@@ -1,33 +1,40 @@
-import React, {Component} from 'react';
-import api from '../api'
-import { withRouter } from "react-router-dom"
+import React, {Component} from 'react'
+import api from "../api"
+// import { withRouter } from "react-router-dom"
 
 
 class CancelTrip extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            creatorId: '',
+            // creatorId: '',
             password: ''
         }
     }
 
-    componentDidMount() {
-        api.getUsernameId(this.props.match.params.username)
-            .then((res) => this.setState({creatorId: res.data}))
-
-    }
+    // componentDidMount() {
+    //     api.getUsernameId(this.props.match.params.username)
+    //         .then((res) => this.setState({creatorId: res.data}))
+    //
+    // }
 
     cancel() {
-        const {creatorId,  password} = this.state
+        api.cancelTrip(this.props.trip.creator, this.props.trip._id,  this.state.password)
+            .then(res =>{
+                console.log(res)
+                try{
+                    this.setState({closeModal:true})
+                }
+                catch(error){
+                    this.setState({error: res.error})
+                }
+            })
 
-        api.cancelTrip(creatorId, this.props.trip._id,  password)
-
-            .then(() => this.setState({
-                creatorId: '',
-                password: ''
-
-            }))
+            // .then(() => this.setState({
+            //
+            //     password: ''
+            //
+            // }))
 
 
     }
@@ -46,11 +53,9 @@ class CancelTrip extends Component {
 
 
                 <div id="cancelTrip"
-                     data-uk-modal>
+                     data-uk-modal
+                     className={this.state.closeModal ? "closeModal" : ''}>
                     <div className="uk-modal-dialog uk-modal-body uk-width-xxlarge">
-                        <button className="uk-modal-close-default"
-                                type="button"
-                                uk-close/>
                         <h2 className="uk-text-center">Enter your password to confirm the cancellation</h2>
                         <form onSubmit={e => {
                             e.preventDefault();
@@ -82,4 +87,4 @@ class CancelTrip extends Component {
 }
 
 
-export default withRouter(CancelTrip);
+export default CancelTrip;

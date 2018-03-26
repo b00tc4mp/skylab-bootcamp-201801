@@ -385,7 +385,29 @@ router.put('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) 
             res.json(fail(err.message))
         })
 
-});
+})
+
+
+// router.post('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) => {
+//     const {params: {commentedUserId, userId}} = req;
+//     const {body: {comment, rating}} = req;
+//     const user = {"_id": ObjectId(commentedUserId)};
+//     const author = {"_id": ObjectId(userId)};
+//
+//     User.findOne({author})
+//         .then(commentAuthor => {
+//             if (commentAuthor) throw Error('you cannot comment several time this user')
+//             Comment.create({user, date: moment(), comment, rating, author})
+//                 .then(comment => {
+//                     res.json(success({comment}))
+//                 })
+//                 .catch(err => {
+//                     res.json(fail(err.message))
+//                 })
+//         })
+//
+// })
+
 
 
 

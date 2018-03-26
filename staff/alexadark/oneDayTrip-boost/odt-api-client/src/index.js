@@ -1,10 +1,12 @@
 const axios = require('axios');
 
 const api = {
-    baseUrl : 'https://fast-headland-72756.herokuapp.com/api',
+    getBaseUrl() {
+        return this.baseUrl
+    },
 
     call(method, path, body){
-        return axios[method](`${this.baseUrl}/${path}`, body)
+        return axios[method](`${this.getBaseUrl()}/${path}`, body)
             // .then(res => res.data)
             .then(({ data }) => data)
     },
@@ -92,7 +94,7 @@ const api = {
     },
     geoLocalize(lat,lng){
         return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI`)
-            .then(res => res.results.address_components)
+            .then(res => res.data)
     }
 
 

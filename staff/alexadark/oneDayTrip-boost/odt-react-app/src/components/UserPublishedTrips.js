@@ -24,7 +24,7 @@ class UserPublishedTrips extends Component {
                     .then(res => {
                         this.setState({trips: res.data});
 
-                    });
+                    })
             })
         //  api
         //      .listUserPublishedTrips(this.props.user._id)
@@ -43,7 +43,8 @@ class UserPublishedTrips extends Component {
 
                 {this.state.trips.map((trip, index) => (
                     <PublishedTripItem trip={trip}
-                                       key={index}/>
+                                       key={index}
+                    />
                 ))}
             </div>
         </div>;

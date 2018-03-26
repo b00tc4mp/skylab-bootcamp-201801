@@ -52,6 +52,8 @@ class App extends Component {
                     <Route path="/user-panel/:username" render={() => <UserPanel  user = {this.state.user} /> }/>
                     <Route path="/user-profile/:id"  component={UserProfile} />
                     <Route path="/trip-info/:tripId"  render={() => <TripInfo  user = {this.state.user}/>}/>
+                    <Route path={`/home/:location/:arrival/:departure`} component={TripList} />
+
                     
 
                 </Switch>
