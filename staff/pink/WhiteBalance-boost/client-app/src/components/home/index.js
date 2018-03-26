@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-// import api from '../../services/api'
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import LoginWithRouter from '../login'
 import RegisterWithRouter from '../register'
-import Following from '../following'
 import User from '../user'
+import ToFollow from '../toFollow'
+import Following from '../following'
 import Account from '../account'
-
-
+import UploadWithRouter from '../uploader'
+import Image from '../image'
 
 class Home extends Component {
     constructor() {
@@ -16,26 +17,45 @@ class Home extends Component {
         }
     }
 
-
     render() {
         return (
             <div>
+                <Switch>
 
-                <Route path="/user" component={User} />
+                    <Route path="/user" component={User} />
 
-                <Route exact path="/" render={() => (
-                    <RegisterWithRouter />
-                )} />
+                    <Route exact path="/" render={() => (
+                        <LoginWithRouter />
+                    )} />
 
-                <Route path="/following" render={() => (
-                    <Following />
-                )} />
+                    <Route path="/register" render={() => (
+                        <RegisterWithRouter />
+                    )} />
 
-                <Route path="/account" render={() => (
-                    <Account />
-                )} />
+                    <Route path="/following" render={() => (
+                        <Following />
+                    )} />
 
+                    <Route path="/tofollow" render={() => (
+                        <ToFollow />
+                    )} />
 
+                    <Route path="/account" render={() => (
+                        <Account />
+                    )} />
+
+                    <Route path="/upload" render={() => (
+                        <UploadWithRouter />
+                    )} />
+
+                    <Route path="/image/:imageId" component={Image} 
+                    />
+
+                    <Route render={() => (
+                        <LoginWithRouter />
+                    )} />
+
+                </Switch>
             </div>
 
         );
