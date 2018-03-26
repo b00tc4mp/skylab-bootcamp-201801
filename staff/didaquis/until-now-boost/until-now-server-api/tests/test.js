@@ -9,8 +9,7 @@ describe('Testing server API', () => {
 
 	let idOfCollection = '';
 	let idOfItem = '';
-	
-	const idOfUser = '5aa6bb9e341a690ff909faee';
+	let idOfUser = '';
 
 	// Abrimos la conexión con MongoDB (al finalizar los test la cerraremos y borraremos la base de datos)
 	before(function (done) {
@@ -18,7 +17,7 @@ describe('Testing server API', () => {
 		const db = mongoose.connection;
 		db.on('error', console.error.bind(console, '\nconnection error. Are MongoDB server running?\n\n'));
 		db.once('open', function () {
-			console.log('Connected to test database!');
+			console.log('\nConnected to "untilnow_test" database in "localhost"\n');
 			done();
 		});
 	});
@@ -32,6 +31,63 @@ describe('Testing server API', () => {
 			}).catch(done);
 	});
 
+	it('should create new user', (done) => {
+		logic.registerUser('JohnDoe', 'JoDo1234*')
+			.then(result => {
+				expect(mongoose.Types.ObjectId.isValid(result)).to.be.true;
+				idOfUser = result.toString();
+				done();
+			}).catch(done);
+	});
+
+	it('should not create a new user', async () => {
+		try {
+			await logic.registerUser('JohnDoe', 'JoDo1234*');
+		} catch (e) {
+			expect(e).to.instanceof(Error);
+		}
+	});
+
+	it('should retrieve user', (done) => {
+		logic.retrieveUser(idOfUser)
+			.then(result => {
+				expect(mongoose.Types.ObjectId.isValid(result._id)).to.be.true;
+				assertChai.isObject(result);
+				assert.equal(result.toString().charAt(0), '{');
+				assert.equal(result.toString().slice(-1), '}');
+				expect(result).not.to.be.empty;
+				done();
+			}).catch(done);
+	});
+
+	it('should not retrieve user', async () => {
+		try {
+			await logic.retrieveUser('000');
+		} catch (e) {
+			expect(e).to.instanceof(Error);
+		}
+	});
+
+	it('Should login user', (done) => {
+		logic.loginUser('JohnDoe', 'JoDo1234*')
+			.then((result) => {
+				expect(mongoose.Types.ObjectId.isValid(result._id)).to.be.true;
+				assertChai.isObject(result);
+				assert.equal(result.toString().charAt(0), '{');
+				assert.equal(result.toString().slice(-1), '}');
+				assert.equal(result.username.toString(), 'JohnDoe');
+				expect(result).not.to.be.empty;
+				done();
+			}).catch(done);
+	});
+
+	it('Should not be a valid login', async () => {
+		try {
+			await logic.loginUser('---', '---');
+		} catch (e) {
+			expect(e).to.instanceof(Error);
+		}
+	});
 
 	it('should create collection', (done) => {
 		logic.createCollection('dummyData', idOfUser)
@@ -43,7 +99,7 @@ describe('Testing server API', () => {
 	});
 
 	it('should return a collection', (done) => {
-		logic.retrieveCollection(idOfCollection)
+		logic.retrieveCollection(idOfCollection, idOfUser)
 			.then(result => {
 				assertChai.isObject(result);
 				assert.equal(result.toString().charAt(0), '{');
@@ -53,8 +109,8 @@ describe('Testing server API', () => {
 			}).catch(done);
 	});
 
-	it('should list collections', (done) => {
-		logic.listCollections()
+	it('should list collections by user', (done) => {
+		logic.listCollections(idOfUser)
 			.then(result => {
 				assert(result && result instanceof Array, 'results should be an Array');
 				done();
@@ -62,7 +118,7 @@ describe('Testing server API', () => {
 	});
 
 	it('should list items', (done) => {
-		logic.listItems()
+		logic.listItems(idOfUser)
 			.then(result => {
 				assert(result && result instanceof Array, 'results should be an Array');
 				done();
@@ -70,7 +126,7 @@ describe('Testing server API', () => {
 	});
 
 	it('should list items in collection', (done) => {
-		logic.listItemsInCollection(idOfCollection)
+		logic.listItemsInCollection(idOfCollection, idOfUser)
 			.then(result => {
 				assert(result && result instanceof Array, 'results should be an Array');
 				done();
@@ -94,7 +150,7 @@ describe('Testing server API', () => {
 	});
 
 	it('should create item', (done) => {
-		logic.createItem('dummyData', '2018-01-01', '2018-12-31', 'abc', 'my notes', idOfCollection)
+		logic.createItem('dummyData', '2018-01-01', '2018-12-31', 'abc', 'my notes', idOfCollection, idOfUser)
 			.then(result => {
 				expect(mongoose.Types.ObjectId.isValid(result)).to.be.true;
 				idOfItem = result.toString();
@@ -136,6 +192,7 @@ describe('Testing server API', () => {
 	//Cerramos la conexión a la base de datos y borramos la base de datos!
 	after(function (done) {
 		mongoose.connection.db.dropDatabase(function () {
+			console.log('\nDrop database\n');
 			mongoose.connection.close(done);
 		});
 	});
@@ -163,6 +220,17 @@ describe('Testing API utils', () => {
 		assert.equal(JSON.stringify(result).charAt(0), '{');
 		assert.equal(JSON.stringify(result).slice(-1), '}');
 		expect(JSON.stringify(result).search(/OK/)).to.be.gt(-1);
+		expect(JSON.stringify(result.data).search(/dummydata/)).to.be.gt(-1);
+		expect(result).not.to.be.empty;
+	});
+
+	it('should return success object without data', () => {
+		const result = success();
+		assertChai.isObject(result);
+		assert.equal(JSON.stringify(result).charAt(0), '{');
+		assert.equal(JSON.stringify(result).slice(-1), '}');
+		expect(JSON.stringify(result).search(/OK/)).to.be.gt(-1);
+		expect(JSON.stringify(result.data)).to.be.undefined;
 		expect(result).not.to.be.empty;
 	});
 
@@ -172,11 +240,22 @@ describe('Testing API utils', () => {
 		assert.equal(JSON.stringify(result).charAt(0), '{');
 		assert.equal(JSON.stringify(result).slice(-1), '}');
 		expect(JSON.stringify(result).search(/ERROR/)).to.be.gt(-1);
+		expect(JSON.stringify(result.error).search(/dummydata/)).to.be.gt(-1);
+		expect(result).not.to.be.empty;
+	});
+	
+	it('should return fail object withou data', () => {
+		const result = fail();
+		assertChai.isObject(result);
+		assert.equal(JSON.stringify(result).charAt(0), '{');
+		assert.equal(JSON.stringify(result).slice(-1), '}');
+		expect(JSON.stringify(result).search(/ERROR/)).to.be.gt(-1);
+		expect(JSON.stringify(result.error)).to.be.undefined;
 		expect(result).not.to.be.empty;
 	});
 
 	it('should throw error for value undefined', () => {
-		expect(() => { validate({undefined}); }).to.throw();
+		expect(() => { validate({ undefined }); }).to.throw();
 	});
 
 	it('should throw error for not secure passwords', () => {

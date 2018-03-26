@@ -9,6 +9,7 @@ module.exports = new Schema({
 
     user: {
         type: ObjectId,
+        ref: 'User',
         required: true
     }
 })

@@ -2,9 +2,9 @@ const logic = require('../../logic');
 const { success, fail } = require('../../utils/api-helpers');
 
 module.exports = (req, res) => {
-	const { body: { username, password } } = req;
+	const { params: { id } } = req;
 
-	logic.retrieveUser(username, password)
+	logic.retrieveUser(id)
 		.then(results => {
 			res.json(success(results));
 		})

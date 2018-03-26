@@ -1,12 +1,12 @@
 const { Collection } = require('../../models/collectionModel');
 
-module.exports = () => {
+module.exports = (id_user) => {
 	return Promise.resolve()
 		.then(() => {
-			return Collection.find({}, { '__v': 0 }).sort({ 'name': 1 });
+			return Collection.find({'id_user': id_user}, { '__v': 0 }).sort({ 'name': 1 });
 		})
 		.then(results => {
-			if (!results) throw Error('No collections available');
+			if (!results) throw Error('no collections available');
 
 			return results;
 		});

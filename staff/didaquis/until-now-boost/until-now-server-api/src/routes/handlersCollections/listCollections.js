@@ -2,7 +2,8 @@ const logic = require('../../logic');
 const { success, fail } = require('../../utils/api-helpers');
 
 module.exports = (req, res) => {
-	logic.listCollections()
+	const { params: { id_user } } = req;
+	logic.listCollections(id_user)
 		.then(results => {
 			res.json(success(results));
 		})
