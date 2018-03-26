@@ -1,5 +1,4 @@
 const { Schema, Schema: { ObjectId } } = require('mongoose')
-const User = require('./User')
 
 module.exports = new Schema({
     text: {
