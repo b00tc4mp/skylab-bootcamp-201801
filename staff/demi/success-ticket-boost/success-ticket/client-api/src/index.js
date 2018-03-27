@@ -5,9 +5,9 @@ const api_client = {
     return `${this.protocol}://${this.host}:${this.port}`
   },
 
-  loginUser(email, password) {
+  loginUser(username, password) {
     return axios
-      .post(`${this.baseUrl()}/events/login`, { email, password })
+      .post(`${this.baseUrl()}/events/login`, { username, password })
       .then(res => res.data)
   },
 

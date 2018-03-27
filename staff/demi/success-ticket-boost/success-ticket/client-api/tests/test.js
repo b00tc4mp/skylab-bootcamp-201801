@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const api_client = require('../index')
+const api_client = require('../src/index')
 const assert = require('assert')
 const expect = require('chai').expect
 
@@ -12,7 +12,7 @@ api_client.port = API_PORT;
 
 describe('Testing API client', () => {
 
-    const email = 'mail02@mail.com'
+    const email = 'mail@mail.com'
 	const password = '123'
     const userID = '5ab987cc54f2aaf2e220ebd6'
     const companyId = '5ab13447031c9c2fa3193b97'
@@ -33,7 +33,7 @@ describe('Testing API client', () => {
         api_client.loginUser(email, password)
             .then(res => {
                 assert.equal(res.status, 'OK', 'results should be OK')
-                assert(res.data._id, 'should return data id')
+                assert(res.data.token, 'should response data have token')
                 done()
             })
             .catch(done)
