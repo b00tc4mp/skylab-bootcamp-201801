@@ -58,6 +58,9 @@ auth.post('/login', [jsonBodyParser, passport.authenticate('local', { session: f
     })
 })
 
+//*********************************************************** */
+
+
 passport.use(new JwtStrategy({
     secretOrKey: secret,
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
