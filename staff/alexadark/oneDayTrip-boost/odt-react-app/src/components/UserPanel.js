@@ -14,11 +14,10 @@ class UserPanel extends Component {
       };
   }
 
-  componentDidMount() {
-    api
-      .getUsernameId(this.props.match.params.username)
-      .then(res => api.getUserFromId(res.data))
-        .then(res => this.setState({user: res.data}));
+  componentWillMount() {
+    api.getUserFromId(this.props.user.id)
+        .then(res => this.setState({user: res.data}))
+
   }
 
   render() {
@@ -26,14 +25,14 @@ class UserPanel extends Component {
       <div className="uk-container">
         <h2 className="uk-text-center">Hello {this.state.user.name}</h2>
         <div className="user-buttons uk-flex">
-         <UpdateUser user = {this.state.user}  />
-          <button className="uk-button uk-button-primary uk-button-small  uk-margin-right">
-            Delete Profile
-          </button>
+         <UpdateUser user={this.state.user}  />
+          <NavLink to={'/home'} className="uk-button uk-button-primary uk-button-small  uk-margin-right">
+            Search Trips
+          </NavLink>
           <NavLink to="/user-profile">
-            <button className="uk-button uk-button-primary uk-button-small uk-margin-right">
+            <NavLink to={`/user-profile/${this.props.user.id}`} className="uk-button uk-button-primary uk-button-small uk-margin-right">
               see my reviews
-            </button>
+            </NavLink>
           </NavLink>
         </div>
 
@@ -41,8 +40,8 @@ class UserPanel extends Component {
           className="user-panels uk-margin-large-top uk-child-width-1-2@m"
           data-uk-grid
         >
-          <UserPublishedTrips user={this.state.user} />
-          <UserBookedTrips user={this.state.user} />
+          <UserPublishedTrips user={this.props.user} />
+          <UserBookedTrips user={this.props.user} />
         </div>
       </div>
     );

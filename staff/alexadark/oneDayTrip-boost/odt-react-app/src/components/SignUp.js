@@ -21,12 +21,21 @@ class SignUp extends Component {
 
         api.registerUser(name, surname,email, picture, username, password)
 
+            .then(res => {
+                try {
+                    this.setState({
+                        success: true,
 
-            .then(() => this.setState({name: '', surname: '', email: '', picture: '', username: '', password: ''}))
+                    })
+
+                }
+                catch (error) {
+                    this.setState({error: res.error})
+                }
+            })
 
     }
 
-    //TODO refactor these functions
 
     keepName = name => this.setState({name});
     keepSurname = surname => this.setState({surname});
@@ -100,6 +109,8 @@ class SignUp extends Component {
                     </div>
 
                 </form>
+                {this.state.error? <h4 className="uk-text-danger uk-text-center">{this.state.error}</h4>: ''}
+                {this.state.success? <h4 className="uk-text-success uk-text-center">Welcomme to One Day Trip {this.state.name} you can now login</h4>: ''}
             </div>
 
         )

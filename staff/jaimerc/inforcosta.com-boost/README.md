@@ -95,3 +95,20 @@ APP
 ### PROGRAMADOR WEB
 
 - <a href="https://github.com/JaimeRC">Jaime Rubio</a>
+
+
+{
+    "_id": {
+        "$oid": "5ab26a8c0924684b16496c72"
+    },
+    "name": "Jaime",
+    "surname": "Rubio",
+    "address1": "Calle Marmoles",
+    "address2": "Calle Bermudes",
+    "telf": 123456789,
+    "email": "jaime.rc@icloud.com",
+    "nif": "987654321",
+    "username": "JaimeRC",
+    "password": "123",
+    "__v": 0
+}

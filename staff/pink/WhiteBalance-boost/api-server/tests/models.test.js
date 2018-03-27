@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
-const { User, Image } = require('../src/models')
+const { User, Image, Comment } = require('../src/models')
 
 
 describe('models', () => {
@@ -15,7 +15,7 @@ describe('models', () => {
         ])
     })
 
-    describe('create user with images and followings', () => {
+    describe('create user with followings and images with comments', () => {
         let user, image, image2, following, following2
 
         before(() => {
@@ -67,6 +67,18 @@ describe('models', () => {
                     return user.save()
                 })
                 .then(user => {
+                    const comment = new Comment({
+                        text: 'text',
+                        user: following._id
+                    })
+
+                    const _image2 = user.images.id(image2._id.toString())
+
+                    _image2.comments.push(comment)
+
+                    return user.save()
+                })
+                .then(user => {
                     const id = user._id.toString()
 
                     return User.findOne({ _id: id })
@@ -74,7 +86,7 @@ describe('models', () => {
                 .then(_user => user = _user)
         })
 
-        it('should create user with images and followings', () => {
+        it('should create user with followings and images with comments', () => {
             assert(user, 'should user be created')
 
             assert(image, 'should image be created')
@@ -106,6 +118,16 @@ describe('models', () => {
             assert.equal(following_id.toString(), following._id.toString(), 'should following match')
 
             assert.equal(following_id2.toString(), following2._id.toString(), 'should following2 match')
+
+            assert.equal(_image.comments.length, 0, 'should image have no comments')
+
+            assert.equal(_image2.comments.length, 1, 'should image 2 have one comment')
+
+            const [comment] = _image2.comments
+
+            assert.equal(comment.text, 'text', 'should comment text match')
+
+            assert.equal(comment.user.toString(), following._id.toString(), 'should comment user match')
         })
     })
 

@@ -1,0 +1,26 @@
+@import '../sass/_variables';
+@import '../sass/_extends';
+.App {
+    padding: 2em;
+    @extend %capsuleStandar;
+    article {
+        display: flex;
+        justify-content: space-between;
+    }
+    .MarkDownEdited {
+        display: flex;
+        flex-wrap: wrap;
+        @extend %capsuleStandar;
+        .DraftEditor-root {
+            padding-top: 1em;
+            @extend %capsuleStandar;
+            .DraftEditor-editorContainer {
+                @extend %capsuleStandar;
+                .public-DraftEditor-content {
+                    @extend %capsuleStandar;
+                    padding: 0 7em 0 8em;
+                }
+            }
+        }
+    }
+}

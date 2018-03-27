@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColPlayerLevel(props) {
     return (
-         <td> 3.5</td>
+         <td>{props.nameCol}</td>
     )
 }
 

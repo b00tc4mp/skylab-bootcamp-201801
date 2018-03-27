@@ -6,7 +6,6 @@ class UpdateTrip extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            creatorId: '',
             from: '',
             to: '',
             date: '',
@@ -22,16 +21,44 @@ class UpdateTrip extends Component {
         }
     }
 
-    componentDidMount() {
-        api.getUsernameId(this.props.match.params.username)
-            .then((creatorId) => this.setState({creatorId}))
+    componentWillReceiveProps(props) {
+        const trip = props.trip
 
+        this.setState({
+            from: trip.from,
+            to: trip.to,
+            date: trip.date,
+            meetingPoint: trip.meetingPoint,
+            departureTime: trip.departureTime,
+            returnTime: trip.returnTime,
+            tripTime: trip.tripTime,
+            price: trip.price,
+            distance: trip.distance,
+            seats: trip.seats,
+            description: trip.description,
+
+        })
     }
 
-    publish() {
-        const {creatorId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password} = this.state
 
-        api.updateTrip(creatorId, this.props.trip._id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password)
+    updateTrip() {
+        const { from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password} = this.state
+
+        api.updateTrip(this.props.trip.creator, this.props.trip._id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password)
+            .then(res => {
+                try {
+                    this.setState({closeModal:true})
+                    this.setState({success: res.data})
+
+
+                }
+                catch(error){
+                    this.setState({error: res.error})
+                }
+
+
+
+            })
 
             .then(() => this.setState({
                 from: '',
@@ -74,16 +101,15 @@ class UpdateTrip extends Component {
 
 
                 <div id="updateTrip"
-                     data-uk-modal>
+                     data-uk-modal
+                     className={this.state.closeModal ? "closeModal" : ''}>
                     <div className="uk-modal-dialog uk-modal-body uk-width-xxlarge">
-                        <button className="uk-modal-close-default"
-                                type="button"
-                                uk-close/>
+
                         <h2 className="uk-text-center">Update Trip</h2>
                         <form data-uk-grid
                               onSubmit={e => {
                                   e.preventDefault();
-                                  this.publish();
+                                  this.updateTrip();
                               }}>
                             <div className="uk-width-1-3@m">
                                 <input type="text"
@@ -110,7 +136,7 @@ class UpdateTrip extends Component {
                                        value={this.state.date}/>
                             </div>
                             <div className="uk-width-1-3@m">
-                                <input type="text"
+                                <input type="time"
                                        className="uk-input"
                                        placeholder="Departure time"
                                        required="true"
@@ -118,7 +144,7 @@ class UpdateTrip extends Component {
                                        value={this.state.departureTime}/>
                             </div>
                             <div className="uk-width-1-3@m">
-                                <input type="text"
+                                <input type="time"
                                        className="uk-input"
                                        placeholder="Return Time"
                                        required="true"
@@ -188,6 +214,7 @@ class UpdateTrip extends Component {
                             </div>
 
                         </form>
+                        {this.state.error? <h2 className="uk-text-center uk-text-danger">{this.state.error}</h2>:''}
                     </div>
                 </div>
             </div>

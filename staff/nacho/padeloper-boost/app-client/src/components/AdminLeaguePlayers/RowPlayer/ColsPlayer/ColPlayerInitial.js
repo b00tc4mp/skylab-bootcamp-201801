@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 function ColPlayerInitial(props) {
     return (
-         <td> N</td>
+         <td>{props.nameCol}</td>
     )
 }
 

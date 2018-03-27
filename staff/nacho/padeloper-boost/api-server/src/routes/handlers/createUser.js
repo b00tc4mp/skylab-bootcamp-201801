@@ -5,8 +5,8 @@ module.exports = (req, res) => {
     const { body: { name, surname, email, username, password } } = req
 
     logic.createUser(name, surname, email, username, password)
-        .then(user => {
-            res.json(success({ user }))
+        .then(id => {
+            res.json(success({ id }))
         })
         
         .catch(err => {

@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const bodyParser = require('body-parser')
-const { listUsers, createUser, retrieveUser, validateUser, listLeagues, searchLeagues, retrieveLeague,listUserLeagues,createLeague } = require('./handlers')
+const { listUsers, createUser, retrieveUser, validateUser, listLeagues, searchLeagues, retrieveLeague, listUserLeagues, createLeague, addPlayerToLeague, removePlayerFromLeague, generateTeams, removeTeams, generateMatches } = require('./handlers')
 
 
 const router = Router()
@@ -28,10 +28,17 @@ router.get('/league/:id', retrieveLeague)
 
 router.get('/leagues/:query',searchLeagues)
 
-// TODO router.put('/leagues/:leagueId/add-player/:playerId', addPlayerToLeague)
-
-// router.get('/userleagues',listUserLeagues)
 router.post('/league',jsonBodyParser,createLeague)
+
+router.put('/league/:idLeague/add-player/:idPlayer', addPlayerToLeague)
+
+router.put('/league/:idLeague/remove-player/:idPlayer', removePlayerFromLeague)
+
+router.put('/league/:idLeague/generate-teams', generateTeams)
+
+router.put('/league/:idLeague/remove-teams', removeTeams)
+
+router.put('/league/:idLeague/generate-matches', generateMatches)
 
 
 module.exports = router

@@ -13,7 +13,7 @@ class TripListItem extends Component {
 
     componentDidMount(){
         api.getUserFromId(this.props.trip.creator)
-            .then((creator) => this.setState({creator}))
+            .then((res) => this.setState({creator: res.data}))
 
     }
 
@@ -25,8 +25,10 @@ class TripListItem extends Component {
             <div className="trip-list-item uk-card uk-card-default uk-card-body uk-margin-bottom" >
                 <div className="uk-flex uk-flex-between">
                     <div className="icon-name uk-width-1-6@m">
+                        <NavLink to={`/user-profile/${this.state.creator._id}`}>
                         <span data-uk-icon="icon: user; ratio: 2"></span>
                         {this.state.creator.name} {this.state.creator.surname}
+                        </NavLink>
                     </div>
                     <div className="date-place ">
                        <p>{date}</p>

@@ -12,6 +12,7 @@ class AdminIndex extends Component{
         super()
         this.state = {
           leagues:[],
+          user:"",
           query:""
         }
       }
@@ -25,7 +26,17 @@ class AdminIndex extends Component{
           })
           .catch(console.error)
       }
-        
+
+      
+      componentDidMount(){
+        api_client.retrieveUser(this.props.idUser)
+          .then(res => {
+            console.log(res.data.data)
+            this.setState({user:res.data.data})
+        })
+        .catch(console.error)
+      }
+  
 
       keepInputQuery = (e) => {e.preventDefault(); this.setState({query:e.target.value})}
     
@@ -34,6 +45,7 @@ class AdminIndex extends Component{
         const {query} = this.state
         api_client.searchLeagues(query)
           .then(res => {
+            console.log(res)
             this.setState({leagues:res})
           })
           .catch(console.error)
@@ -43,23 +55,23 @@ class AdminIndex extends Component{
       return(
         <div className="wrapper">
         {/* Sidebar Holder */}
-          <AdminSidebar />
+          <AdminSidebar userName = {this.props.userInfo}/>
         {/* Page Content Holder */}
         <div id="content">
           <AdminHeader />
           <div className="container">
             <div className="row">
               <div className="col-md-4 col-md-offset-4">
-                <SearchLeague searchLeaguesCity = {this.searchQuery}  inputQuery = {this.keepInputQuery}/>
+                <SearchLeague searchLeaguesCity= {this.searchQuery}  inputQuery = {this.keepInputQuery}/>
               </div>
             </div>
           </div>
           <div className="line" />
           <div className="row">
             {/*/box-init */}
-            {this.state.leagues.map(element => {
+            {this.state.leagues.map((element,index) => {
               return(
-              <BoxLeague leagueName = {element.name} maxplayers = {element.maxplayers} place = {element.city} key = {element._id} idLeague ={element._id} players = {element.players}/>
+              <BoxLeague leagueInfo= {element} user = {this.state.user} key = {index}/>
             )})}
             
             {/*/box-finish */}

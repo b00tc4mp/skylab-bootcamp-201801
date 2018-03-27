@@ -105,5 +105,4 @@ routes.route('/search/:q')
             })
     })
 
-
 module.exports = routes

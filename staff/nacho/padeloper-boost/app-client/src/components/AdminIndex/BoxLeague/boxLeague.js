@@ -9,13 +9,13 @@ class BoxLeague extends Component{
             <div className="col-md-4">
               <div className="box-league">
                 <div className="info-league">
-                  <div className="joined">{this.props.maxplayers}</div>
+                  <div className="joined">{this.props.leagueInfo.players? this.props.leagueInfo.players.length:""}</div>
                   <div className="textleague">
                     <p>
-                      League <span className="leaguename">{this.props.leagueName} </span> created by <span>Nachal </span>
-                      Max players: <span>12</span>                                     
+                      League <span className="leaguename">{this.props.leagueInfo.name} </span> created by <span>Nachal </span>
+                      Max players: <span>{this.props.leagueInfo.maxplayers}</span>                                     
                     </p>
-                    <p className="smalltext"><small>{this.props.place} -  2018-03-12 | </small><NavLink exact to = {`/adminleagueplayers/${this.props.idLeague}`}><a><small> View |</small></a></NavLink><a><small> Join</small></a></p>
+                    <p className="smalltext"><small>{this.props.leagueInfo.city} -  2018-03-12 | </small><NavLink exact to = {`/adminleagueplayers/${this.props.leagueInfo._id}`}><small> View |</small></NavLink><a><small> Join</small></a></p>
                   </div>  
                 </div>                            
               </div>

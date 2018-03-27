@@ -1,10 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import api from  '../api'
+import ViewTrip from './ViewTrip'
 
 
 class BookedTripItem extends Component {
     constructor(props){
         super(props)
+        this.state ={
+            unJoin: false
+        }
     }
+
+    unjoinTrip = ()=>{
+       return api.unjoinTrip(this.props.trip._id,this.props.user.id)
+           .then(() => this.setState({unJoin:true}) )
+
+
+    }
+
+
 
     render(){
 
@@ -19,21 +33,21 @@ class BookedTripItem extends Component {
                         <br />
                     </div>
                     <div className="buttons">
-                        <button className="uk-button uk-button-small uk-button-primary uk-margin-small-bottom">
-                            View Trip
-                        </button>
+                        <ViewTrip trip={this.props.trip} user={this.props.user} />
                         <br />
 
-                        <button className="uk-button uk-button-small uk-margin-small-bottom uk-button-primary ">
+                        <button className="uk-button uk-button-small uk-margin-small-bottom uk-button-primary "
+                        onClick={()=>this.unjoinTrip()}>
                             Unjoin Trip
                         </button>
                         <br />
                     </div>
                 </div>
+                {this.state.unJoin? <h4 className="uk-text-danger uk-text-center">You have unjoined this trip</h4> :''}
             </div>
         </div>;
     }
 }
 
 
-export default BookedTripItem;
+export default BookedTripItem

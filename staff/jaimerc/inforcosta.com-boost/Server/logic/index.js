@@ -120,33 +120,34 @@ const logic = {
         })
     },
 
-    setNewOrder(_idUser, _products) {
-        console.log("🤓")
+    setNewOrder(newOrder, user) {
         return new Promise((resolve, reject) => {
-            validate({ _idUser, _products })
+            validate({ newOrder })
 
             const order = {
-                idUser: _idUser,
-                products: _products,
+                idUser: user._id,
+                products: newOrder.products,
                 paymentMethod: {
-                    method: "Confirm",
-                    status: true
+                    method: newOrder.paymentMethod.method,
+                    status: newOrder.paymentMethod.status
                 },
                 purchase: {
-                    status: "En proceso",
+                    status: newOrder.purchase.status,
                     deliveryDate: new Date()
                 },
-                date: new Date(),
-                //totalPrice: totalPrice(_products)
-
+                date: new Date()
             }
+
             const _order = new Order(order)
+
             _order.save()
+                .then(order => {
+                    nodeMailer.send(user.email)
+                    return order
+                })
                 .then(resolve)
                 .catch(reject)
-
         })
-
     },
 
     /**
@@ -179,6 +180,7 @@ const logic = {
                 .then(data => {
                     if (data.length <= 0)
                         throw Error(`No existen productos de la Subcategoria ${idSubcategory}`)
+
                     return data
                 })
                 .then(resolve)
@@ -191,28 +193,53 @@ const logic = {
             Product.count()
                 .then(count => {
 
-                    const productRandom1 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom2 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom3 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom4 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom5 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom6 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom7 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
-                    const productRandom8 = this.getProductByPosition(getRandomArbitrary(1, count)).then(product => product)
+                    const productRandom1 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom2 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom3 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom4 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom5 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom6 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom7 = this.getProductByPosition(getRandomArbitrary(1, count))
+                    const productRandom8 = this.getProductByPosition(getRandomArbitrary(1, count))
 
 
                     return Promise.all([productRandom1, productRandom2, productRandom3, productRandom4, productRandom5, productRandom6, productRandom7, productRandom8])
                 })
                 .then(resolve)
-                .catch(resolve)
+                .catch(reject)
         })
     },
 
-    getProductByPosition(posRandom) {
+    getAlternativesProducts(idSubcategory) {
         return new Promise((resolve, reject) => {
-            Product.findOne({}).skip(posRandom).limit(1)
+            this.getProductBySubcat(idSubcategory)
+                .then(data => data.length)
+                .then(count => {
+
+                    const productRandom1 = this.getProductByPosition(getRandomArbitrary(1, count), idSubcategory)
+                    const productRandom2 = this.getProductByPosition(getRandomArbitrary(1, count), idSubcategory)
+                    const productRandom3 = this.getProductByPosition(getRandomArbitrary(1, count), idSubcategory)
+                    const productRandom4 = this.getProductByPosition(getRandomArbitrary(1, count), idSubcategory)
+                    const productRandom5 = this.getProductByPosition(getRandomArbitrary(1, count), idSubcategory)
+
+                    return Promise.all([productRandom1, productRandom2, productRandom3, productRandom4, productRandom5])
+                })
                 .then(resolve)
                 .catch(reject)
+        })
+    },
+
+    getProductByPosition(posRandom, idSubcategory) {
+        return new Promise((resolve, reject) => {
+            if (idSubcategory) {
+                Product.findOne({ SUBCATEGORIA_ID: parseInt(idSubcategory) }).skip(posRandom).limit(1)
+                    .then(resolve)
+                    .catch(reject)
+            } else {
+                Product.findOne({}).skip(posRandom).limit(1)
+                    .then(resolve)
+                    .catch(reject)
+            }
         })
     },
 
@@ -226,6 +253,22 @@ const logic = {
                 .then(data => {
                     if (data.length <= 0)
                         throw Error('No hay Productos encontrados.')
+
+                    return data
+                })
+                .then(resolve)
+                .catch(reject)
+        })
+    },
+
+    getProductByIdCategory(idCategory) {
+        return new Promise((resolve, reject) => {
+            validate({ idCategory })
+
+            Product.find({ CATEGORIA_ID: parseInt(idCategory) })
+                .then(data => {
+                    if (data.length <= 0)
+                        throw Error(`No hay Productos encontrados de la categoria ${idCategory}`)
 
                     return data
                 })
@@ -265,35 +308,35 @@ const logic = {
                     return new Promise((resolve, reject) => {
                         const paco = new User(newUser)
                         paco.save()
+                            .then(user => {
+                                nodeMailer.send(user.email)
+                                return user
+                            })
                             .then(resolve)
                             .catch(reject)
-
                     })
-
                 })
                 .then(resolve)
                 .catch(reject)
-
         })
-
     },
 
     getValidate(_username, _password) {
         return new Promise((resolve, reject) => {
             validate({ _username, _password })
 
-            User.findOne({ $and: [{ username: _username }, { password: _password }] }, { password: 0, _id: 0 })
-                .then(resolve)
+            User.findOne({ $and: [{ username: _username }, { password: _password }] }, { password: 0 })
+                .then(user => resolve(user))
                 .catch(reject)
         })
     },
 
-    getUserById(idUser) {
+    getUserById(id) {
         return new Promise((resolve, reject) => {
 
-            validate({ idUser })
+            validate({ id })
 
-            User.findOne({ _id: idUser }, { name: 1, surname: 1, address1: 1, address2: 1, username: 1, email: 1, telf: 1, _id: 0 })
+            User.findOne({ _id: id }, { name: 1, surname: 1, address1: 1, address2: 1, username: 1, email: 1, telf: 1, _id: 1 })
                 .then(resolve)
                 .catch(reject)
         })
@@ -332,10 +375,20 @@ const logic = {
         return new Promise((resolve, reject) => {
             validate({ _email })
 
-            User.findOne({ email: _email }, { email: 1 })
+            User.findOne({ email: _email }, { email: 1, _id: 0 })
                 .then(email => {
                     nodeMailer.send(email.email)
+                    return email
                 })
+                .then(resolve)
+                .catch(reject)
+        })
+    },
+    getUserByUsername(_username) {
+        return new Promise((resolve, reject) => {
+            validate({ _username })
+
+            User.findOne({ username: _username }, { _id: 1 })
                 .then(resolve)
                 .catch(reject)
         })

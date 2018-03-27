@@ -3,6 +3,8 @@ const express = require('express')
 const routes = express.Router()
 const bodyParser = require('body-parser')
 const jsonBodyParser = bodyParser.json()
+const passport = require('passport')
+const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt')
 
 
 //Listar todos los pedidos segun Usuario
@@ -50,22 +52,22 @@ routes.route('/order/:idOrder')
 
 //Crear un pedido de un Usuario
 routes.route('/create')
-    .post(jsonBodyParser, (req, res) => {
-        const { body: { idUser } } = req
-        const { body: { products } } = req
+    .post([jsonBodyParser, passport.authenticate('jwt', { session: false })], (req, res) => {
+        const { body: { order } } = req
+        const { user } = req
 
-        logic.setNewOrder(idUser, products)
+        logic.setNewOrder(order, user)
             .then(order => {
 
                 res.json({
                     status: "OK",
-                    message: `Se ha creado el pedido ${order[0]._id}`,
-                    data: order[0]
+                    message: `Se ha creado el pedido ${order._id}`,
+                    data: order
                 })
             })
             .catch(err => {
                 res.json({
-                    status: "KO",   
+                    status: "KO",
                     message: err.message
                 })
             })

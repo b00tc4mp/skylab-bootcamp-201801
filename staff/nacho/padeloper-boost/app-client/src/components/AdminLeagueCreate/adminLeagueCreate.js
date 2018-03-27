@@ -3,6 +3,7 @@ import './css/main.css'
 import AdminSidebar from '../AdminSidebar/adminSidebar'
 import AdminHeader from '../AdminHeader/adminHeader'
 import Form from './Form/form'
+import api_client from 'api-client'
 
 class AdminLeagueCreate extends Component{
         constructor(){
@@ -18,19 +19,31 @@ class AdminLeagueCreate extends Component{
           }
         }
 
+        createLeague = (e) => {
+          e.preventDefault();
+          const {name,city,club,type,category,date,maxplayers} = this.state
+          api_client.registerLeague(name,city,club,type,category,date,maxplayers)
+            .then((data) => {
+              console.log(data)
+            })
+            .catch(console.error)
+            
+        }
+
+
         keepInputName = (e) => {e.preventDefault(); this.setState({name:e.target.value})}
         keepInputCity = (e) => {e.preventDefault(); this.setState({city:e.target.value})}
         keepInputClub = (e) => {e.preventDefault(); this.setState({club:e.target.value})}
         keepInputCategory = (e) => {e.preventDefault(); this.setState({category:e.target.value})}
         keepInputType = (e) => {e.preventDefault(); this.setState({type:e.target.value})}
-        keepInputDate = (e) => {e.preventDefault(); const date = new Date(); this.setState({date:date})}
+        keepInputDate = (e) => {e.preventDefault(); this.setState({date:e.target.value})}
         keepInputMaxPlayers = (e) => {e.preventDefault(); this.setState({maxPlayers:e.target.value})}
 
         render(){
         return(
             <div className="wrapper">
         {/* Sidebar Holder */}
-          <AdminSidebar />
+        <AdminSidebar userName = {this.props.userInfo}/>
         {/* Page Content Holder */}
         <div id="content">
           <AdminHeader />
@@ -51,6 +64,7 @@ class AdminLeagueCreate extends Component{
 
           <div className="col-xs-12">
           <Form 
+              create = {this.createLeague}
               inputName = {this.keepInputName}
               inputCity = {this.keepInputCity}
               inputClub = {this.keepInputClub}

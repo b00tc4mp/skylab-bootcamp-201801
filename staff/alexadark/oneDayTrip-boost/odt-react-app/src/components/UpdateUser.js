@@ -2,23 +2,30 @@ import React, {Component} from 'react';
 import api from '../api'
 
 
+
 class UpdateUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
+            name: props.user.name,
             surname: '',
             email: '',
             picture: '',
             newPassword: '',
-            password: ''
+            password: '',
+
         }
 
 
     }
+
+
 //TODO add values from props user to the state, so values are not erased when we don;t enter a value
-    componentWillReceiveProps(){
-        const user = this.props.user
+// TODO fix error handling
+
+    componentWillReceiveProps(props) {
+        const user = props.user
+
         this.setState({
             name: user.name,
             surname: user.surname,
@@ -28,12 +35,26 @@ class UpdateUser extends Component {
     }
 
 
-    register() {
+    update() {
         const {name, surname, email, picture, newPassword, password} = this.state
         const userId = this.props.user._id
 
 
         api.updateUser(userId, name, surname, email, picture, newPassword, password)
+            .then(res => {
+                try {
+                    this.setState({closeModal:true})
+                    this.setState({success: res.data})
+
+
+                }
+                catch(error){
+                    this.setState({error: error})
+                }
+
+
+
+            })
 
 
     }
@@ -57,17 +78,16 @@ class UpdateUser extends Component {
                 </button>
 
                 <div id="updateProfile"
-                     data-uk-modal>
+                     data-uk-modal
+                     className={this.state.closeModal ? "closeModal" : ''}>
                     <div className="uk-modal-dialog uk-modal-body">
-                        <button className="uk-modal-close-default"
-                                type="button"
-                                uk-close/>
+
 
                         <h2 className="uk-text-center">Update your profile</h2>
                         <form data-uk-grid
                               onSubmit={e => {
                                   e.preventDefault();
-                                  this.register();
+                                  this.update();
                               }}>
                             <div className="uk-width-1-2@m">
                                 <input type="text"
@@ -120,6 +140,7 @@ class UpdateUser extends Component {
                             </div>
 
                         </form>
+                        {this.state.error? <h2 className="uk-text-center uk-text-danger">{this.state.error}</h2>:''}
                     </div>
                 </div>
             </div>

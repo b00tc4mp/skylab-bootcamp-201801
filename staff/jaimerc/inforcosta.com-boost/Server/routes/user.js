@@ -1,3 +1,4 @@
+require('dotenv').config()
 const logic = require('../logic')
 const express = require('express')
 const routes = express.Router()
@@ -9,25 +10,8 @@ const LocalStrategy = require('passport-local')
 const jwt = require('jsonwebtoken')
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt')
 
-routes.route('/create')
-    .post(jsonBodyParser, (req, res) => {
-        const { body: { name, surname, address1, address2, telf, email, nif, username, password } } = req
-
-        logic.setNewUser(name, surname, address1, address2, telf, email, nif, username, password)
-            .then(user => {
-                res.json({
-                    status: "OK",
-                    message: `Usuario ${username} creado`,
-                    data: user.name
-                })
-            })
-            .catch(err => {
-                res.json({
-                    status: "KO",
-                    message: err.message
-                })
-            })
-    })
+const { JWT_SECRET: secret, JWT_EXP: expiration } = process.env
+const expiresIn = parseInt(expiration)
 
 passport.use(new LocalStrategy((username, password, done) => {
     logic.getValidate(username, password)
@@ -38,34 +22,6 @@ passport.use(new LocalStrategy((username, password, done) => {
         })
         .catch(done)
 }))
-
-const secret = process.env.JWT_SECRET
-
-routes.route('/login')
-    .post([jsonBodyParser, passport.authenticate('local', { session: false })], (req, res) => {
-        const { body: { username, password } } = req
-
-        logic.getValidate(username, password)
-            .then(user => {
-
-                const token = jwt.sign({
-                    id: user._id,
-                    username
-                }, secret, { expiresIn: 900 })
-
-                res.json({
-                    status: "OK",
-                    message: `Usuario ${username} validado`,
-                    data: { token, username }
-                })
-            })
-            .catch(err => {
-                res.json({
-                    status: "KO",
-                    message: err.message
-                })
-            })
-    })
 
 passport.use(new JwtStrategy({
     secretOrKey: secret,
@@ -78,7 +34,89 @@ passport.use(new JwtStrategy({
         .catch(done)
 }))
 
-passport.initialize()
+
+routes.route('/login')
+    .post([jsonBodyParser, passport.authenticate('local', { session: false })], (req, res) => {
+        const { user } = req
+
+        try {
+
+            const token = jwt.sign({
+                id: user._id,
+                username: user.username
+            }, secret)
+//expiresIn
+            //parseInt(expiration)
+
+            res.json({
+                status: "OK",
+                message: `Usuario ${user.username} validado`,
+                data: {
+                    token,
+                    username: user.username
+                }
+            })
+
+        } catch (err) {
+            res.json({
+                status: "KO",
+                message: err.message
+            })
+        }
+    })
+
+
+routes.route('/user')
+    .get(passport.authenticate('jwt', { session: false }), (req, res) => {
+        const { user } = req
+
+        try {
+
+            res.json({
+                status: "OK",
+                message: `Estos son los datos del usuario ${user.username}`,
+                data: user
+            })
+
+        } catch (err) {
+            res.json({
+                status: "KO",
+                message: err.message
+            })
+        }
+    })
+
+routes.route('/create')
+    .post(jsonBodyParser, (req, res) => {
+        const { body: { name, surname, address1, address2, telf, email, nif, username, password } } = req
+
+        logic.setNewUser(name, surname, address1, address2, telf, email, nif, username, password)
+            .then(user => {
+
+                const token = jwt.sign({
+                    id: user._id,
+                    username: user.username
+                }, secret, { expiresIn })
+
+                res.json({
+                    status: "OK",
+                    message: `Usuario ${user.username} creado`,
+                    data: {
+                        token,
+                        username: user.username
+                    }
+                })
+            })
+            .catch(err => {
+                res.json({
+                    status: "KO",
+                    message: err.message
+                })
+            })
+    })
+
+
+
 
 routes.route('/update')
     .post([jsonBodyParser, passport.authenticate('local', { session: false })], (req, res) => {
@@ -100,29 +138,6 @@ routes.route('/update')
             })
     })
 
-routes.route('/user')
-    .post([jsonBodyParser, passport.authenticate('jwt', { session: false })], (req, res) => {
-
-        const { body: { token } } = req
-        const { id, username } = jwt.verify(token, secret)
-
-        logic.getUserById(id)
-            .then(user => {
-                res.json({
-                    status: "OK",
-                    message: `Estos son los datos del usuario ${id}`,
-                    data: user
-                })
-            })
-            .catch(err => {
-                res.json({
-                    status: "KO",
-                    message: err.message
-                })
-            })
-
-    })
-
 routes.route('/recovery')
     .post(jsonBodyParser, (req, res) => {
         const { body: { email } } = req
@@ -142,5 +157,7 @@ routes.route('/recovery')
                 })
             })
     })
+
+passport.initialize()
 
 module.exports = routes

@@ -3,13 +3,41 @@ import './css/main.css'
 import AdminSidebar from '../AdminSidebar/adminSidebar'
 import AdminHeader from '../AdminHeader/adminHeader'
 import AdminLeagueLinks from '../AdminLeagueLinks/adminLeagueLinks'
+import api_client from 'api-client'
+
 
 class AdminLeagueMatches extends Component{
+    constructor(){
+      super()
+      this.state = {
+        league:{},
+      }
+    }
+
+    componentDidMount(){
+      api_client.retrieveLeague(this.props.match.params.idOfLeague)
+      .then(res => {
+        this.setState({league:res})
+      })
+      .catch(console.error)
+    }
+
+
+    generateAllMatches = (e) => {
+      e.preventDefault()
+      api_client.generateMatches(this.props.match.params.idOfLeague)
+      .then(res => {
+        console.log(res.data)
+        this.setState({league:res.data})
+      })
+    }
+
+
     render(){
         return(
             <div className="wrapper">
             {/* Sidebar Holder */}
-              <AdminSidebar />
+            <AdminSidebar userName = {this.props.userInfo}/>
             {/* Page Content Holder */}
             <div id="content">
               <AdminHeader />
@@ -21,6 +49,7 @@ class AdminLeagueMatches extends Component{
               <div className="col-xs-12">
             <h3 className="title">MATCHES</h3>
             <div className="table-responsive">
+              
               <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" className="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -32,19 +61,27 @@ class AdminLeagueMatches extends Component{
                   </tr>
                 </thead>
                 <tbody>
-                <tr>
-                        
-                        <td>The Timberwolves</td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>The Spurs</td>
-                        <td><button type="button" className="btn btn-primary btn-sm actionbutton">Edit</button><button type="button" className="btn btn-primary btn-sm">Result</button></td>
-                    </tr>
+                {this.state.league.matches ? this.state.league.matches.map((item,index) => {
+                  return(
+                  <tr key = {index}>                         
+                    <td>{this.state.league.matches[index].teams[0]}</td>
+                    <td>
+                      <input type ="number"/>
+                    </td>
+                    <td><input type ="number"/></td>
+                    <td>{this.state.league.matches[index].teams[1]}</td>
+                    <td><button type="button" className="btn btn-primary btn-sm">Confirm</button></td>                    
+                  </tr>
+                  )
+                }) : undefined} 
+                  
+                
                 </tbody>
                 <tfoot>
                 </tfoot></table>
+                
             </div>{/*end of .table-responsive*/}
-            <button type="button" className="btn btn-primary btn-sm actionbutton">Generate Teams</button>
+            <button type="button" className="btn btn-primary btn-sm actionbutton" onClick = {this.generateAllMatches}>Generate Matches</button>
           </div>
                 
           
