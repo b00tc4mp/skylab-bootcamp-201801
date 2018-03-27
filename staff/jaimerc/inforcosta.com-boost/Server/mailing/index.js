@@ -1,17 +1,17 @@
 var nodemailer = require('nodemailer')
-  
+
 const user = process.env.EMAIL_USUARIO
-const pass = process.env.EMAIL_CONTRASEÑA
+const pass = process.env.EMAIL_PASSWORD
 const host = process.env.EMAIL_HOST
 const port = process.env.EMAIL_PORT
 
 
 const sendEmail = {
 
-    // crear un objeto de transporte reutilizable usando SMTP transport
-    getTransporter() {
+    send: (email) => {
 
-        return transporter = nodemailer.createTransport({
+        // crear un objeto de transporte reutilizable usando SMTP transport
+        const transporter = nodemailer.createTransport({
             host: host,
             port: port,
             secure: false,
@@ -20,23 +20,14 @@ const sendEmail = {
                 pass: pass
             }
         })
-    },
-  
-    // configura los datos del correo
-    getMailOptions(email) {
 
-        return mailOptions = {
+        // configura los datos del correo
+        const mailOptions = {
             from: `Jaime Rubio <${user}>`, to: email,
             subject: 'Hola 👻',
             text: 'Hola Mundo',
             html: '<b>Hola Mundo</b>'
         }
-    },
-
-    // Envía el correo con el objeto de transporte definido anteriormente
-    send(email) {
-        const transporter = this.getTransporter()
-        const mailOptions = this.getMailOptions(email)
 
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {

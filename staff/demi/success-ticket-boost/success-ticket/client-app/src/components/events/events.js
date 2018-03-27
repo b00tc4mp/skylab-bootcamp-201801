@@ -1,39 +1,46 @@
-import React, { Component } from "react";
-import "./events.css";
-import api_client from "./../api-client";
-import { withRouter, Link } from "react-router-dom";
+import React, { Component } from "react"
+import "./events.css"
+import api_client from "./../api-client"
+import { withRouter, Link } from "react-router-dom"
 
 class Events extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       events: [],
-      companyName:""
-    };
+      companyName: "",
+      role: ""
+    }
   }
 
   componentDidMount() {
-    api_client.getEventList().then(events => {
-      this.setState({ events });
+    const userId = sessionStorage.getItem("userID")
 
-      const companyName = events[0].company
-      this.setState({ companyName });
-      
-      this.props.sendCompanyName(companyName)
-    });
+    api_client.getEventList(userId).then(events => {
+      this.setState({ events })
+    })
+
+    api_client.getCompanyName(userId).then(companyNameSelected => {
+      if (companyNameSelected) {
+        const companyName = companyNameSelected
+        this.setState({ companyName })
+        this.props.sendCompanyName(this.state.companyName)
+      }
+    })
+
+    const companyName = this.state.companyName
   }
 
-
   render() {
-    const { events } = this.state;
-    const eventsList = events ? (events[0] ? events[0].events : null) : null;
+    const { events } = this.state
+    const eventsList = events ? (events[0] ? events[0].events : null) : null
 
     return (
       <div>
         <div className="col-12 section-title">
           <h3>
             Events list
-            <span></span>
+            <span />
           </h3>
         </div>
         <hr />
@@ -60,13 +67,12 @@ class Events extends Component {
                   </div>
                 </div>
               </Link>
-              
               <hr />
             </div>
           ))}
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(Events);
+export default withRouter(Events)

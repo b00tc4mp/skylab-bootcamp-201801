@@ -64,7 +64,7 @@ routes.route('/subcategories/:subcategory')
             })
     })
 
-//Listar 4 productos de todos los productos (sustituye a los 4 productos de oferta)
+//Listar 8 productos de todos los productos (sustituye a los 8 productos de oferta)
 routes.route('/offers')
     .get((req, res) => {
 
@@ -105,6 +105,47 @@ routes.route('/search/:q')
                 })
             })
     })
+//Lista todos los productos segun la Categoria
+routes.route('/:idCategory')
+    .get((req, res) => {
+        const { params: { idCategory } } = req
 
+        logic.getProductByIdCategory(idCategory)
+            .then(products => {
+                res.json({
+                    status: "OK",
+                    message: `Todas las Productos de la categoria ${idCategory} encontradas`,
+                    data: products
+                })
+            })
+            .catch(err => {
+                res.json({
+                    status: "KO",
+                    message: err.message
+                })
+            })
+    })
+
+
+
+routes.route('/alternatives/:idSubcategory')
+    .get((req, res) => {
+        const { params: { idSubcategory } } = req
+
+        logic.getAlternativesProducts(idSubcategory)
+            .then(products => {
+                res.json({
+                    status: "OK",
+                    message: `Estos son los 5 productos alternativos de la Subcategoria ${idSubcategory}`,
+                    data: products
+                })
+            })
+            .catch(err => {
+                res.json({
+                    status: "KO",
+                    message: err.message
+                })
+            })
+    })
 module.exports = routes
 

@@ -79,6 +79,10 @@ const Order = new Schema({
                 ref: 'Products',
                 required: true
             },
+            price: {
+                type: Number,
+                required: true
+            },
             unit: {
                 type: Number,
                 required: true
