@@ -72,10 +72,24 @@ passport.use(new JwtStrategy({
 
 const api = express.Router()
 
-api.use(passport.authenticate('jwt', { session: false }))
+// CASE for ALL api routes
+
+// api.use(passport.authenticate('jwt', { session: false }))
+
+// api.route('/helloworld')
+//     .get((req, res) => {
+//         res.json({
+//             status: 'OK',
+//             data: {
+//                 message: `Hello, ${req.user.username}!`
+//             }
+//         })
+//     })
+
+// CASE for specific routes
 
 api.route('/helloworld')
-    .get((req, res) => {
+    .get(passport.authenticate('jwt', { session: false }), (req, res) => {
         res.json({
             status: 'OK',
             data: {
