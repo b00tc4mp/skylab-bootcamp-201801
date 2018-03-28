@@ -19,8 +19,8 @@ class Comment extends Component {
 
     ratingTitle = (rating) => {
         switch (rating) {
-            case 1:
-                return 'Bad'
+            case 5:
+                return 'Excellent'
                 break;
             case 2:
                 return 'Could be better'
@@ -28,11 +28,11 @@ class Comment extends Component {
             case 3:
                 return 'Average'
                 break;
-            case 2:
+            case 4:
                 return 'Very Good'
                 break;
             default:
-                return 'Excellent'
+                return 'Bad'
 
         }
     }
@@ -42,12 +42,13 @@ class Comment extends Component {
         const comment = this.props.comment
         const rating = comment.rating
         const user = this.state.user
+        console.log(comment)
         return (
 
             <div className="uk-card uk-card-default uk-card-body uk-margin-bottom">
                 <h3>{this.ratingTitle(rating)}</h3>
                 Date: {comment.date.slice(0,10)}
-                <p>{comment.comment}</p>
+                <p>{comment.commentText}</p>
 
                 Author: <NavLink to={`/user-profile/${user._id}`}>
                 {user.name} {user.surname}

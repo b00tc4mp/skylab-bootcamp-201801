@@ -26,42 +26,42 @@ class App extends Component {
     }
 
 
-   onUserLoggedIn = (id, username) =>{
-       localStorage.setItem("id",id)
-       localStorage.setItem("username", username)
-       this.setState({user: {id, username}})
-   }
+    onUserLoggedIn = (id, username) =>{
+        localStorage.setItem("id",id)
+        localStorage.setItem("username", username)
+        this.setState({user: {id, username}})
+    }
 
-   componentDidMount(){
+    componentDidMount(){
         const id = localStorage.getItem("id")
-       const username = localStorage.getItem("username")
-       this.setState({user: {id, username}})
-   }
+        const username = localStorage.getItem("username")
+        this.setState({user: {id, username}})
+    }
 
-  render() {
-    return (
-        <BrowserRouter>
-            <div>
-                <Header onUserLoggedIn={this.onUserLoggedIn} user={this.state.user}/>
-                <Switch>
-                    <Route path="/" exact={true} render={() => (<Redirect to="/home" />)} />
-                    <Route path="/home" component={Home} />
-                    <Route path="/publish"  render={() => <Publish  user = {this.state.user}/>}/>
-                    <Route path="/sign-up"  component={SignUp}/>
-                    {/*<Route   component={NotFoundPage}/>*/}
-                    <Route path="/user-panel/:username" render={() => <UserPanel  user = {this.state.user} /> }/>
-                    <Route path="/user-profile/:id"  component={UserProfile} />
-                    <Route path="/trip-info/:tripId"  render={() => <TripInfo  user = {this.state.user}/>}/>
-                    <Route path={`/home/:location/:arrival/:departure`} component={TripList} />
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Header onUserLoggedIn={this.onUserLoggedIn} user={this.state.user}/>
+                    <Switch>
+                        <Route path="/" exact={true} render={() => (<Redirect to="/home" />)} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/publish"  render={() => <Publish  user = {this.state.user}/>}/>
+                        <Route path="/sign-up"  component={SignUp}/>
+                        {/*<Route   component={NotFoundPage}/>*/}
+                        <Route path="/user-panel/:username" render={() => <UserPanel  user = {this.state.user} /> }/>
+                        <Route path="/user-profile/:id"  component={UserProfile} />
+                        <Route path="/trip-info/:tripId"  render={() => <TripInfo  user = {this.state.user}/>}/>
+                        <Route path={`/home/:location/:arrival/:departure`} component={TripList} />
 
-                    
 
-                </Switch>
-            </div>
 
-        </BrowserRouter>
-    );
-  }
+                    </Switch>
+                </div>
+
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

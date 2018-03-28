@@ -30,7 +30,12 @@ class UserProfile extends Component {
         const comments = user.comments
         return (
             <div className="uk-container">
-                <span data-uk-icon="icon: user; ratio: 2"></span>
+                {user.picture === '' ?
+                <img src="https://cdn0.iconfinder.com/data/icons/Hand_Drawn_Web_Icon_Set/128/user.png"
+                     alt=""
+                     className="user-image uk-display-block"/> : <img src={user.picture}
+                                                                      className="uk-border-circle user-image uk-display-block"
+                                                                      alt=""/>}
 
                 {user.name} {user.surname} <br/>
                 {comments.length>0 ? `Rating: ${user.comments.reduce((rating, comment) =>{return rating += comment.rating/user.comments.length},0)}`: ''}<br/>

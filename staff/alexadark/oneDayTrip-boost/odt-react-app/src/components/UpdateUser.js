@@ -20,12 +20,12 @@ class UpdateUser extends Component {
     }
 
 
-//TODO add values from props user to the state, so values are not erased when we don;t enter a value
+
 // TODO fix error handling
 
     componentWillReceiveProps(props) {
         const user = props.user
-
+        console.log(user)
         this.setState({
             name: user.name,
             surname: user.surname,
@@ -42,21 +42,14 @@ class UpdateUser extends Component {
 
         api.updateUser(userId, name, surname, email, picture, newPassword, password)
             .then(res => {
-                try {
-                    this.setState({closeModal:true})
-                    this.setState({success: res.data})
-
-
-                }
-                catch(error){
-                    this.setState({error: error})
-                }
-
-
-
-            })
-
-
+            if (res.status === "OK") {
+                this.setState({closeModal: true})
+                this.setState({success: res.data})
+            } else {
+                this.setState({error: res.error})
+            }
+        })
+            .catch(err => this.setState({error: err}))
     }
 
 

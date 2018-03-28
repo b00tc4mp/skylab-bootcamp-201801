@@ -1,12 +1,10 @@
 const axios = require('axios');
 
 const api = {
-    getBaseUrl() {
-        return this.baseUrl
-    },
+    baseUrl : 'http://localhost:5000/api',
 
     call(method, path, body){
-        return axios[method](`${this.getBaseUrl()}/${path}`, body)
+        return axios[method](`${this.baseUrl}/${path}`, body)
             // .then(res => res.data)
             .then(({ data }) => data)
     },
@@ -65,7 +63,7 @@ const api = {
 
 
     cancelTrip(creatorId, tripId, password){
-        return this.call('delete',`trip/${creatorId}/${tripId}`, {password})
+        return this.call('delete',`trip/${creatorId}/${tripId}`, { data: { password: password }})
     },
 
 
@@ -89,8 +87,8 @@ const api = {
 
 
 
-    comment(commentedUserId, userId, comment, rating){
-        return this.call('put',`user/comment/${commentedUserId}/${userId}`,{comment, rating})
+    comment(commentedUserId, userId, commentText, rating){
+        return this.call('post',`user/comment/${commentedUserId}/${userId}`,{commentText, rating})
     },
     geoLocalize(lat,lng){
         return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI`)

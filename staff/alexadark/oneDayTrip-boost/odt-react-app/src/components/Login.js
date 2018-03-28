@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
 import api from "../api";
 
-//TODO close login modal after login
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -16,20 +14,18 @@ class Login extends Component {
     login = () => {
         const {username, password} = this.state
         api.login(username, password)
-            .then(res => {
-                try {
-                    this.setState({closeModal:true})
-                    this.props.onUserLoggedIn(res.data.id, username)
-                    this.props.history.push(`/user-panel/${username}`)
 
-                }
-                catch(error){
+            .then(res => {
+                if(res.status === 'OK'){
+                    this.setState({closeModal:true, username:'', password: ''})
+                            this.props.onUserLoggedIn(res.data.id, username)
+                            this.props.history.push(`/user-panel/${username}`)
+                } else {
                     this.setState({error: res.error})
                 }
-
-               
-
             })
+            .catch(err => this.setState({error:err}))
+
     }
 
     keepUsername = username => this.setState({username});
@@ -62,7 +58,7 @@ class Login extends Component {
                                    value={this.state.username}/>
                         </div>
                         <div className="uk-width-1-2@m">
-                            <input type="text"
+                            <input type="password"
                                    className="uk-input "
                                    placeholder="password"
                                    onChange={e => this.keepPassword(e.target.value)}
@@ -74,7 +70,7 @@ class Login extends Component {
                                    value="login"/>
                         </div>
                     </form>
-                    {this.state.error? <h2 className="uk-text-center uk-text-danger">{this.state.error}</h2>:''}
+                    {this.state.error? <h2 className="uk-text-center uk-alert-danger uk-padding-small">{this.state.error}</h2>:''}
                 </div>
             </div>
         </div>

@@ -37,8 +37,10 @@ class Header extends Component {
                                 </NavLink>
 
                                 <Logout onUserLoggedIn={this.props.onUserLoggedIn} user={this.props.user}/>
+                                <div className="uk-text-small uk-text-center uk-text-uppercase uk-margin-small-top uk-text-muted">Welcome {this.props.user.username}</div>
 
                             </div>
+
 
 
                             :
