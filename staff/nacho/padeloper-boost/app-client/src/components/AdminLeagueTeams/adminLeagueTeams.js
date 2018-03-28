@@ -15,7 +15,7 @@ class AdminLeagueTeams extends Component {
     super()
     this.state = {
       league: {},
-      teams:[],
+      teams: [],
       teamsCorrect: false
     }
   }
@@ -23,8 +23,10 @@ class AdminLeagueTeams extends Component {
   componentDidMount() {
     api_client.retrieveLeague(this.props.match.params.idOfLeague)
       .then(res => {
-        this.setState({ league: res })
-        this.setState({teams:res.teams})
+        this.setState({
+          league: res,
+          teams: res.teams
+        })
       })
       .catch(console.error)
   }
@@ -35,8 +37,10 @@ class AdminLeagueTeams extends Component {
     if (this.state.league.teams.length === 0 && (this.state.league.players.length === this.state.league.maxplayers)) {
       api_client.generateTeams(this.props.match.params.idOfLeague)
         .then(res => {
-          this.setState({ league: res.data })
-          this.setState({teams:res.data.teams})
+          this.setState({
+            league: res.data,
+            teams: res.data.teams
+          })
         })
         .then(() => {
 
@@ -61,6 +65,13 @@ class AdminLeagueTeams extends Component {
 
   }
 
+  getPlayerNameById = (players, id) => {
+    for (let i = 0; i < players.length; i++) {
+      const player = players[i]
+
+      if (player._id === id) return player.name
+    }
+  }
 
   deleteTeams = (e) => {
     e.preventDefault()
@@ -68,8 +79,10 @@ class AdminLeagueTeams extends Component {
     if (this.state.league.teams.length > 0) {
       api_client.removeTeams(this.props.match.params.idOfLeague)
         .then(res => {
-          this.setState({ league: res.data })
-          this.setState({teams:res.data.teams})
+          this.setState({
+            league: res.data,
+            teams: res.data.teams
+          })
         })
         .then(() => {
           swal({
@@ -95,74 +108,78 @@ class AdminLeagueTeams extends Component {
 
 
 
-  swalEditTeam(selectedTeam, playerA,playerB) { 
-    const optionA = this.state.league.players.map( item => {
-      if(item._id===playerA){
-        return(
+  swalEditTeam(selectedTeam, playerA, playerB) {
+    const optionA = this.state.league.players.map(item => {
+      if (item._id === playerA) {
+        return (
           `<option value = ${item._id} selected>${item.name}</option>`
-          )  
+        )
       }
-      return(
-      `<option value = ${item._id}>${item.name}</option>`
+      return (
+        `<option value = ${item._id}>${item.name}</option>`
       )
     })
-    const optionB = this.state.league.players.map( item => {
-      if(item._id===playerB){
-        return(
+    const optionB = this.state.league.players.map(item => {
+      if (item._id === playerB) {
+        return (
           `<option value = ${item._id} selected>${item.name}</option>`
-          )  
+        )
       }
-      return(
-      `<option value = ${item._id}>${item.name}</option>`
+      return (
+        `<option value = ${item._id}>${item.name}</option>`
       )
     })
 
     swal({
-       title: 'Update Team',
-       
-       html:
-           `<input id="name" class="swal2-input" value="${selectedTeam.name}" placeholder="league name">` +
-           `<select id = "playerA">${optionA}</select>` +
-           `<select id = "playerB">${optionB}</select>`,
-            
-       focusConfirm: false,
-       preConfirm: () => {
-           return {
-               name: document.getElementById('name').value,
-               playerA: document.getElementById('playerA').value,
-               playerB: document.getElementById('playerB').value
-           }
-       }
-   }).then(res => {
-          const teams = this.state.teams.map(team=>{
-            if(team._id===selectedTeam._id){
-              team.name = res.value.name
-              team.players[0] = res.value.playerA
-              team.players[1] = res.value.playerB
-            }
-            return team
-          })
+      title: 'Update Team',
 
-          this.setState({teams})
-          const teamsCorrect = this.checkTeams(teams)
-          this.setState({teamsCorrect})
-   })
-   .catch(err => {
-       console.log(err.message)
-   })
-}
+      html:
+        `<input id="name" class="swal2-input" value="${selectedTeam.name}" placeholder="league name">` +
+        `<select id = "playerA">${optionA}</select>` +
+        `<select id = "playerB">${optionB}</select>`,
+
+      focusConfirm: false,
+      preConfirm: () => {
+        return {
+          name: document.getElementById('name').value,
+          playerA: document.getElementById('playerA').value,
+          playerB: document.getElementById('playerB').value
+        }
+      }
+    }).then(res => {
+      const teams = this.state.teams.map(team => {
+        if (team._id === selectedTeam._id) {
+          team.name = res.value.name
+          team.players[0] = res.value.playerA
+          team.players[1] = res.value.playerB
+        }
+        return team
+      })
+
+      const teamsCorrect = this.checkTeams(teams)
+
+      this.setState({
+        teams,
+        teamsCorrect
+      })
+
+    })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }
 
   checkTeams = (teams) => {
-    for(let i = 0; i < teams.length; i++){
+    for (let i = 0; i < teams.length; i++) {
       const playerA = teams[i].players[0]
       const playerB = teams[i].players[1]
-      if(playerA===playerB){
+      if (playerA === playerB) {
         return false
       }
-      for(let j = 0; j < teams.length; j++){
-        if(i===j)
+      for (let j = 0; j < teams.length; j++) {
+        if (i === j)
           continue
-        if(teams[j].players[0] === playerA ||  teams[j].players[1] === playerA || teams[j].players[0] === playerB ||  teams[j].players[1] === playerB  ){
+        if (teams[j].players[0] === playerA || teams[j].players[1] === playerA || teams[j].players[0] === playerB || teams[j].players[1] === playerB) {
           return false
         }
       }
@@ -172,31 +189,24 @@ class AdminLeagueTeams extends Component {
 
   updateTeams = (e) => {
     e.preventDefault()
-    if(this.state.league.teams.length > 0){
-    api_client.editTeams(this.props.match.params.idOfLeague,this.state.teams)
-      .then(() => {
-        swal({
-          type: 'success',
-          title: 'Teams updated successfully',
-          showConfirmButton: false,
-          timer: 1500
+    if (this.state.league.teams.length > 0) {
+      api_client.editTeams(this.props.match.params.idOfLeague, this.state.teams)
+        .then(() => {
+          swal({
+            type: 'success',
+            title: 'Teams updated successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
-      })
-    }else{
+    } else {
       swal({
         type: 'error',
         title: 'Something was wrong',
         showConfirmButton: false,
         timer: 1500
-    })
-  }
-  }
-
-  getPlayerById = (idPlayer) => {
-    return this.state.league.players.map(player => {
-      if (player._id === idPlayer)
-        return (player.name)
-    })
+      })
+    }
   }
 
   render() {
@@ -224,16 +234,17 @@ class AdminLeagueTeams extends Component {
                   </thead>
                   <tbody>
 
-                    {this.state.teams  ? this.state.teams.map((element, index) => {
+                    {this.state.teams ? this.state.teams.map((element, index) => {
 
                       return (
 
                         <tr key={index}>
 
                           <ColTeamName nameCol={element.name} />
-                          <ColTeamPlayer1 nameCol={this.getPlayerById(element.players[0])} />
-                          <ColTeamPlayer2 nameCol={this.getPlayerById(element.players[1])} />
-                          {this.state.league.creator === this.props.userInfo._id ? <td><button type="button" className="btn btn-primary btn-sm removebutton" onClick={e => { e.preventDefault(); this.swalEditTeam(element,element.players[0],element.players[1])}}>Edit</button></td> : ""}
+                          <ColTeamPlayer1 nameCol={this.getPlayerNameById(this.state.league.players, element.players[0])} />
+                          <ColTeamPlayer1 nameCol={this.getPlayerNameById(this.state.league.players, element.players[1])} />
+
+                          {this.state.league.creator === this.props.userInfo._id ? <td><button type="button" className="btn btn-primary btn-sm removebutton" onClick={e => { e.preventDefault(); this.swalEditTeam(element, element.players[0], element.players[1]) }}>Edit</button></td> : ""}
 
                         </tr>
                       )
@@ -247,19 +258,19 @@ class AdminLeagueTeams extends Component {
 
               {this.state.league.creator === this.props.userInfo._id ? <button type="button" className="btn btn-primary btn-sm boton" onClick={this.generateTeams}>Generate Teams</button> : ""}
               {this.state.league.creator === this.props.userInfo._id ? <button type="button" className="btn btn-primary btn-sm boton" onClick={this.deleteTeams}>Delete Teams</button> : ""}
-               
 
-              {this.state.league.creator === this.props.userInfo._id 
-                ? 
-                  (this.state.teamsCorrect 
+
+              {this.state.league.creator === this.props.userInfo._id
+                ?
+                (this.state.teamsCorrect
                   ?
-                  <button type="button" className="btn btn-primary btn-sm boton" onClick={this.updateTeams} >Update Teams</button> 
+                  <button type="button" className="btn btn-primary btn-sm boton" onClick={this.updateTeams} >Update Teams</button>
                   :
-                  <button type="button" className="btn btn-primary btn-sm boton"  disabled>Update Teams</button> 
-                  )
+                  <button type="button" className="btn btn-primary btn-sm boton" disabled>Update Teams</button>
+                )
                 : ""}
-              
-              
+
+
 
             </div>
 

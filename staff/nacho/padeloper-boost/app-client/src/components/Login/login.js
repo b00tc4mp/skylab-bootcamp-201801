@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router";
+import { Redirect } from "react-router-dom";
 import Header from '../Header/header'
 import Form from './Form/form'
 import './css/main.css'

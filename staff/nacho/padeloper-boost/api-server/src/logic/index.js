@@ -195,7 +195,7 @@ module.exports = {
                 })
 
                 return League.update({ _id: idLeague }, { $push: { teams } })
-                    .then(() => League.findOne({ _id: idLeague }))
+                    .then(() => League.findOne({ _id: idLeague }).populate({ path: 'players' }))
             })
     },
 
@@ -222,7 +222,7 @@ module.exports = {
         return Promise.resolve()
             .then(() => {
                 validate({ idLeague })
-                return League.update({ _id: idLeague }, { teams})
+                return League.update({ _id: idLeague }, { teams })
             })
 
     },
