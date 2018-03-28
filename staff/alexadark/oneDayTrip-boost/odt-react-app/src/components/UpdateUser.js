@@ -40,7 +40,7 @@ class UpdateUser extends Component {
         const userId = this.props.user._id
 
 
-        api.updateUser(userId, name, surname, email, picture, newPassword, password)
+        api.updateUser(userId, name, surname, email, picture, password, newPassword)
             .then(res => {
             if (res.status === "OK") {
                 this.setState({closeModal: true})
