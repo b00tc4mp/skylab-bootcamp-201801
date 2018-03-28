@@ -65,7 +65,7 @@ module.exports = {
 
 
     searchLeagues(query) {
-        return League.find({ $or: [{ city: new RegExp(query, 'i') }, { club: new RegExp(query, 'i') }] }, { _id: 1, creator: 1, name: 1, city: 1, type:1, category:1, maxplayers: 1, players: 1 })
+        return League.find({ $or: [{ city: new RegExp(query, 'i') }, { club: new RegExp(query, 'i') }] }, { _id: 1, creator: 1, name: 1, city: 1, type: 1, category: 1, maxplayers: 1, players: 1 })
 
     },
 
@@ -196,8 +196,6 @@ module.exports = {
 
                 return League.update({ _id: idLeague }, { $push: { teams } })
                     .then(() => League.findOne({ _id: idLeague }))
-                //return 
-
             })
     },
 
@@ -216,6 +214,15 @@ module.exports = {
                     .then(() => League.findOne({ _id: idLeague }))
 
 
+            })
+
+    },
+
+    editTeams(idLeague, teams) {
+        return Promise.resolve()
+            .then(() => {
+                validate({ idLeague })
+                return League.update({ _id: idLeague }, { teams})
             })
 
     },
@@ -261,13 +268,13 @@ module.exports = {
                         let idLoser
                         let gamesLoser
 
-                        if(gamesTeamWinner > gamesTeamLoser){
+                        if (gamesTeamWinner > gamesTeamLoser) {
                             idWinner = idTeamWinner
                             gamesWinner = gamesTeamWinner
                             idLoser = idTeamLoser
                             gamesLoser = gamesTeamLoser
-                        }else{
-                            idWinner =  idTeamLoser
+                        } else {
+                            idWinner = idTeamLoser
                             gamesWinner = gamesTeamLoser
                             idLoser = idTeamWinner
                             gamesLoser = gamesTeamWinner
@@ -282,6 +289,7 @@ module.exports = {
     }
 
 }
+
 
 function createMatches(teams) {
     const numberOfTeams = teams.length

@@ -26,6 +26,26 @@ import api_client from 'api-client'
 //id player 9 : 5ab6c599aef01204e2b9bc3f
 //id player 10 : 5ab6c58caef01204e2b9bc3e
 
+// id mario : 5abb3847e7554613c72f5fa8
+// id edgar : 5abb38bce7554613c72f5fa9
+// id didac : 5abb38fbe7554613c72f5faa
+// id victor : 5abb9f6bd56a2e251e0fc3df
+// id alexandra : 5abba22bd56a2e251e0fc3e8
+// id alexsanchez : 5abba23ad56a2e251e0fc3e9
+// id alexprofe: 5abba253d56a2e251e0fc3ea
+// id michelprofe: 5abba25dd56a2e251e0fc3eb
+// id manuprofe: 5abba269d56a2e251e0fc3ec
+// id david: 5abba2d3d56a2e251e0fc3ed
+// id nachal: 5abba336d56a2e251e0fc3ee
+// id carlossanchez : 5abb9fa5d56a2e251e0fc3e0
+// id pink: 5abb9fb1d56a2e251e0fc3e1
+// id asier: 5abba0b7d56a2e251e0fc3e2
+// id rober: 5abba0dbd56a2e251e0fc3e3
+// id jaimeru: 5abba16fd56a2e251e0fc3e4
+// id jaimero: 5abba1bad56a2e251e0fc3e5
+// id demi: 5abba1f0d56a2e251e0fc3e6
+// id carlosramos: 5abba208d56a2e251e0fc3e7
+// id pablo: 5abba3b8d56a2e251e0fc3f6
 
 class Routes extends Component{
     constructor(){

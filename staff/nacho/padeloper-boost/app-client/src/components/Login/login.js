@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router";
 import Header from '../Header/header'
 import Form from './Form/form'
 import './css/main.css'
+import swal from 'sweetalert2'
 import api_client from 'api-client'
 
 
@@ -18,12 +19,6 @@ class Login extends Component {
     }
   }
 
-  // logUser = (e) => {
-
-  //   const {email,username,password} = this.state    
-  //   e.preventDefault()
-
-  // }
   keepInputEmail = (e) => { e.preventDefault(); this.setState({ email: e.target.value }) }
   keepInputUsername = (e) => { e.preventDefault(); this.setState({ username: e.target.value }) }
   keepInputPassword = (e) => { e.preventDefault(); this.setState({ password: e.target.value }) }
@@ -35,15 +30,25 @@ class Login extends Component {
     api_client.loginUser(email, username, password)
       .then((data) => {
 
-        console.log(data)
 
         if (data) {
-
+          swal({
+            type: 'success',
+            title: 'logged successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.props.setUserId(data.user._id)
           this.setState({
             redirect: true
           })
-
+        }else{
+          swal({
+            type: 'error',
+            title: 'Something was wrong in login',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       })
       .catch(console.error)

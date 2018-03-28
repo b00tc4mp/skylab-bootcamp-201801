@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './css/main.css'
 import Header from '../Header/header'
 import Form from './Form/form'
+import swal from 'sweetalert2'
 import api_client from 'api-client'
 
 class Register extends Component {
@@ -23,7 +24,23 @@ class Register extends Component {
     const { name, surname, email, username, password } = this.state
 
     api_client.registerUser(name, surname, email, username, password)
-      .then((data) => { console.log(data) })
+      .then((data) => { 
+        if(data){
+          swal({
+            type: 'success',
+            title: 'registed successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }else{
+          swal({
+            type: 'error',
+            title: 'error on register',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+       })
       .catch(console.error)
   }
 

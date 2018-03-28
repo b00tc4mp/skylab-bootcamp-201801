@@ -101,9 +101,9 @@ class AdminLeagueMatches extends Component {
       title: `Edit Match Result`,
       html:
         `<input id="winner" class="swal2-input" value="${this.getTeamById(item.teams[0])}">` +
-        `<input id="gameswinner" class="swal2-input" value="12">` +
+        `<input id="gameswinner" class="swal2-input" value="0">` +
         `<input id="loser" class="swal2-input" value="${this.getTeamById(item.teams[1])}">` +
-        `<input id="gamesloser" class="swal2-input" value="8">`,
+        `<input id="gamesloser" class="swal2-input" value="0">`,
       focusConfirm: false,
       preConfirm: () => {
         return {
@@ -134,10 +134,11 @@ class AdminLeagueMatches extends Component {
 
 
   getTeamById(idTeam) {
-    return this.state.league.teams.map(team => {
-      if (team._id === idTeam)
-        return (team.name)
+    const team = this.state.league.teams.filter(team => {
+      console.log(team._id)
+        return team._id == idTeam
     })
+    return team[0].name
   }
 
   render() {
@@ -160,9 +161,10 @@ class AdminLeagueMatches extends Component {
                 <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" className="table table-bordered table-hover">
                   <thead>
                     <tr>
+                      <th className="table-header">Match nº</th>
                       <th className="table-header">Team Name A</th>
-                      <th className="table-header">Sets Team A</th>
-                      <th className="table-header">Sets Team B</th>
+                      <th className="table-header">Games Team A</th>
+                      <th className="table-header">Games Team B</th>
                       <th className="table-header">Team Name B</th>
                       <th className="table-header">Action</th>
                     </tr>
@@ -172,9 +174,10 @@ class AdminLeagueMatches extends Component {
                       return (
 
                         <tr key={index}>
+                          <td>{index+1}</td>
                           <td>{this.getTeamById(item.teams[0])}</td>
-                          <td className="boldPurple">{item.result ? item.result.winner.games : "not played"}</td>
-                          <td className="boldPurple">{item.result ? item.result.loser.games : "not played"}</td>
+                          <td className="boldPurple">{item.result ? (item.result.winner.team==item.teams[0] ? item.result.winner.games : item.result.loser.games) : "not played"}</td>
+                          <td className="boldPurple">{item.result ? (item.result.winner.team==item.teams[1] ? item.result.winner.games : item.result.loser.games) : "not played"}</td>
                           <td>{this.getTeamById(item.teams[1])}</td>
                           <td><button type="button" className="btn btn-primary btn-sm" onClick={e => { e.preventDefault(); this.swalResult(item) }}>Edit Result</button></td>
                         </tr>

@@ -14,6 +14,7 @@ const addPlayerToLeague = require('./addPlayerToLeague')
 const removePlayerFromLeague = require('./removePlayerFromLeague')
 const generateTeams = require('./generateTeams')
 const removeTeams = require('./removeTeams')
+const editTeams = require('./editTeams')
 const generateMatches = require('./generateMatches')
 const removeMatches = require ('./removeMatches')
 const editMatchResult = require ('./editMatchResult')
@@ -36,6 +37,7 @@ module.exports = {
     removePlayerFromLeague,
     generateTeams,
     removeTeams,
+    editTeams,
     generateMatches,
     removeMatches,
     editMatchResult

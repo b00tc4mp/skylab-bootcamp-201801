@@ -5,7 +5,7 @@ import AdminHeader from '../AdminHeader/adminHeader'
 import InfoLeague from '../InfoLeague/InfoLeague'
 import AdminLeagueLinks from '../AdminLeagueLinks/adminLeagueLinks'
 // import RowPlayer from './RowPlayer/RowPlayer'
-import ColPlayerInitial from './RowPlayer/ColsPlayer/ColPlayerInitial'
+// import ColPlayerInitial from './RowPlayer/ColsPlayer/ColPlayerInitial'
 import ColPlayerName from './RowPlayer/ColsPlayer/ColPlayerName'
 import ColPlayerPosition from './RowPlayer/ColsPlayer/ColPlayerPosition'
 import ColPlayerLevel from './RowPlayer/ColsPlayer/ColPlayerLevel'
@@ -37,10 +37,19 @@ class AdminLeaguePlayers extends Component {
 
   removePlayer = (e, id) => {
     e.preventDefault()
-
-    api_client.removePlayerFromLeague(this.props.match.params.idOfLeague, id)
+    if(this.state.league.teams.length > 0){
+      swal({
+        type: 'error',
+        title: 'Cannot remove players if teams are generated',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }else{
+      api_client.removePlayerFromLeague(this.props.match.params.idOfLeague, id)
       .then((league) => this.setState({ players: league.players }))
       .catch(console.error)
+    }
+    
   }
 
 
@@ -87,7 +96,8 @@ class AdminLeaguePlayers extends Component {
                 <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" className="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th className="table-header">Initial</th>
+                      <th className="table-header">Nº</th>
+                      {/* <th className="table-header">Initial</th> */}
                       <th className="table-header">Name</th>
                       <th className="table-header">Position</th>
                       <th className="table-header">level</th>
@@ -98,7 +108,8 @@ class AdminLeaguePlayers extends Component {
                     {this.state.players.map((player, index) => {
                       return (
                         <tr key={index}>
-                          <ColPlayerInitial nameCol={player.name[0]} />
+                          <td>{index+1}</td>
+                          {/* <ColPlayerInitial nameCol={player.name[0]} /> */}
                           <ColPlayerName nameCol={player.name} />
                           <ColPlayerPosition nameCol={player.position} />
                           <ColPlayerLevel nameCol={player.level} />

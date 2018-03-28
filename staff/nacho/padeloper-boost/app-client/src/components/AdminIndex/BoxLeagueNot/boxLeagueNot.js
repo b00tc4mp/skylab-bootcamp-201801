@@ -13,7 +13,7 @@ class BoxLeagueNot extends Component{
                   <div className="textleague">
                     <p>
                       League <span className="leaguename">{this.props.leagueInfo.name} </span>
-                      Max players: <span className ="boldPurple">{this.props.leagueInfo.maxplayers}</span> <br/>  
+                      Max players: <span className ="leaguename">{this.props.leagueInfo.maxplayers}</span> <br/>  
                       type: {this.props.leagueInfo.type} - {this.props.leagueInfo.category}ª                                 
                     </p>
                     <p className="smalltext"><small>{this.props.leagueInfo.city}  | </small><NavLink exact to = {`/adminleagueplayers/${this.props.leagueInfo._id}`}><small><span className="leaguename"> View</span> </small></NavLink></p>

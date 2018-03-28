@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const bodyParser = require('body-parser')
-const { listUsers, createUser, retrieveUser, validateUser, listLeagues, searchLeagues, retrieveLeague, listUserLeagues, createLeague, removeLeague, updateLeague, addPlayerToLeague, removePlayerFromLeague, generateTeams, removeTeams, generateMatches, removeMatches, editMatchResult } = require('./handlers')
+const { listUsers, createUser, retrieveUser, validateUser, listLeagues, searchLeagues, retrieveLeague, listUserLeagues, createLeague, removeLeague, updateLeague, addPlayerToLeague, removePlayerFromLeague, generateTeams, removeTeams, editTeams, generateMatches, removeMatches, editMatchResult } = require('./handlers')
 
 
 const router = Router()
@@ -43,6 +43,8 @@ router.put('/league/:idLeague/remove-player/:idPlayer', removePlayerFromLeague)
 router.put('/league/:idLeague/generate-teams', generateTeams)
 
 router.put('/league/:idLeague/remove-teams', removeTeams)
+
+router.put('/league/:idLeague/edit-teams', jsonBodyParser, editTeams)
 
 router.put('/league/:idLeague/generate-matches', generateMatches)
 
