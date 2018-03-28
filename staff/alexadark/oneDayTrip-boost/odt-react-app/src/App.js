@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import {HashRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Header from './components/Header';
 import Publish from './components/Publish';
 import SignUp from './components/SignUp';
@@ -40,7 +40,7 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div>
                     <Header onUserLoggedIn={this.onUserLoggedIn} user={this.state.user}/>
                     <Switch>
@@ -59,7 +59,7 @@ class App extends Component {
                     </Switch>
                 </div>
 
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

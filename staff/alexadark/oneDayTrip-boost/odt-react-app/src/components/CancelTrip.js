@@ -12,35 +12,25 @@ class CancelTrip extends Component {
         }
     }
 
-    // componentWillReceiveProps() {
-    //
-    // this.props.onCancelTrip()
-    // }
-
-    cancel() {
-        api.cancelTrip(this.props.trip.creator, this.props.trip._id,  this.state.password)
-            .then(res => {
-                if(res.status === 'OK') {
-                    this.setState({closeModal: true, password: ''})
-                    // this.props.onCancelTrip(this.props.user.username)
-
-
-                }
-                else {
-                    this.setState({error: res.error})
-                }
-
-
-            })
-            .catch(err => this.setState({error:err}))
-
-
-
-    }
-
-
     keepPassword = password => this.setState({password})
 
+    cancelTrip = e => {
+        e.preventDefault()
+
+        this.props.onCancelTrip(this.props.trip.creator, this.props.trip._id, this.state.password, (error, res) => {
+            if (error) {
+                this.setState({ error})
+            } else if (res) {
+                if (res.status === 'OK') {
+                    this.setState({ closeModal: true })
+                } else {
+                    this.setState({ error: res.error })
+                }
+            }
+        })
+
+        this.setState({ password: '' })
+    }
 
     render() {
         return (
@@ -56,11 +46,7 @@ class CancelTrip extends Component {
                      className={this.state.closeModal ? "closeModal" : ''}>
                     <div className="uk-modal-dialog uk-modal-body uk-width-xxlarge">
                         <h2 className="uk-text-center">Enter your password to confirm the cancellation</h2>
-                        <form onSubmit={e => {
-                            e.preventDefault();
-                            this.cancel()
-                            ;
-                        }}>
+                        <form onSubmit={this.cancelTrip}>
 
 
                             <div className="uk-margin-bottom">
