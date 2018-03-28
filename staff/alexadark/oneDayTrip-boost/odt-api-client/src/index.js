@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const api = {
-    baseUrl : 'http://localhost:5000/api',
+    baseUrl : 'SET-BASE-URL',
 
     call(method, path, body){
         return axios[method](`${this.baseUrl}/${path}`, body)

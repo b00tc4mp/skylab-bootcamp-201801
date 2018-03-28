@@ -3,7 +3,7 @@
 var axios = require('axios');
 
 var api = {
-    baseUrl: 'http://localhost:5000/api',
+    baseUrl: 'SET-BASE-URL',
 
     call: function call(method, path, body) {
         return axios[method](this.baseUrl + '/' + path, body)
