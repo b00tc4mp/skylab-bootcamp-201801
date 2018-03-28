@@ -3,6 +3,7 @@ import './css/main.css'
 import AdminSidebar from '../AdminSidebar/adminSidebar'
 import AdminHeader from '../AdminHeader/adminHeader'
 import Form from './Form/form'
+import swal from 'sweetalert2'
 import api_client from 'api-client'
 
 class AdminLeagueCreate extends Component{
@@ -15,16 +16,30 @@ class AdminLeagueCreate extends Component{
             category:"1",
             type:"public",
             date:"",
-            maxPlayers:"12"
+            maxplayers:""
           }
         }
 
         createLeague = (e) => {
           e.preventDefault();
           const {name,city,club,type,category,date,maxplayers} = this.state
-          api_client.registerLeague(name,city,club,type,category,date,maxplayers)
+          api_client.registerLeague(this.props.userInfo._id,name,city,club,category,type,date,maxplayers)
             .then((data) => {
-              console.log(data)
+              if(data){
+                swal({
+                  type: 'success',
+                  title: 'League created successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }else{
+                swal({
+                  type: 'error',
+                  title: 'You should fill every input',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
             })
             .catch(console.error)
             
@@ -37,7 +52,7 @@ class AdminLeagueCreate extends Component{
         keepInputCategory = (e) => {e.preventDefault(); this.setState({category:e.target.value})}
         keepInputType = (e) => {e.preventDefault(); this.setState({type:e.target.value})}
         keepInputDate = (e) => {e.preventDefault(); this.setState({date:e.target.value})}
-        keepInputMaxPlayers = (e) => {e.preventDefault(); this.setState({maxPlayers:e.target.value})}
+        keepInputMaxPlayers = (e) => {e.preventDefault(); this.setState({maxplayers:e.target.value})}
 
         render(){
         return(

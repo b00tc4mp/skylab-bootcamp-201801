@@ -1,3 +1,9 @@
-import { ICallAPI } from "./ICallAPI.interface";
+import { IApiClient } from "./IApiClient";
 
-export { ICallAPI };
+import { IUserApi } from "./IUserApi";
+
+import { IFolderApi } from "./IFolderApi";
+
+import { IFileApi } from "./IFileApi";
+
+export { IApiClient, IUserApi, IFolderApi, IFileApi };

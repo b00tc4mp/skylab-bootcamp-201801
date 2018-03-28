@@ -1,7 +1,7 @@
 import React from 'react';
 function ColTeamPlayer2(props) {
     return (
-         <td>{props.nameCol}</td>
+        <td>{props.nameCol}</td>
     )
 }
 

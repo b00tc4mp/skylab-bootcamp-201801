@@ -11,7 +11,7 @@
     font-size:16px;
     color:#555;
     font-weight:regular;
-    height:120px;
+    height:130px;
     padding:10px;
     overflow:hidden;
 }
@@ -38,9 +38,13 @@
     color: #999;
 }
 .smalltext{
-    padding-top:10px;
+    padding-top:2px;
     color:#aaa;
 }
 .leaguename{
     color:rgba(115,116,229,0.9);
+}
+
+.leaguecompleted{
+    color:rgba(12, 180, 49, 0.9);
 }

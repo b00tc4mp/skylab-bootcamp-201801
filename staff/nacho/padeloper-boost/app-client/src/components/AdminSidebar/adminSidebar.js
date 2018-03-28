@@ -12,7 +12,7 @@ function AdminSidebar(props){
           <ul className="list-unstyled components">
             <p className ='welcomeadmin'>Welcome {props.userName.username}</p>
             <li>
-              <a>Stats</a>
+              <NavLink to ='/adminstats' > User Info </NavLink>
             </li>
             <li className="active">
               <a href="#adminleagues" data-toggle="collapse" aria-expanded="false">League</a>

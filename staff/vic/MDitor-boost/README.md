@@ -6,93 +6,151 @@ There is a MarkDown Editor to do you'r crazy notes! but **take it care** this is
 
 - 👨‍🚀 Check Demo Cosmos MDitor http://nappy-cosmos.surge.sh/
 
-
 ⚠️ Hey! if you want to know how we have done `MDitor`, you can navigate to [./doc](https://github.com/VGamezz19/MDitor/tree/master/doc/)
 
 ⚡️ If you just want to know how dowload it, test or add new features, follow theses steps  ⬇️
 
-> ... Developing
-124124125asdas
-<!-- ## Getting Started
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Necesita estas tecnologías para ejecutar el proyecto EDitor en su máquina local
 
-```
-Give examples
+- Install [Node](https://nodejs.org/en/download/)
+- Install [MongoDB](https://docs.mongodb.com/manual/installation/)
+- npm TypeScript
+
+```sh
+npm install -g typescript
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Clone gitHub repo in your local machine
 
-Say what the step will be
-
-```
-Give the example
+```sh
+git clone https://github.com/VGamezz19/MDitor.git
 ```
 
-And repeat
+go inside! 🧐
+
+```sh
+cd /MDitor
+```
+
+then, enter in `./api` and `./mditor-types` and install and build project
+
+#### api
+
+```sh
+cd /api
+
+yarn || npm install
+
+yarn build || npm run build
+```
+
+#### mditor-types
+
+```sh
+cd ../mditor-types
+
+yarn || npm install
+
+yarn build || npm run build
+```
+
+Finally, go inside `./client` and install dependencies
+
+#### client
+
+```sh
+cd ../client
+
+yarn || npm install
+
+yarn start || npm run start
 
 ```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
+this last command will open new windows in your default browser with MDitor! 😁 👍
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+### Client
 
-### Break down into end to end tests
+navigate to `./client` and then ejecute this command:
 
-Explain what these tests test and why
+```sh
 
-```
-Give an example
-```
+cd MDitor/client
 
-### And coding style tests
-
-Explain what these tests test and why
+yarn test || npm run test
 
 ```
-Give an example
+
+It will ejecute Jest test and verify if all components mount correctly.
+
+Then, you can open Cosmos 👨‍🚀 Demo:
+
+```sh
+
+yarn cosmos || npm run cosmos
+
 ```
 
-## Deployment
+Enter URL `127.0.0.1:8989` in your browsert and test it! 👍
 
-Add additional notes about how to deploy this on a live system
+### API-Client
 
-## Built With
+navigate to `./api` and then ejecute this command:
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+```sh
 
-## Contributing
+cd MDitor/api
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+yarn test || npm run test
 
-## Versioning
+```
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+It will test all api logic (file, folder and user)
+
+### MDitor-types
+
+navigate to `./mditor-types` and then ejecute this command:
+
+```sh
+
+cd MDitor/mditor-types
+
+yarn test || npm run test
+
+```
+
+It will test the data type File
+
+### Server
+
+navigate to `./server` and then ejecute this command:
+
+```sh
+
+cd MDitor/server
+
+yarn test || npm run test
+
+```
+
+It will test all server logic (file, folder and user)
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+- **Victor Gamez** - *web-developer* - [VGamezz19](https://github.com/VGamezz19)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc -->
+This project is licensed under the MIT License
