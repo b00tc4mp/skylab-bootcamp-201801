@@ -1,11 +1,15 @@
-.form-group{
-    max-width: 35%;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    margin-top: 5px;
+.form-orchard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8%;
+    text-align: center;
 }
 
-.form-orchard{
-    margin-top: 15%;
-    text-align: center;
+.container{
+    overflow: hidden;
+}
+
+.plant-img{
+    margin-top: 10%;
 }

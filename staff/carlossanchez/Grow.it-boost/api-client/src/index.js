@@ -1,17 +1,9 @@
-require('dotenv').config()
 const rp = require('request-promise')
 
-// const protocol = process.env.protocol
-// const host = process.env.host
-// const port = process.env.port
 
 const api = {
     _baseUrl() {
-        with (this) {
-            // return 'https://secure-shelf-47966.herokuapp.com/api'
-            return 'http://localhost:5000/api'
-            // return `${protocol}://${host}:${port}/api`
-        }
+            return `${this.protocol}://${this.host}:${this.port}/api`
     },
 
     _call(method, path, body) {
@@ -72,7 +64,38 @@ const api = {
 
     searchOrchard( postalCode, keyword ) {
         return this._call('post', 'orchardq', { postalCode, keyword })
+    },
+
+    addCollaborator( orchardid, user ){
+        return this._call('post', '/orchard/addcollaborator', { orchardid, user })
+    },
+
+    deleteCollaborator( orchardid, user ){
+        return this._call('post', '/orchard/deletecollaborator', { orchardid, user })
+    },
+
+    addPlantation( orchardid, species, m2, releaseDate, shared ){
+        return this._call('post', '/orchard/addplantation', { orchardid, species, m2, releaseDate, shared })
+    },
+
+    deletePlantation( orchardid, plantation ){
+        return this._call('post', '/orchard/deleteplantation', { orchardid, plantation })
+    },
+
+    updatePlantation( orchardid, plantation, m2, releaseDate, shared ){
+        return this._call('post', '/orchard/updatePlantation', { orchardid, plantation, m2, releaseDate, shared })
+    },
+    
+    getUsersByOrchard( orchardid ){
+        return this._call('get', `/orchard/populateusers/${orchardid}`)
+    },
+
+    retrieveOrchard2(id) {
+        return this._call('get', `orchard/${id}`)
     }
+
+
+
 
 }
 

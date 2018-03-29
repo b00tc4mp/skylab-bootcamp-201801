@@ -5,6 +5,20 @@ const uuid = require('uuid/v4')
 module.exports = {
 
     /////////// USERS ///////////////
+
+    verify(username, password) {
+        return Promise.resolve()
+            .then(() => {
+                validate({ username, password })
+
+                return User.findOne({ username, password })
+            })
+            .then(user => {
+                if (!user) throw Error('username and/or password wrong')
+
+                return user.id
+            })
+    },
     
     list() {
         return User.find({}, { _id: 0, id: 1, name: 1, surname: 1, email: 1, username: 1 })
@@ -142,11 +156,6 @@ module.exports = {
                 return Orchard.findOne({ name: newName })
             })
             .then(orchard => {
-                if (orchard) throw Error( 'orchard already exists' )
-
-                return Orchard.findOne({ _id: _id })
-            })
-            .then(orchard => {
                 if (!orchard) throw Error('orchard does not exists')
 
                 return Orchard.updateOne({ _id }, { name: newName, location: newLocation, m2: newM2, postalCode: newPostalCode, admitsCollaborators: newAdmitsCollaborators, admitsConsulting: newAdmitsConsulting, description: newDescription })
@@ -213,6 +222,109 @@ module.exports = {
 
                 return orchards
             })
-    }
+    },
+
+
+
+    addCollaborator ( orchardid, user ) {
+        return Promise.resolve()
+
+            .then(() => {
+
+                return Orchard.findOne({ "_id" : orchardid })
+
+            })
+
+            .then(orchard => {
+                
+                let flag = false
+                for (i in orchard.users){
+                    if(orchard.users[i].user == user)
+                    {
+                        flag = true}
+                    }
+                    if (flag) throw Error('User is already a collaborator')
+                    
+                 if (orchard.users.length === 0)
+                     return Orchard.update({ "_id": orchardid },
+                    {$push: {users: {user: user,  role: 'admin'}}})
+                else
+                     return Orchard.update({ "_id": orchardid },
+                     {$push: {users: {user: user,  role: 'collaborator'}}})
+
+            })
+
+            
+    },
+
+    
+    deleteCollaborator ( orchardid, user ) {
+        return Promise.resolve()
+
+            .then(() => {
+
+                return Orchard.update({ "_id": orchardid },
+                {$pull: {users: {user: user}}})
+            })
+            
+    },
+
+
+    addPlantation ( orchardid, species, m2, releaseDate, shared ) {
+        return Promise.resolve()
+
+        .then(() => {
+            return Orchard.findOne({ "_id" : orchardid })
+        })
+
+        .then(orchard => {
+            
+            let flag = false
+            for (i in orchard.plantations){
+                if(orchard.plantations[i].species == species)
+                {flag = true}
+            }
+            return flag
+        })
+
+        .then((flag) => {
+            if (flag) throw Error('Plantation already exists')
+
+            return Orchard.update({ "_id": orchardid },
+            {$push: {plantations: {species: species,  m2: m2, releaseDate: releaseDate, shared: shared}}})
+        })
+    },
+
+
+    deletePlantation(orchardid, plantation){
+        return Promise.resolve()
+
+        .then(() => {
+
+            return Orchard.update({ "_id": orchardid },
+            {$pull: {plantations: {_id: plantation}}})
+        })
+    },
+
+    updatePlantation( orchardid, plantation, m2, releaseDate, shared ){
+        return Promise.resolve()
+
+        .then(() => {
+
+            return Orchard.update({ "_id": orchardid, "plantations._id": plantation },
+            {$set: {"plantations.$.m2": m2, "plantations.$.releaseDate": releaseDate, "plantations.$.shared": shared}})
+        })
+    },
+
+    getUsersByOrchard( orchardid ) {
+        return new Promise((resolve, reject)=> {
+            Orchard.find({  _id: orchardid }).then(orchard=>{
+                User.populate(orchard, {path: 'users.user'})
+                .then(resolve)
+            })
+            .catch(reject)
+        })
+    }  
+
 
 }
