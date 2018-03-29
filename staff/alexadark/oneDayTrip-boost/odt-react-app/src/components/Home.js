@@ -50,7 +50,7 @@ class Home extends Component {
 
         searchTrips = () => {
 
-
+            this.setState({searchAround: 'hidden'})
             this.search()
 
 

@@ -52,7 +52,7 @@ class UpdateUser extends Component {
             .catch(err => this.setState({error: err}))
     }
 
-
+g
     keepName = name => this.setState({name});
     keepSurname = surname => this.setState({surname});
     keepEmail = email => this.setState({email});

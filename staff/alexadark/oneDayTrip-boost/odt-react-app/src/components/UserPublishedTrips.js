@@ -43,6 +43,17 @@ class UserPublishedTrips extends Component {
             .catch(callback)
     }
 
+    updateTrip = (creator,id,from,to,date, meetingPoint, departureTime, returnTime,tripTime, price, distance, seats, description, password, callback) => {
+        api
+            .updateTrip(creator, id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password)
+            .then(res => {
+                callback(undefined, res);
+                
+                return this.listTrips(this.props.match.params.username);
+            })
+            .catch(callback);
+    }
+
     render() {
         return <div className="user-trips published">
             <div className=" uk-card uk-card-default uk-card-body">
@@ -50,10 +61,10 @@ class UserPublishedTrips extends Component {
 
                 {this.state.trips.map((trip, index) => (
                     <PublishedTripItem trip={trip}
-                        key={index}
-                        user={this.props.user}
-                        onUpdateTrip={this.listTrips}
-                        onCancelTrip={this.cancelTrip}
+                                       key={index}
+                                       user={this.props.user}
+                                       onUpdateTrip={this.updateTrip}
+                                       onCancelTrip={this.cancelTrip}
                     />
                 ))}
             </div>

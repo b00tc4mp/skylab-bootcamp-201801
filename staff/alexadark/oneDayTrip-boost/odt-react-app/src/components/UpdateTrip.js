@@ -43,12 +43,16 @@ class UpdateTrip extends Component {
     }
 
 
-    updateTrip() {
+
+    updateTrip = e => {
+        e.preventDefault()
         const {from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password} = this.state
 
-        api.updateTrip(this.props.trip.creator, this.props.trip._id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password)
-            .then(res => {
+        this.props.onUpdateTrip(this.props.trip.creator, this.props.trip._id, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password, (error, res) => {
 
+            if (error) {
+                this.setState({ error})
+            } else if (res) {
                 if (res.status === 'OK') {
                     this.setState({closeModal: true})
                     this.setState({
@@ -67,13 +71,12 @@ class UpdateTrip extends Component {
                     })
                 } else {
                     this.setState({error: res.error})
-                }
-
-            })
-            .catch(err => this.setState({error: err}))
-
+                }    
+            }
+        })
 
     }
+
 
     keepFrom = from => this.setState({from})
     keepTo = to => this.setState({to})
@@ -105,10 +108,7 @@ class UpdateTrip extends Component {
 
                         <h2 className="uk-text-center">Update Trip</h2>
                         <form data-uk-grid
-                              onSubmit={e => {
-                                  e.preventDefault();
-                                  this.updateTrip();
-                              }}>
+                              onSubmit={this.updateTrip}>
                             <div className="uk-width-1-3@m">
                                 <input type="text"
                                        className="uk-input"

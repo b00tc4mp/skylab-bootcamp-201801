@@ -33,7 +33,8 @@ class PublishedTripItem extends Component {
                         <br />
                         <CancelTrip trip={this.props.trip}
                                     onCancelTrip={this.props.onCancelTrip}
-                                    user={this.props.user}/>
+                                    user={this.props.user}
+                                    onUpdateTrip={this.props.onUpdateTrip}/>
                         <br />
                     </div>
                 </div>
