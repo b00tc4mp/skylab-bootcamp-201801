@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Oswald:300|Righteous');
+
+
+
+.flip-container {
+    margin: 20px;
+    width: 240px;
+    height: 340px;
+    
+    
+    transition: all .2s;
+    -webkit-transition:all .2s;
+    -moz-transition:all .2s;
+    -ms-transition:all .2s;
+    -o-transition: all .2s;
+    perspective: 1000;
+    
+    
+    -webkit-perspective:1000;
+    -moz-perspective:1000;
+    -ms-perspective:1000;
+    -o-perspective:1000;
+    
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -ms-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style: preserve-3d;
+    
+   
+   border-radius: 15px;
+   
+    
+}
+
+h3 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+
+.front, .back {
+    text-align: center;
+    -webkit-backface-visibility:hidden ;
+    -moz-backface-visibility:hidden ;
+    -ms-backface-visibility:hidden ;
+    -o-backface-visibility:hidden ;
+    backface-visibility: hidden;
+    transition: all .5s;
+    /* border: 1.5px solid #FF0198; */
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px black;
+    
+}
+
+.front {
+    background: black;
+}
+
+.front img {
+    width: 100%;
+    max-height: 340px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.back {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    color: rgb(80, 80, 245);
+    line-height: 20px;
+    width: 100%;
+    height: 340px;
+    background: #333;
+    transform: rotateY(-180deg);
+    -webkit-transform:rotateY(-180deg) ;
+    -moz-transform:rotateY(-180deg) ;
+    -ms-transform:rotateY(-180deg) ;
+    -o-transform:rotateY(-180deg) ;
+}
+
+.back h3 {
+    margin-top: 10px;
+}
+
+.back p {
+    margin-top: -10px;
+    padding: 20px;
+     font-family: 'Oswald', sans-serif;
+     font-size: 1em;
+     line-height: 23px;
+    text-align: center;
+    color: white;
+}
+
+.back button {
+    position: absolute;
+    right: 85px;
+    bottom: 15px;
+    
+}
+
+.back button{
+    cursor: pointer;
+    background-color: transparent;
+    color: #FF0198;
+    border: 1px solid #FF0198;
+    border-radius: 5px;
+  }
+  .back button:hover{
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid black;
+    transition: all 0.6s;
+  }
+
+.flip-container .front {
+    transform: rotateY(0deg);
+    -webkit-transform:rotateY(0deg) ;
+    -moz-transform:rotateY(0deg) ;
+    -ms-transform:rotateY(0deg) ;
+    -o-transform:rotateY(0deg) ;
+    transform-style: preserve-3d;
+    
+}
+
+.flip-container:hover .front {
+    transform: rotateY(-180deg);
+    -webkit-transform:rotateY(-180deg) ;
+    -moz-transform:rotateY(-180deg) ;
+    -ms-transform:rotateY(-180deg) ;
+    -o-transform: rotateY(-180deg);
+    transform-style: preserve-3d;
+}
+
+.flip-container .back {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg) ;
+    -moz-transform:rotateY(180deg) ;
+    -ms-transform:rotateY(180deg) ;
+    -o-transform:rotateY(180deg) ;
+    transform-style: preserve-3d;
+    
+}
+
+.flip-container:hover .back {
+    transform: rotateY(0deg);
+    -webkit-transform:rotateY(0deg) ;
+    -moz-transform:rotateY(0deg) ;
+    -ms-transform:rotateY(0deg) ;
+    -o-transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+@media screen and (max-width: 400px){
+    
+    .flip-container {
+
+        margin: 20px auto;
+        width:300px ;
+        height: 400px;
+    }
+    .front img {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .back {
+        height: 400px;
+    }
+}

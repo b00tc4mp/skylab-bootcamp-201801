@@ -1,0 +1,417 @@
+.btn-scroll-down:before {
+  bottom: 20px;
+  width: 60px;
+  height: 60px; }
+
+.btn-scroll-down:after {
+  width: 30px;
+  height: 30px;
+  bottom: 35px;
+  -webkit-animation: sc-down-a 0.3s infinite alternate;
+  animation: sc-down-a 0.3s infinite alternate; }
+
+.btn-scroll-down {
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10;
+  -webkit-transition: display 0.5s easy-in-out;
+  transition: display 0.5s easy-in-out; }
+
+.btn-scroll-down:before,
+.btn-scroll-down:after {
+  content: '';
+  display: block;
+  border-bottom: 5px solid #fff;
+  border-right: 5px solid #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0; }
+
+@keyframes sc-down-a {
+  0% {
+    bottom: 35px; }
+  0% {
+    bottom: 30px; } }
+.sk-cube-grid {
+  width: 50%;
+  height: 100px;
+  margin: 100px auto; }
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #1b1e3c;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; }
+
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s; }
+
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s; }
+
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1); }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1); } }
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1); }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1); } }
+.example-enter {
+  opacity: 0.01; }
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in; }
+
+.example-leave {
+  opacity: 1; }
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in; }
+
+.cs-loader-inner {
+  width: calc(100% - 200px);
+  color: #1b1e3c;
+  padding: 0 100px;
+  text-align: center; }
+
+.cs-loader-inner label {
+  font-size: 20px;
+  opacity: 0;
+  display: inline-block; }
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px); }
+  33% {
+    opacity: 1;
+    transform: translateX(0px); }
+  66% {
+    opacity: 1;
+    transform: translateX(0px); }
+  100% {
+    opacity: 0;
+    transform: translateX(300px); } }
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px); }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300px); } }
+.cs-loader-inner label:nth-child(6) {
+  -webkit-animation: lol 3s infinite ease-in-out;
+  animation: lol 3s infinite ease-in-out; }
+
+.cs-loader-inner label:nth-child(5) {
+  -webkit-animation: lol 3s 100ms infinite ease-in-out;
+  animation: lol 3s 100ms infinite ease-in-out; }
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 3s 200ms infinite ease-in-out;
+  animation: lol 3s 200ms infinite ease-in-out; }
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 3s 300ms infinite ease-in-out;
+  animation: lol 3s 300ms infinite ease-in-out; }
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 3s 400ms infinite ease-in-out;
+  animation: lol 3s 400ms infinite ease-in-out; }
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 3s 500ms infinite ease-in-out;
+  animation: lol 3s 500ms infinite ease-in-out; }
+
+html,
+body {
+  font-family: 'Cutive Mono', monospace !important;
+  font-size: 1em !important;
+  width: 100%;
+  height: 100%; }
+  html .container-init,
+  body .container-init {
+    position: relative;
+    min-width: 100%;
+    min-height: 100%; }
+    html .container-init header nav,
+    body .container-init header nav {
+      background: linear-gradient(black, rgba(0, 0, 0, 0));
+      padding: 1em;
+      position: absolute;
+      width: 100%; }
+      html .container-init header nav h1,
+      body .container-init header nav h1 {
+        font-size: 1.5em !important;
+        color: white !important; }
+      html .container-init header nav .navbar-text,
+      body .container-init header nav .navbar-text {
+        color: white; }
+    html .container-init canvas,
+    body .container-init canvas {
+      z-index: -1;
+      position: fixed; }
+    html .container-init #particles-js,
+    body .container-init #particles-js {
+      z-index: -2;
+      position: fixed;
+      min-width: 100%;
+      min-height: 100%;
+      background: url(../img/estrellas_0.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      color: white;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+      html .container-init #particles-js .iconRow,
+      body .container-init #particles-js .iconRow {
+        align-self: flex-end; }
+  html #page,
+  body #page {
+    background: repeating-linear-gradient(33.333333deg, #1b1e3c -32em, #1b1e3c 0em, #E2E2E2 0em, #E2E2E2 47em) !important;
+    position: relative; }
+    @media screen and (max-width: 450px) {
+      html #page,
+      body #page {
+        min-height: 1112px; } }
+    @media screen and (min-width: 600px) {
+      html #page,
+      body #page {
+        min-height: 1064px; } }
+    html #page nav,
+    body #page nav {
+      background: linear-gradient(black, black);
+      padding: 1em;
+      width: 100%; }
+      html #page nav h1,
+      body #page nav h1 {
+        font-size: 1.5em !important;
+        color: white !important; }
+      html #page nav .navbar-text,
+      body #page nav .navbar-text {
+        color: white; }
+    html #page .contain-input-search,
+    body #page .contain-input-search {
+      padding: 2em;
+      display: flex;
+      flex-direction: column; }
+      html #page .contain-input-search .app-content,
+      body #page .contain-input-search .app-content {
+        margin-top: 1em;
+        min-height: 0 !important; }
+      html #page .contain-input-search .search-input,
+      body #page .contain-input-search .search-input {
+        display: flex;
+        height: 3.4em;
+        flex: 1; }
+        html #page .contain-input-search .search-input input,
+        body #page .contain-input-search .search-input input {
+          flex: 1; }
+      html #page .contain-input-search .contain-select,
+      body #page .contain-input-search .contain-select {
+        background: white;
+        max-height: 250px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        overflow: scroll; }
+        html #page .contain-input-search .contain-select .coins,
+        body #page .contain-input-search .contain-select .coins {
+          cursor: pointer;
+          flex: 1;
+          align-items: center;
+          padding: 1em;
+          border-bottom: 1px solid gray;
+          justify-content: center; }
+          html #page .contain-input-search .contain-select .coins img,
+          body #page .contain-input-search .contain-select .coins img {
+            float: left;
+            flex: 1;
+            height: 50px; }
+          html #page .contain-input-search .contain-select .coins h1,
+          body #page .contain-input-search .contain-select .coins h1 {
+            float: left;
+            flex: 8;
+            text-align: center; }
+    html #page .app-content,
+    body #page .app-content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 2em;
+      background-color: white !important;
+      min-height: 500px; }
+      html #page .app-content table,
+      body #page .app-content table {
+        width: 100%; }
+        html #page .app-content table tbody,
+        body #page .app-content table tbody {
+          flex-direction: column;
+          display: flex; }
+          html #page .app-content table tbody .trHeader,
+          body #page .app-content table tbody .trHeader {
+            margin-bottom: 1em; }
+            @media screen and (max-width: 450px) {
+              html #page .app-content table tbody .trHeader,
+              body #page .app-content table tbody .trHeader {
+                display: none; } }
+            @media screen and (min-width: 600px) {
+              html #page .app-content table tbody .trHeader,
+              body #page .app-content table tbody .trHeader {
+                display: flex; } }
+            html #page .app-content table tbody .trHeader th,
+            body #page .app-content table tbody .trHeader th {
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+              flex: 2;
+              padding: 10px;
+              margin: 3px; }
+            html #page .app-content table tbody .trHeader th:nth-child(2),
+            body #page .app-content table tbody .trHeader th:nth-child(2) {
+              flex: 1; }
+            html #page .app-content table tbody .trHeader th:nth-child(3),
+            body #page .app-content table tbody .trHeader th:nth-child(3) {
+              flex: 3; }
+          html #page .app-content table tbody .rowTr,
+          body #page .app-content table tbody .rowTr {
+            display: flex;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            min-height: 200px;
+            flex-wrap: wrap; }
+            @media screen and (max-width: 450px) {
+              html #page .app-content table tbody .rowTr,
+              body #page .app-content table tbody .rowTr {
+                flex-direction: column-reverse; } }
+            @media screen and (min-width: 600px) {
+              html #page .app-content table tbody .rowTr,
+              body #page .app-content table tbody .rowTr {
+                flex-direction: row; } }
+            html #page .app-content table tbody .rowTr td,
+            body #page .app-content table tbody .rowTr td {
+              flex: 2;
+              margin: 0 13px;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              display: flex; }
+              html #page .app-content table tbody .rowTr td img,
+              body #page .app-content table tbody .rowTr td img {
+                width: 45%; }
+                @media screen and (max-width: 450px) {
+                  html #page .app-content table tbody .rowTr td img,
+                  body #page .app-content table tbody .rowTr td img {
+                    display: none; } }
+                @media screen and (min-width: 600px) {
+                  html #page .app-content table tbody .rowTr td img,
+                  body #page .app-content table tbody .rowTr td img {
+                    display: initial; } }
+            html #page .app-content table tbody .rowTr td:nth-child(2),
+            body #page .app-content table tbody .rowTr td:nth-child(2) {
+              flex: 1;
+              color: white; }
+              html #page .app-content table tbody .rowTr td:nth-child(2) h1,
+              body #page .app-content table tbody .rowTr td:nth-child(2) h1 {
+                color: black; }
+              html #page .app-content table tbody .rowTr td:nth-child(2) span,
+              body #page .app-content table tbody .rowTr td:nth-child(2) span {
+                padding: 0 1em !important;
+                border-radius: 7px !important; }
+              html #page .app-content table tbody .rowTr td:nth-child(2) .down,
+              body #page .app-content table tbody .rowTr td:nth-child(2) .down {
+                background: brown; }
+              html #page .app-content table tbody .rowTr td:nth-child(2) .up,
+              body #page .app-content table tbody .rowTr td:nth-child(2) .up {
+                background: green; }
+              html #page .app-content table tbody .rowTr td:nth-child(2) .equal,
+              body #page .app-content table tbody .rowTr td:nth-child(2) .equal {
+                color: black;
+                background: #c9c9c9; }
+              @media screen and (max-width: 450px) {
+                html #page .app-content table tbody .rowTr td:nth-child(2),
+                body #page .app-content table tbody .rowTr td:nth-child(2) {
+                  display: none; } }
+              @media screen and (min-width: 600px) {
+                html #page .app-content table tbody .rowTr td:nth-child(2),
+                body #page .app-content table tbody .rowTr td:nth-child(2) {
+                  display: flex; } }
+            html #page .app-content table tbody .rowTr td:nth-child(3),
+            body #page .app-content table tbody .rowTr td:nth-child(3) {
+              flex: 3; }
+            @media screen and (max-width: 450px) {
+              html #page .app-content table tbody .rowTr td:nth-child(4),
+              body #page .app-content table tbody .rowTr td:nth-child(4) {
+                display: none; } }
+            @media screen and (min-width: 600px) {
+              html #page .app-content table tbody .rowTr td:nth-child(4),
+              body #page .app-content table tbody .rowTr td:nth-child(4) {
+                display: flex; } }
+            html #page .app-content table tbody .rowTr .progressLoad,
+            body #page .app-content table tbody .rowTr .progressLoad {
+              flex: 6 !important;
+              padding: 2em !important;
+              margin: 0 56px !important; }
+    html #page .template-rowIcon,
+    body #page .template-rowIcon {
+      height: 100px;
+      display: flex; }
+
+/*# sourceMappingURL=index.css.map */

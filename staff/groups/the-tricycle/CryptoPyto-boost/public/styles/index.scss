@@ -1,0 +1,238 @@
+@import 'arrowIcon';
+@import 'loader';
+@import 'animationsComponents';
+@import 'loaderNietos';
+
+$break-small: 450px;
+$break-large: 600px;
+
+html,
+body {
+    font-family: 'Cutive Mono', monospace !important;
+    font-size: 1em !important;
+    width: 100%;
+    height: 100%;
+    .container-init {
+        position: relative;
+        min-width: 100%;
+        min-height: 100%;
+        header {
+            nav {
+                background: linear-gradient(black, rgba(0, 0, 0, 0));
+                padding: 1em;
+                position: absolute;
+                width: 100%;
+                h1 {
+                    font-size: 1.5em !important;
+                    color: white !important;
+                }
+                .navbar-text {
+                    color: white;
+                }
+            }
+        }
+        canvas {
+            z-index: -1;
+            position: fixed
+        }
+        #particles-js {
+            z-index: -2;
+            position: fixed;
+            min-width: 100%;
+            min-height: 100%;
+            background: url(../img/estrellas_0.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            color: white;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .iconRow {
+                align-self: flex-end
+            }
+        }
+    }
+    $standar-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    #page {
+        background: repeating-linear-gradient(33.333333deg, #1b1e3c -32em, #1b1e3c 0em, #E2E2E2 0em, #E2E2E2 47em) !important;
+        position: relative;
+        @media screen and (max-width: $break-small) {
+            min-height: 1112px;
+        }
+        @media screen and (min-width: $break-large) {
+            min-height: 1064px;
+        }
+        nav {
+            background: linear-gradient(black, black);
+            padding: 1em;
+            width: 100%;
+            h1 {
+                font-size: 1.5em !important;
+                color: white !important;
+            }
+            .navbar-text {
+                color: white;
+            }
+        }
+        .contain-input-search {
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            .app-content {
+                margin-top: 1em;
+                min-height: 0 !important;
+            }
+            .search-input {
+                display: flex;
+                height: 3.4em;
+                flex: 1;
+                input {
+                    flex: 1
+                }
+            }
+            .contain-select {
+                background: white;
+                max-height: 250px;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1em;
+                overflow: scroll;
+                .coins {
+                    cursor: pointer;
+                    flex: 1;
+                    align-items: center;
+                    padding: 1em;
+                    border-bottom: 1px solid gray;
+                    justify-content: center;
+                    img {
+                        float: left;
+                        flex: 1;
+                        height: 50px;
+                    }
+                    h1 {
+                        float: left;
+                        flex: 8;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .app-content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 2em;
+            background-color: white !important;
+            min-height: 500px;
+            table {
+                width: 100%;
+                tbody {
+                    flex-direction: column;
+                    display: flex;
+                    .trHeader {
+                        margin-bottom: 1em;
+                        @media screen and (max-width: $break-small) {
+                            display: none;
+                        }
+                        @media screen and (min-width: $break-large) {
+                            display: flex;
+                        }
+                        th {
+                            box-shadow: $standar-box-shadow;
+                            flex: 2;
+                            padding: 10px;
+                            margin: 3px;
+                        }
+                        th:nth-child(2) {
+                            flex: 1;
+                        }
+                        th:nth-child(3) {
+                            flex: 3;
+                        }
+                    }
+                    .rowTr {
+                        display: flex;
+                        box-shadow: $standar-box-shadow;
+                        min-height: 200px;
+                        flex-wrap: wrap;
+                        @media screen and (max-width: $break-small) {
+                            flex-direction: column-reverse
+                        }
+                        @media screen and (min-width: $break-large) {
+                            flex-direction: row
+                        }
+                        td {
+                            flex: 2;
+                            margin: 0 13px;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            display: flex;
+                            img {
+                                @media screen and (max-width: $break-small) {
+                                    display: none;
+                                }
+                                @media screen and (min-width: $break-large) {
+                                    display: initial;
+                                }
+                                width: 45%;
+                            }
+                        }
+                        td:nth-child(2) {
+                            flex: 1;
+                            color: white;
+                            h1 {
+                                color:black;
+                            }
+                            span{
+                                padding: 0 1em !important;
+                                border-radius: 7px !important;
+                            }
+                            .down {
+                                background: brown;
+                            }
+                            .up {
+                                background: green;
+                            }
+                            .equal {
+                                color: black;
+                                background: #c9c9c9;
+                            }
+                            @media screen and (max-width: $break-small) {
+                                display: none;
+                            }
+                            @media screen and (min-width: $break-large) {
+                                display: flex;
+                            }
+                        }
+                        td:nth-child(3) {
+                            flex: 3;
+                        }
+                        td:nth-child(4) {
+                            @media screen and (max-width: $break-small) {
+                                display: none;
+                            }
+                            @media screen and (min-width: $break-large) {
+                                display: flex;
+                            }
+                        }
+                        .progressLoad {
+                            flex: 6 !important;
+                            padding: 2em !important;
+                            margin: 0 56px !important;
+                        }
+                    }
+                }
+            }
+        }
+        .template-rowIcon {
+            height: 100px;
+            display: flex;
+        }
+    }
+}

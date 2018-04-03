@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+.carousel-inner img {
+    margin-top: 100px;
+    transform: scaleY(1.5);
+  }
+
+.btn-secondary {
+  position: relative;
+  left:-205px;
+  background-color: rgba(43, 42, 42, 0.3)!important;
+  width: 1365px;
+  height: 100px;
+  margin-bottom: -40px;
+  border: none;
+  font-family: 'Righteous', cursive;
+}
+
+.btn-secondary>h6{
+  font-size: 30px;
+}
+
+@media screen and (max-width: 750px){
+  .carousel-inner img {
+    margin-top: 0px;
+    transform: scaleY(1);
+
+  }
+}
+
+@media screen and (max-width: 470px){
+  .carousel-inner img {
+    margin-top: 0px;
+    transform: scaleY(1);
+
+  }
+}
+  
+

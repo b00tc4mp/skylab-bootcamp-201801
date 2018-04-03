@@ -10,4 +10,6 @@ Splitting can be done by clicking the split button in the panel, through the con
 
 [Split terminals](https://code.visualstudio.com/updates/v1_21#_split-terminals)
 
+[But what *is* a Neural Network? | Chapter 1, deep learning](https://www.youtube.com/watch?v=aircAruvnKk)
+
 # [Final project](https://github.com/Eahob/CustomerManagement)

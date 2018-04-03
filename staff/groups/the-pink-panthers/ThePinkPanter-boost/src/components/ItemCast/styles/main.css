@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300|Anton');
+
+
+
+#reviews{
+    color: white;
+    width: auto;
+    background-color: rgba(255, 1, 152, 0.3) !important;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+  font-family: 'Anton', sans-serif;
+    margin-left: 100px;
+}
+
+h5{
+    text-align: center;
+    margin-top: 10px;
+}
+
+li{
+    display: inline;
+    margin: 20px;
+}
+
+.cast { 
+  padding: .5vw;
+  font-size: 0;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: column;
+  -webkit-flex-flow: row wrap; 
+  flex-flow: row wrap; 
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.cast div { 
+  
+  width: 200px; 
+  margin: .5vw;
+  
+  
+}
+.cast div img { 
+  width: 100%; 
+  max-height: 300px; 
+}
+@media screen and (max-width: 400px) {
+  .cast div { margin: 0; }
+  .cast { padding: 0; }
+  
+}
