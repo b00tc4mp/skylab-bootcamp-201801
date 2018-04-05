@@ -10,7 +10,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <link href="vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -39,6 +39,14 @@
     -->
     <script src="vendor/jquery/1.12.4/jquery-1.12.4.js"></script>
     <script src = "vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#sidebarCollapse').on('click', function () {
+              $('#sidebar').toggleClass('active');
+              $(this).toggleClass('active');
+          });
+      });
+  </script>
 
   </body>
 </html>

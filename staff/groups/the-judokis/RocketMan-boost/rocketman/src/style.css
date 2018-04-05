@@ -1,0 +1,72 @@
+/* Gen styles */
+
+.text-white {
+    color: #a1a8c3 !important;
+}
+
+.row {
+    margin: 0;
+}
+
+p,
+span,
+label {
+    color: #ccc;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+h4 {
+    color: #8d97bd;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #198231;
+    border-color: #198231;
+}
+
+.icon {
+    font-size: 24px;
+    color: #a1a8c3;
+    margin-right: 5px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+/* nav */
+
+nav img {
+    width: 40px;
+}
+
+nav.bg-dark {
+    background-color: #273646 !important;
+}
+
+/* section-button */
+
+.section-button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.radio-button {
+    z-index: 0;
+}
+
+
+

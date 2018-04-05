@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import api from 'users-api-client-0'
+import api from '../../api-client'
 import './styles/main.css'
+import swal from 'sweetalert2'
+import plant from './styles/img/plant.png'
 
 
 class Registerorchard extends Component {
@@ -16,9 +18,7 @@ class Registerorchard extends Component {
             postalCode: '',
             collaborators : false,
             consulting: false,
-            description: '',
-            toSuccess: false,
-            toFail: false
+            description: ''
         }
     }
 
@@ -53,11 +53,31 @@ class Registerorchard extends Component {
             this.state.consulting,
             this.state.description
         )
-        .then(res => {res.status === 'OK'?
-                    this.setState({toSuccess: true})
-                    :
-                    this.setState({toFail: true})    
-})
+        .then(res => {
+            res.status === 'OK' ?
+
+                (swal({
+                    type: 'success',
+                    title: 'orchard registered',
+                    showConfirmButton: false,
+                    timer: 1500
+                }))
+                :
+                (swal({
+                    type: 'error',
+                    title: res.error,
+                    showConfirmButton: false,
+                    timer: 1500
+                }))
+                let flagStatus = res.status
+                return flagStatus
+            })
+            .then(flagStatus => {
+                flagStatus === 'OK' ?
+                this.props.history.push('/search')
+                :
+                undefined
+            })
     }
 
 
@@ -65,38 +85,25 @@ class Registerorchard extends Component {
     render(){
     if (!this.state.toSuccess && !this.state.toFail) {
     return (
+        <div className="container">
         <form className="form-orchard" action="/registerorchard" method="post" onSubmit={(e) => {e.preventDefault(); this.submit()}}>
-
-            <div className="form-group">
-                <input type="text" className="form-control" name='name' placeholder="Name" onChange={this.inputField}/>
-            </div>
-            <div className="form-group">
-                <input type="text" className="form-control" name='location' placeholder="Location"  onChange={this.inputField}/>
-            </div>
-            <div className="form-group">
-                <input type="text" className="form-control" name='m2' placeholder="M2"  onChange={this.inputField}/>
-            </div>
-            <div className="form-group">
-                <input type="text" className="form-control" name='postalCode' placeholder="postal code"  onChange={this.inputField}/>
-            </div>
+                <img src={plant} className="img-fluid plant-img" alt="Responsive profile" />
+                <input autoComplete="off" type="text" className="form-control" name='name' placeholder="Name" onChange={this.inputField}/>
+                <input autoComplete="off" type="text" className="form-control" name='location' placeholder="Location"  onChange={this.inputField}/>
+                <input autoComplete="off" type="number" className="form-control" name='m2' placeholder="M2"  onChange={this.inputField}/>
+                <input autoComplete="off" type="number" className="form-control" name='postalCode' placeholder="postal code"  onChange={this.inputField}/>
             <div className="checkbox" name='collaborators' onChange={this.checkCollaborators}>
                 <label><input type="checkbox" value="" /> Collaborators</label>
             </div>
             <div className="checkbox" name='consulting' onChange={this.checkConsulting}>
                 <label><input type="checkbox" value="" /> Consulting</label>
             </div>
-            <div className="form-group">
-                <textarea className="form-control" rows="2" name='description' placeholder="Description"  onChange={this.inputField}></textarea>
-            </div>
+                <textarea autoComplete="off" className="form-control" rows="2" name='description' placeholder="Description"  onChange={this.inputField}></textarea>
             <button type="submit" className="btn btn-success">Save</button>
         </form>
+        </div>
     )}
-    else if (this.state.toSuccess){
-        return <Redirect to='/register/successreg' />
-    }
-    else if (this.state.toFail){
-        return <Redirect to='/register/failreg' />
-    }
+    
 }
 }
 

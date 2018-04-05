@@ -13,11 +13,14 @@ function create(req: Request, res: Response) {
     const { body: { name, surname, email, username, password } } = req;
 
     logic.user.register(name, surname, email, username, password)
-        .then(id => {
+        .then(_id => {
 
-            const token = jwt.sign({ id, username }, secret);
+            jwt.sign({ _id, username }, secret, (err: Error, token: Object) => {
 
-            res.json(success({ token }));
+                if (err) return res.json(fail(err));
+
+                res.json(success({ token }));
+            });
         })
         .catch(err => {
 

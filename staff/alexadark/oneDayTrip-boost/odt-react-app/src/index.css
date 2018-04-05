@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   background: #f5f5f5
 }
 .uk-modal-page{
@@ -30,7 +29,7 @@ body {
   91.0% { opacity: 0.87; }
 }
 
-.spinner{
+ul.spinner{
   font-size: 100px;
   width: 1em;
   height: 1em;
@@ -43,7 +42,7 @@ body {
   box-shadow: 0 0 1.5em rgba(0,0,0,0.4);
 }
 
-.spinner:before{
+ul.spinner:before{
   content: "\0020";
   position: absolute;
   width: .65em;
@@ -55,7 +54,7 @@ body {
   background: rgba(150, 150, 150, 0.1);
 }
 
-.spinner:after{
+ul.spinner:after{
   content: "\0020";
   position: absolute;
   width: .25em;
@@ -67,7 +66,7 @@ body {
   background: rgba(150, 150, 150, 0.1);
 }
 
-.spinner li{
+ul.spinner li{
   width: .2em;
   height: .2em;
   position: absolute;
@@ -75,7 +74,7 @@ body {
 }
 
 /* blue */
-.spinner li:nth-child(1){
+ul.spinner li:nth-child(1){
   background: #0076c1;
   top: 0;
   left: 50%;
@@ -85,7 +84,7 @@ body {
 }
 
 /* red */
-.spinner li:nth-child(2){
+ul.spinner li:nth-child(2){
   background: #ff003c;
   top: 60%;
   right: 20%;
@@ -95,7 +94,7 @@ body {
 }
 
 /* yellow */
-.spinner li:nth-child(3){
+ul.spinner li:nth-child(3){
   background: #fabe28;
   bottom: 0;
   left: 50%;
@@ -105,7 +104,7 @@ body {
 }
 
 /* green */
-.spinner li:nth-child(4){
+ul.spinner li:nth-child(4){
   background: #88c100;
   top: 60%;
   left: 20%;
@@ -114,3 +113,10 @@ body {
   animation: rota 1.72s linear infinite, opa 5.25s ease-in-out infinite alternate;
 }
 
+.hidden{
+  display: none !important;
+}
+
+.user-image{
+  width: 70px;
+}

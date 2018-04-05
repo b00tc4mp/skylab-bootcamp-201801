@@ -5,7 +5,7 @@ module.exports = new Schema({
         type: ObjectId, ref: 'User'
     },
     date: Date,
-    comment: String,
+    commentText: String,
     rating: {
         type: Number,
         min: 1,

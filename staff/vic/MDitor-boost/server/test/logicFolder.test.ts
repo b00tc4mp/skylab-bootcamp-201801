@@ -1,5 +1,5 @@
 import { logic } from "../src/logic";
-import { File, User, Folder, IFolder, IFolderModel } from "../src/models";
+import { File, User, Folder, IFolderModel } from "../src/models";
 import mongoose from "mongoose";
 import "jest";
 
@@ -7,17 +7,7 @@ let masterUsertTestID;
 
 beforeAll(async (done) => {
 
-    require("./db");
-
-    mongoose.connection.once("connected", () => {
-
-        if (process.env.MONGO_DB_TEST === "MDitor") {
-
-            mongoose.disconnect();
-
-            throw new Error("!ERROR: You can't run this test in MDitor Database, you should use MDitor-Test Database");
-        }
-    });
+    await require("./db");
 
     masterUsertTestID = await logic.user.register("user", "surname", "email", "adminUATFolders", "adminUATPass");
 
@@ -26,32 +16,13 @@ beforeAll(async (done) => {
 
 afterAll(async (done) => {
 
-    await mongoose.connection.db.dropCollection("users", async function (err, result) {
-        if (err) done(err);
-    });
+    await User.remove({});
+    await File.remove({});
+    await Folder.remove({});
 
-    await mongoose.connection.db.dropCollection("folders", function (err, result) {
-        if (err) done(err);
-    });
+    await mongoose.disconnect();
 
-    await mongoose.connection.db.dropCollection("files", function (err, result) {
-        if (err) done(err);
-    });
-
-    mongoose.disconnect();
     done();
-});
-
-describe(".env", () => {
-
-    test("Should exist", () => {
-
-        expect(process.env.MONGO_HOST_TEST);
-
-        expect(process.env.MONGO_PORT_TEST);
-
-        expect(process.env.MONGO_DB_TEST);
-    });
 });
 
 describe("Logic Folder", () => {

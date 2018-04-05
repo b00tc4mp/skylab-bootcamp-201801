@@ -207,7 +207,7 @@ router.get('/available-trips/:destination/:arrival/:departure', (req,res) =>{
         }
     })
         .then(trips =>{
-            if(!trips) throw Error('there is no trips with these criterias')
+            if(trips.length === 0) throw Error('there is no trips with these criterias')
             return trips
         })
         .then((trips) => {
@@ -313,10 +313,9 @@ router.put('/trip/join/:tripId/:passengerId', (req, res) => {
 
     Trip.findOne({"_id": ObjectId(tripId)})
         .then(trip => {
-            if (!trip.passengers) trip.passengers = [];
+            if (!trip.passengers) trip.passengers = []
+            // if(trip.creator.id === passengerId) throw Error ('You cannot join a trip that you have created')
 
-            if ((trip.passengers).includes({"_id": ObjectId(passengerId)})) throw Error('this passenger has already' +
-                ' joined this trip')
             if(trip.seats - trip.passengers.length < 1) throw Error ('This trip is fully booked')
             trip.passengers.push({"_id": ObjectId(passengerId)})
             return trip.save()
@@ -387,26 +386,31 @@ router.put('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) 
 
 })
 
+router.post('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) => {
+    const {params: {commentedUserId, userId}} = req
+    const {body: {commentText, rating}} = req
+    const commentedUser = {"_id": ObjectId(commentedUserId)}
+    // const user = {"_id": ObjectId(userId)}
+    const comment = new Comment({
+        user: ObjectId(userId),
+        date: moment().toDate(),
+        commentText,
+        rating
+    })
+    User.findOne(commentedUser)
+        .then(user => {
+            if (!user.comments) user.comments = []
+            user.comments.push(comment)
+            return user.save()
+        })
+        .then(() => {
+            res.json(success(comment))
+        })
+        .catch(err => {
+            res.json(fail(err.message))
+        })
+})
 
-// router.post('/user/comment/:commentedUserId/:userId', jsonBodyParser, (req, res) => {
-//     const {params: {commentedUserId, userId}} = req;
-//     const {body: {comment, rating}} = req;
-//     const user = {"_id": ObjectId(commentedUserId)};
-//     const author = {"_id": ObjectId(userId)};
-//
-//     User.findOne({author})
-//         .then(commentAuthor => {
-//             if (commentAuthor) throw Error('you cannot comment several time this user')
-//             Comment.create({user, date: moment(), comment, rating, author})
-//                 .then(comment => {
-//                     res.json(success({comment}))
-//                 })
-//                 .catch(err => {
-//                     res.json(fail(err.message))
-//                 })
-//         })
-//
-// })
 
 
 

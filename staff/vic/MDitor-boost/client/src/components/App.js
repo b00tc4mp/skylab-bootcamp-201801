@@ -1,51 +1,154 @@
 import React, { Component } from 'react';
 
+import { ProgressBar } from "react-materialize";
+
 import CircleButton from './CircleButton'
 import Sidenav from './Sidenav'
 import MyEditor from './MyEditor/'
 import MarkDown from './MarkDown'
 
-import API from '../api/ApiClient'
-import logicApp from './logicApp'
-
-// import File from 'mditor-types'
+import logic from "../logic";
 
 class App extends Component {
 
   constructor() {
     super();
-
+ 
     this.state = {
       currentSelected: {
         folderId: undefined,
         fileId: undefined,
       },
       folders: [],
-      user: {}
+      user: {},
+      loader: true
     }
   }
 
-  createFolder = (title) => this.setState(({ folders }) => ({ folders: logicApp.createFolder(title, folders) }))
+  /**
+   * 
+   * Business App.js function creeateFolder
+   *
+   * async funtion to create a new folder. When logic.folder.create promise has finished
+   * then state from component will update
+   * 
+   * @param {String} title title for new Folder
+   *
+   * @returns {RenderDOM} will update DOM with new folder
+   *
+   * @version 1.0.0
+   */
+  createFolder = async (title) => {
 
-  updateFolder = (id, title) => this.setState(({ folders }) => ({ folders: logicApp.updateFolder(id, title, folders) }))
+    const addedNewFolder = await logic.folder.create(title, this.state.folders);
 
-  deleteFolder = (id) => this.setState(({ folders }) => ({ folders: logicApp.removeFolder(id, folders) }))
+    this.setState({ folders: addedNewFolder })
+  }
 
-  createFile = (folderId, title) => this.setState(({ folders }) => ({ folders: logicApp.createFile(folderId, title, folders) }))
+  /**
+   * 
+   * Business App.js function updateFolder
+   *
+   * function to update the specifict title folder. It will update component state
+   * 
+   * @param {String} id id from updated Folder
+   * @param {String} title title for to rename Folder
+   *
+   * @returns {RenderDOM} will update DOM with folder renamed
+   *
+   * @version 1.0.0
+   */
+  updateFolder = (id, title) => this.setState(({ folders }) => ({ folders: logic.folder.update(id, title, folders) }))
 
-  deleteFile = (folderId, id) => this.setState(({ folders }) => ({ folders: logicApp.removeFile(folderId, id, folders) }))
+  /**
+   * 
+   * Business App.js function deleteFolder
+   *
+   * function to delete the specifict folder. It will update component state
+   * 
+   * @param {String} id id from delete Folder
+   *
+   * @returns {RenderDOM} will update DOM with folder delted
+   *
+   * @version 1.0.0
+   */
+  deleteFolder = (id) => this.setState(({ folders }) => ({ folders: logic.folder.remove(id, folders) }))
 
-  writeFile = (folderId, id, content) => this.setState(({ folders }) => ({ folders: logicApp.writeFile(folderId, id, content, folders) }))
+  /**
+   * 
+   * Business App.js function createFile
+   *
+   * async funtion to create a new file. When logic.file.create promise has finished
+   * then state from component will update
+   * 
+   * @param {String} id id of the Folder that will contain the file
+   * @param {String} title title for new File
+   *
+   * @returns {RenderDOM} will update DOM with new file
+   *
+   * @version 1.0.0
+   */
+  createFile = async (folderId, title) => {
 
-  //===== EVENTS, Handlers and Helpers APP
-  componentDidMount = () => {
-    const folderDataAPI = API.getFolders()
-    const user = API.getUser()
-    const folders = logicApp.refactorDataToFileType(folderDataAPI)
+    const addedNewFileInFolder = await logic.file.create(folderId, title, this.state.folders);
+
+    this.setState({ folders: addedNewFileInFolder })
+  }
+
+  /**
+   * 
+   * Business App.js function deleteFile
+   *
+   * function to delete the specifict file. It will update component state
+   * 
+   * @param {String} folderId id of the Folder that will contain the file
+   * @param {String} id id from delete file
+   *
+   * @returns {RenderDOM} will update DOM with file deleted
+   *
+   * @version 1.0.0
+   */
+  deleteFile = (folderId, id) => this.setState(({ folders }) => ({ folders: logic.file.remove(folderId, id, folders) }))
+
+  /**
+   * 
+   * Business App.js function writeFile
+   *
+   * function to write in the specifict file the updated content. It will update component state
+   * 
+   * @param {String} folderId id of the Folder that will contain the file
+   * @param {String} id id from updated file
+   * @param {String} content content updated from file
+   *
+   * @returns {RenderDOM} will update DOM with file renamed
+   *
+   * @version 1.0.0
+   */
+  writeFile = (folderId, id, content) => this.setState(({ folders }) => ({ folders: logic.file.write(folderId, id, content, folders) }))
+
+  //---------------------------------------
+  /**
+   * 
+   * Event, Handlers and Helpers for App.js
+   * 
+   * @version 1.0.0
+   */
+
+  componentDidMount = async () => {
+
+    const tokenUser = await logic.user.login("vgamez", "123");
+
+    const user = await logic.user.retrieve(tokenUser);
+
+    const folderDataAPI = user.folders
+
+    const folders = logic.refactorDataToFileType(folderDataAPI)
+
+    await this.setState({ folders, user, loader: false })
 
     this.onChangeTargetSelected(this.extractParamsFromRoute(this.props), folders)
 
-    this.setState({ folders, user })
+    document.addEventListener('keydown', this._hanlderEditOrView, false);
   }
 
   componentWillReceiveProps = (props, state) => {
@@ -53,14 +156,18 @@ class App extends Component {
     this.onChangeTargetSelected(this.extractParamsFromRoute(props), this.state.folders)
   }
 
+  componentWillUnmount = () => {
+
+    document.removeEventListener('keydown', this._hanlderEditOrView, false);
+  }
+
   extractParamsFromRoute = (props) => {
     const { match, match: { params } } = props
 
-    //If URL have some ID Folder/File, then change target selected
     if (match.path !== '/') {
 
-      const folderId = parseInt(params.folderId, 0)
-      const fileId = parseInt(params.fileId, 0)
+      const folderId = params.folderId
+      const fileId = params.fileId
 
       return { folderId, fileId, match }
     }
@@ -77,7 +184,7 @@ class App extends Component {
 
   checkFileExist = ({ folderId, fileId, match }, folders) => {
 
-    const retrieve = logicApp.retrieveFolder(folderId, folders) && logicApp.retrieveFile(folderId, fileId, folders)
+    const retrieve = logic.folder.retrieve(folderId, folders) && logic.file.retrieve(folderId, fileId, folders)
 
     if (!retrieve && match.path !== '/') {
 
@@ -100,10 +207,34 @@ class App extends Component {
 
   onHandlerRouteToRoot = (props) => props.history.push('/')
 
+  _hanlderEditOrView = (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.keyCode === 13) {
+      event.preventDefault()
+
+      const { match: { params } } = this.props
+
+      const { currentSelected: { folderId, fileId } } = this.state
+
+      if (params.action === "view") {
+
+        return this.onHandlerRouteToEdit(this.props, folderId, fileId);
+      } else {
+
+        return this.onHandlerRouteToView(this.props, folderId, fileId);
+      }
+    }
+  }
+
+  /**
+   * 
+   * Render ReactDOM
+   * 
+   * @version 1.0.0
+   */
   render() {
 
     const { match, match: { params } } = this.props
-    const { currentSelected: { folderId, fileId }, user: { name, surname }, folders } = this.state
+    const { currentSelected: { folderId, fileId }, user: { name, surname }, folders, loader } = this.state
 
     const logicFolder = {
       create: this.createFolder,
@@ -115,46 +246,53 @@ class App extends Component {
       }
     }
 
+    let matchExist
+
+    if (match.path !== '/') matchExist = this.checkFileExist({ folderId, fileId, match }, folders)
+
     return (
-      <section className="App">
-        <article>
-          <Sidenav
-            buttonTriggerStyle={{ className: 'grey lighten-2', icon: 'menu' }}
-            buttonDropStyle={{ className: 'grey lighten-2', icon: 'close' }}
-            user={{ name, surname }}
-            folders={folders}
-            logicFolder={logicFolder} />
+      !loader ?
+        <section className="App">
+          <article>
+            <Sidenav
+              buttonTriggerStyle={{ className: 'grey lighten-2', icon: 'menu' }}
+              buttonDropStyle={{ className: 'grey lighten-2', icon: 'close' }}
+              user={{ name, surname }}
+              folders={folders}
+              logicFolder={logicFolder} />
+            {matchExist ? <h3 className='title-current-file'>{logic.file.retrieve(folderId, fileId, folders).getTitle()}</h3> : false}
 
-          {match.path === '/' ?
-            false
-            : params.action === 'view' ?
-              <CircleButton
-                className='grey lighten-2'
-                icon='edit'
-                onClick={() => this.onHandlerRouteToEdit(this.props, folderId, fileId)} />
-              :
-              <CircleButton
-                className='grey lighten-2'
-                icon='remove_red_eye'
-                onClick={() => this.onHandlerRouteToView(this.props, folderId, fileId)} />}
+            {match.path === '/' ?
+              false
+              : params.action === 'view' ?
+                <CircleButton
+                  className='grey lighten-2'
+                  icon='edit'
+                  onClick={() => this.onHandlerRouteToEdit(this.props, folderId, fileId)} />
+                :
+                <CircleButton
+                  className='grey lighten-2'
+                  icon='remove_red_eye'
+                  onClick={() => this.onHandlerRouteToView(this.props, folderId, fileId)} />}
 
-        </article>
-        <div className='MarkDownEdited'>
-          {folderId !== undefined ?
-            match.path === '/' ?
-              <MarkDown showInitialMarkDown={true} />
-              :
-              this.checkFileExist({ folderId, fileId, match }, folders) ?
-                params.action === 'view' ?
-                  <MarkDown file={logicApp.retrieveFile(folderId, fileId, folders)} />
-                  :
-                  <MyEditor
-                    file={logicApp.retrieveFile(folderId, fileId, folders)}
-                    emitCurrentContent={this.onHandlerMyEditor} />
-                : false
-            : <MarkDown showInitialMarkDown={true} />}
-        </div>
-      </section>
+          </article>
+          <div className='mark-down-edited'>
+            {folderId !== undefined ?
+              match.path === '/' ?
+                <MarkDown showInitialMarkDown={true} />
+                :
+                matchExist ?
+                  params.action === 'view' ?
+                    <MarkDown file={logic.file.retrieve(folderId, fileId, folders)} />
+                    :
+                    <MyEditor
+                      file={logic.file.retrieve(folderId, fileId, folders)}
+                      emitCurrentContent={this.onHandlerMyEditor} />
+                  : false
+              : <MarkDown showInitialMarkDown={true} />}
+          </div>
+        </section>
+        : <ProgressBar className={"pre-loader-home"} />
     );
   }
 }

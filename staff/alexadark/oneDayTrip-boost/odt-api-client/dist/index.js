@@ -3,11 +3,10 @@
 var axios = require('axios');
 
 var api = {
-    getBaseUrl: function getBaseUrl() {
-        return this.baseUrl;
-    },
+    baseUrl: 'SET-BASE-URL',
+
     call: function call(method, path, body) {
-        return axios[method](this.getBaseUrl() + '/' + path, body)
+        return axios[method](this.baseUrl + '/' + path, body)
         // .then(res => res.data)
         .then(function (_ref) {
             var data = _ref.data;
@@ -48,7 +47,7 @@ var api = {
         return this.call('get', 'available-trips/' + destination + '/' + arrival + '/' + departure);
     },
     cancelTrip: function cancelTrip(creatorId, tripId, password) {
-        return this.call('delete', 'trip/' + creatorId + '/' + tripId, { data: { password: password }});
+        return this.call('delete', 'trip/' + creatorId + '/' + tripId, { data: { password: password } });
     },
     updateTrip: function updateTrip(creatorId, tripId, from, to, date, meetingPoint, departureTime, returnTime, tripTime, price, distance, seats, description, password) {
         return this.call('put', 'trip/' + creatorId + '/' + tripId, { from: from, to: to, date: date, meetingPoint: meetingPoint, departureTime: departureTime, returnTime: returnTime, tripTime: tripTime, price: price, distance: distance, seats: seats, description: description, password: password });
@@ -59,8 +58,8 @@ var api = {
     unjoinTrip: function unjoinTrip(tripId, passengerId) {
         return this.call('delete', 'trip/unjoin/' + tripId + '/' + passengerId);
     },
-    comment: function comment(commentedUserId, userId, _comment, rating) {
-        return this.call('put', 'user/comment/' + commentedUserId + '/' + userId, { comment: _comment, rating: rating });
+    comment: function comment(commentedUserId, userId, commentText, rating) {
+        return this.call('post', 'user/comment/' + commentedUserId + '/' + userId, { commentText: commentText, rating: rating });
     },
     geoLocalize: function geoLocalize(lat, lng) {
         return axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyCRDIKkOEGj3jXB9LEuiC8_yYiu535htcI').then(function (res) {

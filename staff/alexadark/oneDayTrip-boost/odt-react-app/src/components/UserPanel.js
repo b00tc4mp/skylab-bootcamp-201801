@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import UserPublishedTrips from './UserPublishedTrips'
 import UpdateUser from './UpdateUser'
 import UserBookedTrips from './UserBookedTrips'
-import api from "../api";
+import api from "../api"
 
 
 class UserPanel extends Component {
@@ -16,7 +16,9 @@ class UserPanel extends Component {
 
   componentWillMount() {
     api.getUserFromId(this.props.user.id)
-        .then(res => this.setState({user: res.data}))
+        .then(res => {
+            this.setState({user: res.data})
+        })
 
   }
 
@@ -29,11 +31,11 @@ class UserPanel extends Component {
           <NavLink to={'/home'} className="uk-button uk-button-primary uk-button-small  uk-margin-right">
             Search Trips
           </NavLink>
-          <NavLink to="/user-profile">
+
             <NavLink to={`/user-profile/${this.props.user.id}`} className="uk-button uk-button-primary uk-button-small uk-margin-right">
               see my reviews
             </NavLink>
-          </NavLink>
+
         </div>
 
         <div

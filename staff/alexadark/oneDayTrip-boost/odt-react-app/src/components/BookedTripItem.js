@@ -21,7 +21,7 @@ class BookedTripItem extends Component {
 
 
     render(){
-
+const places = this.props.trip.passengers.map(passenger => passenger === this.props.user.id).length
 
         return <div className="uk-container">
             <div className={`uk-card  uk-card-secondary uk-card-body uk-margin-bottom`}>
@@ -43,7 +43,8 @@ class BookedTripItem extends Component {
                         <br />
                     </div>
                 </div>
-                {this.state.unJoin? <h4 className="uk-text-danger uk-text-center">You have unjoined this trip</h4> :''}
+                <h5 className="uk-text-success uk-text-center">You have reserved {places} places on this trip</h5>
+                {this.state.unJoin? <h5 className="uk-text-danger uk-text-center">You have canceled 1 place on this trip</h5> :''}
             </div>
         </div>;
     }

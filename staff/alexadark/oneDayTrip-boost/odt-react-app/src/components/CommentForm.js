@@ -6,14 +6,14 @@ class CommentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comment: "",
+            commentText: "",
             rating: "",
 
         }
     }
 
     comment = ()=>{
-        return api.comment(this.props.trip.creator, this.props.user.id, this.state.comment, this.state.rating)
+        return api.comment(this.props.trip.creator, this.props.user.id, this.state.commentText, this.state.rating)
             .then(res => {
                 try {
                     this.setState({closeModal:true})
@@ -28,7 +28,7 @@ class CommentForm extends Component {
             })
     }
 
-    keepComment = comment  => this.setState({comment});
+    keepCommentText = commentText  => this.setState({commentText});
     keepRating= rating => this.setState({rating});
 
     render() {
@@ -63,11 +63,11 @@ class CommentForm extends Component {
                                 </select>
                             </div>
                             <div className="uk-margin-bottom">
-                                <textarea row="8"
+                                <textarea rows="8"
                                        className="uk-textarea"
                                        placeholder="Add your comment"
-                                       onChange={e => this.keepComment(e.target.value)}
-                                       value={this.state.comment}/>
+                                       onChange={e => this.keepCommentText(e.target.value)}
+                                       value={this.state.commentText}/>
                             </div>
                             <div className="uk-width-1-1 ">
                                 <input type="submit"

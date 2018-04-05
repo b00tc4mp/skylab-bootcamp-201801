@@ -18,7 +18,7 @@ function AdminHeader(props){
                 <ul className="nav navbar-nav navbar-right">
                 
                   <li><NavLink to = '/adminmyleagues'>My leagues</NavLink></li>
-                  <li><NavLink to = '/Logout'>Log Out</NavLink></li>
+                  <li><NavLink to = '/Login'>Log Out</NavLink></li>
                 </ul>
               </div>
             </div>
