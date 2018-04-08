@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="vendor/bootstrap-4.0.0/css/bootstrap.css">
+
+	<link rel="stylesheet" href="styles/main.css">
+
+	<body>
+        
+        <div class="site-wrapper">
+
+            <div class="site-wrapper-inner">
+      
+              <div class="cover-container">
+              
+                <div class="inner cover">
+                  <h1 class="cover-heading">Currency's conversor</h1>
+                  <input type="number" id="inputNumber" placeholder="Quantity to convert..." min="0" step="1"/>
+
+                  <select id="selectFirstCurrency" class="custom-select">
+                    <option selected value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="BGN">BGN</option>
+                    <option value="CAD">CAD</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CHF">CHF</option>
+                    <option value="CNY">CNY</option>
+                    <option value="CZK">CZK</option>
+                    <option value="BGN">BGN</option>
+                    <option value="DKK">DKK</option>
+                    <option value="HDK">HDK</option>
+                    <option value="HRK">HRK</option>
+                    <option value="HUF">HUF</option>
+                    <option value="HDK">HDK</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="ISK">ISK</option>
+                    <option value="JPY">JPY</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NOK">NOK</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="PLN">PLN</option>
+                    <option value="RON">RON</option>
+                  </select>
+                  <select id="selectSecondCurrency" class="custom-select">
+                    <option selected value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="BGN">BGN</option>
+                    <option value="CAD">CAD</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CHF">CHF</option>
+                    <option value="CNY">CNY</option>
+                    <option value="CZK">CZK</option>
+                    <option value="BGN">BGN</option>
+                    <option value="DKK">DKK</option>
+                    <option value="HDK">HDK</option>
+                    <option value="HRK">HRK</option>
+                    <option value="HUF">HUF</option>
+                    <option value="HDK">HDK</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="ISK">ISK</option>
+                    <option value="JPY">JPY</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NOK">NOK</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="PLN">PLN</option>
+                    <option value="RON">RON</option>
+                      </select>
+                  
+                
+                  <!-- disabled='disabled' -->
+                  <button type="button" id="boton" class="btn btn-lg btn-secondary"  data-toggle="modal" data-target="#exampleModal">
+                    Calculate it
+                  </button>
+
+                  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Conversion</h5>
+                          </button>
+                        </div>
+                        <div class="modal-body" id="showhere">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="resetAll" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+      
+                <div class="mastfoot">
+                  <div class="inner">
+                    <p> by <a href="#">Pablo</a>.</p>
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="vendor/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+	<script src="vendor/popper-1.12.9/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/makeCalcs.js"></script>
+  <script src="scripts/Divide.js"></script>
+</body>
+</html>
