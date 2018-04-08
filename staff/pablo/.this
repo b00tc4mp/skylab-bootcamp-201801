@@ -1,18 +1,12 @@
 {
-  "title": "Sass",
-  "description": "\"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.\"",
+  "title": "ATM",
+  "description": "Automated Teller Machine (ATM) challenge",
   "tags": [
-    "css",
-    "sass",
-    "lang",
-    "language",
-    "transpiler",
-    "converter",
-    "style",
-    "sheet",
-    "stylesheet",
-    "extension",
-    "superpower"
+    "atm",
+    "challenge",
+    "automated",
+    "teller",
+    "machine"
   ],
   "created": "2018-01-25T12:20:06.551Z"
 }
