@@ -10,5 +10,7 @@
 
 [Testing React App SEO using Fetch as Google](https://spin.atomicobject.com/2017/12/04/react-fetch-as-google/)
 
+[“A perfect guide for cracking a JavaScript interview (A developer’s perspective)” ](https://medium.com/dev-bits/a-perfect-guide-for-cracking-a-javascript-interview-a-developers-perspective-23a5c0fa4d0d)
+
 # [Final project](https://github.com/AsierDev/book-buddies)
 

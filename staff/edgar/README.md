@@ -16,10 +16,12 @@
 
  >**_Think different, work together_**
 
-### Useful Links
+# Shares
 
 [A hosted REST-API ready to respond to your AJAX requests](https://reqres.in)
 
 [VSC - Indentation](https://code.visualstudio.com/docs/editor/codebasics#_indentation)
+
+[13 best practices to secure your NodeJS web application](https://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application)
 
 # [Final project](https://github.com/EdgarAyllon/Project)

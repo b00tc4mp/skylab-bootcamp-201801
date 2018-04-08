@@ -19,3 +19,9 @@
 [Presentational and container React components](http://krasimirtsonev.com/blog/article/react-js-presentational-container-components)
 
 [ReactJs component lifecycle methods — A deep dive](https://hackernoon.com/reactjs-component-lifecycle-methods-a-deep-dive-38275d9d13c0)
+
+[React 16.3 Cambios en el ciclo de vida. Nuevos métodos getDerivedStateFromProps y getSnapshotBeforeUpdate](http://aprendiendoreact.com/post/react-16-3-cambios-en-el-ciclo-de-vida/)
+
+[Context - React](https://reactjs.org/docs/context.html)
+
+[React Context API ¿El fin de Redux?](https://pablomagaz.com/blog/react-context-api-el-fin-de-redux)
