@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PADELOPER - CREATE LEAGUE PANEL</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 class="padeloper">PADELOPER</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>WELCOME NACHAL</p>
+
+                <li>
+                    <a href="#">Stats</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">League</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="#">Home 1</a></li>
+                        <li><a href="#">Home 2</a></li>
+                        <li><a href="#">Home 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Tournament</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Round Robin</a>
+                </li>
+
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li><a href="#" class="download">Create League</a></li>
+                <li><a href="#" class="article">Back to home</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+            
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="navbar-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">My leagues</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class='container'>
+                    <div class='row'>
+                      <div class='col-md-4 col-md-offset-4'>
+                        
+                          <h3>LEAGUE CREATION</h3>
+                       
+                      </div>
+                    </div>
+            </div>
+                  
+
+            <div class="line"></div>
+            <div class="col-md-12 centered content-index">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="container">
+                                        <form>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="first">League Name</label>
+                                                <input type="text" name="name" class="form-control" placeholder="" id="first">
+                                              </div>
+                                            </div>
+                                            <!--  col-md-6   -->
+                                      
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="last">City</label>
+                                                <input type="text" name="city" class="form-control" placeholder="" id="last">
+                                              </div>
+                                            </div>
+                                            <!--  col-md-6   -->
+                                          </div>
+                                      
+                                      
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="company">Club</label>
+                                                <input type="text" name="club" class="form-control" placeholder="" id="company">
+                                              </div>
+                                      
+                                      
+                                            </div>
+                                            <!--  col-md-6   -->
+                                      
+                                            <div class="col-md-6">
+                                      
+                                              <div class="form-group">
+                                                <label for="phone">Category</label>
+                                                <select class="form-control" name="category" id="exampleSelect1">
+                                                        <option>1</option>
+                                                        <option>2</option> 
+                                                        <option>3</option>
+                                                        <option>4</option> 
+                                                        <option>5</option>
+                                                        <option>other</option>                          
+                                                    </select>
+                                              </div>
+                                            </div>
+                                            <!--  col-md-6   -->
+                                          </div>
+                                          <!--  row   -->
+                                      
+                                      
+                                          <div class="row">
+                                            <div class="col-md-6">                  
+                                                <div class="form-group">
+                                                        <label for="exampleSelect1">League type</label>
+                                                        <select class="form-control" name="type" id="exampleSelect1">
+                                                            <option>Public</option>
+                                                            <option>Private</option>                          
+                                                        </select>
+                                                    </div>
+                                            </div>
+                                            <!--  col-md-6   -->
+                                      
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="url">Date creation</label>
+                                                <input type="date" class="form-control" id="url">
+                                              </div>
+                                      
+                                            </div>
+                                            <!--  col-md-6   -->
+                                          </div>
+                                          <!--  row   -->
+                                          <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                      </div>
+
+                        </div>
+                    </div>       
+                </div>
+
+    </div>
+                
+    <script src = "../../public/vendor/jquery/3.3.1/jquery-3.3.1.min.js"></script>            
+    <script src="../../public/vendor/bootstrap/4.0/js/bootstrap.min.js"></script>
+    <script src="../../public/vendor/popper/1.0/popper.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>

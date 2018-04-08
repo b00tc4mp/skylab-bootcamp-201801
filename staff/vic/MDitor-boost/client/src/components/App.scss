@@ -1,0 +1,40 @@
+@import '../sass/_variables';
+@import '../sass/_extends';
+.pre-loader-home {
+    background-color: $file-item-color !important;
+    div {
+        background-color: $folder-item-color !important;
+    }
+}
+
+.App {
+    padding: 2em;
+    @extend %capsuleStandar;
+    article {
+        display: flex;
+        justify-content: space-between;
+        .title-current-file {
+            margin: 0;
+            text-align: center;
+            align-self: center;
+        }
+    }
+    .mark-down-edited {
+        height: 97% !important;
+        padding: 2em 0 1em 0;
+        display: flex;
+        flex-wrap: wrap;
+        @extend %capsuleStandar;
+        .DraftEditor-root {
+            padding-top: 1em;
+            @extend %capsuleStandar;
+            .DraftEditor-editorContainer {
+                @extend %capsuleStandar;
+                .public-DraftEditor-content {
+                    @extend %capsuleStandar;
+                    padding: 0 7em 0 8em;
+                }
+            }
+        }
+    }
+}

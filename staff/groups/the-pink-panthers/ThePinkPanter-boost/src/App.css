@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+
+.App {
+ background-color: #646464; 
+  font-family: 'Roboto', sans-serif;
+}
+
+.carousel-inner img {
+  width: 100%;
+  max-height: 500px;
+}
+
+/**/
+
+.pagination {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 8px 16px;
+  border: 1px solid #262626;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #b8b8b8));
+  background: -moz-linear-gradient(top, #e3e3e3, #b8b8b8);
+  background: -webkit-linear-gradient(top, #e3e3e3, #b8b8b8);
+  background: linear-gradient(to bottom, #e3e3e3, #b8b8b8);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.4);
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.72);
+}
+.pagination a:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d90073), color-stop(100%, #a00056));
+  background: -moz-linear-gradient(top, #d90073, #a00056);
+  background: -webkit-linear-gradient(top, #d90073, #a00056);
+  background: linear-gradient(to bottom, #d90073, #a00056);
+  color: #260014;
+}
+
+.pagination li.active > a {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00add9), color-stop(100%, #00708c));
+  background: -moz-linear-gradient(top, #00add9, #00708c);
+  background: -webkit-linear-gradient(top, #00add9, #00708c);
+  background: linear-gradient(to bottom, #00add9, #00708c);
+  color: black;
+}
+
+.pagination li.active > a:hover {
+  cursor: default;
+}
+.pagination .prev:before {
+  content: "« ";
+  font-weight: normal;
+}
+.pagination .next:after {
+  content: " »";
+  font-weight: normal;
+}
+.pagination .next:hover, .pagination .prev:hover {
+  border-color: #141414;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #262626), color-stop(100%, #1a1a1a));
+  background: -moz-linear-gradient(top, #262626, #1a1a1a);
+  background: -webkit-linear-gradient(top, #262626, #1a1a1a);
+  background: linear-gradient(to bottom, #262626, #1a1a1a);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.1);
+  color: #ebebeb;
+  text-shadow: none;
+}

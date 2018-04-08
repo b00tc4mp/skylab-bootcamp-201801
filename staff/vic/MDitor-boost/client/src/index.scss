@@ -1,0 +1,26 @@
+@import 'sass/variables';
+@import 'sass/extends';
+@import 'sass/prism';
+
+html,
+body,
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    body {
+        @extend %main-font-app;
+        margin: 0;
+        padding: 0;
+    }
+}
+//=== Materialize Colors!
+input[type=text] {
+    border-bottom: 1px solid grey !important;
+}
+
+input[type=text]:focus {
+    border-bottom: 1px solid grey !important;
+    box-shadow: 0 1px 0 0 grey !important;
+}

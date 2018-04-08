@@ -1,0 +1,21 @@
+{
+    "id":1,
+    "name":"nacho",
+    "surname":"miralles",
+    "email":"nachomirsol@gmail.com",
+    "username":"nachal",
+    "password":"123dad",
+    "stats":
+        {
+            "leagueCreated":3,
+            "leaguejoined":4,
+            "win":20,
+            "lost":12,
+            "setswin":40,
+            "setslost":30,
+            "gameswin":120,
+            "gameslost":80,
+            "level":3.5
+        }
+    
+}

@@ -1,0 +1,43 @@
+body{
+  margin:0;
+  padding:0;
+  background: url('/media/Zinc.jpg') no-repeat fixed center;
+top: 0;
+left: 0;
+background-size: cover;
+min-width: 100%;
+}
+.fixed{
+position: fixed !important;
+top: 0;
+left:0;
+z-index: 10;
+padding: 0px;
+width: 100%;
+box-shadow:0 0 15px 1px #000000;
+}
+.fixed + .content{
+  margin-top: 120px;
+}
+.arrowToTop{
+opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s linear 0s, visibility;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  float:left
+}
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+::-webkit-scrollbar-thumb {
+  background: #48b1bf; 
+}
+input + label {
+  font-size: 0.5em
+}

@@ -1,0 +1,15 @@
+{
+  "title": "react-with-local-module-dependency-demo",
+  "description": "Demo showing React app depending on local module, able to build without minification error (exshown by create-react-app with webpack, because it cannot assume the responsebility to compile an external module).",
+  "tags": [
+    "js",
+    "react",
+    "node",
+    "create-react-app",
+    "external",
+    "module",
+    "dependency",
+    "local"
+  ],
+  "created": "2018-03-23T15:23:40.291Z"
+}

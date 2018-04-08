@@ -1,0 +1,144 @@
+{
+	"info": {
+		"name": "Users API",
+		"_postman_id": "1e15e6d5-fb96-6b98-42d4-ef2341a02bc3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\",\n  \"newUsername\": \"u2\",\n  \"newPassword\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"u2\",\n  \"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

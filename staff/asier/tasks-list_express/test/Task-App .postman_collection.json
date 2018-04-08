@@ -1,0 +1,202 @@
+{
+	"info": {
+		"name": "Task-App ",
+		"_postman_id": "65eb982b-e9bb-4695-905f-ba4474d21f98",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ADD a task to tasklist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text\" : \"agua\",\n  \"username\" : \"paco\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5556/api/task",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"task"
+					]
+				},
+				"description": "  "
+			},
+			"response": []
+		},
+		{
+			"name": "LIST all tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5556/api/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE all tasks",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5556/api/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE task by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5556/api/task/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"task",
+						"1"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "MARK task Done",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5556/api/task/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"task",
+						"1"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST task to do",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5556/api/tasks/todo",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"tasks",
+						"todo"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST tasks done",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5556/api/tasks/done",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"tasks",
+						"done"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR task",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text\" : \"queso\",\n  \"username\" : \"paco\" \n}"
+				},
+				"url": {
+					"raw": "localhost:5556/api/task/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5556",
+					"path": [
+						"api",
+						"task",
+						"1"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "React Router with nested routes",
+  "description": "Demo showing a react-routed app with sub-routes and providing an example on how to force a sub-route with a GoTo(path=..., exact=true|false) component that makes use of props.history provided by the decorator withRouter (higher-order component).",
+  "tags": [
+    "node",
+    "js",
+    "react",
+    "react-router",
+    "router",
+    "react-router-dom",
+    "dom",
+    "sub-route",
+    "sub",
+    "nested",
+    "routes",
+    "history",
+    "push",
+    "goto",
+    "go-to",
+    "path",
+    "pathname",
+    "location"
+  ],
+  "created": "2018-03-20T15:37:47.810Z"
+}

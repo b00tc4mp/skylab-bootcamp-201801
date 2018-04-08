@@ -1,0 +1,53 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@font-face {
+    font-family: 'phosphate';
+    src: url('../../fonts/PhosphateSolid.ttf'); /* IE9 Compat Modes */
+    src: url('../../fonts/PhosphateSolid.ttf')  format('truetype'), /* Safari, Android, iOS */
+  }
+
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  perspective: 1500px;
+  margin:0px;
+  padding:0px;
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+}
+
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.padeloper-admin{
+    color:white !important;
+    font-family:'phosphate', sans-serif;
+    font-size:25px;   
+    line-height:40px;
+}
+
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+   MODAL
+----------------------------------------------------- */
+  .modal-body .form-horizontal .col-sm-2,
+  .modal-body .form-horizontal .col-sm-10 {
+      width: 100%
+  }
+  
+  .modal-body .form-horizontal .control-label {
+      text-align: left;
+  }
+  .modal-body .form-horizontal .col-sm-offset-2 {
+      margin-left: 15px;
+  }

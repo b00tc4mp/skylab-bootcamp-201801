@@ -1,0 +1,11 @@
+{
+  "title": "MongoDB",
+  "description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.",
+  "tags": [
+    "mongo",
+    "db",
+    "node",
+    "js"
+  ],
+  "created": "2018-03-01T09:41:33.952Z"
+}

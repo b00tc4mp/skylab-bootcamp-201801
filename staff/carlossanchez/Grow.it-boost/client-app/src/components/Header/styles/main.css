@@ -1,0 +1,25 @@
+
+header {
+    background: #519548;
+  }
+
+.btn-success, .badge-success{
+    background-color: #1B676B;
+}
+
+.btn-danger {
+    background-color: #B95419;
+}
+
+.navbar-toggler{
+    margin-left: -12px;
+}
+
+li, .navbar-brand, .navbar-toogler-icon, .nav-link, .dropdown, .dropdown-menu {
+    color: #BEF202 !important;
+    font-weight: bolder;
+}
+
+a {
+    float: right;
+}

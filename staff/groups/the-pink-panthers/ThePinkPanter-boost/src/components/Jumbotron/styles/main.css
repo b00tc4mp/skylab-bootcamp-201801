@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+.Series {
+    height: 50px;
+}
+
+#Jumbotron {
+  width: 100%;
+}
+
+h3.display-4 {
+  font-family: 'Anton', 'sans-serif';
+  font-size: 45px;
+  padding-top: 10px;
+}
+
+.jumbotron-fluid{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+@media screen and (max-width: 480px){
+  .jumbotron-fluid{
+  margin-top: 0px;
+  padding-top: 0px;
+ height: 50px!important;
+
+}
+h3.display-4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px!important;
+  padding-top: 10px;
+}
+
+  #Jumbotron {
+  padding: 0!important;
+  }
+.Series {
+    height: 10px;
+}
+}
+
+@media screen and (max-width: 820px){
+  .jumbotron-fluid{
+
+  margin-top: 0px;
+  padding-top: 6px!important;
+  height: 70px!important;
+  }
+  
+ h3> .display-4 {
+  
+  padding-top: 25px!important;
+}
+}

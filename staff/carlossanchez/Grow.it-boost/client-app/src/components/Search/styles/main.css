@@ -1,0 +1,40 @@
+.searchBar{
+    margin-top: 18%;
+}
+
+.btn-search, .form-search{
+    width: 200px;
+    text-align: center;
+    align-items: center;
+}
+
+.results, .cardResult{
+    margin-top: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+}
+
+.card{
+    max-width: 40%;
+    min-width: 300px;
+}
+
+.card-title{
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color:greenyellow;
+}
+
+.card-text{
+    font-size: 20px;
+}
+
+.card-header{
+    background-color: #519548;
+    color: #BEF202;
+}
+
+.row-search{
+    margin-left: 50px;
+}

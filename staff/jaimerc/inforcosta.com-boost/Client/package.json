@@ -1,0 +1,23 @@
+{
+  "name": "inforcosta",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "api": "file:../api",
+    "axios": "^0.18.0",
+    "bulma": "^0.6.2",
+    "bulma-start": "0.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "react-slick": "^0.22.2",
+    "slick-carousel": "^1.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

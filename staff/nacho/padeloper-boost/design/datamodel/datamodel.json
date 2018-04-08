@@ -1,0 +1,60 @@
+//Users collection
+{
+    "id":1,
+    "name":"nacho",
+    "surname":"miralles",
+    "email":"nachomirsol@gmail.com",
+    "username":"nachal",
+    "password":"123dad",
+    "stats":[
+        {
+            "win":20,
+            "lost":12,
+            "setswin":40,
+            "setslost":30,
+            "gameswin":120,
+            "gameslost":80,
+            "level":3.5
+        }
+    ]
+}
+
+//League collection
+
+{
+    "id":1,
+    "idowner":1,
+    "name":"wooters",
+    "category":"1",
+    "created":"12-03-2018",
+    "players":["iduserx","iduserx2","..."],
+    "teams":[
+        {
+            "id":1,
+            "name":"teamname",
+            "players": ["iduserx","iduserx2"],
+        },
+        {
+            "id":2,
+            "name":"teamname2",
+            "players": ["iduserx3","iduserx4"],
+        }
+    ],
+    "matches":[
+        {
+            "id":1,
+            "teams":["idteamx","idteamx2"],
+            "result":{
+                "winner":{
+                    "idteam":"idteamx",
+                    "games":[7,3,6]
+                },
+                "loser":{
+                    "idteam":"idteamx2",
+                    "games":[4,6,4]
+                }
+            }
+           
+        }
+    ]
+}

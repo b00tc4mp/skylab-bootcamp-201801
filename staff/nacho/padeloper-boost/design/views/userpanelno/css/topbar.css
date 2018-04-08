@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'phosphate';
+    src: url('../../fonts/PhosphateSolid.ttf'); /* IE9 Compat Modes */
+    src: url('../../fonts/PhosphateSolid.ttf')  format('truetype'), /* Safari, Android, iOS */
+  }
+
+.top-menu{
+    background-color:#7B7FE1 !important;
+    border:none !important;
+    color:white;
+    margin:0px;
+    padding:0px;
+}
+
+.navbar-header{
+    padding-left:10px;
+}
+.padeloper{
+    color:white !important;
+    font-family:'phosphate', sans-serif;
+    font-size:25px;   
+    line-height:40px;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color:white !important;
+}
+

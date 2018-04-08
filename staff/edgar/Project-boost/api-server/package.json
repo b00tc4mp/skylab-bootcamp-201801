@@ -1,0 +1,19 @@
+{
+  "name": "api-3weeks-project",
+  "version": "1.0.0",
+  "description": "Api REST to manage pined articles",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": ""
+  },
+  "author": "Edgar Ayllon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.11"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Staff Search Mongo/Express",
+  "description": "Staff search service through Mongo in Express server.",
+  "tags": [
+    "mongo",
+    "db",
+    "node",
+    "js",
+    "search",
+    "staff",
+    "express",
+    "server"
+  ],
+  "created": "2018-03-01T11:34:57.931Z"
+}

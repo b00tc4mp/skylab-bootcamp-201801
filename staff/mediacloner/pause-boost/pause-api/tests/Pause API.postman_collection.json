@@ -1,0 +1,454 @@
+{
+	"info": {
+		"name": "Pause API",
+		"_postman_id": "41096d5f-3ac5-4014-a168-4f7a65a7cf8d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UPDATE user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"n\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u\",\n  \"password\": \"p\",\n  \"newUsername\": \"u2\",\n  \"newPassword\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "SEARCH",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/search/WOW",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"search",
+						"WOW"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/post/5aad48cc397f4e4b0dc9a287",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"post",
+						"5aad48cc397f4e4b0dc9a287"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "ADD kudos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/post/5aad48cc397f4e4b0dc9a287",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"post",
+						"5aad48cc397f4e4b0dc9a287"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"u2\",\n  \"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/e36a42f6-154a-4d76-aeba-3cae1241222e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"e36a42f6-154a-4d76-aeba-3cae1241222e"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n \t\"title\": \"Checkpoint new bla bla bla liner\",\n \t\"shortDescription\": \"Description in a few words\",\n \t\"fullDescription\": \"This is a explanation of all thins that you need in your live wow is too much or wathever you want\",\n \t\"owner\": \"5aa7a7d59b2cc10e9e2e7279\",\n \t\"kudos\": 10,\n \t\"counterVisits\": 110,\n \t\"idPostTemplate\": 1,\n \t\"tag\": \"culture\",\n \t\"URLpath\":\"https://stackoverflow.com/questions/43222540/get-selected-option-attribute-in-react\", \n \t\"time\" : \"22:22\",\n \t\"comments\": []\n }"
+				},
+				"url": {
+					"raw": "localhost:5000/api/post",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"post"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST posts by iduser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1lc2JlIiwiaWF0IjoxNTIwNTE1MzAxLCJleHAiOjE1MjA1MTg5MDF9.RzQNcC2oBEDL5g9OadlPtBYF9r56nfcmk1sh9P9oKl0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/list/5aa78dd99b2cc10e9e2e7271",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"list",
+						"5aa78dd99b2cc10e9e2e7271"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST posts by Group",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6cbfa1d4-9b38-41b4-8396-02ba9d41c663",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idUsers\": [\"5aa7a7d59b2cc10e9e2e7279\"]\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/listgroup/5aad486a397f4e4b0dc9a285",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"listgroup",
+						"5aad486a397f4e4b0dc9a285"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/list",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"list"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE comment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/comment/5aaf84a15044743d4e6c6e5f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment",
+						"5aaf84a15044743d4e6c6e5f"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE follow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n   \"userFollow\": \"5aa7a7d59b2cc10e9e2e7279\"\n  }"
+				},
+				"url": {
+					"raw": "localhost:5000/api/follow/5aafaa281ca9687a2d6bb1b4",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"follow",
+						"5aafaa281ca9687a2d6bb1b4"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"aleelx\", \n\"surname\" : \"smith\", \n\"email\" : \"blks@gmail.com\", \n\"username\": \"sdfasdfa\", \n\"password\" : \"passw0rd\", \n\"city\" : \"London\",\n\"country\" : \"UK\",\n\"about\" : \"i'm so cool!\",\n\"nameTimeline\" : \"The time line\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  \t\"comment\": \"book is good!!!\",\n    \"userId\": \"5aa7a7d59b2cc10e9e2e7279\"\n  }"
+				},
+				"url": {
+					"raw": "localhost:5000/api/comment/5aa795109b2cc10e9e2e7278",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comment",
+						"5aa795109b2cc10e9e2e7278"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ab70c0e7-2aec-497d-82f0-2c8d4b6c1bbe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "86b1cd0b-f971-41ca-b695-0893e0ff7b15",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

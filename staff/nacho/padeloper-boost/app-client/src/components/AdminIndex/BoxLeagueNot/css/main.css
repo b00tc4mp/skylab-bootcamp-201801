@@ -1,0 +1,46 @@
+/* ---------------------------------------------------
+   BOX-MODEL
+----------------------------------------------------- */
+.box-league{
+    margin-top:20px;
+    background-color:#fff;
+}
+
+.info-league{
+    font-family:"helvetica",sans-serif;
+    font-size:16px;
+    color:#555;
+    font-weight:regular;
+    height:130px;
+    padding:10px;
+    /* overflow:hidden; */
+}
+.joined{
+    border:1px solid rgba(115,116,229,0.9);
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    background-color:rgba(115,116,229,0.75);
+    text-align:center;
+    min-width:50px;
+    min-height:50px;
+    float:left;
+    padding-top:15px;
+    margin-right:20px;
+}
+
+.textleague{
+    margin-left: 70px;
+    font-size:15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+.smalltext{
+    padding-top:2px;
+    color:#aaa;
+}
+.leaguename{
+    color:rgba(115,116,229,0.9);
+}

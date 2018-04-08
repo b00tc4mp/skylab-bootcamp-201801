@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+#logo {
+  font-size: 20px;
+  font-family: 'Lobster', cursive;
+}
+
+#follow {
+  font-size: 14px;
+}
+
+#tofollow {
+  font-size: 14px;
+}
+
+
+.badge {
+  color:rgb(230, 2, 2);
+  font-size: 14px;
+ 
+}
+

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+*{
+
+  font-family: 'Raleway', sans-serif;
+}
+
+.p-y-1 {
+  margin-top: 100px;
+  height: 600px;
+}
+
+.label_image {
+ 
+  width: 100%;
+  font-weight: bold;
+  font-size: 14pt;
+  color: grey;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.inputDnD .form-control-file {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 6em;
+  outline: none;
+  visibility: hidden;
+  cursor: pointer;
+  
+  -webkit-box-shadow: 0 0 5px solid grey;
+          box-shadow: 0 0 5px solid grey;
+}
+.inputDnD .form-control-file:before {
+  content: attr(data-title);
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 100%;
+  min-height: 20em;
+  line-height: 2em;
+  padding-top: 8em;
+  opacity: 1;
+  visibility: visible;
+  text-align: center;
+  border: 0.25em dashed lightslategray;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+
+body {
+  background-color: white;
+}

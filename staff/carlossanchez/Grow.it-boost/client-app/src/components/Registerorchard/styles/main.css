@@ -1,0 +1,15 @@
+.form-orchard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8%;
+    text-align: center;
+}
+
+.container{
+    overflow: hidden;
+}
+
+.plant-img{
+    margin-top: 10%;
+}

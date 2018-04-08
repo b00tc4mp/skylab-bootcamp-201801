@@ -1,0 +1,45 @@
+/* font-family: 'Pacifico', cursive; */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+.logo {
+
+    font-family: 'Pacifico', cursive;
+    font-size:  400%;
+    
+}
+
+.pauseFont {
+
+    font-family: 'Pacifico', cursive;
+  
+}
+
+.logonav {
+
+    font-family: 'Pacifico', cursive;
+    font-size:  150%;
+    
+}
+body {
+    background-color: #eee;
+  }
+
+.topmax {
+    margin-top: 15%
+}
+.topmed {
+    margin-top: 7%
+}
+.topmin{
+
+    margin-top: 5%;
+}
+
+.bottommin{
+
+    margin-bottom: 5%;
+}
+
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
