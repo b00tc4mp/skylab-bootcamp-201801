@@ -6,4 +6,7 @@
 
 [module README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
+[Clean Code: SOLID - Beau teaches JavaScript](https://www.youtube.com/watch?v=XzdhzyAukMM)
+
+
 # [Final project](https://github.com/VGamezz19/MDitor)

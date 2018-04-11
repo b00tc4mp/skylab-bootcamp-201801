@@ -24,4 +24,6 @@
 
 [13 best practices to secure your NodeJS web application](https://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application)
 
+[OWASP Cheat Sheet Series](https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series#tab=Master_Cheat_Sheet)
+
 # [Final project](https://github.com/EdgarAyllon/Project)
