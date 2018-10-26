@@ -1,17 +1,19 @@
-# Groups names?
+# Tasks / Requirements
 
-PROPOSALS for the group names:
+- Idea
+- Sprint plan
+- Functional description
+- View projection / Mockups / Design (in Bootstrap or any other compliance framework)
+- Tasks organization in Kanban (trello)
+- Development
+    - Git repo with Git flow 
+        - Master, develop, and custom branches from develop for feature and fixes
+        - Pull requests from custom branches to develop
+        - Releases marked with tags (git tag ... after merging from develop to master)
+    - Business logic with TDD (specs in Jasmine)
+    - API client logic with TDD (specs in Jasmine)
+    - Presentation logic (React)
 
-- asier / alexadark -> "el duo dinamico"
-- vic / nacho / pablo -> "el tricicle"
-- didaquis / carlos / eahob -> "the cerebrains"
-- robert / demi / mario -> "los judokis"
-- asix / pink / jaime -> "the pink panters"
-- mediacloner / edgar / jaime 2" -> "los chachis"
+# Public APIs
 
-- Manu, Alex & Michel -> "the magicals"
-
-# Shares
-
-LISTA DE APIS PUBLICAS SEMANA 5!!!
 [toddmotto/public-apis](https://github.com/toddmotto/public-apis)

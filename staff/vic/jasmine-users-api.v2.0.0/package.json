@@ -1,0 +1,22 @@
+{
+  "name": "users-api",
+  "version": "2.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "jasmineCli": "node ./src/jasmineCLI.spec.js",
+    "start": "node .",
+    "debug": "devtool . --watch",
+    "watch": "nodemon .",
+    "test": "jasmine --config=./spec/config/jasmine.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "jasmine": "^3.0.0"
+  }
+}

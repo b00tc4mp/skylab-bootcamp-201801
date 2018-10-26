@@ -1,0 +1,48 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+/* ---------------------------------------------------
+   line separator
+----------------------------------------------------- */
+.line{
+    margin:10px 0;
+}
+
+
+/* ---------------------------------------------------
+   TABLE-title
+----------------------------------------------------- */
+.title{
+    font-weight:400;
+    color:rgba(115,116,229,0.9)
+}
+
+
+
+/* ---------------------------------------------------
+   TABLE
+----------------------------------------------------- */
+.table-header{
+    font-family:'Poppins', sans-serif;
+    background-color:rgba(115,116,229,0.9);
+    color:white;
+    font-weight:400;
+}
+
+.table-responsive tbody td {
+    font-family:'Poppins', sans-serif;
+    font-weight:300;
+    color:gray;
+}
+
+.actionbutton{
+    background-color: rgba(216,210,35,0.7);
+    border: 1px solid rgb(176,183,46)
+}
+
+
+/* ---------------------------------------------------
+   BOTON
+----------------------------------------------------- */
+.boton{
+    margin-right:10px;
+}

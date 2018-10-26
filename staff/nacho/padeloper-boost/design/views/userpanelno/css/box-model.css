@@ -1,0 +1,32 @@
+.box-league{
+    background-color:#fff;
+}
+
+.info-league{
+    font-family:"helvetica",sans-serif;
+    font-size:16px;
+    color:#555;
+    font-weight:regular;
+    height:120px;
+    padding:10px;
+}
+.joined{
+    border:1px solid rgba(115,116,229,0.9);
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    background-color:rgba(115,116,229,0.75);
+    text-align:center;
+    min-width:50px;
+    min-height:50px;
+    float:left;
+    padding-top:15px;
+    margin-right:20px;
+}
+
+.text{
+    margin-left: 70px;
+}
+.smalltext{
+    padding-top:10px;
+    color:#aaa;
+}

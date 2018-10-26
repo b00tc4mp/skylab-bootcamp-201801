@@ -1,0 +1,293 @@
+{
+	"info": {
+		"name": "one-day-trip",
+		"_postman_id": "b011b8f4-8ebc-5fb3-cdb8-f5ce3751952a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"n3\",\n  \"surname\": \"s\",\n  \"email\": \"e\",\n  \"username\": \"u6\",\n  \"password\": \"p\",\n  \"picture\":\"\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/5aaa9b775ca3cf13ab6b2d1d",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"5aaa9b775ca3cf13ab6b2d1d"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"newname\",\n  \"surname\": \"s3\",\n  \"email\": \"e\",\n  \"password\":\"p\",\n  \"newPassword\": \"newp\",\n  \"picture\":\"newpic\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/5aaa92e5599f8c0f930376de",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"5aaa92e5599f8c0f930376de"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE trip",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from\": \"barcelona\",\n  \"to\": \"sitges\",\n  \"meetingPoint\": \"paza cataluna\",\n  \"date\": \"03-04-2018\",\n  \"departureTime\": \"9:30\",\n  \"returnTime\": \"18:00\",\n  \"tripTime\":\"1.5\",\n  \"price\": \"10\",\n  \"seats\": \"4\",\n  \"distance\": \"112\",\n  \"description\":\"a nice trip\"\n \n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/trip/5aaa92e5599f8c0f930376de",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trip",
+						"5aaa92e5599f8c0f930376de"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST published trips by user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/trips/5aaa92e5599f8c0f930376de",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trips",
+						"5aaa92e5599f8c0f930376de"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "CANCEL trip",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"password\":\"newp\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/trip/5aaa92e5599f8c0f930376de/5aaa935e599f8c0f930376e4",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trip",
+						"5aaa92e5599f8c0f930376de",
+						"5aaa935e599f8c0f930376e4"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE trip",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from\": \"barcelona\",\n  \"to\": \"palamos\",\n  \"meetingPoint\": \"gracia\",\n  \"date\": \"03-04-2018\",\n  \"departureTime\": \"10:30\",\n  \"returnTime\": \"18:00\",\n  \"tripTime\":\"1.5\",\n  \"price\": \"15\",\n  \"seats\": \"4\",\n  \"distance\": \"112\",\n  \"description\":\"a very nice trip\",\n  \"password\":\"newp\"\n \n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/trip/5aaa92e5599f8c0f930376de/5aaa9374599f8c0f930376e5",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trip",
+						"5aaa92e5599f8c0f930376de",
+						"5aaa9374599f8c0f930376e5"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "JOIN trip",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/trip/join/5aaa9374599f8c0f930376e5/5aaa92f4599f8c0f930376e0",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trip",
+						"join",
+						"5aaa9374599f8c0f930376e5",
+						"5aaa92f4599f8c0f930376e0"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UNJOIN trip",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/trip/unjoin/5aaa1752c8a1400d50cdf3fb/5aa8ff7e3da79115a1d827ba",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"trip",
+						"unjoin",
+						"5aaa1752c8a1400d50cdf3fb",
+						"5aa8ff7e3da79115a1d827ba"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "COMMENT user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comment\":\"very good driver\"\n}\n"
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/comment/5aaa92e5599f8c0f930376de/5aaa92ea599f8c0f930376df",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"comment",
+						"5aaa92e5599f8c0f930376de",
+						"5aaa92ea599f8c0f930376df"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

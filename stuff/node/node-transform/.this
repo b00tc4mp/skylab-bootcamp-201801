@@ -1,0 +1,12 @@
+{
+  "title": "stream Transform",
+  "description": "Transform streams are Duplex streams where the output is in some way related to the input. Like all Duplex streams, Transform streams implement both the Readable and Writable interfaces.",
+  "tags": [
+    "node",
+    "js",
+    "transform",
+    "duplex",
+    "challenge"
+  ],
+  "created": "2018-02-21T14:46:50.090Z"
+}

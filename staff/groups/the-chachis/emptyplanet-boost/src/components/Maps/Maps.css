@@ -1,0 +1,15 @@
+svg{
+    background:-webkit-radial-gradient(circle farthest-side at center center, rgba(153,218,255,1) 0%, rgba(0,128,128,1) 100%);
+    background:-o-radial-gradient(circle farthest-side at center center, rgba(153,218,255,1) 0%, rgba(0,128,128,1) 100%);
+    background:-moz-radial-gradient(circle farthest-side at center center, rgba(153,218,255,1) 0%, rgba(0,128,128,1) 100%);
+    background:radial-gradient(circle farthest-side at center center, rgba(153,218,255,1) 0%, rgba(0,128,128,1) 100%);
+
+    -webkit-box-shadow:0px 0px 43px 0px #00c5ff inset;
+    -moz-box-shadow:0px 0px 43px 0px #00c5ff inset;
+    box-shadow:0px 0px 43px 0px #00c5ff inset;
+}
+.Effects{
+     -webkit-box-shadow:0px 0px 50px 13px #00c5ff ;
+    -moz-box-shadow:0px 0px 50px 13px #00c5ff ;
+    box-shadow:0px 0px 50px 13px #00c5ff ;
+}

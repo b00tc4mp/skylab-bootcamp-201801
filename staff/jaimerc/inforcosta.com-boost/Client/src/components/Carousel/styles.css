@@ -1,0 +1,24 @@
+.image-ofert{
+    text-align: center;
+    align-items: center;
+    height: 265px;
+    width: 410px;
+  }
+
+  .container-carousel{
+    width: 650px;
+  }
+
+.navbar-section-buttons{
+  margin-top: 40px !important;
+}
+
+.button-more-information-home{
+  padding:0px;
+  border-width: 0px;
+  margin:10px
+}
+
+.button-more-information-home:hover{
+  border: 1px solid #3273dc;
+}

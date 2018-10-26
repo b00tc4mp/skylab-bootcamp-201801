@@ -1,0 +1,197 @@
+/* html,body,.col-md-12,.row {
+    height:100%;
+    background-color:rgb(115, 116, 229);
+    padding: 20px 10px 10px 10px;
+  }
+  .row > div {
+    height:100%;
+  } */
+  @font-face {
+    font-family: 'phosphate';
+    src: url('../../fonts/PhosphateSolid.ttf'); /* IE9 Compat Modes */
+    src: url('../../fonts/PhosphateSolid.ttf')  format('truetype'), /* Safari, Android, iOS */
+  }
+
+  @font-face {
+    font-family: 'heisei';
+    src: url('../../fonts/Heisei Kaku Gothic Std W5.otf') format("opentype"); /* IE9 Compat Modes */
+  }
+
+  html,body{
+    height:100%;
+    background-color:white;
+    margin:10px 12px 12px 12px;
+      
+
+  }
+  .content-index{
+    height:100%;
+    z-index:100;
+    background-color:rgba(115,116,229,0.9);
+    /* background-color:#7374E5; */
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/silueta.png"); */
+  
+  }
+
+
+  .navbar-default{
+    background-color:#fff;
+    border:none;
+    text-align:center;
+  }
+  .padeloper{
+    text-align:center;
+    font-family:'phosphate', sans-serif;
+    font-size:30px;   
+    line-height:40px;
+    color:#555;
+  }
+
+
+  .wrap {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    margin: auto;
+  }
+
+  .register{
+    margin-bottom:50px;
+    color:white;
+    text-align:center;
+  }
+
+  .contenedor-formulario {
+    width: 100%;
+    color: rgba(255,255,255,0.7);
+    padding: 50px;
+  }
+  .contenedor-formulario .formulario {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .contenedor-formulario .formulario .input-group {
+    width:100%;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .contenedor-formulario .formulario .input-group input[type="text"],
+  .contenedor-formulario .formulario .input-group input[type="email"],
+  .contenedor-formulario .formulario .input-group input[type="text2"] {
+    font-family: "Roboto", Arial;
+    font-size: 16px;
+    color: #141414;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.7);
+    transition: all 0.1s ease;
+  }
+  .contenedor-formulario .formulario .input-group input[type="text"]:focus,
+  .contenedor-formulario .formulario .input-group input[type="text"]:active,
+  .contenedor-formulario .formulario .input-group input[type="email"]:focus,
+  .contenedor-formulario .formulario .input-group input[type="email"]:active,
+  .contenedor-formulario .formulario .input-group input[type="text2"]:focus,
+  .contenedor-formulario .formulario .input-group input[type="text2"]:active{
+    outline: none;
+    border-bottom: 2px solid white;
+  }
+  .contenedor-formulario .formulario .input-group input[type="text"].error,
+  .contenedor-formulario .formulario .input-group input[type="email"].error,
+  .contenedor-formulario .formulario .input-group input[type="text2"].error{
+    border-bottom: 2px solid #D32F2F;
+  }
+  .contenedor-formulario .formulario .input-group input[type="text"].error + label,
+  .contenedor-formulario .formulario .input-group input[type="email"].error + label,
+  .contenedor-formulario .formulario .input-group input[type="text2"].error{
+    color: #D32F2F;
+  }
+  .contenedor-formulario .formulario .input-group label.label{
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+    font-size: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: 16px;
+    left: 0;
+  }
+  
+  .contenedor-formulario .formulario .input-group label.label.active {
+    top: -12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .contenedor-formulario .formulario .input-group.radio label {
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(255,255,255,0.7);
+    position: relative;
+    padding: 5px 15px 5px 51px;
+    font-size: 1em;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .contenedor-formulario .formulario .input-group.radio label:hover {
+    background: rgba(255,255,255,0.3);
+  }
+  .contenedor-formulario .formulario .input-group.radio label:before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 15px;
+    top: 2px;
+    border-radius: 50%;
+    background: none;
+    border: 2px solid white;
+  }
+  .contenedor-formulario .formulario .input-group.error label{
+    color: #D32F2F;
+    
+  }
+  .contenedor-formulario .formulario .input-group.error label:before {
+    border: 2px solid #D32F2F;
+  }
+  .contenedor-formulario .formulario .input-group.error label:hover {
+    background: rgba(211, 47, 47, 0.2);
+  }
+
+  .contenedor-formulario .formulario input[type="submit"] {
+    background: none;
+    border: 1px solid white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Roboto", Arial;
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .contenedor-formulario .formulario input[type="submit"]:hover {
+    background: white;
+    color:rgba(115,116,229,0.75)
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+    opacity:0.4
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: white;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: white;
+  }

@@ -49,7 +49,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+# coverage
 
 # nyc test coverage
 .nyc_output
@@ -89,7 +89,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 
 ### Sass ###
@@ -127,3 +127,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/git,node,sass,macos,windows,visualstudiocode
+
+_.git

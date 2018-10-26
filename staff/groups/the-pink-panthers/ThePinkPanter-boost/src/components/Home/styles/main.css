@@ -1,0 +1,25 @@
+
+
+.logo{
+    text-align: center;
+    height: 300px;
+    padding: 30px;
+    background-color: rgb(81, 142, 255);
+  }
+  
+  .mgt10{
+    margin-top: 10px;
+  }
+  
+  .mrr10{
+    margin-right: 10px;
+  }
+
+ @media screen and (max-width: 750px){
+    .logo{
+    display: none;
+    }
+  main {
+  margin-top: 40px;
+}
+  } 

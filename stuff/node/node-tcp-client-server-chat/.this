@@ -1,0 +1,14 @@
+{
+  "title": "TCP client-server chat",
+  "description": "Client-server chat over TCP.",
+  "tags": [
+    "node",
+    "js",
+    "net",
+    "client",
+    "server",
+    "chat",
+    "challenge"
+  ],
+  "created": "2018-02-21T16:30:52.604Z"
+}

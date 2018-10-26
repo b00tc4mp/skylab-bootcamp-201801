@@ -1,0 +1,39 @@
+%main-font-app {
+    color: $main-font-color;
+    font-family: sans-serif;
+}
+
+//====== Buttons
+%medium-main-icon {
+    color: $main-font-color !important;
+    width: auto;
+}
+
+//====== Content
+%flex-in-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%capsuleStandar {
+    height: 100%;
+    width: 100%;
+}
+
+%rectangle-container{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    color: $main-font-color;
+    border-bottom: solid 1px $main-border-color;
+}
+
+/**
+/* Usage
+/*
+**/
+// .message {
+//     @extend %column-flex
+// }

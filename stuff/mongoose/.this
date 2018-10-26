@@ -1,0 +1,17 @@
+{
+  "title": "Mongoose",
+  "description": "Elegant mongodb object modeling for node.js.",
+  "tags": [
+    "node",
+    "js",
+    "mongo",
+    "mongoose",
+    "crud",
+    "data",
+    "layer",
+    "model",
+    "odm",
+    "orm"
+  ],
+  "created": "2018-03-06T11:20:41.521Z"
+}

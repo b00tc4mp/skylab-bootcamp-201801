@@ -1,0 +1,12 @@
+.price-product{
+    text-align: center;
+}
+
+.price-was{
+    text-decoration: line-through;
+    color: hsl(348, 100%, 61%) !important;
+  }
+
+  .price-now{
+    font-weight: bold;
+  }

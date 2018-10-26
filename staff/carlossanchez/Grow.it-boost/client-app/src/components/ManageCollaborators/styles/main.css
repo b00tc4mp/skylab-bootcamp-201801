@@ -1,0 +1,36 @@
+.coltable{
+    margin-top: 5%;
+    margin-left: 5%;
+    /* text-align: center; */
+    }
+
+.form_searchcol{
+    margin-top: 25%;
+    text-align: center;
+}    
+
+.btnCol, .inputCol{
+    display: inline;
+    max-width: 100px;
+    text-align: center;
+    padding: 1%;
+}
+
+.add-users{
+    margin-top: 10px;
+}
+
+.table td, .table th{
+    border-top: 0;
+    max-width: 50%;
+}
+
+.collaborators_title{
+    margin-top: 16%;
+    margin-left: 5%;
+    font-family: 'Pacifico';
+}
+
+.action_links{
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+/* ---------------------------------------------------
+   LINK PANEL
+----------------------------------------------------- */
+.leaguelinks{
+    margin-top:20px;
+    text-align:center;
+}
+
+.linkpanel{
+    width:100px;
+    border:1px solid rgba(115,116,229,0.9);
+    border-radius:5px 5px 5px 5px;
+    color:rgba(115,116,229,0.9);
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:7px;
+    padding-bottom:7px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.linkpanel:hover{
+    background-color:rgba(115,116,229,0.9);
+    color:white;
+}

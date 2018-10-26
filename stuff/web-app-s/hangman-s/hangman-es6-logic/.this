@@ -1,0 +1,16 @@
+{
+  "title": "Hangman ES6",
+  "description": "The Hangman game's logic translated to ES6 (challenge).",
+  "tags": [
+    "js",
+    "es6",
+    "game",
+    "gaming",
+    "hangman",
+    "jasmine",
+    "unit-testing",
+    "tdd",
+    "challenge"
+  ],
+  "created": "2018-02-01T16:02:29.990Z"
+}

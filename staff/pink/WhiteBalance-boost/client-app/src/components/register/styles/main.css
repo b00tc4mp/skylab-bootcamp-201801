@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+body {
+  overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
+  background: rgb(213, 214, 214);
+  margin: 0;
+  padding: 0;
+}
+a, p {
+  color: grey;
+  text-decoration: none;
+} 
+a {
+  font-weight: bold;
+}
+
+.column {
+  flex: 1;
+  height: 100vh;
+  
+  
+}
+
+
+
+.centered-box {
+  background: rgb(211, 211, 211);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.center-text{
+  text-align: center;
+}
+.personalized-input{
+  font-size: 12pt;
+  min-width: 200px;
+  max-width: 450px;
+  width: 100%;
+  padding-top: 10px;
+  margin: 5px;
+  border-top: transparent;
+  border-right: transparent;
+  border-bottom: 1px solid grey;
+  border-left: transparent;
+  background: transparent;
+}
+
+.personalized-input::placeholder{
+  color: gray;
+}
+
+.button {
+  max-width: 350px;
+  width: 90%;
+  font-weight: bold;
+  font-size: 14pt;
+  color: grey;
+  background: transparent;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 15px;
+  cursor: pointer;
+}  
+
+.registered, .logged {
+  background: transparent;
+  font-weight: bold;
+  font-size: 14pt;
+  color: grey;
+  border: none;
+  cursor: pointer;
+}
+
+.personalized-input:focus{
+  outline: transparent;
+  border-bottom: 2px solid;
+}
+*:focus {
+  outline-color: gray;
+}

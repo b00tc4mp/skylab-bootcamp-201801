@@ -1,0 +1,144 @@
+{
+	"info": {
+		"name": "Users API",
+		"_postman_id": "1e15e6d5-fb96-6b98-42d4-ef2341a02bc3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"shaktimaan2\",\n  \"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "LIST users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"password\": \"123\",\n  \"newPassword\": \"456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/shaktimaan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"shaktimaan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"password\": \"456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/shaktimaan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"shaktimaan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/users/shaktimaan",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"shaktimaan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
