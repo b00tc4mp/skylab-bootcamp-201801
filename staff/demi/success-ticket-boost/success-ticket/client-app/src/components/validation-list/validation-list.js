@@ -155,13 +155,13 @@ class Tickets extends Component {
                   </div>
                 </form>
               ) : (
-                <ValidationCamera
-                  event={this.props.match.params.idEvent}
-                  session={this.props.match.params.idSession}
-                  setStatus={this.setStatus}
-                  setSelectedTicket={this.setSelectedTicket}
-                />
-              )}
+                  <ValidationCamera
+                    event={this.props.match.params.idEvent}
+                    session={this.props.match.params.idSession}
+                    setStatus={this.setStatus}
+                    setSelectedTicket={this.setSelectedTicket}
+                  />
+                )}
             </div>
           </div>
 
