@@ -2,6 +2,8 @@
 
 # Full-Stack Web-Development Bootcamp 201801
 
+![Timeline](misc/timeline.jpg)
+
 [Kanban board](https://trello.com/b/xb15aXBr/kanban)
 
 [Whiteboard](https://docs.google.com/document/d/1sXhC2zKXtrObzM79ByO6NsMDnWDgGQCGQxRmBBcsqYM/edit)
