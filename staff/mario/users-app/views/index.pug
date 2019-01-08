@@ -1,0 +1,61 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body
+        h2 New User
+        form(action="/", method="post")
+            if user.length
+
+                input(type="text", name="name" placeholder="Name" value=`${user[0].name}`)
+                input(type="text", name="surname" placeholder="Surname" value=`${user[0].surname}`)
+                input(type="text", name="email" placeholder="email" value=`${user[0].email}`)
+                input(type="text", name="username" placeholder="Username" value=`${user[0].username}`)
+                input(type="password", name="password" placeholder="Password")
+            else
+                input(type="text", name="name" placeholder="Name")
+                input(type="text", name="surname" placeholder="Surname")    
+                input(type="text", name="email" placeholder="email")
+                input(type="text", name="username" placeholder="Username")
+                input(type="password", name="password" placeholder="Password")
+
+            |
+            |
+            input(type="submit", value="Register")
+        
+
+        form(action="/search" method="post")
+            input(type="text" name="search")
+            |
+            |
+            input(type="submit" value="Search")
+            if error.length
+                |
+                |
+                label(for="" style="color: red") #{error[0].error}
+
+        if users.length
+            h2 Users List
+            ul
+                each user in users
+                    li
+                        p
+                            | #{user.name + " " + user.surname}
+                            |
+                            a(href=`/user/${user._id}/edit`) Edit
+                            |
+                            |
+                            a(href=`/user/${user._id}/delete`) Delete
+
+        if edit.length
+            h2 Edit User
+            form(action="/user/update" method="post")
+                input(type="text", name="name" size="15" value=`${edit[0].name}`)
+                input(type="text", name="surname" size="20" value=`${edit[0].surname}`)
+                input(type="text", name="email" size="50" value=`${edit[0].email}`)
+                input(type="text", name="username" size="15" value=`${edit[0].username}`)
+                input(type="hidden" name="id" value=`${edit[0]._id}`)
+                //- input(type="text", name="password")
+                input(type="submit", value="Update")
