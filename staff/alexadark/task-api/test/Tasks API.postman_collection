@@ -1,0 +1,164 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Tasks API",
+		"_postman_id": "4e16c104-c6d2-2fa3-8156-28793661bd73",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LIST todo",
+			"request": {
+				"url": "localhost:5000/api/tasks/todo",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LIST done",
+			"request": {
+				"url": "localhost:5000/api/tasks/done",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE task",
+			"request": {
+				"url": "localhost:5000/api/tasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"milk\",\n\t\"text\": \"buy milk\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE all tasks",
+			"request": {
+				"url": "localhost:5000/api/tasks",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"confirm\": \"\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE task",
+			"request": {
+				"url": "localhost:5000/api/tasks/milk",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"milk\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ASSIGN username",
+			"request": {
+				"url": "localhost:5000/api/tasks/assign/milk",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"alex\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "MARK done",
+			"request": {
+				"url": "localhost:5000/api/tasks/milk",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE task",
+			"request": {
+				"url": "localhost:5000/api/tasks/milk",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"milk\",\n\t\"text\": \"buy more milk\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LIST tasks by username",
+			"request": {
+				"url": "localhost:5000/api/tasks/alex",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
