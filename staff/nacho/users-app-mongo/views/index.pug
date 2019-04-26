@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+head
+    title user app
+body
+    h3 Register login
+    #register.animate.form
+        form(action='/register', method='POST')
+            input(type='text', name='name', placeholder='your name')
+            input(type='text', name='surname', placeholder='your surname')
+            input(type='email', name='email', placeholder='your email')
+            input(type='username', name='username', placeholder='your username')
+            input(type='password', name='password', placeholder='your password')
+            input(type='submit', value='insert')
+    br
+    ul
+        each user in updateData
+            li #{user.name}
+                a(href='/remove/'+user._id)  &#10005
+                if user.showForm
+                    form(action='/update/'+user._id, method='POST')
+                        input(type='text', value=user.name name='name')
+                        input(type='text', value=user.surname)
+                        input(type='email', value=user.email)
+                        input(type='username', value=user.username)
+                        input(type='password', value=user.password)
+                        input(type='submit', value='update')
+                else
+                    a(href=`/?show=${user._id}`)
+                        button(type="button") edit
