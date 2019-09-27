@@ -1,0 +1,25 @@
+//- template.pug
+extends base.pug
+
+block content
+    #task
+        h1 Task App
+        form(action="/tasks", method="post")
+            input(type="text", name="text")
+            input(type="submit")
+
+        if listToDo.length
+            #todo
+                h1 To Do
+                ul
+                    each element in listToDo
+                        li #{element.text}
+                            a(href='/tasks/'+element.taskId)  ✓
+
+        if listDone.length   
+            #done
+                h1 Done
+                ul
+                    each element in listDone
+                        li #{element.text}
+                            a(href='/task/'+element.taskId)  ✓
